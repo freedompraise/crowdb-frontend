@@ -96,7 +96,7 @@ const Login = () => {
 											<Col sm={6} className="text-end">
 												<Link
 													to="/auth-recover-pw"
-													className="text-muted font-13"
+													className="text-warning font-13"
 												>
 													<i className="dripicons-lock"></i> Forgot password?
 												</Link>
@@ -117,7 +117,7 @@ const Login = () => {
 											</Col>
 										</div>
 									</form>
-									<div className="m-3 text-center text-muted">
+									<div className="m-3 text-center text-black">
 										<p className="mb-0">
 											Don't have an account ?{' '}
 											<Link to="/auth-register" className="text-primary ms-2">
@@ -148,7 +148,7 @@ const Login = () => {
 									role="tabpanel"
 								>
 									<RegisterForm />
-									<p className="my-3 text-muted">
+									<p className="my-3 text-black">
 										Already have an account ?
 										<Link to="/auth-login" className="text-primary ms-2">
 											Log in
