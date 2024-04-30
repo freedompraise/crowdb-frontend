@@ -6,32 +6,70 @@ import { FormInputPassword, FormTextInput } from '@/components'
 import { Button, Col, Row } from 'react-bootstrap'
 const RegisterForm = () => {
 	const schemaResolver = yup.object().shape({
-		username: yup.string().required('Please enter username'),
+		firstname: yup.string().required('Please enter first name'),
+		lastname: yup.string().required('Please enter last name'),
+		phonenumber: yup.string().required('Please enter a valid Phone Number'),
 		email: yup
 			.string()
 			.required('Please enter Email')
 			.email('Please enter valid Email'),
+		dateofbirth: yup.string().required('Please enter Date of Birth'),
 		password: yup.string().required('Please enter Password'),
 		confirmPassword: yup
 			.string()
-			.oneOf([yup.ref('password')], 'Passwords must match'),
-		mobileNo: yup.number().required('Please enter mobile number'),
+			.oneOf([yup.ref('password')], 'Passwords must match')
+		
 	})
 	const { control, handleSubmit } = useForm({
 		resolver: yupResolver(schemaResolver),
 	})
+	const onSubmit = async (data) => {
+		try {
+			const response = await fetch('https://crowdb.wiseminds.cc//api/v1/auth/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			});
+			
+		if (response.status === 201) {
+			console.log('User registered successfully');
+			navigate('/auth/login')
+		} else {
+			const res = await response.json()
+			console.log("Error: ", res);
+		}
+	} catch (error) {
+		console.log("Error: ", error);
+	}
+}
 	const navigate = useNavigate()
 	return (
 		<form
-			className="form-horizontal auth-form"
-			onSubmit={handleSubmit(() => navigate('/auth/login'))}
+			onSubmit={handleSubmit(onSubmit)}
+			className="auth-form form-horizontal"
 		>
 			<FormTextInput
-				name="username"
-				label="Username"
+				name="firstname"
+				label="First Name"
 				containerClass="mb-2"
 				control={control}
-				placeholder="Enter username"
+				placeholder="Enter first name"
+			/>
+			<FormTextInput
+				name="lastname"
+				label="Last Name"
+				containerClass="mb-2"
+				control={control}
+				placeholder="Enter last name"
+			/>
+				<FormTextInput
+				name="phonenumber"
+				label="Phone Number"
+				containerClass="mb-2"
+				control={control}
+				placeholder="+1 123 456 7890"
 			/>
 			<FormTextInput
 				name="email"
@@ -39,6 +77,13 @@ const RegisterForm = () => {
 				containerClass="mb-2"
 				control={control}
 				placeholder="Enter email"
+			/>
+			<FormTextInput
+				name="dateofbirth"
+				label="Date of Birth"
+				containerClass="mb-2"
+				control={control}
+				placeholder="YYYY-MM-DD"
 			/>
 			<FormInputPassword
 				name="password"
@@ -54,13 +99,6 @@ const RegisterForm = () => {
 				containerClass="mb-2"
 				placeholder="Enter confirm password"
 			/>
-			<FormTextInput
-				name="mobileNo"
-				label="Mobile Number"
-				containerClass="mb-2"
-				control={control}
-				placeholder="Enter Mobile Number"
-			/>
 
 			<Row className="form-group my-3">
 				<Col sm={12}>
@@ -71,10 +109,10 @@ const RegisterForm = () => {
 							id="customSwitchSuccess2"
 						/>
 						<label
-							className="form-label text-muted"
+							className="form-label text-black"
 							htmlFor="customSwitchSuccess2"
 						>
-							You agree to the Dastone{' '}
+							You agree to the CrowdB{' '}
 							<Link to="#" className="text-primary">
 								Terms of Use
 							</Link>
