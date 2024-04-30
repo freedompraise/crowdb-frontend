@@ -58,6 +58,74 @@ const Register = () => {
 								id="Register_Tab"
 								role="tabpanel"
 							>
+								<Form className="form-horizontal auth-form" action="index.html">
+									<div className="form-group mb-2">
+										<label className="form-label" htmlFor="username">
+											First Name
+										</label>
+										<div className="input-group">
+											<input
+												type="text"
+												className="form-control"
+												name="firstname"
+												id="firstname"
+												placeholder="Enter first name"
+											/>
+										</div>
+									</div>
+
+									<div className="form-group mb-2">
+										<label className="form-label" htmlFor="userpassword">
+											Password
+										</label>
+										<div className="input-group">
+											<input
+												type="password"
+												className="form-control"
+												name="password"
+												id="userpassword"
+												placeholder="Enter password"
+											/>
+										</div>
+									</div>
+
+									<Row className="form-group my-3">
+										<Col sm={6}>
+											<div className="custom-control custom-switch switch-success">
+												<input
+													type="checkbox"
+													className="custom-control-input"
+													id="customSwitchSuccess"
+												/>
+												<label
+													className="form-label text-muted"
+													htmlFor="customSwitchSuccess"
+												>
+													Remember me
+												</label>
+											</div>
+										</Col>
+										<Col sm={6} className="text-end">
+											<Link
+												to="/auth-recover-pw"
+												className="text-muted font-13"
+											>
+												<i className="dripicons-lock"></i> Forgot password?
+											</Link>
+										</Col>
+									</Row>
+
+									<div className="form-group mb-0 row">
+										<Col xs={12}>
+											<button
+												className="btn btn-primary w-100 waves-effect waves-light"
+												type="button"
+											>
+												Log In <i className="fas fa-sign-in-alt ms-1"></i>
+											</button>
+										</Col>
+									</div>
+								</Form>
 								<div className="m-3 text-center text-muted">
 									<p className="mb-0">
 										Don't have an account ?{' '}
@@ -101,7 +169,7 @@ const Register = () => {
 				</CardBody>
 				<CardBody className="bg-light-alt text-center">
 					<span className="text-muted d-none d-sm-inline-block">
-						Mannatthemes © <script>{new Date().getFullYear()}</script>
+						Crowd B © 2024
 					</span>
 				</CardBody>
 			</Card>
