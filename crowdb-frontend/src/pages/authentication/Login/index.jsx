@@ -37,10 +37,10 @@ const Login = () => {
 								/>
 							</Link>
 							<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
-								Let's Get Started Dastone
+								Let's Get Started Crowdb
 							</h4>
 							<p className="text-muted  mb-0">
-								Sign in to continue to Dastone.
+								Sign in to continue to Crowdb.
 							</p>
 						</div>
 					</CardBody>
@@ -96,7 +96,7 @@ const Login = () => {
 											<Col sm={6} className="text-end">
 												<Link
 													to="/auth-recover-pw"
-													className="text-muted font-13"
+													className="text-warning font-13"
 												>
 													<i className="dripicons-lock"></i> Forgot password?
 												</Link>
@@ -117,7 +117,7 @@ const Login = () => {
 											</Col>
 										</div>
 									</form>
-									<div className="m-3 text-center text-muted">
+									<div className="m-3 text-center text-black">
 										<p className="mb-0">
 											Don't have an account ?{' '}
 											<Link to="/auth-register" className="text-primary ms-2">
@@ -125,7 +125,7 @@ const Login = () => {
 											</Link>
 										</p>
 									</div>
-									<div className="account-social">
+									{/* <div className="account-social">
 										<h6 className="mb-3">Or Login With</h6>
 									</div>
 									<div className="btn-group w-100">
@@ -138,7 +138,7 @@ const Login = () => {
 										<Button variant="outline-secondary" size="sm">
 											Google
 										</Button>
-									</div>
+									</div> */}
 								</TabPane>
 
 								<TabPane
@@ -148,7 +148,7 @@ const Login = () => {
 									role="tabpanel"
 								>
 									<RegisterForm />
-									<p className="my-3 text-muted">
+									<p className="my-3 text-black">
 										Already have an account ?
 										<Link to="/auth-login" className="text-primary ms-2">
 											Log in
@@ -157,11 +157,6 @@ const Login = () => {
 								</TabPane>
 							</TabContent>
 						</TabContainer>
-					</CardBody>
-					<CardBody className="bg-light-alt text-center">
-						<span className="text-muted d-none d-sm-inline-block">
-							Mannatthemes © <script>{new Date().getFullYear()}</script>
-						</span>
 					</CardBody>
 				</Card>
 			</AuthLayout>
