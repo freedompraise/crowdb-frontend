@@ -35,9 +35,9 @@ const Register = () => {
 							/>
 						</Link>
 						<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
-							Let's Get Started Dastone
+							Let's Get Started Crowdb-B.
 						</h4>
-						<p className="text-muted  mb-0">Sign in to continue to Dastone.</p>
+						<p className="text-muted  mb-0">Sign in to continue to Crowd-B.</p>
 					</div>
 				</CardBody>
 				<CardBody className="p-0">
