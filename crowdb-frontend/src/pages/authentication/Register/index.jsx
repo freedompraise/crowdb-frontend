@@ -58,74 +58,6 @@ const Register = () => {
 								id="Register_Tab"
 								role="tabpanel"
 							>
-								<Form className="form-horizontal auth-form" action="index.html">
-									<div className="form-group mb-2">
-										<label className="form-label" htmlFor="username">
-											Username
-										</label>
-										<div className="input-group">
-											<input
-												type="text"
-												className="form-control"
-												name="username"
-												id="username"
-												placeholder="Enter username"
-											/>
-										</div>
-									</div>
-
-									<div className="form-group mb-2">
-										<label className="form-label" htmlFor="userpassword">
-											Password
-										</label>
-										<div className="input-group">
-											<input
-												type="password"
-												className="form-control"
-												name="password"
-												id="userpassword"
-												placeholder="Enter password"
-											/>
-										</div>
-									</div>
-
-									<Row className="form-group my-3">
-										<Col sm={6}>
-											<div className="custom-control custom-switch switch-success">
-												<input
-													type="checkbox"
-													className="custom-control-input"
-													id="customSwitchSuccess"
-												/>
-												<label
-													className="form-label text-muted"
-													htmlFor="customSwitchSuccess"
-												>
-													Remember me
-												</label>
-											</div>
-										</Col>
-										<Col sm={6} className="text-end">
-											<Link
-												to="/auth-recover-pw"
-												className="text-muted font-13"
-											>
-												<i className="dripicons-lock"></i> Forgot password?
-											</Link>
-										</Col>
-									</Row>
-
-									<div className="form-group mb-0 row">
-										<Col xs={12}>
-											<button
-												className="btn btn-primary w-100 waves-effect waves-light"
-												type="button"
-											>
-												Log In <i className="fas fa-sign-in-alt ms-1"></i>
-											</button>
-										</Col>
-									</div>
-								</Form>
 								<div className="m-3 text-center text-muted">
 									<p className="mb-0">
 										Don't have an account ?{' '}
@@ -134,7 +66,7 @@ const Register = () => {
 										</Link>
 									</p>
 								</div>
-								<div className="account-social">
+								{/* <div className="account-social">
 									<h6 className="mb-3">Or Login With</h6>
 								</div>
 								<div className="btn-group w-100">
@@ -147,7 +79,7 @@ const Register = () => {
 									<Button variant="outline-secondary" size="sm">
 										Google
 									</Button>
-								</div>
+								</div> */}
 							</TabPane>
 
 							<TabPane
@@ -157,7 +89,7 @@ const Register = () => {
 								role="tabpanel"
 							>
 								<RegisterForm />
-								<p className="my-3 text-muted">
+								<p className="my-3 text-black">
 									Already have an account ?
 									<Link to="/auth-login" className="text-primary ms-2">
 										Log in
