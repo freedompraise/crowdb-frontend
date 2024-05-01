@@ -35,9 +35,9 @@ const Register = () => {
 							/>
 						</Link>
 						<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
-							Let's Get Started Dastone
+							Let's Get Started Crowdb-B.
 						</h4>
-						<p className="text-muted  mb-0">Sign in to continue to Dastone.</p>
+						<p className="text-muted  mb-0">Sign in to continue to Crowd-B.</p>
 					</div>
 				</CardBody>
 				<CardBody className="p-0">
@@ -61,15 +61,15 @@ const Register = () => {
 								<Form className="form-horizontal auth-form" action="index.html">
 									<div className="form-group mb-2">
 										<label className="form-label" htmlFor="username">
-											Username
+											First Name
 										</label>
 										<div className="input-group">
 											<input
 												type="text"
 												className="form-control"
-												name="username"
-												id="username"
-												placeholder="Enter username"
+												name="firstname"
+												id="firstname"
+												placeholder="Enter first name"
 											/>
 										</div>
 									</div>
@@ -134,7 +134,7 @@ const Register = () => {
 										</Link>
 									</p>
 								</div>
-								<div className="account-social">
+								{/* <div className="account-social">
 									<h6 className="mb-3">Or Login With</h6>
 								</div>
 								<div className="btn-group w-100">
@@ -147,7 +147,7 @@ const Register = () => {
 									<Button variant="outline-secondary" size="sm">
 										Google
 									</Button>
-								</div>
+								</div> */}
 							</TabPane>
 
 							<TabPane
@@ -157,7 +157,7 @@ const Register = () => {
 								role="tabpanel"
 							>
 								<RegisterForm />
-								<p className="my-3 text-muted">
+								<p className="my-3 text-black">
 									Already have an account ?
 									<Link to="/auth-login" className="text-primary ms-2">
 										Log in
@@ -169,7 +169,7 @@ const Register = () => {
 				</CardBody>
 				<CardBody className="bg-light-alt text-center">
 					<span className="text-muted d-none d-sm-inline-block">
-						Mannatthemes © <script>{new Date().getFullYear()}</script>
+						Crowd B © 2024
 					</span>
 				</CardBody>
 			</Card>
