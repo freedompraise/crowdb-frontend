@@ -174,7 +174,7 @@ const ActionEmail = () => {
 																		}}
 																		valign="top"
 																	>
-																		WelCome To Dastone
+																		WelCome To CrowdB
 																	</td>
 																</tr>
 																<tr
@@ -300,7 +300,7 @@ const ActionEmail = () => {
 																		}}
 																		valign="top"
 																	>
-																		— <b>Dastone</b> - Admin Dashboard
+																		— <b>CrowdB</b> - Admin Dashboard
 																	</td>
 																</tr>
 															</tbody>

@@ -62,7 +62,7 @@ const PopularProductsData = [
 	{
 		product: {
 			productImage: product1,
-			productName: 'Dastone Camera EDM 5D(White)',
+			productName: 'CrowdB Camera EDM 5D(White)',
 			productID: 'A3652',
 		},
 		price: {
@@ -78,7 +78,7 @@ const PopularProductsData = [
 	{
 		product: {
 			productImage: product2,
-			productName: 'Dastone Shoes Max-Zon',
+			productName: 'CrowdB Shoes Max-Zon',
 			productID: 'A5002',
 		},
 		price: {
@@ -94,7 +94,7 @@ const PopularProductsData = [
 	{
 		product: {
 			productImage: product4,
-			productName: 'Dastone Mask N99 [ISI]',
+			productName: 'CrowdB Mask N99 [ISI]',
 			productID: 'A6598',
 		},
 		price: {
@@ -110,7 +110,7 @@ const PopularProductsData = [
 	{
 		product: {
 			productImage: product5,
-			productName: 'Dastone Bag (Blue)',
+			productName: 'CrowdB Bag (Blue)',
 			productID: 'A9547',
 		},
 		price: {

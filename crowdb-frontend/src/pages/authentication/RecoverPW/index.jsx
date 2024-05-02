@@ -32,7 +32,7 @@ const RecoverPW = () => {
 							/>
 						</Link>
 						<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
-							Reset Password For Dastone
+							Reset Password For CrowdB
 						</h4>
 						<p className="text-muted  mb-0">
 							Enter your Email and instructions will be sent to you!

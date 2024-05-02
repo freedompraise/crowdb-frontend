@@ -16,9 +16,9 @@ const ProductDetailCard = () => {
 					</Col>
 					<Col lg={6} className="align-self-center">
 						<div className="single-pro-detail">
-							<p className="mb-1">Dastone</p>
+							<p className="mb-1">CrowdB</p>
 							<div className="custom-border mb-3"></div>
-							<h3 className="pro-title">Dastone Mask - 101</h3>
+							<h3 className="pro-title">CrowdbB Mask - 101</h3>
 							<p className="text-muted mb-0">Morden and good look model 2020</p>
 							<ul className="list-inline mb-2 product-review">
 								<li className="list-inline-item">

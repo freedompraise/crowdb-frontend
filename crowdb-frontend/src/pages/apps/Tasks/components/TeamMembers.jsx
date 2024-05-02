@@ -11,7 +11,7 @@ const TeamMembers = () => {
 			<Col lg={6}>
 				<ul className="list-inline">
 					<li className="list-inline-item">
-						<h5>🏆 Dastone's available team members.</h5>
+						<h5>🏆 CrowdB's available team members.</h5>
 					</li>
 					<li className="list-inline-item">
 						<img src={user10} alt="user" className="rounded-circle thumb-xs" />

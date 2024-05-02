@@ -20,15 +20,15 @@ import * as yup from 'yup'
 const faqData = [
 	{
 		id: 1,
-		title: 'What is Dastone?',
+		title: 'What is CrowdB?',
 	},
 	{
 		id: 2,
-		title: 'How buy Dastone on coin?',
+		title: 'How buy CrowdB on coin?',
 	},
 	{
 		id: 3,
-		title: 'What cryptocurrency can i use to buy Dastone?',
+		title: 'What cryptocurrency can i use to buy CrowdB?',
 	},
 	{
 		id: 4,
@@ -36,11 +36,11 @@ const faqData = [
 	},
 	{
 		id: 5,
-		title: 'Can i trade Dastone?',
+		title: 'Can i trade CrowdB?',
 	},
 	{
 		id: 6,
-		title: 'What is Dastone?',
+		title: 'What is CrowdB?',
 	},
 ]
 const FAQs1 = () => {

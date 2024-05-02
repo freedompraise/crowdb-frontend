@@ -14,7 +14,7 @@ const PageBreadcrumb = ({ title, subName }) => {
 								<h4 className="page-title">{title}</h4>
 								<ol className="breadcrumb">
 									<li className="breadcrumb-item">
-										<Link to="#">Dastone</Link>
+										<Link to="#">CrowdB</Link>
 									</li>
 									<li className="breadcrumb-item active">{subName}</li>
 								</ol>

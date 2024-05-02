@@ -102,7 +102,7 @@ const BillingEmail = () => {
 																					fontWeight: 700,
 																				}}
 																			>
-																				Dastone
+																				CrowdB
 																			</span>
 																			.
 																		</h2>
@@ -374,7 +374,7 @@ const BillingEmail = () => {
 																		align="center"
 																		valign="top"
 																	>
-																		Dastone Inc. 123 my street, And my Country
+																		CrowdB Inc. 123 my street, And my Country
 																	</td>
 																</tr>
 															</tbody>

@@ -163,7 +163,7 @@ const HTMLTags = () => {
 							>
 								<Image width={50} src={logoSM} alt="" />
 								<h5>
-									Look! The Dastone logo is inside a <strong>Dastone</strong>.
+									Look! The CrowdB logo is inside a <strong>CrowdB</strong>.
 								</h5>
 								<Button
 									variant="outline-primary"

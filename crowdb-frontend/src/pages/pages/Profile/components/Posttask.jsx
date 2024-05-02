@@ -230,7 +230,7 @@ const Posttask = () => {
 													<Row>
 														<Col>
 															<p className="text-dark fw-semibold mb-2">
-																Dastone Author
+																CrowdB Author
 															</p>
 														</Col>
 														<div className="col-auto">
@@ -340,7 +340,7 @@ const Posttask = () => {
 													<Row>
 														<Col>
 															<p className="text-dark fw-semibold mb-2">
-																Dastone Author
+																CrowdB Author
 															</p>
 														</Col>
 														<div className="col-auto">

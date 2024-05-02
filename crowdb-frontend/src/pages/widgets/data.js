@@ -44,7 +44,7 @@ const callData = [
 ]
 const pageViewsData = [
 	{
-		name: 'Dastone - Admin Dashboard',
+		name: 'CrowdB - Admin Dashboard',
 		subName: 'analytic-index.html',
 		logo: logo1,
 		view: '4.3k',

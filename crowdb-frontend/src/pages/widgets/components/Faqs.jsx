@@ -14,7 +14,7 @@ const Faqs = () => {
 			<Accordion defaultActiveKey="0">
 				<AccordionItem eventKey="0">
 					<AccordionHeader as="h2" className="mt-0" id="headingOne">
-						What is Dastone?
+						What is CrowdB?
 					</AccordionHeader>
 					<AccordionBody>
 						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -26,7 +26,7 @@ const Faqs = () => {
 				</AccordionItem>
 				<AccordionItem eventKey="1">
 					<AccordionHeader as="h2" className="mt-0" id="headingTwo">
-						How buy Dastone on coin?
+						How buy CrowdB on coin?
 					</AccordionHeader>
 					<AccordionBody>
 						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -38,7 +38,7 @@ const Faqs = () => {
 				</AccordionItem>
 				<AccordionItem eventKey="2">
 					<AccordionHeader as="h2" className="mt-0" id="headingThree">
-						What cryptocurrency can i use to buy Dastone?
+						What cryptocurrency can i use to buy CrowdB?
 					</AccordionHeader>
 					<AccordionBody className="accordion-body">
 						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
