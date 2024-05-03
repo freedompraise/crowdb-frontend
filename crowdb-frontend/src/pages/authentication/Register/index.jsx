@@ -60,16 +60,16 @@ const Register = () => {
 							>
 								<Form className="form-horizontal auth-form" action="index.html">
 									<div className="form-group mb-2">
-										<label className="form-label" htmlFor="username">
-											First Name
+										<label className="form-label" htmlFor="email">
+											Email
 										</label>
 										<div className="input-group">
 											<input
 												type="text"
 												className="form-control"
-												name="firstname"
+												name="email"
 												id="firstname"
-												placeholder="Enter first name"
+												placeholder="enter email address"
 											/>
 										</div>
 									</div>

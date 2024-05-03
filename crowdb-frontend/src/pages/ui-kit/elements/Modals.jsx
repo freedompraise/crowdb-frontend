@@ -1052,7 +1052,7 @@ const LoginAndSignupModal = () => {
 					</CardBody>
 					<CardBody className="bg-light-alt text-center mx-n3 mt-5">
 						<span className="text-muted d-none d-sm-inline-block">
-							Mannatthemes © 2021
+							CrowdB © 2024
 						</span>
 					</CardBody>
 				</ModalBody>

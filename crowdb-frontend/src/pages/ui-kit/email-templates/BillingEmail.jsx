@@ -134,7 +134,7 @@ const BillingEmail = () => {
 																						}}
 																						valign="top"
 																					>
-																						Mannatthemes
+																						Hello John Doe,
 																						<br />
 																						Invoice #12345
 																						<br />

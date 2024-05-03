@@ -114,7 +114,7 @@ const SweetAlerts = withSwal((props) => {
 														icon: 'info',
 														html:
 															'You can use <b>bold text</b>, ' +
-															'<a href="//mannatthemes.com/">links</a> ' +
+															'<a href="//crowdb.com/">links</a> ' +
 															'and other HTML tags',
 														showCloseButton: true,
 														showCancelButton: true,

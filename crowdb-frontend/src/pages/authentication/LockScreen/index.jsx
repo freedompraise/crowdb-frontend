@@ -28,8 +28,7 @@ const Lockscreen = () => {
 							/>
 						</Link>
 						<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
-							Enter Password And Use Dastone
-						</h4>
+							Enter Password And Use CrowdB						</h4>
 						<p className="text-muted  mb-0">
 							Hello Mark, enter your password to unlock the screen !
 						</p>
@@ -69,7 +68,7 @@ const Lockscreen = () => {
 				</CardBody>
 				<CardBody className="bg-light-alt text-center">
 					<span className="text-muted d-none d-sm-inline-block">
-						Mannatthemes © <script>{new Date().getFullYear()}</script>
+						CrowdB © <script>{new Date().getFullYear()}</script>
 					</span>
 				</CardBody>
 			</Card>

@@ -1267,13 +1267,13 @@ const InputGroupsStatic = () => {
 							aria-describedby="basic-addon2"
 						/>
 						<span className="input-group-text" id="basic-addon2">
-							@mannatthemes.com
+							@crowdb.com
 						</span>
 					</InputGroup>
 					<FormLabel htmlFor="basic-url">Your vanity URL</FormLabel>
 					<InputGroup className="mb-3">
 						<span className="input-group-text" id="basic-addon3">
-							https://mannatthemes.com
+							https://crowdb.com
 						</span>
 						<FormControl
 							type="text"

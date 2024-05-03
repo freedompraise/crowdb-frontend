@@ -21,7 +21,7 @@ export default function useLogin() {
 	const { control, handleSubmit } = useForm({
 		resolver: yupResolver(schemaResolver),
 		defaultValues: {
-			email: 'admin@mannatthemes.com',
+			email: 'johndoe@gmail.com',
 			password: 'password',
 		},
 	})
