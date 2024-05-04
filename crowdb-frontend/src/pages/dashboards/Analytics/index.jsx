@@ -5,7 +5,7 @@ import Statistics from './components/Statistics'
 import AudienceOverviewChart from './components/AudienceOverviewChart'
 import SessionsDevice from './components/SessionsDevice'
 import ViewByUsers from './components/ViewByUsers'
-import SessionsByChannels from './components/SessionsByChannels'
+import TimeToFillSlots from './components/SessionsByChannels'
 import TrafficReports from './components/TrafficReports'
 import BrowserReports from './components/BrowserReports'
 const Analytics = () => {
@@ -48,7 +48,7 @@ const Analytics = () => {
 					<SessionsDevice />
 				</Col>
 				<Col lg={4}>
-					<SessionsByChannels />
+					<TimeToFillSlots />
 				</Col>
 			</Row>
 			<Row>

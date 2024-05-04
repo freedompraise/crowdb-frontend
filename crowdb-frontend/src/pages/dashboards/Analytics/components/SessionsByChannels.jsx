@@ -1,11 +1,11 @@
 import { ComponentContainerCard } from '@/components'
 import ReactApexChart from 'react-apexcharts'
-const SessionsByChannels = () => {
+const TimeToFillSlots = () => {
 	const chartOpts = {
 		series: [
 			{
 				name: 'Inflation',
-				data: [4.0, 10.1, 6.0, 8.0, 9.1],
+				data: [3, 5, 3, 4, 8],
 			},
 		],
 		chart: {
@@ -27,7 +27,7 @@ const SessionsByChannels = () => {
 		dataLabels: {
 			enabled: true,
 			formatter: function (val) {
-				return val + '%'
+				return val + 'days'
 			},
 			offsetY: -20,
 			style: {
@@ -37,8 +37,8 @@ const SessionsByChannels = () => {
 		},
 		colors: ['#98e7df', '#b8c4d0', '#bec7fa', '#ffe2a3', '#92e6f0'],
 		xaxis: {
-			categories: ['Email', 'Referral', 'Organic', 'Direct', 'Campaign'],
-			position: 'top',
+			categories: ['<N10M', '<N20M', '<N30M', '<N40M', '>N40M'],
+			position: 'bottom',
 			axisBorder: {
 				show: false,
 			},
@@ -84,7 +84,7 @@ const SessionsByChannels = () => {
 		},
 	}
 	return (
-		<ComponentContainerCard title="Sessions By Channel">
+		<ComponentContainerCard title="Average Time to Fill Slots">
 			<div>
 				<ReactApexChart
 					height={370}
@@ -96,4 +96,4 @@ const SessionsByChannels = () => {
 		</ComponentContainerCard>
 	)
 }
-export default SessionsByChannels
+export default TimeToFillSlots
