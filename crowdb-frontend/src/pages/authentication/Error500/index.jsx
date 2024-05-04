@@ -40,7 +40,7 @@ const Error500 = () => {
 				</CardBody>
 				<CardBody className="bg-light-alt text-center">
 					<span className="text-muted d-none d-sm-inline-block">
-						Mannatthemes © <script>{new Date().getFullYear()}</script>
+						CrowdB © <script>{new Date().getFullYear()}</script>
 					</span>
 				</CardBody>
 			</Card>
