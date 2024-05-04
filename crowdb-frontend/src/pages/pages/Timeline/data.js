@@ -15,7 +15,7 @@ export const timelineData1 = [
 		tags: ['Design', 'HTML'],
 	},
 	{
-		title: 'New Task',
+		title: 'New Property',
 		description:
 			'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.',
 		time: '10 hours ago',

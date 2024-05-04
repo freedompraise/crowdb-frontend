@@ -33,7 +33,7 @@ const TopNavbar = () => {
 						<li className="creat-btn">
 							<NavLink>
 								<Button variant="soft-primary" size="sm" role="button">
-									<i className="fas fa-plus me-2"></i>New Task
+									<i className="fas fa-plus me-2"></i>New Property
 								</Button>
 							</NavLink>
 						</li>

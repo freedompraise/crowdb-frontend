@@ -42,7 +42,7 @@ const TeamMembers = () => {
 					<ul className="list-inline">
 						<li className="list-inline-item">
 							<button type="button" className="btn btn-sm btn-soft-primary">
-								Add New Task
+								Add Property
 							</button>
 						</li>
 					</ul>
