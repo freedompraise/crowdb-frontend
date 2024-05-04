@@ -1,16 +1,16 @@
 import { ComponentContainerCard } from '@/components'
 import { EarningReportData } from '../data'
-const EarningReports = () => {
+const WithdrawalReports = () => {
 	return (
-		<ComponentContainerCard title="Browser Used & Traffic Reports">
+		<ComponentContainerCard title="Withdrawal Frequency">
 			<div className="table-responsive">
 				<table className="table mb-0">
 					<thead className="table-light">
 						<tr>
 							<th className="border-top-0">Date</th>
-							<th className="border-top-0">Item Count</th>
-							<th className="border-top-0">Text</th>
-							<th className="border-top-0">Earnings</th>
+							<th className="border-top-0">Number of Withdrawals</th>
+							<th className="border-top-0">Change</th>
+							<th className="border-top-0">Amount</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,4 +30,4 @@ const EarningReports = () => {
 		</ComponentContainerCard>
 	)
 }
-export default EarningReports
+export default WithdrawalReports
