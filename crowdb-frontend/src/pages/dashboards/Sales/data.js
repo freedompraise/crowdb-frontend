@@ -5,7 +5,7 @@ import product5 from '@/assets/images/products/img-5.png'
 const WidgetsData = [
 	{
 		title: 'WEEKLY SALES',
-		count: '$24,500',
+		count: '24M',
 	},
 	{
 		title: 'ORDERS PLACED',
@@ -16,46 +16,46 @@ const WidgetsData = [
 		count: '82.8%',
 	},
 	{
-		title: 'AVG. VALUE',
-		count: '$80.5',
+		title: 'AVG. Wallet Balance',
+		count: 'N8M',
 	},
 ]
 const EarningReportData = [
 	{
 		date: '01 January',
 		itemCount: 50,
-		text: '-$70',
-		earnings: '$15,000',
+		text: '-N1M',
+		earnings: 'N15M',
 	},
 	{
 		date: '02 January',
-		itemCount: 25,
-		text: '-',
-		earnings: '$9,500',
+		itemCount: 70,
+		text: '+N2M',
+		earnings: 'N16M',
 	},
 	{
 		date: '03 January',
-		itemCount: 65,
-		text: '-$115',
-		earnings: '$35,000',
+		itemCount: 90,
+		text: '+3M',
+		earnings: 'N17M',
 	},
 	{
 		date: '04 January',
-		itemCount: 20,
-		text: '-',
-		earnings: '$8,500',
+		itemCount: 60,
+		text: '-N4M',
+		earnings: 'N18M',
 	},
 	{
 		date: '05 January',
-		itemCount: 40,
-		text: '-$60',
-		earnings: '$12,000',
+		itemCount: 50,
+		text: '-N5M',
+		earnings: 'N19M',
 	},
 	{
 		date: '06 January',
-		itemCount: 45,
-		text: '-$65',
-		earnings: '$13,500',
+		itemCount: 70,
+		text: '+N6M',
+		earnings: 'N20M',
 	},
 ]
 const PopularProductsData = [
