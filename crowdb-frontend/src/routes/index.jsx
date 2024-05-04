@@ -123,17 +123,6 @@ const appsRoutes = [
 		element: <ContactList />,
 	},
 	{
-		path: '/apps/file-manager',
-		name: 'File Manager',
-		element: <FileManager />,
-	},
-	{
-		path: '/apps/tasks',
-		name: 'Tasks',
-		element: <Tasks />,
-	},
-
-	{
 		path: '/apps/ecommerce/products',
 		name: 'Products',
 		element: <Products />,
