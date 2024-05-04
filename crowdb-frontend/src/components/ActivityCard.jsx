@@ -27,7 +27,7 @@ const ActivityCard = ({ height }) => {
 							<div className="activity-info-text">
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
-										<span>Donald</span>
+										<span>Donald </span>
 										updated the status of <Link to="#">Refund #1234</Link> to
 										awaiting customer response
 									</p>
@@ -42,7 +42,7 @@ const ActivityCard = ({ height }) => {
 							<div className="activity-info-text">
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
-										<span>Lucy Peterson</span>
+										<span>Lucy Peterson </span>
 										was added to the group, group name is{' '}
 										<a href="#">Overtake</a>
 									</p>
@@ -57,9 +57,9 @@ const ActivityCard = ({ height }) => {
 							<div className="activity-info-text">
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
-										<span>Joseph Rust</span>
-										opened new showcase <Link to="#">Mannat #112233</Link> with
-										theme market
+										<span>Joseph Rust </span>
+										got a new role with
+										crowdb admin
 									</p>
 									<small className="text-muted">10 hours ago</small>
 								</div>
@@ -72,7 +72,7 @@ const ActivityCard = ({ height }) => {
 							<div className="activity-info-text">
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
-										<span>Donald</span>
+										<span>Donald </span>
 										updated the status of <Link to="#">Refund #1234</Link> to
 										awaiting customer response
 									</p>
@@ -87,11 +87,11 @@ const ActivityCard = ({ height }) => {
 							<div className="activity-info-text">
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
-										<span>Lucy Peterson</span>
-										was added to the group, group name is{' '}
-										<Link to="#">Overtake</Link>
+										<span>Lucy Peterson </span>
+										was added to the group: 
+										<Link to="#"> Lagos Landords</Link>
 									</p>
-									<small className="text-muted">14 Nov 2019</small>
+									<small className="text-muted">14 Apr 2024</small>
 								</div>
 							</div>
 						</div>
@@ -102,11 +102,11 @@ const ActivityCard = ({ height }) => {
 							<div className="activity-info-text">
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
-										<span>Joseph Rust</span>
-										opened new showcase <Link to="#">Mannat #112233</Link> with
-										theme market
+										<span>Joseph Rust </span>
+										listed new property with
+										crowdb web
 									</p>
-									<small className="text-muted">15 Nov 2019</small>
+									<small className="text-muted">1 April 2024</small>
 								</div>
 							</div>
 						</div>
