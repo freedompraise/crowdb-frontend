@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom'
 //Dashboards
 const AnalyticsDashboard = lazy(() => import('@/pages/dashboards/Analytics'))
 const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
+const PropertiesDashboard = lazy(() => import('@/pages/dashboards/Properties'))
 
 //Apps
 const Inbox = lazy(() => import('@/pages/apps/email/Inbox'))
@@ -124,6 +125,11 @@ const dashboardRoutes = [
 		path: '/dashboards/sales',
 		name: 'Sales',
 		element: <SalesDashboard />,
+	},
+	{
+		path: '/dashboards/properties',
+		name: 'Properties',
+		element: <PropertiesDashboard />,
 	},
 ]
 const appsRoutes = [
