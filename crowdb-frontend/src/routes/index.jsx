@@ -114,7 +114,7 @@ const appsRoutes = [
 		element: <ContactList />,
 	},
 	{
-		path: '/apps/opportunities/property',
+		path: '/apps/opportunities/properties',
 		name: 'Properties',
 		element: <Property />,
 	},
