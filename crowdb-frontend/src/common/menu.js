@@ -1,9 +1,7 @@
 import {
-	FiBox,
 	FiFilePlus,
 	FiGrid,
 	FiHome,
-	FiLayers,
 	FiLock,
 } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
@@ -77,21 +75,9 @@ export const VERTICAL_MENU_ITEMS = [
 				parentKey: 'apps',
 			},
 			{
-				key: 'apps-calendar',
-				label: 'Calendar',
-				url: '/apps/calendar',
-				parentKey: 'apps',
-			},
-			{
 				key: 'apps-file-manager',
 				label: 'File Manager',
 				url: '/apps/file-manager',
-				parentKey: 'apps',
-			},
-			{
-				key: 'apps-tasks',
-				label: 'Tasks',
-				url: '/apps/tasks',
 				parentKey: 'apps',
 			},
 			{

@@ -23,7 +23,6 @@ const ProductList = lazy(() => import('@/pages/apps/ecommerce/ProductList'))
 const Cart = lazy(() => import('@/pages/apps/ecommerce/Cart'))
 const Checkout = lazy(() => import('@/pages/apps/ecommerce/Checkout'))
 const ProductDetail = lazy(() => import('@/pages/apps/ecommerce/ProductDetail'))
-const Calendar = lazy(() => import('@/pages/apps/Calendar'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPW = lazy(() => import('@/pages/authentication/RecoverPW'))
@@ -146,11 +145,6 @@ const appsRoutes = [
 		path: '/apps/chat',
 		name: 'Chat',
 		element: <Chat />,
-	},
-	{
-		path: '/apps/calendar',
-		name: 'Calendar',
-		element: <Calendar />,
 	},
 	{
 		path: '/apps/contact-list',
