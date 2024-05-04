@@ -25,10 +25,7 @@ const ProductCard2 = ({ product }) => {
 					</div>
 					<div className="col-auto">
 						<h4 className="text-dark mt-0">
-							${sellPrice}.00{' '}
-							<small className="text-muted font-14">
-								<del>${price}.00</del>
-							</small>
+								N{price}.{'M'}
 						</h4>
 						<ul className="list-inline mb-0 product-review align-self-center">
 							{Array.from(new Array(Math.floor(4))).map((idx) => {
@@ -45,7 +42,7 @@ const ProductCard2 = ({ product }) => {
 					</div>
 				</div>
 				<Button variant="soft-primary" className="w-100">
-					Add To Cart
+					Update Status
 				</Button>
 			</CardBody>
 		</Card>
