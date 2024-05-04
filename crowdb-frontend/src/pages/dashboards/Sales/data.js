@@ -58,70 +58,62 @@ const EarningReportData = [
 		earnings: 'N20M',
 	},
 ]
-const PopularProductsData = [
+const PopularPropertiesData = [
 	{
-		product: {
-			productImage: product1,
-			productName: 'CrowdB Camera EDM 5D(White)',
-			productID: 'A3652',
+		property: {
+			propertyImage: product1,
+			propertyName: '3 BHK Flat',
+			propertyID: 'P001',
 		},
 		price: {
-			originalPrice: 70,
-			discountPrice: 50,
+			discountPrice: 'N30M',
+			originalPrice: 'N35M',
 		},
-		sell: {
-			originalPrice: 550,
-			sellPrice: 450,
-		},
-		status: 'Stock',
+		totalViews: 120,
+		applications: 10,
+		
 	},
 	{
-		product: {
-			productImage: product2,
-			productName: 'CrowdB Shoes Max-Zon',
-			productID: 'A5002',
+		property: {
+			propertyImage: product2,
+			propertyName: '2 BHK Flat',
+			propertyID: 'P002',
 		},
 		price: {
-			originalPrice: 150,
-			discountPrice: 99,
+			discountPrice: 'N20M',
+			originalPrice: 'N25M',
 		},
-		sell: {
-			originalPrice: 900,
-			sellPrice: 750,
-		},
-		status: 'Out of Stock',
+		totalViews: 100,
+		applications: 8,
 	},
 	{
-		product: {
-			productImage: product4,
-			productName: 'CrowdB Mask N99 [ISI]',
-			productID: 'A6598',
+		property: {
+			propertyImage: product4,
+			propertyName: '4 BHK Flat',
+			propertyID: 'P004',
 		},
 		price: {
-			originalPrice: 250,
-			discountPrice: 199,
+			discountPrice: 'N40M',
+			originalPrice: 'N45M',
 		},
-		sell: {
-			originalPrice: 280,
-			sellPrice: 220,
-		},
-		status: 'Stock',
+		totalViews: 150,
+		applications: 12,
 	},
 	{
-		product: {
-			productImage: product5,
-			productName: 'CrowdB Bag (Blue)',
-			productID: 'A9547',
+		property: {
+			propertyImage: product5,
+			propertyName: '1 BHK Flat',
+			propertyID: 'P005',
 		},
 		price: {
-			originalPrice: 49,
-			discountPrice: 40,
+			discountPrice: 'N10M',
+			originalPrice: 'N15M',
 		},
-		sell: {
-			originalPrice: 1000,
-			sellPrice: 500,
-		},
-		status: 'Out of Stock',
+		totalViews: 80,
+		applications: 6,
+	
+			
 	},
+	
 ]
-export { WidgetsData, EarningReportData, PopularProductsData }
+export { WidgetsData, EarningReportData, PopularPropertiesData }

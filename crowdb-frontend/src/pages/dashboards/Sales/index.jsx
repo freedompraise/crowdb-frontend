@@ -5,7 +5,7 @@ import Widget from './components/Widget'
 import ChartWidget from './components/ChartWidget'
 import EarrnigReportChart from './components/EarrnigReportChart'
 import WithdrawalReports from './components/WithdrawalReports'
-import PopulerProducts from './components/PopulerProducts'
+import PopuplarProperties from './components/PopularProperties'
 const Sales = () => {
 	return (
 		<>
@@ -26,7 +26,7 @@ const Sales = () => {
 					<WithdrawalReports />
 				</Col>
 				<Col lg={6}>
-					<PopulerProducts />
+					<PopuplarProperties />
 				</Col>
 			</Row>
 		</>
