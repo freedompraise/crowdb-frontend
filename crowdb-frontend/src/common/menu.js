@@ -1,9 +1,7 @@
 import {
-	FiBox,
 	FiFilePlus,
 	FiGrid,
 	FiHome,
-	FiLayers,
 	FiLock,
 } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
@@ -72,7 +70,7 @@ export const VERTICAL_MENU_ITEMS = [
 			},
 			{
 				key: 'apps-contact-list',
-				label: 'Contact List',
+				label: 'Customer List',
 				url: '/apps/contact-list',
 				parentKey: 'apps',
 			},
@@ -98,18 +96,6 @@ export const VERTICAL_MENU_ITEMS = [
 						key: 'ecommerce-product-detail',
 						label: 'Product Detail',
 						url: '/apps/ecommerce/product-detail',
-						parentKey: 'apps-ecommerce',
-					},
-					{
-						key: 'ecommerce-cart',
-						label: 'Cart',
-						url: '/apps/ecommerce/cart',
-						parentKey: 'apps-ecommerce',
-					},
-					{
-						key: 'ecommerce-checkout',
-						label: 'Checkout',
-						url: '/apps/ecommerce/checkout',
 						parentKey: 'apps-ecommerce',
 					},
 				],
