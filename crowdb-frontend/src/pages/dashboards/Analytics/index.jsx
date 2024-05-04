@@ -3,7 +3,7 @@ import { Card, CardBody, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Statistics from './components/Statistics'
 import AudienceOverviewChart from './components/AudienceOverviewChart'
-import SessionsDevice from './components/SessionsDevice'
+import LoadTime from './components/LoadTime'
 import ViewByUsers from './components/ViewByUsers'
 import TimeToFillSlots from './components/SessionsByChannels'
 import TrafficReports from './components/TrafficReports'
@@ -45,7 +45,7 @@ const Analytics = () => {
 					</Card>
 				</Col>
 				<Col lg={4}>
-					<SessionsDevice />
+					<LoadTime />
 				</Col>
 				<Col lg={4}>
 					<TimeToFillSlots />

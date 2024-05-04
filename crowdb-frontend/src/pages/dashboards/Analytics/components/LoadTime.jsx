@@ -1,7 +1,7 @@
 import { ComponentContainerCard } from '@/components'
 import ReactApexChart from 'react-apexcharts'
 import { FiCalendar } from 'react-icons/fi'
-const SessionsDevice = () => {
+const LoadTime = () => {
 	const chartOpts = {
 		chart: {
 			height: 255,
@@ -63,9 +63,7 @@ const SessionsDevice = () => {
 	}
 	return (
 		<ComponentContainerCard
-			title="Sessions Device"
-			label="All"
-			menuItems={['Purchases', 'Emails']}
+			title="Average Load Time"
 		>
 			<div className="text-center">
 				<ReactApexChart
@@ -77,7 +75,7 @@ const SessionsDevice = () => {
 				/>
 				<h6 className="bg-light-alt py-3 px-2 mb-0">
 					<FiCalendar className="align-self-center icon-xs me-1" />
-					01 January 2020 to 31 December 2020
+					01 April 2024 to 04 May 2024
 				</h6>
 			</div>
 			<div className="table-responsive mt-2">
@@ -85,29 +83,21 @@ const SessionsDevice = () => {
 					<thead>
 						<tr>
 							<th>Device</th>
-							<th className="text-end">Sassions</th>
-							<th className="text-end">Day</th>
-							<th className="text-end">Week</th>
+							<th className="text-end">Average Load Time</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>Dasktops</td>
-							<td className="text-end">1843</td>
-							<td className="text-end">-3</td>
-							<td className="text-end">-12</td>
+							<td className="text-end">3 seconds</td>
 						</tr>
 						<tr>
 							<td>Tablets</td>
-							<td className="text-end">2543</td>
-							<td className="text-end">-5</td>
-							<td className="text-end">-2</td>
+							<td className="text-end">2 seconds </td>
 						</tr>
 						<tr>
 							<td>Mobiles</td>
-							<td className="text-end">3654</td>
-							<td className="text-end">-5</td>
-							<td className="text-end">-6</td>
+							<td className="text-end">3 seconds</td>
 						</tr>
 					</tbody>
 				</table>
@@ -115,4 +105,4 @@ const SessionsDevice = () => {
 		</ComponentContainerCard>
 	)
 }
-export default SessionsDevice
+export default LoadTime
