@@ -17,7 +17,6 @@ const ProductList = lazy(() => import('@/pages/apps/ecommerce/ProductList'))
 const Cart = lazy(() => import('@/pages/apps/ecommerce/Cart'))
 const Checkout = lazy(() => import('@/pages/apps/ecommerce/Checkout'))
 const ProductDetail = lazy(() => import('@/pages/apps/ecommerce/ProductDetail'))
-const Calendar = lazy(() => import('@/pages/apps/Calendar'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPW = lazy(() => import('@/pages/authentication/RecoverPW'))
@@ -70,39 +69,16 @@ const TabsAndAccordions = lazy(
 const Toasts = lazy(() => import('@/pages/ui-kit/elements/Toasts'))
 const Typography = lazy(() => import('@/pages/ui-kit/elements/Typography'))
 const Videos = lazy(() => import('@/pages/ui-kit/elements/Videos'))
-const Animation = lazy(() => import('@/pages/ui-kit/advanced-ui/Animation'))
-const ClipBoard = lazy(() => import('@/pages/ui-kit/advanced-ui/ClipBoard'))
-const Highlight = lazy(() => import('@/pages/ui-kit/advanced-ui/Highlight'))
-const RangeSlider = lazy(() => import('@/pages/ui-kit/advanced-ui/RangeSlider'))
-const Ratings = lazy(() => import('@/pages/ui-kit/advanced-ui/Ratings'))
-const Ribbons = lazy(() => import('@/pages/ui-kit/advanced-ui/Ribbons'))
-const SweetAlerts = lazy(() => import('@/pages/ui-kit/advanced-ui/SweetAlerts'))
-const Lightbox = lazy(() => import('@/pages/ui-kit/advanced-ui/Lightbox'))
 const Elements = lazy(() => import('@/pages/ui-kit/forms/FormsElements'))
 const AdvancedElements = lazy(
 	() => import('@/pages/ui-kit/forms/AdvancedElements')
 )
 const Editors = lazy(() => import('@/pages/ui-kit/forms/Editors'))
-const FileUpload = lazy(() => import('@/pages/ui-kit/forms/FileUpload'))
 const Validation = lazy(() => import('@/pages/ui-kit/forms/Validation'))
 const Repeater = lazy(() => import('@/pages/ui-kit/forms/Repeater'))
 const Wizard = lazy(() => import('@/pages/ui-kit/forms/Wizard'))
 const XEditable = lazy(() => import('@/pages/ui-kit/forms/XEditable'))
-const Apex = lazy(() => import('@/pages/ui-kit/charts/Apex'))
-const ChartJs = lazy(() => import('@/pages/ui-kit/charts/ChartJs'))
-const BasicTables = lazy(() => import('@/pages/ui-kit/tables/BasicTables'))
-const DataTables = lazy(() => import('@/pages/ui-kit/tables/DataTables'))
-const FeatherIcons = lazy(() => import('@/pages/ui-kit/icons/FeatherIcons'))
-const FontAwesomeIcons = lazy(
-	() => import('@/pages/ui-kit/icons/FontAwesomeIcons')
-)
-const ThemifyIcons = lazy(() => import('@/pages/ui-kit/icons/ThemifyIcons'))
-const TypIcons = lazy(() => import('@/pages/ui-kit/icons/TypIcons'))
-const DripIcon = lazy(() => import('@/pages/ui-kit/icons/DripIcons'))
-const MaterialDesignIcons = lazy(
-	() => import('@/pages/ui-kit/icons/MaterialDesignIcons')
-)
-const Widgets = lazy(() => import('@/pages/widgets'))
+
 const dashboardRoutes = [
 	{
 		path: '/',
@@ -413,11 +389,6 @@ const formsRoutes = [
 		element: <Editors />,
 	},
 	{
-		path: '/ui/forms/file-upload',
-		name: 'File Upload',
-		element: <FileUpload />,
-	},
-	{
 		path: '/ui/forms/validation',
 		name: 'Validation',
 		element: <Validation />,
@@ -438,73 +409,10 @@ const formsRoutes = [
 		element: <XEditable />,
 	},
 ]
-// const chartsRoutes = [
-// 	{
-// 		path: '/ui/charts/apex',
-// 		name: 'Apex Charts',
-// 		element: <Apex />,
-// 	},
-// 	{
-// 		path: '/ui/charts/chartjs',
-// 		name: 'Chartjs',
-// 		element: <ChartJs />,
-// 	},
-// ]
-// const tablesRoutes = [
-// 	{
-// 		path: '/ui/tables/basic',
-// 		name: 'Basic Tables',
-// 		element: <BasicTables />,
-// 	},
-// 	{
-// 		path: '/ui/tables/datatables',
-// 		name: 'Data Tables',
-// 		element: <DataTables />,
-// 	},
-// ]
-// const iconsRoutes = [
-// 	{
-// 		path: '/ui/icons/dripicon',
-// 		name: 'DripIcon',
-// 		element: <DripIcon />,
-// 	},
-// 	{
-// 		path: '/ui/icons/feather',
-// 		name: 'Feather',
-// 		element: <FeatherIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/fa',
-// 		name: 'Font Awesome',
-// 		element: <FontAwesomeIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/md',
-// 		name: 'Material Design',
-// 		element: <MaterialDesignIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/themify',
-// 		name: 'Themify',
-// 		element: <ThemifyIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/typicons',
-// 		name: 'TypIcons',
-// 		element: <TypIcons />,
-// 	},
-// ]
-// const widgetsRoutes = [
-// 	{
-// 		path: '/widgets',
-// 		name: 'Widgets',
-// 		element: <Widgets />,
-// 	},
-// ]
+
 const allUiRoutes = [
 	...uiRoutes,
 	...mapsRoutes,
-	...advanceuiRoutes,
 	...formsRoutes,
 	// ...chartsRoutes,
 	// ...tablesRoutes,
