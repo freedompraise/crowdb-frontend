@@ -1,8 +1,4 @@
 import { FiActivity, FiBriefcase, FiClock, FiEye } from 'react-icons/fi'
-import logo4 from '@/assets/images/small/atom.svg'
-import logo3 from '@/assets/images/small/blocks.svg'
-import logo2 from '@/assets/images/small/cobweb.svg'
-import logo1 from '@/assets/images/small/rgb.svg'
 import browser1 from '@/assets/images/browser_logo/chrome.png'
 import browser3 from '@/assets/images/browser_logo/in-explorer.png'
 import browser2 from '@/assets/images/browser_logo/micro-edge.png'
@@ -41,29 +37,21 @@ const statisticsData = [
 		variant: 'success',
 	},
 ]
-const pageViews = [
+const userDistribution = [
 	{
-		name: 'CrowdB - Admin Dashboard',
-		subName: 'analytic-index.html',
-		logo: logo1,
+		name: 'Lagos',
 		view: '4.3k',
 	},
 	{
-		name: 'Metrica Simple- Admin Dashboard',
-		subName: 'sales-index.html',
-		logo: logo2,
+		name: 'Benin',
 		view: '4.3k',
 	},
 	{
-		name: 'Crovex - Admin Dashboard',
-		subName: 'helpdesk-index.html',
-		logo: logo3,
+		name: 'Port Harchourt',
 		view: '2.9k',
 	},
 	{
-		name: 'Annex - Admin Dashboard',
-		subName: 'calendar.html',
-		logo: logo4,
+		name: 'Abuja',
 		view: '1.6k',
 	},
 ]
@@ -211,4 +199,4 @@ const browserReports = [
 		},
 	},
 ]
-export { browserReports, pageViews, statisticsData, trafficReports }
+export { browserReports, userDistribution, statisticsData, trafficReports }

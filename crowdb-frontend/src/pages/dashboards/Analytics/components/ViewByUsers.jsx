@@ -1,33 +1,24 @@
 import { ComponentContainerCard } from '@/components'
 import { Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { pageViews } from '../data'
+import { userDistribution } from '../data'
 const ViewByUsers = () => {
 	return (
 		<ComponentContainerCard
-			title="Pages View by Users"
+			title="User Distribution"
 			label="Today"
-			menuItems={['Today', 'Yesterday', 'Last Week']}
+			menuItems={['April', 'May', 'June']}
 		>
 			<ul className="list-group custom-list-group">
-				{pageViews.map((page, idx) => {
+				{userDistribution.map((page, idx) => {
 					return (
 						<li
 							key={idx}
 							className="list-group-item align-items-center d-flex justify-content-between"
 						>
-							<div className="media">
-								<Image
-									src={page.logo}
-									height={30}
-									className="me-3 align-self-center rounded"
-									alt="..."
-								/>
-								<div className="media-body align-self-center">
+							<div className="media-body align-self-center">
 									<h6 className="m-0">{page.name}</h6>
-									<p className="mb-0 text-muted">{page.subName}</p>
 								</div>
-							</div>
 							<div className="align-self-center">
 								<Link to="#" className="btn btn-sm btn-soft-primary">
 									{page.view} <i className="las la-external-link-alt font-15" />
