@@ -80,12 +80,12 @@ export const VERTICAL_MENU_ITEMS = [
 						url: '/apps/opportunities/properties',
 						parentKey: 'apps-opportunities',
 					},
-					{
-						key: 'opportunities-property-list',
-						label: 'Properties List',
-						url: '/apps/opportunities/property-list',
-						parentKey: 'apps-opportunities',
-					},
+					// {
+					// 	key: 'opportunities-property-list',
+					// 	label: 'Properties List',
+					// 	url: '/apps/opportunities/property-list',
+					// 	parentKey: 'apps-opportunities',
+					// },
 				],
 			},
 		],
