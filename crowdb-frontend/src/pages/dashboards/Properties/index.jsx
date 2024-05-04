@@ -1,4 +1,4 @@
-
+import { Col, Row } from "react-bootstrap";
 
 const Properties = () => {
     return (
@@ -6,3 +6,5 @@ const Properties = () => {
        </>
     );
     };
+
+export default Properties;
