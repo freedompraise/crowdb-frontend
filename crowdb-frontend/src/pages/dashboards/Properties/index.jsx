@@ -1,8 +1,9 @@
-import { Col, Row } from "react-bootstrap";
+import { PageBreadcrumb } from "@/components";
 
 const Properties = () => {
     return (
        <>
+       <PageBreadcrumb subName="Dashboard" title="Properties" />
        </>
     );
     };
