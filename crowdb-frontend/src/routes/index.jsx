@@ -11,10 +11,7 @@ const Inbox = lazy(() => import('@/pages/apps/email/Inbox'))
 const ReadEmail = lazy(() => import('@/pages/apps/email/ReadEmail'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
-const FileManager = lazy(() => import('@/pages/apps/FileManager'))
-const Tasks = lazy(() => import('@/pages/apps/Tasks'))
 const Overview = lazy(() => import('@/pages/apps/projects/Overview'))
-const Project = lazy(() => import('@/pages/apps/projects/Project'))
 const KanbanBoard = lazy(() => import('@/pages/apps/projects/KanbanBoard'))
 const Teams = lazy(() => import('@/pages/apps/projects/Teams'))
 const NewProject = lazy(() => import('@/pages/apps/projects/NewProject'))
@@ -75,14 +72,6 @@ const TabsAndAccordions = lazy(
 const Toasts = lazy(() => import('@/pages/ui-kit/elements/Toasts'))
 const Typography = lazy(() => import('@/pages/ui-kit/elements/Typography'))
 const Videos = lazy(() => import('@/pages/ui-kit/elements/Videos'))
-const Animation = lazy(() => import('@/pages/ui-kit/advanced-ui/Animation'))
-const ClipBoard = lazy(() => import('@/pages/ui-kit/advanced-ui/ClipBoard'))
-const Highlight = lazy(() => import('@/pages/ui-kit/advanced-ui/Highlight'))
-const RangeSlider = lazy(() => import('@/pages/ui-kit/advanced-ui/RangeSlider'))
-const Ratings = lazy(() => import('@/pages/ui-kit/advanced-ui/Ratings'))
-const Ribbons = lazy(() => import('@/pages/ui-kit/advanced-ui/Ribbons'))
-const SweetAlerts = lazy(() => import('@/pages/ui-kit/advanced-ui/SweetAlerts'))
-const Lightbox = lazy(() => import('@/pages/ui-kit/advanced-ui/Lightbox'))
 const Elements = lazy(() => import('@/pages/ui-kit/forms/FormsElements'))
 const AdvancedElements = lazy(
 	() => import('@/pages/ui-kit/forms/AdvancedElements')
@@ -93,21 +82,7 @@ const Validation = lazy(() => import('@/pages/ui-kit/forms/Validation'))
 const Repeater = lazy(() => import('@/pages/ui-kit/forms/Repeater'))
 const Wizard = lazy(() => import('@/pages/ui-kit/forms/Wizard'))
 const XEditable = lazy(() => import('@/pages/ui-kit/forms/XEditable'))
-const Apex = lazy(() => import('@/pages/ui-kit/charts/Apex'))
-const ChartJs = lazy(() => import('@/pages/ui-kit/charts/ChartJs'))
-const BasicTables = lazy(() => import('@/pages/ui-kit/tables/BasicTables'))
-const DataTables = lazy(() => import('@/pages/ui-kit/tables/DataTables'))
-const FeatherIcons = lazy(() => import('@/pages/ui-kit/icons/FeatherIcons'))
-const FontAwesomeIcons = lazy(
-	() => import('@/pages/ui-kit/icons/FontAwesomeIcons')
-)
-const ThemifyIcons = lazy(() => import('@/pages/ui-kit/icons/ThemifyIcons'))
-const TypIcons = lazy(() => import('@/pages/ui-kit/icons/TypIcons'))
-const DripIcon = lazy(() => import('@/pages/ui-kit/icons/DripIcons'))
-const MaterialDesignIcons = lazy(
-	() => import('@/pages/ui-kit/icons/MaterialDesignIcons')
-)
-const Widgets = lazy(() => import('@/pages/widgets'))
+
 const dashboardRoutes = [
 	{
 		path: '/',
@@ -152,24 +127,9 @@ const appsRoutes = [
 		element: <ContactList />,
 	},
 	{
-		path: '/apps/file-manager',
-		name: 'File Manager',
-		element: <FileManager />,
-	},
-	{
-		path: '/apps/tasks',
-		name: 'Tasks',
-		element: <Tasks />,
-	},
-	{
 		path: '/apps/projects/overview',
 		name: 'Overview',
 		element: <Overview />,
-	},
-	{
-		path: '/apps/projects/project',
-		name: 'Project',
-		element: <Project />,
 	},
 	{
 		path: '/apps/projects/board',
@@ -180,11 +140,6 @@ const appsRoutes = [
 		path: '/apps/projects/teams',
 		name: 'Teams',
 		element: <Teams />,
-	},
-	{
-		path: '/apps/projects/files',
-		name: 'Teams',
-		element: <FileManager />,
 	},
 	{
 		path: '/apps/projects/new-project',
@@ -440,53 +395,7 @@ const uiRoutes = [
 		element: <Videos />,
 	},
 ]
-const advanceuiRoutes = [
-	{
-		path: '/ui/advanced/animation',
-		name: 'Animation',
-		element: <Animation />,
-	},
-	{
-		path: '/ui/advanced/clip-board',
-		name: 'Clip-Board',
-		element: <ClipBoard />,
-	},
-	{
-		path: '/ui/advanced/highlight',
-		name: 'Highlight',
-		element: <Highlight />,
-	},
-	{
-		path: '/ui/advanced/kanban',
-		name: 'Kanban',
-		element: <KanbanBoard />,
-	},
-	{
-		path: '/ui/advanced/lightbox',
-		name: 'Lightbox',
-		element: <Lightbox />,
-	},
-	{
-		path: '/ui/advanced/range-slider',
-		name: 'Range Slider',
-		element: <RangeSlider />,
-	},
-	{
-		path: '/ui/advanced/ratings',
-		name: 'Ratings',
-		element: <Ratings />,
-	},
-	{
-		path: '/ui/advanced/ribbons',
-		name: 'Ribbons',
-		element: <Ribbons />,
-	},
-	{
-		path: '/ui/advanced/sweet-alerts',
-		name: 'Sweet Alerts',
-		element: <SweetAlerts />,
-	},
-]
+
 const formsRoutes = [
 	{
 		path: '/ui/forms/advance',
@@ -502,11 +411,6 @@ const formsRoutes = [
 		path: '/ui/forms/editors',
 		name: 'Editors',
 		element: <Editors />,
-	},
-	{
-		path: '/ui/forms/file-upload',
-		name: 'File Upload',
-		element: <FileUpload />,
 	},
 	{
 		path: '/ui/forms/validation',
@@ -529,73 +433,10 @@ const formsRoutes = [
 		element: <XEditable />,
 	},
 ]
-// const chartsRoutes = [
-// 	{
-// 		path: '/ui/charts/apex',
-// 		name: 'Apex Charts',
-// 		element: <Apex />,
-// 	},
-// 	{
-// 		path: '/ui/charts/chartjs',
-// 		name: 'Chartjs',
-// 		element: <ChartJs />,
-// 	},
-// ]
-// const tablesRoutes = [
-// 	{
-// 		path: '/ui/tables/basic',
-// 		name: 'Basic Tables',
-// 		element: <BasicTables />,
-// 	},
-// 	{
-// 		path: '/ui/tables/datatables',
-// 		name: 'Data Tables',
-// 		element: <DataTables />,
-// 	},
-// ]
-// const iconsRoutes = [
-// 	{
-// 		path: '/ui/icons/dripicon',
-// 		name: 'DripIcon',
-// 		element: <DripIcon />,
-// 	},
-// 	{
-// 		path: '/ui/icons/feather',
-// 		name: 'Feather',
-// 		element: <FeatherIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/fa',
-// 		name: 'Font Awesome',
-// 		element: <FontAwesomeIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/md',
-// 		name: 'Material Design',
-// 		element: <MaterialDesignIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/themify',
-// 		name: 'Themify',
-// 		element: <ThemifyIcons />,
-// 	},
-// 	{
-// 		path: '/ui/icons/typicons',
-// 		name: 'TypIcons',
-// 		element: <TypIcons />,
-// 	},
-// ]
-// const widgetsRoutes = [
-// 	{
-// 		path: '/widgets',
-// 		name: 'Widgets',
-// 		element: <Widgets />,
-// 	},
-// ]
+
 const allUiRoutes = [
 	...uiRoutes,
 	...mapsRoutes,
-	...advanceuiRoutes,
 	...formsRoutes,
 	// ...chartsRoutes,
 	// ...tablesRoutes,
