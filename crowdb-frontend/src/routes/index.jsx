@@ -535,78 +535,78 @@ const formsRoutes = [
 		element: <XEditable />,
 	},
 ]
-const chartsRoutes = [
-	{
-		path: '/ui/charts/apex',
-		name: 'Apex Charts',
-		element: <Apex />,
-	},
-	{
-		path: '/ui/charts/chartjs',
-		name: 'Chartjs',
-		element: <ChartJs />,
-	},
-]
-const tablesRoutes = [
-	{
-		path: '/ui/tables/basic',
-		name: 'Basic Tables',
-		element: <BasicTables />,
-	},
-	{
-		path: '/ui/tables/datatables',
-		name: 'Data Tables',
-		element: <DataTables />,
-	},
-]
-const iconsRoutes = [
-	{
-		path: '/ui/icons/dripicon',
-		name: 'DripIcon',
-		element: <DripIcon />,
-	},
-	{
-		path: '/ui/icons/feather',
-		name: 'Feather',
-		element: <FeatherIcons />,
-	},
-	{
-		path: '/ui/icons/fa',
-		name: 'Font Awesome',
-		element: <FontAwesomeIcons />,
-	},
-	{
-		path: '/ui/icons/md',
-		name: 'Material Design',
-		element: <MaterialDesignIcons />,
-	},
-	{
-		path: '/ui/icons/themify',
-		name: 'Themify',
-		element: <ThemifyIcons />,
-	},
-	{
-		path: '/ui/icons/typicons',
-		name: 'TypIcons',
-		element: <TypIcons />,
-	},
-]
-const widgetsRoutes = [
-	{
-		path: '/widgets',
-		name: 'Widgets',
-		element: <Widgets />,
-	},
-]
+// const chartsRoutes = [
+// 	{
+// 		path: '/ui/charts/apex',
+// 		name: 'Apex Charts',
+// 		element: <Apex />,
+// 	},
+// 	{
+// 		path: '/ui/charts/chartjs',
+// 		name: 'Chartjs',
+// 		element: <ChartJs />,
+// 	},
+// ]
+// const tablesRoutes = [
+// 	{
+// 		path: '/ui/tables/basic',
+// 		name: 'Basic Tables',
+// 		element: <BasicTables />,
+// 	},
+// 	{
+// 		path: '/ui/tables/datatables',
+// 		name: 'Data Tables',
+// 		element: <DataTables />,
+// 	},
+// ]
+// const iconsRoutes = [
+// 	{
+// 		path: '/ui/icons/dripicon',
+// 		name: 'DripIcon',
+// 		element: <DripIcon />,
+// 	},
+// 	{
+// 		path: '/ui/icons/feather',
+// 		name: 'Feather',
+// 		element: <FeatherIcons />,
+// 	},
+// 	{
+// 		path: '/ui/icons/fa',
+// 		name: 'Font Awesome',
+// 		element: <FontAwesomeIcons />,
+// 	},
+// 	{
+// 		path: '/ui/icons/md',
+// 		name: 'Material Design',
+// 		element: <MaterialDesignIcons />,
+// 	},
+// 	{
+// 		path: '/ui/icons/themify',
+// 		name: 'Themify',
+// 		element: <ThemifyIcons />,
+// 	},
+// 	{
+// 		path: '/ui/icons/typicons',
+// 		name: 'TypIcons',
+// 		element: <TypIcons />,
+// 	},
+// ]
+// const widgetsRoutes = [
+// 	{
+// 		path: '/widgets',
+// 		name: 'Widgets',
+// 		element: <Widgets />,
+// 	},
+// ]
 const allUiRoutes = [
 	...uiRoutes,
 	...mapsRoutes,
 	...advanceuiRoutes,
 	...formsRoutes,
-	...chartsRoutes,
-	...tablesRoutes,
-	...iconsRoutes,
-	...widgetsRoutes,
+	// ...chartsRoutes,
+	// ...tablesRoutes,
+	// ...iconsRoutes,
+	// ...widgetsRoutes,
 ]
 const allAdminRoutes = [
 	...dashboardRoutes,
