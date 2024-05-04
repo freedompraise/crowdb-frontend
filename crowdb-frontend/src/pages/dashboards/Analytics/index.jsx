@@ -18,7 +18,7 @@ const Analytics = () => {
 					<AudienceOverviewChart />
 				</Col>
 				<Col lg={3}>
-					<SessionsDevice />
+					<ActivityCard height={400} />
 				</Col>
 			</Row>
 			<Row>
@@ -44,12 +44,11 @@ const Analytics = () => {
 						</CardBody>
 					</Card>
 				</Col>
-
 				<Col lg={4}>
-					<SessionsByChannels />
+					<SessionsDevice />
 				</Col>
 				<Col lg={4}>
-					<ActivityCard height={400} />
+					<SessionsByChannels />
 				</Col>
 			</Row>
 			<Row>
