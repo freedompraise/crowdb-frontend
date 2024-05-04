@@ -89,12 +89,6 @@ export const VERTICAL_MENU_ITEMS = [
 				parentKey: 'apps',
 			},
 			{
-				key: 'apps-invoice',
-				label: 'Invoice',
-				url: '/apps/invoice',
-				parentKey: 'apps',
-			},
-			{
 				key: 'apps-tasks',
 				label: 'Tasks',
 				url: '/apps/tasks',

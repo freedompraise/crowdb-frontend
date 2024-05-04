@@ -12,7 +12,6 @@ const ReadEmail = lazy(() => import('@/pages/apps/email/ReadEmail'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
 const FileManager = lazy(() => import('@/pages/apps/FileManager'))
-const Invoice = lazy(() => import('@/pages/apps/Invoice'))
 const Tasks = lazy(() => import('@/pages/apps/Tasks'))
 const Overview = lazy(() => import('@/pages/apps/projects/Overview'))
 const Project = lazy(() => import('@/pages/apps/projects/Project'))
@@ -162,11 +161,6 @@ const appsRoutes = [
 		path: '/apps/file-manager',
 		name: 'File Manager',
 		element: <FileManager />,
-	},
-	{
-		path: '/apps/invoice',
-		name: 'Invoice',
-		element: <Invoice />,
 	},
 	{
 		path: '/apps/tasks',
