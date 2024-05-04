@@ -77,68 +77,6 @@ export const VERTICAL_MENU_ITEMS = [
 				parentKey: 'apps',
 			},
 			{
-				key: 'apps-calendar',
-				label: 'Calendar',
-				url: '/apps/calendar',
-				parentKey: 'apps',
-			},
-			{
-				key: 'apps-file-manager',
-				label: 'File Manager',
-				url: '/apps/file-manager',
-				parentKey: 'apps',
-			},
-			{
-				key: 'apps-tasks',
-				label: 'Tasks',
-				url: '/apps/tasks',
-				parentKey: 'apps',
-			},
-			{
-				key: 'apps-projects',
-				label: 'Projects',
-				isTitle: false,
-				parentKey: 'apps',
-				children: [
-					{
-						key: 'projects-overview',
-						label: 'Overview',
-						url: '/apps/projects/overview',
-						parentKey: 'apps-overview',
-					},
-					{
-						key: 'projects-project',
-						label: 'Project',
-						url: '/apps/projects/project',
-						parentKey: 'apps-project',
-					},
-					{
-						key: 'projects-board',
-						label: 'Board',
-						url: '/apps/projects/board',
-						parentKey: 'apps-board',
-					},
-					{
-						key: 'projects-teams',
-						label: 'Teams',
-						url: '/apps/projects/teams',
-						parentKey: 'apps-teams',
-					},
-					{
-						key: 'projects-files',
-						label: 'Files',
-						url: '/apps/projects/files',
-						parentKey: 'apps-files',
-					},
-					{
-						key: 'projects-new-project',
-						label: 'New Project',
-						url: '/apps/projects/new-project',
-						parentKey: 'apps-projects',
-					},
-				],
-			},
-			{
 				key: 'apps-ecommerce',
 				label: 'Ecommerce',
 				isTitle: false,

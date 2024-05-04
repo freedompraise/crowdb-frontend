@@ -11,13 +11,7 @@ const Inbox = lazy(() => import('@/pages/apps/email/Inbox'))
 const ReadEmail = lazy(() => import('@/pages/apps/email/ReadEmail'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
-const FileManager = lazy(() => import('@/pages/apps/FileManager'))
-const Tasks = lazy(() => import('@/pages/apps/Tasks'))
-const Overview = lazy(() => import('@/pages/apps/projects/Overview'))
-const Project = lazy(() => import('@/pages/apps/projects/Project'))
-const KanbanBoard = lazy(() => import('@/pages/apps/projects/KanbanBoard'))
-const Teams = lazy(() => import('@/pages/apps/projects/Teams'))
-const NewProject = lazy(() => import('@/pages/apps/projects/NewProject'))
+
 const Products = lazy(() => import('@/pages/apps/ecommerce/Products'))
 const ProductList = lazy(() => import('@/pages/apps/ecommerce/ProductList'))
 const Cart = lazy(() => import('@/pages/apps/ecommerce/Cart'))
@@ -148,54 +142,9 @@ const appsRoutes = [
 		element: <Chat />,
 	},
 	{
-		path: '/apps/calendar',
-		name: 'Calendar',
-		element: <Calendar />,
-	},
-	{
 		path: '/apps/contact-list',
 		name: 'Cantacts List',
 		element: <ContactList />,
-	},
-	{
-		path: '/apps/file-manager',
-		name: 'File Manager',
-		element: <FileManager />,
-	},
-	{
-		path: '/apps/tasks',
-		name: 'Tasks',
-		element: <Tasks />,
-	},
-	{
-		path: '/apps/projects/overview',
-		name: 'Overview',
-		element: <Overview />,
-	},
-	{
-		path: '/apps/projects/project',
-		name: 'Project',
-		element: <Project />,
-	},
-	{
-		path: '/apps/projects/board',
-		name: 'Project',
-		element: <KanbanBoard />,
-	},
-	{
-		path: '/apps/projects/teams',
-		name: 'Teams',
-		element: <Teams />,
-	},
-	{
-		path: '/apps/projects/files',
-		name: 'Teams',
-		element: <FileManager />,
-	},
-	{
-		path: '/apps/projects/new-project',
-		name: 'New Project',
-		element: <NewProject />,
 	},
 	{
 		path: '/apps/ecommerce/products',
@@ -446,53 +395,7 @@ const uiRoutes = [
 		element: <Videos />,
 	},
 ]
-const advanceuiRoutes = [
-	{
-		path: '/ui/advanced/animation',
-		name: 'Animation',
-		element: <Animation />,
-	},
-	{
-		path: '/ui/advanced/clip-board',
-		name: 'Clip-Board',
-		element: <ClipBoard />,
-	},
-	{
-		path: '/ui/advanced/highlight',
-		name: 'Highlight',
-		element: <Highlight />,
-	},
-	{
-		path: '/ui/advanced/kanban',
-		name: 'Kanban',
-		element: <KanbanBoard />,
-	},
-	{
-		path: '/ui/advanced/lightbox',
-		name: 'Lightbox',
-		element: <Lightbox />,
-	},
-	{
-		path: '/ui/advanced/range-slider',
-		name: 'Range Slider',
-		element: <RangeSlider />,
-	},
-	{
-		path: '/ui/advanced/ratings',
-		name: 'Ratings',
-		element: <Ratings />,
-	},
-	{
-		path: '/ui/advanced/ribbons',
-		name: 'Ribbons',
-		element: <Ribbons />,
-	},
-	{
-		path: '/ui/advanced/sweet-alerts',
-		name: 'Sweet Alerts',
-		element: <SweetAlerts />,
-	},
-]
+
 const formsRoutes = [
 	{
 		path: '/ui/forms/advance',
