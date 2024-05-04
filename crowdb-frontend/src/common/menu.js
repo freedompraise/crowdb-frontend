@@ -28,12 +28,6 @@ export const VERTICAL_MENU_ITEMS = [
 				url: '/dashboards/sales',
 				parentKey: 'dashboard',
 			},
-			{ 
-				key: 'ds-properties',
-				label: 'Properties',
-				url: '/dashboards/properties',
-				parentKey: 'dashboard',
-			}
 		],
 	},
 	{
