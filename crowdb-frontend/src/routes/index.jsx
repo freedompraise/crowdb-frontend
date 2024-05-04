@@ -10,12 +10,9 @@ const Inbox = lazy(() => import('@/pages/apps/email/Inbox'))
 const ReadEmail = lazy(() => import('@/pages/apps/email/ReadEmail'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
-
-const Products = lazy(() => import('@/pages/apps/ecommerce/Products'))
-const ProductList = lazy(() => import('@/pages/apps/ecommerce/ProductList'))
-const Cart = lazy(() => import('@/pages/apps/ecommerce/Cart'))
-const Checkout = lazy(() => import('@/pages/apps/ecommerce/Checkout'))
-const ProductDetail = lazy(() => import('@/pages/apps/ecommerce/ProductDetail'))
+const Property = lazy(() => import('@/pages/apps/opportunities/Property'))
+const PropertyList = lazy(() => import('@/pages/apps/opportunities/PropertyList'))
+const PropertyDetail = lazy(() => import('@/pages/apps/opportunities/PropertyDetail'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPW = lazy(() => import('@/pages/authentication/RecoverPW'))
@@ -117,29 +114,19 @@ const appsRoutes = [
 		element: <ContactList />,
 	},
 	{
-		path: '/apps/ecommerce/products',
-		name: 'Products',
-		element: <Products />,
+		path: '/apps/opportunities/property',
+		name: 'Properties',
+		element: <Property />,
 	},
 	{
-		path: '/apps/ecommerce/product-list',
-		name: 'Product List',
-		element: <ProductList />,
+		path: '/apps/opportunities/property-list',
+		name: 'Property List',
+		element: <PropertyList />,
 	},
 	{
-		path: '/apps/ecommerce/cart',
-		name: 'Cart',
-		element: <Cart />,
-	},
-	{
-		path: '/apps/ecommerce/checkout',
-		name: 'Checkout',
-		element: <Checkout />,
-	},
-	{
-		path: '/apps/ecommerce/product-detail',
-		name: 'Product Detail',
-		element: <ProductDetail />,
+		path: '/apps/opportunities/property-detail',
+		name: 'Property Detail',
+		element: <PropertyDetail />,
 	},
 ]
 const authRoutes = [
