@@ -36,19 +36,16 @@ const AudienceOverviewChart = () => {
 		},
 		series: [
 			{
-				name: 'New Visits',
+				name: 'Visits',
 				data: [0, 60, 20, 90, 45, 110, 55, 130, 44, 110, 75, 120],
 			},
 			{
-				name: 'Unique Visits',
+				name: 'Applications',
 				data: [0, 45, 10, 75, 35, 94, 40, 115, 30, 105, 65, 110],
 			},
 		],
 		xaxis: {
 			categories: [
-				'Jan',
-				'Feb',
-				'Mar',
 				'Apr',
 				'May',
 				'Jun',
@@ -58,6 +55,9 @@ const AudienceOverviewChart = () => {
 				'Oct',
 				'Nov',
 				'Dec',
+				'Jan',
+				'Feb',
+				'Mar'
 			],
 			axisBorder: {
 				show: true,

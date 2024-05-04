@@ -1,4 +1,4 @@
-import { FiActivity, FiBriefcase, FiClock, FiUsers } from 'react-icons/fi'
+import { FiActivity, FiBriefcase, FiClock, FiEye } from 'react-icons/fi'
 import logo4 from '@/assets/images/small/atom.svg'
 import logo3 from '@/assets/images/small/blocks.svg'
 import logo2 from '@/assets/images/small/cobweb.svg'
@@ -9,18 +9,18 @@ import browser2 from '@/assets/images/browser_logo/micro-edge.png'
 import browser4 from '@/assets/images/browser_logo/opera.png'
 const statisticsData = [
 	{
-		title: 'Sessions',
+		title: 'Views',
 		state: '24k',
-		icon: FiUsers,
-		subTitle: 'New Sessions Today',
+		icon: FiEye,
+		subTitle: 'Total Views Today',
 		change: '8.5',
 		variant: 'success',
 	},
 	{
-		title: 'Avg.Sessions',
+		title: 'Time Duration',
 		state: '00:18',
 		icon: FiClock,
-		subTitle: 'Weekly Avg.Sessions',
+		subTitle: 'Avg Time Duration',
 		change: '1.5',
 		variant: 'success',
 	},
@@ -33,11 +33,11 @@ const statisticsData = [
 		variant: 'danger',
 	},
 	{
-		title: 'Goal Completions',
-		state: '85000',
+		title: 'Conversion Rate',
+		state: '23%',
 		icon: FiBriefcase,
-		subTitle: 'Completions Weekly',
-		change: '10.5',
+		subTitle: 'Conversion Rate Monthly',
+		change: '10',
 		variant: 'success',
 	},
 ]
