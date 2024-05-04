@@ -2,6 +2,7 @@ import { Col, Row } from 'react-bootstrap'
 import { PageMetaData } from '.'
 import { Link } from 'react-router-dom'
 import { FiCalendar, FiDownload } from 'react-icons/fi'
+
 const PageBreadcrumb = ({ title, subName }) => {
 	return (
 		<>
@@ -30,7 +31,7 @@ const PageBreadcrumb = ({ title, subName }) => {
 									</span>
 									&nbsp;
 									<span className="" id="Select_date">
-										Jan 11
+										{new Date().toLocaleDateString()}
 									</span>
 									<FiCalendar className="align-self-center icon-xs ms-1" />
 								</Link>
