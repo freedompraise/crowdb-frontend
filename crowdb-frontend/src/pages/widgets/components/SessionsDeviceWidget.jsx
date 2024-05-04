@@ -74,7 +74,7 @@ const SessionsDeviceWidget = () => {
 				/>
 				<h6 className="text-primary bg-soft-primary p-3 mb-0 mt-3">
 					<FiCalendar className="align-self-center icon-xs me-1" />
-					01 January 2020 to 31 June 2020
+					01 Mar 2024 to 01 Apr 2024
 				</h6>
 			</div>
 		</ComponentContainerCard>

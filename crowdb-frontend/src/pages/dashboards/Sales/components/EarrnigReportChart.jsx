@@ -77,7 +77,7 @@ const EarrnigReportChart = () => {
 					data-feather="calendar"
 					className="align-self-center icon-xs me-1"
 				/>
-				01 January 2020 to 31 December 2020
+				01 Mar 2024 to April Dec 2024
 			</h6>
 		</ComponentContainerCard>
 	)

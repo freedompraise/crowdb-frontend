@@ -85,7 +85,7 @@ const TasksPerformanceChart = () => {
 				<div id="task_status" />
 				<h6 className="text-primary bg-soft-primary p-3 mb-0">
 					<FiCalendar className="align-self-center icon-xs me-1" />
-					01 January 2021 to 31 June 2021
+					01 Mar 2024 to 01 April 2024
 				</h6>
 			</div>
 		</ComponentContainerCard>

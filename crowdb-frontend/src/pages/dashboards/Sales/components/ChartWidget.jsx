@@ -53,8 +53,8 @@ const ChartWidget = () => {
 								height={40}
 							/>
 							<div className="media-body align-self-center ms-3">
-								<h4 className="m-0 font-20">$1850.00</h4>
-								<p className="text-muted mb-0">Total Revenue</p>
+								<h4 className="m-0 font-20">N1,850,654,099</h4>
+								<p className="text-muted mb-0">Total Amount Deposited</p>
 							</div>
 						</div>
 					</Col>
@@ -63,7 +63,7 @@ const ChartWidget = () => {
 							<span className="text-success">
 								<i className="mdi mdi-trending-up"></i>4.8%
 							</span>{' '}
-							Then Last Month
+							Than Last Month
 						</p>
 					</Col>
 				</Row>
