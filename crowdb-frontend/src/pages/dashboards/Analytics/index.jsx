@@ -31,13 +31,10 @@ const Analytics = () => {
 								<h2 className="m-0 align-self-center">80</h2>
 								<div className="d-block ms-2 align-self-center">
 									<span className="text-warning">Right now</span>
-									<h5 className="my-1">Traffic Sources</h5>
+									<h5 className="my-1">Active Users</h5>
 									<p className="mb-0 text-muted">
-										It is a long established fact that a reader will be of a
-										page when looking at its layout.
-										<Link to="#" className="text-primary">
-											Read More <i className="las la-arrow-right"></i>
-										</Link>
+										Number of users currently using the site
+										
 									</p>
 								</div>
 							</div>
