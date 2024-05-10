@@ -2,8 +2,9 @@ import { PageBreadcrumb } from '@/components'
 import { Card, CardBody, Col, Row } from 'react-bootstrap'
 import { features } from './data'
 import PropertyDetailCard from './components/PropertyDetailCard'
-import RelatedProperties from './components/RelatedPr'
-const ProductDetail = () => {
+import RelatedProperties from './components/RelatedProperties';
+
+const PropertyDetail = () => {
 	return (
 		<>
 			<PageBreadcrumb subName="Ecommerce" title="Product Detail" />
@@ -42,4 +43,4 @@ const ProductDetail = () => {
 		</>
 	)
 }
-export default ProductDetail
+export default PropertyDetail

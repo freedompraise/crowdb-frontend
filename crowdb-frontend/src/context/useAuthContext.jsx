@@ -1,5 +1,7 @@
 import { deleteCookie, hasCookie, setCookie } from 'cookies-next'
 import { createContext, useContext, useState } from 'react'
+
+
 const AuthContext = createContext(undefined)
 export function useAuthContext() {
 	const context = useContext(AuthContext)
@@ -8,6 +10,7 @@ export function useAuthContext() {
 	}
 	return context
 }
+
 const authSessionKey = '_DASTONE_AUTH_'
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState(undefined)
