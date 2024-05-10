@@ -6,8 +6,6 @@ const AnalyticsDashboard = lazy(() => import('@/pages/dashboards/Analytics'))
 const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
 
 //Apps
-const Inbox = lazy(() => import('@/pages/apps/email/Inbox'))
-const ReadEmail = lazy(() => import('@/pages/apps/email/ReadEmail'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
 const Property = lazy(() => import('@/pages/apps/opportunities/Property'))
@@ -93,16 +91,6 @@ const dashboardRoutes = [
 	},
 ]
 const appsRoutes = [
-	{
-		path: '/apps/email/inbox',
-		name: 'Inbox',
-		element: <Inbox />,
-	},
-	{
-		path: '/apps/email/read',
-		name: 'Read Email',
-		element: <ReadEmail />,
-	},
 	{
 		path: '/apps/chat',
 		name: 'Chat',

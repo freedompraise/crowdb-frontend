@@ -15,6 +15,7 @@ import {
 	Image,
 	Row,
 } from 'react-bootstrap'
+
 import { Link } from 'react-router-dom'
 const EmailRightbar = ({ handleShows }) => {
 	return (
@@ -47,7 +48,7 @@ const EmailRightbar = ({ handleShows }) => {
 						</DropdownToggle>
 						<DropdownMenu align="end">
 							<DropdownItem>Display density</DropdownItem>
-							<DropdownItem>Themes</DropdownItem>
+							<DropdownItem>Houses</DropdownItem>
 							<DropdownItem>Help</DropdownItem>
 						</DropdownMenu>
 					</Dropdown>
@@ -89,8 +90,8 @@ const EmailRightbar = ({ handleShows }) => {
 						</DropdownToggle>
 						<DropdownMenu>
 							<DropdownItem>Updates</DropdownItem>
-							<DropdownItem>Social</DropdownItem>
-							<DropdownItem>Team Manage</DropdownItem>
+							<DropdownItem>Landlords</DropdownItem>
+							<DropdownItem>Estate Manager</DropdownItem>
 						</DropdownMenu>
 					</Dropdown>
 				</ButtonGroup>
@@ -106,7 +107,7 @@ const EmailRightbar = ({ handleShows }) => {
 					<DropdownMenu>
 						<DropdownItem>Updates</DropdownItem>
 						<DropdownItem>Social</DropdownItem>
-						<DropdownItem>Team Manage</DropdownItem>
+						<DropdownItem>Estate Manager</DropdownItem>
 					</DropdownMenu>
 				</ButtonGroup>
 
@@ -142,21 +143,13 @@ const EmailRightbar = ({ handleShows }) => {
 						</div>
 					</div>
 					<h5 className="mt-0 font-15">This Week's Top Stories</h5>
-					<p>Dear Lorem Ipsum,</p>
+					<p>Dear CrowdB user,</p>
 					<p>
-						Praesent dui ex, dapibus eget mauris ut, finibus vestibulum enim.
-						Quisque arcu leo, facilisis in fringilla id, luctus in tortor. Nunc
-						vestibulum est quis orci varius viverra. Curabitur dictum volutpat
-						massa vulputate molestie. In at felis ac velit maximus convallis.
+						Thank you for using CrowdB. We are happy to share with you the top
+						stories of the week. Hope you enjoy it.
 					</p>
-					<p>
-						Sed elementum turpis eu lorem interdum, 🏆sed porttitor eros
-						commodo. Nam eu venenatis tortor, id lacinia diam. Sed aliquam in
-						dui et porta. Sed bibendum orci non tincidunt ultrices. Vivamus
-						fringilla, mi lacinia dapibus condimentum, ipsum urna lacinia lacus,
-						vel tincidunt mi nibh sit amet lorem.
-					</p>
-					<p>Sincerly,</p>
+					
+					<p>Sincerly, Admin</p>
 					<hr />
 					<Row>
 						<Col xs="auto">

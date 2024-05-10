@@ -43,18 +43,6 @@ export const VERTICAL_MENU_ITEMS = [
 				parentKey: 'apps',
 				children: [
 					{
-						key: 'email-inbox',
-						label: 'Inbox',
-						url: '/apps/email/inbox',
-						parentKey: 'apps-email',
-					},
-					{
-						key: 'email-read',
-						label: 'Read Email',
-						url: '/apps/email/read',
-						parentKey: 'apps-email',
-					},
-					{
 						key: 'apps-chat',
 						label: 'Chat',
 						url: '/apps/chat',
