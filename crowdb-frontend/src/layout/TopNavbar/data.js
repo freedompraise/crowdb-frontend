@@ -1,7 +1,4 @@
 import { FiCheckCircle, FiShoppingCart, FiUser } from 'react-icons/fi'
-import user4 from '@/assets/images/users/user-4.jpg'
-import user5 from '@/assets/images/users/user-5.jpg'
-
 /**
  * for subtraction minutes
  */
@@ -11,34 +8,29 @@ function subtractHours(date, minutes) {
 }
 const notifications = [
 	{
-		title: 'Your order is placed',
-		description: 'Dummy text of the printing and industry.',
+		title: 'New Order Recieved',
+		description: '1 order from John Doe',
 		createdAt: subtractHours(new Date(), 2),
 		icon: FiShoppingCart,
 	},
 	{
-		title: 'Meeting with designers',
-		description: 'It is a long established fact that a reader.',
-		createdAt: subtractHours(new Date(), 10),
-		image: user4,
-	},
-	{
-		title: 'UX 3 Task complete.',
-		description: 'Dummy text of the printing.',
-		createdAt: subtractHours(new Date(), 40),
+		title: 'New User Registered',
+		description: '1 user registered',
+		createdAt: subtractHours(new Date(), 4),
 		icon: FiUser,
 	},
 	{
-		title: 'Your order is placed',
-		description: 'It is a long established fact that a reader.',
-		createdAt: subtractHours(new Date(), 60),
-		image: user5,
-	},
-	{
-		title: 'Payment Successfull',
-		description: 'Dummy text of the printing.',
-		createdAt: subtractHours(new Date(), 120),
+		title: 'New Property Listed',
+		description: '1 property listed by Jane Doe',
+		createdAt: subtractHours(new Date(), 6),
 		icon: FiCheckCircle,
 	},
+	{
+		title: 'New Group Created',
+		description: '1 group created by Lucy Peterson',
+		createdAt: subtractHours(new Date(), 8),
+		icon: FiCheckCircle,
+	}
+	
 ]
 export { notifications }
