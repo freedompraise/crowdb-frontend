@@ -38,7 +38,7 @@ export const VERTICAL_MENU_ITEMS = [
 		children: [
 			{
 				key: 'apps-email',
-				label: 'Email',
+				label: 'Communication',
 				isTitle: false,
 				parentKey: 'apps',
 				children: [
@@ -54,19 +54,19 @@ export const VERTICAL_MENU_ITEMS = [
 						url: '/apps/email/read',
 						parentKey: 'apps-email',
 					},
+					{
+						key: 'apps-chat',
+						label: 'Chat',
+						url: '/apps/chat',
+						parentKey: 'apps',
+					},
+					{
+						key: 'apps-contact-list',
+						label: 'Customer List',
+						url: '/apps/contact-list',
+						parentKey: 'apps',
+					},
 				],
-			},
-			{
-				key: 'apps-chat',
-				label: 'Chat',
-				url: '/apps/chat',
-				parentKey: 'apps',
-			},
-			{
-				key: 'apps-contact-list',
-				label: 'Customer List',
-				url: '/apps/contact-list',
-				parentKey: 'apps',
 			},
 			{
 				key: 'apps-opportunities',
