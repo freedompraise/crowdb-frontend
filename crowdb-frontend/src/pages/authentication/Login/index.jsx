@@ -18,6 +18,7 @@ import { FormInputPassword, FormTextInput, PageMetaData } from '@/components'
 import RegisterForm from '../Register/RegisterForm'
 import useLogin from './useLogin'
 import AuthLayout from '../AuthLayout'
+
 const Login = () => {
 	const { loading, control, login, redirectUrl, isAuthenticated } = useLogin()
 	return (

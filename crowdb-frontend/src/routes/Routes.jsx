@@ -4,6 +4,7 @@ import { allAdminRoutes, allBlankRoutes } from './index'
 import Layout from '@/layout/Layout'
 import { useAuthContext } from '@/context'
 import DefaultLayout from '@/layout/DefaultLayout'
+
 const AllRoutes = (props) => {
 	const { isAuthenticated } = useAuthContext()
 	return (
@@ -38,6 +39,7 @@ const AllRoutes = (props) => {
 					/>
 				))}
 			</Route>
+
 
 			{/* <Route>
         {allAdminFlattedRoutes.map((route, idx) => (
