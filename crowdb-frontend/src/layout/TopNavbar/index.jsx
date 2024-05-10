@@ -1,8 +1,9 @@
 import { FiMenu } from 'react-icons/fi'
 import { Button, NavLink } from 'react-bootstrap'
 import { useThemeContext } from '@/context'
-import { Notifications, ProfileDropdown, SearchBar } from './components'
+import { Notifications, SearchBar } from './components'
 import { notifications } from './data'
+
 const TopNavbar = () => {
 	const { settings, updateSideNavMode } = useThemeContext()
 	const handleLeftMenuCallBack = () => {
@@ -19,7 +20,6 @@ const TopNavbar = () => {
 					<ul className="list-unstyled topbar-nav float-end mb-0">
 						<SearchBar />
 						<Notifications notifications={notifications} />
-						<ProfileDropdown />
 					</ul>
 					<ul className="list-unstyled topbar-nav mb-0">
 						<li>
