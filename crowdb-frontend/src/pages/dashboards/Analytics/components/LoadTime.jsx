@@ -1,6 +1,7 @@
 import { ComponentContainerCard } from '@/components'
 import ReactApexChart from 'react-apexcharts'
 import { FiCalendar } from 'react-icons/fi'
+
 const LoadTime = () => {
 	const chartOpts = {
 		chart: {
@@ -88,7 +89,7 @@ const LoadTime = () => {
 					</thead>
 					<tbody>
 						<tr>
-							<td>Dasktops</td>
+							<td>Desktops</td>
 							<td className="text-end">3 seconds</td>
 						</tr>
 						<tr>

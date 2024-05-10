@@ -5,6 +5,7 @@ import { Image } from 'react-bootstrap'
 import user5 from '@/assets/images/users/user-5.jpg'
 import user4 from '@/assets/images/users/user-4.jpg'
 import 'simplebar-react/dist/simplebar.min.css'
+
 const ActivityCard = ({ height }) => {
 	return (
 		<ComponentContainerCard
@@ -43,7 +44,7 @@ const ActivityCard = ({ height }) => {
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
 										<span>Lucy Peterson </span>
-										was added to the group, group name is{' '}
+										was added to the group{' '}
 										<a href="#">Overtake</a>
 									</p>
 									<small className="text-muted">50 Min ago</small>
@@ -59,7 +60,8 @@ const ActivityCard = ({ height }) => {
 									<p className="text-muted mb-0 font-13 w-75">
 										<span>Joseph Rust </span>
 										got a new role with
-										crowdb admin
+										{' '}
+										<a href="#">Crowdb admin</a>
 									</p>
 									<small className="text-muted">10 hours ago</small>
 								</div>
@@ -103,8 +105,8 @@ const ActivityCard = ({ height }) => {
 								<div className="d-flex justify-content-between align-items-center">
 									<p className="text-muted mb-0 font-13 w-75">
 										<span>Joseph Rust </span>
-										listed new property with
-										crowdb web
+										listed new property with{' '}
+										<a href="#">Crowdb web</a> 
 									</p>
 									<small className="text-muted">1 April 2024</small>
 								</div>
