@@ -8,7 +8,7 @@ const mock = new MockAdapter(axios, {
 export const fakeUsers = [
 	{
 		id: 1,
-		email: 'admin@mannatthemes.com',
+		email: 'johndoe@gmail.com',
 		username: 'admin',
 		password: 'password',
 		firstName: 'Admin',
