@@ -17,7 +17,7 @@ export default function useLogin() {
 		email: yup
 			.string()
 			.email('Please enter a valid email')
-			.required('Please enter Username'),
+			.required('Please enter email'),
 		password: yup.string().required('Please enter Password'),
 	})
 	const { control, handleSubmit } = useForm({
