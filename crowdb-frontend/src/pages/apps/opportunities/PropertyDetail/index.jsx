@@ -1,8 +1,8 @@
 import { PageBreadcrumb } from '@/components'
 import { Card, CardBody, Col, Row } from 'react-bootstrap'
 import { features } from './data'
-import ProductDetailCard from './components/ProductDetailCard'
-import RelatedProducts from './components/RelatedProducts'
+import PropertyDetailCard from './components/PropertyDetailCard'
+import RelatedProperties from './components/RelatedPr'
 const ProductDetail = () => {
 	return (
 		<>
@@ -10,7 +10,7 @@ const ProductDetail = () => {
 
 			<Row>
 				<Col xs={12}>
-					<ProductDetailCard />
+					<PropertyDetailCard />
 				</Col>
 			</Row>
 
@@ -36,7 +36,7 @@ const ProductDetail = () => {
 			</Row>
 			<Row>
 				<Col md={12}>
-					<RelatedProducts />
+					<RelatedProperties />
 				</Col>
 			</Row>
 		</>

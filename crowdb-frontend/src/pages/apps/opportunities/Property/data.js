@@ -1,6 +1,6 @@
 import house from '@/assets/images/properties/house.jpg'
 
-export const allProducts = [
+export const allProperties = [
 	{
 	name : 'House 1',
 	price : '100',

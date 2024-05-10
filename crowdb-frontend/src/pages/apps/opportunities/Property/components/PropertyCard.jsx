@@ -1,12 +1,11 @@
 import { Button, Card, CardBody, Image, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-const ProductCard = ({ product }) => {
+const PropertyCard = ({ product }) => {
 	const {
 		category,
 		name,
 		offer,
 		price,
-		sellPrice,
 		image,
 		ribbon,
 		ribbonColor,
@@ -58,4 +57,4 @@ const ProductCard = ({ product }) => {
 		</Card>
 	)
 }
-export default ProductCard
+export default PropertyCard

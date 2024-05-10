@@ -1,17 +1,18 @@
 import { Col, Row } from 'react-bootstrap'
 import { relatedProducts } from '../data'
-import ProductCard from '../../Products/components/ProductCard'
-const RelatedProducts = () => {
+import PropertyCard from '../../Property//components/PropertyCard'
+
+const RelatedProperties = () => {
 	return (
 		<>
 			<Row>
 				{relatedProducts.map((product, idx) => (
 					<Col md={3} key={idx}>
-						<ProductCard product={product} />
+						<PropertyCard product={product} />
 					</Col>
 				))}
 			</Row>
 		</>
 	)
 }
-export default RelatedProducts
+export default RelatedProperties

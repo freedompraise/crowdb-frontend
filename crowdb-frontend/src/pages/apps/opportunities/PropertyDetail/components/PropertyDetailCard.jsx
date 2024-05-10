@@ -1,7 +1,8 @@
 import { Card, CardBody, Col, FormControl, Image, Row } from 'react-bootstrap'
 import product4 from '@/assets/images/products/04.png'
 import { Link } from 'react-router-dom'
-const ProductDetailCard = () => {
+
+const PropertyDetailCard = () => {
 	return (
 		<Card>
 			<CardBody>
@@ -92,4 +93,4 @@ const ProductDetailCard = () => {
 		</Card>
 	)
 }
-export default ProductDetailCard
+export default PropertyDetailCard
