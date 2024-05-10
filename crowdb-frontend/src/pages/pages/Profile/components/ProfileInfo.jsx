@@ -70,7 +70,7 @@ const ProfileInfo = () => {
 										</li>
 										<li className="mt-2">
 											<i className="ti ti-email text-secondary font-16 align-middle me-2"></i>{' '}
-											<b> Email </b> : mannat.theme@gmail.com
+											<b> Email </b> : crowdbuser.theme@gmail.com
 										</li>
 										<li className="mt-2">
 											<i className="ti ti-world text-secondary font-16 align-middle me-2"></i>{' '}
@@ -79,7 +79,7 @@ const ProfileInfo = () => {
 												to="https://mannatthemes.com"
 												className="font-14 text-primary"
 											>
-												https://mannatthemes.com
+												https://crowdb.com
 											</Link>
 										</li>
 									</ul>
