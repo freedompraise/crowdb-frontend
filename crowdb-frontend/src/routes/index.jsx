@@ -383,10 +383,6 @@ const allUiRoutes = [
 	...uiRoutes,
 	...mapsRoutes,
 	...formsRoutes,
-	// ...chartsRoutes,
-	// ...tablesRoutes,
-	// ...iconsRoutes,
-	// ...widgetsRoutes,
 ]
 const allAdminRoutes = [
 	...dashboardRoutes,
