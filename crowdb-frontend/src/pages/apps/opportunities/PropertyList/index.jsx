@@ -1,68 +1,58 @@
 import { PageBreadcrumb2 } from '@/components'
 import { Col, Image, Row } from 'react-bootstrap'
-import { allProducts } from './data'
+import { allProperties } from './data'
 import { Link } from 'react-router-dom'
+
 const ProductList = () => {
 	return (
 		<>
-			<PageBreadcrumb2 appName="Ecommerce" title="Product List" />
+			<PageBreadcrumb2 appName="Opportunities" title="Properties List" />
 			<Row>
 				<Col lg={12}>
 					<div className="table-responsive">
 						<table className="table table-bordered">
 							<thead>
 								<tr>
-									<th>Product Name</th>
-									<th>Category</th>
-									<th>Pics</th>
-									<th>Price</th>
+									<th>Property Name</th>
+									<th>Amenities</th>
+									<th>Location</th>
+									<th>Size</th>
 									<th>Status</th>
-									<th>Avai.Color</th>
+									<th>Year Built</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-								{allProducts.map((product, idx) => {
+								{allProperties.map((property, idx) => {
 									return (
 										<tr key={idx}>
 											<td>
-												<Image src={product.image} height={40} />
+												<Image src={property.image} height={40} />
 												<p className="d-inline-block align-middle mb-0 ms-1">
 													<Link
 														to=""
 														className="d-inline-block align-middle mb-0 product-name"
 													>
-														{product.name}
+														{property.name}
 													</Link>
 													<br />
 													<span className="text-muted font-13">
-														{product.description}
+														{property.price}
 													</span>
 												</p>
 											</td>
-											<td>{product.category}</td>
-											<td>{product.pics}</td>
-											<td>${product.price}</td>
+											<td>{property.amenities}</td>
+											<td>{property.location}</td>
+											<td>${property.area}</td>
 											<td>
 												<span
-													className={`badge badge-soft-${product.status == 'Sold' ? 'pink' : 'purple'}`}
+													className={`badge badge-soft-${property.status == 'Sale' ? 'pink' : 'purple'}`}
 												>
-													{product.status}
+													{property.status}
 												</span>
 											</td>
 											<td>
-												<ul className="list-inline mb-0">
-													{product.availableColor.map((color, idx) => {
-														return (
-															<li
-																key={idx}
-																className="list-inline-item align-middle"
-															>
-																<i className={`fas fa-circle text-${color}`} />
-															</li>
-														)
-													})}
-												</ul>
+											{property.yearBuilt}
 											</td>
 											<td>
 												<Link to="#" className="me-1">

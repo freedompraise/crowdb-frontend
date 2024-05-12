@@ -1,14 +1,14 @@
 import { Col, Row } from 'react-bootstrap'
-import { relatedProducts } from '../data'
+import { relatedPropertiesData } from '../data'
 import PropertyCard from '../../Property//components/PropertyCard'
 
 const RelatedProperties = () => {
 	return (
 		<>
 			<Row>
-				{relatedProducts.map((product, idx) => (
+				{relatedPropertiesData.map((property, idx) => (
 					<Col md={3} key={idx}>
-						<PropertyCard product={product} />
+						<PropertyCard property={property} />
 					</Col>
 				))}
 			</Row>
