@@ -7,7 +7,7 @@ import RelatedProperties from './components/RelatedProperties';
 const PropertyDetail = () => {
 	return (
 		<>
-			<PageBreadcrumb subName="Ecommerce" title="Product Detail" />
+			<PageBreadcrumb subName="Properties" title="Property Cards" />
 
 			<Row>
 				<Col xs={12}>
@@ -21,13 +21,12 @@ const PropertyDetail = () => {
 						<Col lg={3} key={idx}>
 							<Card>
 								<CardBody>
-									<i
+									{/* <i
 										className={`mdi mdi-${feature.icon} text-${feature.variant} font-40`}
-									/>
+									/> */}
 									<h4 className="header-title">{feature.title}</h4>
 									<p className="text-muted mb-0">
-										It is a long established fact that a reader will be
-										distracted. Contrary to popular belief.
+										{feature.description}
 									</p>
 								</CardBody>
 							</Card>
