@@ -9,26 +9,26 @@ export const VERTICAL_MENU_ITEMS = [
 		label: 'Main',
 		isTitle: true,
 	},
-	{
-		key: 'dashboard',
-		icon: FiHome,
-		label: 'Dashboard',
-		isTitle: false,
-		children: [
-			{
-				key: 'ds-analytics',
-				label: 'Analytics',
-				url: '/dashboards/analytics',
-				parentKey: 'dashboard',
-			},
-			{
-				key: 'ds-sales',
-				label: 'Sales',
-				url: '/dashboards/sales',
-				parentKey: 'dashboard',
-			},
-		],
-	},
+	// {
+	// 	key: 'dashboard',
+	// 	icon: FiHome,
+	// 	label: 'Dashboard',
+	// 	isTitle: false,
+	// 	children: [
+	// 		{
+	// 			key: 'ds-analytics',
+	// 			label: 'Analytics',
+	// 			url: '/dashboards/analytics',
+	// 			parentKey: 'dashboard',
+	// 		},
+	// 		{
+	// 			key: 'ds-sales',
+	// 			label: 'Sales',
+	// 			url: '/dashboards/sales',
+	// 			parentKey: 'dashboard',
+	// 		},
+	// 	],
+	// },
 	{
 		key: 'apps',
 		icon: FiGrid,
