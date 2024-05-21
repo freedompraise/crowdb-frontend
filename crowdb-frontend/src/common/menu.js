@@ -101,24 +101,6 @@ export const VERTICAL_MENU_ITEMS = [
 				url: '/auth/recover-pw',
 				parentKey: 'auth',
 			},
-			{
-				key: 'auth-lock-screen',
-				label: 'Lock Screen',
-				url: '/auth/lock-screen',
-				parentKey: 'auth',
-			},
-			{
-				key: 'auth-error-404',
-				label: 'Error 404',
-				url: '/auth/auth-404',
-				parentKey: 'auth',
-			},
-			{
-				key: 'auth-error-500',
-				label: 'Error 500',
-				url: '/auth/auth-500',
-				parentKey: 'auth',
-			},
 		],
 	},
 ]
