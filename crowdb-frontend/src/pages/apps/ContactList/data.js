@@ -7,65 +7,46 @@ import User5 from '@/assets/images/users/user-5.jpg'
 import User6 from '@/assets/images/users/user-6.jpg'
 import User7 from '@/assets/images/users/user-7.jpg'
 import User8 from '@/assets/images/users/user-8.jpg'
+
 export const ContactsData = [
 	{
-		contactName: 'Wendy Keen',
+		contactName: 'Ronnie Buchanan',
 		contactUserImg: User1,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Business Analyst',
 	},
 	{
-		contactName: 'Jeff Beck',
+		contactName: 'Darryl Day',
 		contactUserImg: User2,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Energy Broker',
 	},
 	{
-		contactName: 'David Gilmour',
+		contactName: 'Marshall Nichols',
 		contactUserImg: User3,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Business Analyst',
 	},
 	{
-		contactName: 'Sarah Woods',
+		contactName: 'Brendan Wagner',
 		contactUserImg: User4,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Energy Broker',
 	},
 	{
-		contactName: 'Andy Timmons',
+		contactName: 'Kaitlin Delgado',
 		contactUserImg: User5,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Business Analyst',
 	},
 	{
-		contactName: 'Vince Nelson',
+		contactName: 'Leland Warner',
 		contactUserImg: User6,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Energy Broker',
 	},
 	{
-		contactName: 'Dianna Smiley',
+		contactName: 'Teresa Shaw',
 		contactUserImg: User7,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Business Analyst',
 	},
 	{
-		contactName: 'Adolfo Hess',
+		contactName: 'Leland Warner',
 		contactUserImg: User8,
-		jobProfile: 'Freelance Developer',
-	},
-	{
-		contactName: 'Jeff Beck',
-		contactUserImg: User2,
-		jobProfile: 'Freelance Developer',
-	},
-	{
-		contactName: 'David Gilmour',
-		contactUserImg: User3,
-		jobProfile: 'Freelance Developer',
-	},
-	{
-		contactName: 'Vince Nelson',
-		contactUserImg: User6,
-		jobProfile: 'Freelance Developer',
-	},
-	{
-		contactName: 'Dianna Smiley',
-		contactUserImg: User7,
-		jobProfile: 'Freelance Developer',
+		jobProfile: 'Energy Broker',
 	},
 ]
