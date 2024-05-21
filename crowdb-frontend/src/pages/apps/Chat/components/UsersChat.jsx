@@ -7,11 +7,9 @@ import {
 	TabPane,
 } from 'react-bootstrap'
 import SimpleBar from 'simplebar-react'
-
-// style
 import 'simplebar-react/dist/simplebar.min.css'
 import { Link } from 'react-router-dom'
-import DMList from './DMList'
+
 const UsersChat = ({ onUserSelect }) => {
 	return (
 		<div className="chat-box-left">
@@ -23,17 +21,7 @@ const UsersChat = ({ onUserSelect }) => {
 				>
 					<NavItem role="presentation">
 						<NavLink eventKey="1" role="tab">
-							General
-						</NavLink>
-					</NavItem>
-					<NavItem role="presentation">
-						<NavLink eventKey="2" role="tab">
 							Groups
-						</NavLink>
-					</NavItem>
-					<NavItem role="presentation">
-						<NavLink eventKey="3" role="tab">
-							Personal
 						</NavLink>
 					</NavItem>
 				</Nav>
@@ -58,10 +46,7 @@ const UsersChat = ({ onUserSelect }) => {
 				</div>
 				<SimpleBar className="chat-list">
 					<TabContent id="pills-tabContent">
-						<TabPane eventKey="1" className="fade" id="general_chat">
-							<DMList onUserSelect={onUserSelect} />
-						</TabPane>
-						<TabPane eventKey="2" className="fade" id="group_chat">
+						<TabPane eventKey="1" className="fade" id="group_chat">
 							<Link to="" className="media new-message">
 								<div className="media-left">
 									<div className="avatar-box thumb-md align-self-center me-2">
@@ -72,7 +57,7 @@ const UsersChat = ({ onUserSelect }) => {
 								</div>
 								<div className="media-body">
 									<div>
-										<h6>Design Group</h6>
+										<h6>House Owners</h6>
 										<p>Good morning! How are you?</p>
 									</div>
 									<div>
@@ -91,7 +76,7 @@ const UsersChat = ({ onUserSelect }) => {
 								</div>
 								<div className="media-body">
 									<div>
-										<h6>Front end Developers</h6>
+										<h6>Landlords</h6>
 										<p>Have A Nice day...</p>
 									</div>
 									<div>
@@ -109,7 +94,7 @@ const UsersChat = ({ onUserSelect }) => {
 								</div>
 								<div className="media-body">
 									<div>
-										<h6>UI/UX Designers</h6>
+										<h6>Headox Estate</h6>
 										<p>Congratulations everybody... </p>
 									</div>
 									<div>
@@ -127,7 +112,7 @@ const UsersChat = ({ onUserSelect }) => {
 								</div>
 								<div className="media-body">
 									<div>
-										<h6>React Developers</h6>
+										<h6>Ekoro estate Developers</h6>
 										<p>How are you Friends...</p>
 									</div>
 									<div>
@@ -145,7 +130,7 @@ const UsersChat = ({ onUserSelect }) => {
 								</div>
 								<div className="media-body">
 									<div>
-										<h6>Marketing Group</h6>
+										<h6>CrowdB marketing group 1</h6>
 										<p>How are you Friends...</p>
 									</div>
 									<div>
@@ -153,9 +138,6 @@ const UsersChat = ({ onUserSelect }) => {
 									</div>
 								</div>
 							</Link>
-						</TabPane>
-						<TabPane eventKey="3" className="fade" id="personal_chat">
-							<DMList onUserSelect={onUserSelect} />
 						</TabPane>
 					</TabContent>
 				</SimpleBar>
