@@ -6,6 +6,7 @@ import avatar6 from '@/assets/images/users/user-6.jpg'
 import avatar7 from '@/assets/images/users/user-7.jpg'
 import avatar8 from '@/assets/images/users/user-8.jpg'
 import avatar9 from '@/assets/images/users/user-9.jpg'
+
 const users = [
 	{
 		id: 1,
@@ -74,7 +75,7 @@ const users = [
 		id: 8,
 		name: 'Rikcy J',
 		avatar: avatar3,
-		lastMessage: 'Are you interested in learning?',
+		lastMessage: 'Are you interested in investing?',
 		totalUnread: 28,
 		lastMessageOn: 'Mon',
 		status: 'secondary',
@@ -175,7 +176,7 @@ for (const user of users) {
 			message: {
 				// type: "text",
 				value:
-					"3pm it is. Sure, let's discuss about presentation format, it would be great to finalize today. I am attaching the last year format and assets here..",
+					"3pm it is. Sure, let's discuss about property presentation format, it would be great to finalize today. I am attaching the recently sold property format and assets here..",
 			},
 			to: user,
 			from: defaultTo,
