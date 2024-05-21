@@ -1,18 +1,19 @@
-import { Col, Row, Card, CardBody } from 'react-bootstrap'
+import { Col, Row, Card, CardBody, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { ContactsData } from '../data'
+
 const Contacts = () => {
 	return (
-		<Row>
+		<Card>
 			{ContactsData.map((contacts, idx) => {
 				return (
-					<Col lg={3} key={idx}>
+					<Row lg={2} key={idx}>
 						<Card>
 							<CardBody>
-								<Row>
-									<Col>
+								<Col>
+									<Row>
 										<div className="media">
-											<img
+											<Image
 												src={contacts.contactUserImg}
 												alt="user"
 												className="rounded-circle thumb-lg align-self-center"
@@ -22,7 +23,7 @@ const Contacts = () => {
 												<p className="mb-0 text-muted">{contacts.jobProfile}</p>
 											</div>
 										</div>
-									</Col>
+									</Row>
 									<div className="col-auto align-self-center">
 										<ul className="list-inline mb-0">
 											<li className="list-inline-item">
@@ -30,18 +31,18 @@ const Contacts = () => {
 													<i className="fas fa-phone"></i>
 												</Link>
 												<Link to="#" className="contact-icon">
-													<i className="far fa-envelope"></i>
+													<i className="far fa-user"></i>
 												</Link>
 											</li>
 										</ul>
 									</div>
-								</Row>
+								</Col>
 							</CardBody>
 						</Card>
-					</Col>
+					</Row>
 				)
 			})}
-		</Row>
+		</Card>
 	)
 }
 export default Contacts
