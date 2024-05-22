@@ -1,6 +1,7 @@
 import { Button, Card, CardBody, Image, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-const PropertyCard = ({ product }) => {
+
+const PropertyCard = ({ property }) => {
 	const {
 		category,
 		name,
@@ -10,7 +11,7 @@ const PropertyCard = ({ product }) => {
 		ribbon,
 		ribbonColor,
 		ribbonClass,
-	} = product
+	} = property
 	return (
 		<Card>
 			<CardBody>

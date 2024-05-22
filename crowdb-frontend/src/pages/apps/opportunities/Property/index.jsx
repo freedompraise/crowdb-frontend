@@ -6,19 +6,19 @@ import PropertyCard from './components/PropertyCard'
 const Property = () => {
 	return (
 		<>
-			<PageBreadcrumb2 appName="Ecommerce" title="Products" />
+			<PageBreadcrumb2 appName="Opportunities" title="Properties" />
 			<Row>
-				{allProperties.slice(0, 4).map((product, idx) => (
+				{allProperties.slice(0, 4).map((property, idx) => (
 					<Col md={3} key={idx}>
-						<PropertyCard product={product} />
+						<PropertyCard property={property} />
 					</Col>
 				))}
 			</Row>
 			<Row>
-				{allProperties.slice(4, 8).map((product, idx) => {
+				{allProperties.slice(4, 8).map((property, idx) => {
 					return (
 						<Col md={3} key={idx}>
-							<PropertyCard product={product} />
+							<PropertyCard property={property} />
 						</Col>
 					)
 				})}
