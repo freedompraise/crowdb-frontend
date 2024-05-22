@@ -11,42 +11,66 @@ import User8 from '@/assets/images/users/user-8.jpg'
 export const ContactsData = [
 	{
 		contactName: 'Ronnie Buchanan',
+		contactID: '00001',
 		contactUserImg: User1,
-		jobProfile: 'Business Analyst',
+		userLocation: 'East Fruiteha',
+		status: 'active',
+		amountIvested: '100,000',
 	},
 	{
 		contactName: 'Darryl Day',
+		contactID: '00002',
 		contactUserImg: User2,
-		jobProfile: 'Energy Broker',
+		userLocation: 'South Brussels',
+		status: 'active',
+		amountIvested: '200,000'
 	},
 	{
 		contactName: 'Marshall Nichols',
+		contactID: '00003',
 		contactUserImg: User3,
-		jobProfile: 'Business Analyst',
+		userLocation: 'Texas',
+		status: 'inactive',
+		amountIvested: '300,000'
 	},
 	{
 		contactName: 'Brendan Wagner',
+		contactID: '00004',
 		contactUserImg: User4,
-		jobProfile: 'Energy Broker',
+		userLocation: 'Florida',
+		status: 'inactive',
+		amountIvested: '400,000'
 	},
 	{
 		contactName: 'Kaitlin Delgado',
+		contactID: '00005',
 		contactUserImg: User5,
-		jobProfile: 'Business Analyst',
+		userLocation: 'Chicago',
+		status: 'active',
+		amountIvested: '500,000'
 	},
 	{
 		contactName: 'Leland Warner',
+		contactID: '00006',
 		contactUserImg: User6,
-		jobProfile: 'Energy Broker',
+		userLocation: 'San Francisco',
+		status: 'active',
+		amountIvested: '600,000'
 	},
 	{
 		contactName: 'Teresa Shaw',
+		contactID: '00007',
 		contactUserImg: User7,
-		jobProfile: 'Business Analyst',
+		userLocation: 'California',
+		status: 'active',
+		amountIvested: '700,000'
 	},
 	{
 		contactName: 'Leland Warner',
+		contactID: '00008',
 		contactUserImg: User8,
-		jobProfile: 'Energy Broker',
+		userLocation: 'High hills, :.A',
+		status: 'active',
+		amountIvested: '800,000'
 	},
 ]
