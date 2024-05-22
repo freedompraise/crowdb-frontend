@@ -79,6 +79,12 @@ export const VERTICAL_MENU_ITEMS = [
 					// 	url: '/apps/opportunities/property-detail',
 					// 	parentKey: 'apps-opportunities',
 					// }
+					{
+						key: 'opportunities-create-property',
+						label: 'Create Property',
+						url: '/apps/opportunities/create-property',
+						parentKey: 'apps-opportunities',
+					},
 				],
 			},
 		],
