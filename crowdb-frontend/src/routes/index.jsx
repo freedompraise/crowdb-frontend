@@ -11,6 +11,7 @@ const ContactList = lazy(() => import('@/pages/apps/ContactList'))
 const Property = lazy(() => import('@/pages/apps/opportunities/Property'))
 const PropertyList = lazy(() => import('@/pages/apps/opportunities/PropertyList'))
 const PropertyDetail = lazy(() => import('@/pages/apps/opportunities/PropertyDetail'))
+const ListProperty = lazy(() => import('@/pages/apps/opportunities/ListProperty'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPW = lazy(() => import('@/pages/authentication/RecoverPW'))
@@ -116,6 +117,11 @@ const appsRoutes = [
 		name: 'Property Detail',
 		element: <PropertyDetail />,
 	},
+	{
+		path: '/apps/opportunities/create-property',
+		name: 'Create Property',
+		element: <ListProperty />,
+	}
 ]
 const authRoutes = [
 	{
