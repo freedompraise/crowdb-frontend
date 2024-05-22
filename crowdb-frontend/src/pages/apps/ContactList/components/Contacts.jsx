@@ -36,7 +36,7 @@ const Contacts = () => {
               <td>{contact.amountIvested}</td>
 			  <td>
  				 <Dropdown>
-    				<Dropdown.Toggle variant="light" id="dropdown-basic">
+    				<Dropdown.Toggle variant="dark" id="dropdown-basic">
     						</Dropdown.Toggle>
     							<Dropdown.Menu>
       								<Dropdown.Item href="#">View Details</Dropdown.Item>
