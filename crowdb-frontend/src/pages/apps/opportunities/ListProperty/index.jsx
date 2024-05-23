@@ -32,7 +32,7 @@ const ListProperty = () => {
     try {
       const response = await createProperty(formData);
       console.log('Property created successfully:', response);
-      // Handle successful creation (e.g., redirect to list page)
+      // TO DO: Handle successful creation (e.g., redirect to list page)
     } catch (error) {
       console.error('Error creating property:', error);
       setErrors(error.response?.data || { message: 'An error occurred' });
@@ -135,7 +135,7 @@ const ListProperty = () => {
                     value={formData.sizeSqft}
                     onChange={handleChange}
                     placeholder="Enter size in sqft"
-                    required
+                    
                   />
                   {errors.sizeSqft && <Form.Text className="text-danger">{errors.sizeSqft}</Form.Text>}
                 </Form.Group>
@@ -149,7 +149,7 @@ const ListProperty = () => {
                     value={formData.zipCode}
                     onChange={handleChange}
                     placeholder="Enter zip code"
-                    required
+                    
                   />
                   {errors.zipCode && <Form.Text className="text-danger">{errors.zipCode}</Form.Text>}
                 </Form.Group>
@@ -166,7 +166,7 @@ const ListProperty = () => {
                     value={formData.address}
                     onChange={handleChange}
                     placeholder="Enter address"
-                    required
+                    
                   />
                   {errors.address && <Form.Text className="text-danger">{errors.address}</Form.Text>}
                 </Form.Group>
@@ -180,7 +180,7 @@ const ListProperty = () => {
                     value={formData.owner}
                     onChange={handleChange}
                     placeholder="Enter owner's name"
-                    required
+                    
                   />
                   {errors.owner && <Form.Text className="text-danger">{errors.owner}</Form.Text>}
                 </Form.Group>
@@ -210,7 +210,6 @@ const ListProperty = () => {
                     value={formData.voteOptions}
                     onChange={handleChange}
                     placeholder="Enter vote options"
-                    required
                   />
                   {errors.voteOptions && <Form.Text className="text-danger">{errors.voteOptions}</Form.Text>}
                 </Form.Group>
