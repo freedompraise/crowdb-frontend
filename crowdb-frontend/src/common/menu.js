@@ -246,9 +246,4 @@ export const VERTICAL_MENU_ITEMS = [
 	// 	label: 'Pages',
 	// 	isTitle: true,
 	},
-	{
-		key: 'auth-pages',
-		icon: FiLock,
-		label: 'Authentication',
-	}
 ]
