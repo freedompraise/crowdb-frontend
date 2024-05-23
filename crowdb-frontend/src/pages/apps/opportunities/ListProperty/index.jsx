@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Col, Row, Button, Card } from 'react-bootstrap';
 import { PageBreadcrumb2 } from '@/components';
-import { createProperty, defaultFormData } from './api'; // Import function and default form data from api.js
+import { createProperty, defaultFormData } from './api'; 
 import { FileUploader } from '@/components/FileUploader';
+import CreatableSelect from 'react-select/creatable';
 
 const ListProperty = () => {
   const [formData, setFormData] = useState(defaultFormData);
@@ -17,12 +18,6 @@ const ListProperty = () => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
-  };
-
-  const handleTagChange = (index, newTag) => {
-    const updatedImages = [...formData.images];
-    updatedImages[index].tag = newTag;
-    setFormData({ ...formData, images: updatedImages });
   };
 
   const handleSubmit = async (event) => {
@@ -174,8 +169,11 @@ const ListProperty = () => {
                   <Form.Label>
                     Amenities
                   </Form.Label>
-                  <Form.Control type="text" name="amenities" value={formData.amenities} onChange={handleChange} />
-                  {errors.amenities && <Form.Text className="text-danger">{errors.amenities}</Form.Text>}
+                 <CreatableSelect
+                    isMulti
+                    placeholder = "Select or type amenities"
+                    options={formData.amenities}
+                  />
                 </Form.Group>
               </Col>
             </Form.Group>
