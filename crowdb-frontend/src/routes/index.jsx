@@ -1,5 +1,5 @@
 import ChartJs from '@/pages/ui-kit/charts/ChartJs'
-import { Chart } from 'chart.js'
+import FileUpload from '@/pages/ui-kit/forms/FileUpload'
 import { lazy } from 'react'
 import { Navigate } from 'react-router-dom'
 
@@ -63,7 +63,6 @@ const Spinners = lazy(() => import('@/pages/ui-kit/elements/Spinners'))
 const TabsAndAccordions = lazy(
 	() => import('@/pages/ui-kit/elements/TabsAndAccordions')
 )
-const Charts = lazy(() => import('@/pages/ui-kit/charts/ChartJs'))
 const Apex = lazy(() => import('@/pages/ui-kit/charts/Apex'))
 const Toasts = lazy(() => import('@/pages/ui-kit/elements/Toasts'))
 const Typography = lazy(() => import('@/pages/ui-kit/elements/Typography'))
@@ -295,6 +294,11 @@ const uiRoutes = [
 		element: <ChartJs />,
 	},
 	{
+		path: '/ui/charts/apex',
+		name: 'Apex',
+		element: <Apex />,
+	},
+	{
 		path: '/ui/elements/modals',
 		name: 'Modals',
 		element: <Modals />,
@@ -392,6 +396,11 @@ const formsRoutes = [
 		name: 'X Editable',
 		element: <XEditable />,
 	},
+	{
+		path: '/ui/forms/file-upload',
+		name: 'File Upload',
+		element: <FileUpload />,
+	}
 ]
 
 const allUiRoutes = [
