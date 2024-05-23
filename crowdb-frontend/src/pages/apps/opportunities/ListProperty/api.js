@@ -1,7 +1,6 @@
 
 // api.js
-const API_URL = process.env.VITE_API_URL;
-console.log('API_URL:', API_URL);
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const createProperty = async (propertyData) => {
     try {
@@ -18,7 +17,7 @@ export const createProperty = async (propertyData) => {
       }
   
       const data = await response.json();
-      return data; // Handle the response as needed
+      return data; 
     } catch (error) {
       console.error("Error:", error.message);
     }
@@ -31,7 +30,7 @@ export const createProperty = async (propertyData) => {
         slots: 0,
         marketValue: 0,
         currency: 'NGN',
-        sizeSqft: '', // Changed to sizeSqft for clarity
+        sizeSqft: '',
         zipCode: '',
         address: '',
         owner: '',
