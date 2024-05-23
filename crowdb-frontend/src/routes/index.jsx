@@ -1,3 +1,5 @@
+import ChartJs from '@/pages/ui-kit/charts/ChartJs'
+import { Chart } from 'chart.js'
 import { lazy } from 'react'
 import { Navigate } from 'react-router-dom'
 
@@ -61,6 +63,8 @@ const Spinners = lazy(() => import('@/pages/ui-kit/elements/Spinners'))
 const TabsAndAccordions = lazy(
 	() => import('@/pages/ui-kit/elements/TabsAndAccordions')
 )
+const Charts = lazy(() => import('@/pages/ui-kit/charts/ChartJs'))
+const Apex = lazy(() => import('@/pages/ui-kit/charts/Apex'))
 const Toasts = lazy(() => import('@/pages/ui-kit/elements/Toasts'))
 const Typography = lazy(() => import('@/pages/ui-kit/elements/Typography'))
 const Videos = lazy(() => import('@/pages/ui-kit/elements/Videos'))
@@ -119,7 +123,7 @@ const appsRoutes = [
 	},
 	{
 		path: '/apps/opportunities/create-property',
-		name: 'Create Property',
+		name: 'Add Property',
 		element: <ListProperty />,
 	}
 ]
@@ -284,6 +288,11 @@ const uiRoutes = [
 		path: '/ui/elements/list',
 		name: 'List',
 		element: <List />,
+	},
+	{
+		path: '/ui/charts/chartjs',
+		name: 'Chart',
+		element: <ChartJs />,
 	},
 	{
 		path: '/ui/elements/modals',
