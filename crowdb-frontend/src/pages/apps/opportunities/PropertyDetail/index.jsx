@@ -1,43 +1,38 @@
 import { PageBreadcrumb } from '@/components'
 import { Card, CardBody, Col, Row } from 'react-bootstrap'
-import { features } from './data'
+import { getPropertyData } from './data'
 import PropertyDetailCard from './components/PropertyDetailCard'
-import RelatedProperties from './components/RelatedProperties';
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
 
 const PropertyDetail = () => {
+	const [propertyData, setPropertyData] = useState(null)
+	const { id } = useParams()
+
+	useEffect(() => {
+		if (id) {
+		getPropertyData(id).then((data
+		) => setPropertyData(data))
+	}
+	},[id])
+
+	if (!propertyData) {
+        return <div>Loading...</div>
+	}
+
 	return (
 		<>
 			<PageBreadcrumb subName="Properties" title="Property Cards" />
-
 			<Row>
 				<Col xs={12}>
-					<PropertyDetailCard />
+					<PropertyDetailCard propertyData={propertyData} />
 				</Col>
 			</Row>
-
 			<Row>
-				{features.map((feature, idx) => {
-					return (
-						<Col lg={3} key={idx}>
-							<Card>
-								<CardBody>
-									{/* <i
-										className={`mdi mdi-${feature.icon} text-${feature.variant} font-40`}
-									/> */}
-									<h4 className="header-title">{feature.title}</h4>
-									<p className="text-muted mb-0">
-										{feature.description}
-									</p>
-								</CardBody>
-							</Card>
-						</Col>
-					)
-				})}
+			
 			</Row>
 			<Row>
-				<Col md={12}>
-					<RelatedProperties />
-				</Col>
 			</Row>
 		</>
 	)
