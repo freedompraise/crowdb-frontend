@@ -3,6 +3,7 @@ import { Button, NavLink } from 'react-bootstrap'
 import { useThemeContext } from '@/context'
 import { Notifications, SearchBar } from './components'
 import { notifications } from './data'
+import { Link } from 'react-router-dom'
 
 const TopNavbar = () => {
 	const { settings, updateSideNavMode } = useThemeContext()
@@ -32,9 +33,11 @@ const TopNavbar = () => {
 						</li>
 						<li className="creat-btn">
 							<NavLink>
-								<Button variant="soft-primary" size="sm" role="button">
+								<Link 
+								to="/apps/opportunities/create-property" 
+								 variant="soft-primary" size="sm" role="button">
 									<i className="fas fa-plus me-2"></i>New Property
-								</Button>
+								</Link>
 							</NavLink>
 						</li>
 					</ul>

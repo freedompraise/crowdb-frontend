@@ -70,9 +70,10 @@ const ProductList = () => {
 					</div>
 					<Row>
 						<Col>
-							<button className="btn btn-outline-light btn-sm px-4 ">
+							<Link  to="/apps/opportunities/create-property"
+							className="btn btn-outline-light btn-sm px-4">
 								+ Add New
-							</button>
+							</Link>
 						</Col>
 						<Col xs="auto">
 							<nav aria-label="...">
