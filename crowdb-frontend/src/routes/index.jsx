@@ -116,7 +116,7 @@ const appsRoutes = [
 		element: <PropertyList />,
 	},
 	{
-		path: '/apps/opportunities/property-detail',
+		path: '/apps/opportunities/property-detail/:id',
 		name: 'Property Detail',
 		element: <PropertyDetail />,
 	},
