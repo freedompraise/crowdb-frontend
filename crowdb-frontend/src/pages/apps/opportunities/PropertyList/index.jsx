@@ -30,7 +30,7 @@ const ProductList = () => {
 												<Image src={property.image} height={40} />
 												<p className="d-inline-block align-middle mb-0 ms-1">
 													<Link
-														to=""
+														to="/apps/opportunities/property-detail/b72e3036-b0d0-4fec-b497-6bbbe6477a9f"
 														className="d-inline-block align-middle mb-0 product-name"
 													>
 														{property.name}
@@ -55,7 +55,7 @@ const ProductList = () => {
 											{property.yearBuilt}
 											</td>
 											<td>
-												<Link to="#" className="me-1">
+												<Link to="" className="me-1">
 													<i className="las la-pen text-secondary font-16" />
 												</Link>
 												<Link to="#">
