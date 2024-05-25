@@ -40,7 +40,7 @@ const Contacts = () => {
     						</Dropdown.Toggle>
     							<Dropdown.Menu>
       								<Dropdown.Item href="#">View Details</Dropdown.Item>
-      								<Dropdown.Item href="#">Edit Profile</Dropdown.Item>
+      								{/* <Dropdown.Item href="#">Edit Profile</Dropdown.Item> */}
       								<Dropdown.Item href="#">Deactivate</Dropdown.Item>
     					</Dropdown.Menu>
   					</Dropdown>
