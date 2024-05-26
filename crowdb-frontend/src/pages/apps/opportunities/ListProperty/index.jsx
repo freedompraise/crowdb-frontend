@@ -4,8 +4,10 @@ import { PageBreadcrumb2 } from '@/components';
 import { createProperty, defaultFormData } from './api'; // Import function and default form data from api.js
 import { FileUploader } from '@/components/FileUploader';
 import CreatableSelect from 'react-select/creatable';
+import { useNavigate } from 'react-router-dom';
 
 const ListProperty = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState(defaultFormData);
 
   const [errors, setErrors] = useState({});
@@ -32,7 +34,8 @@ const ListProperty = () => {
     try {
       const response = await createProperty(formData);
       console.log('Property created successfully:', response);
-      // TO DO: Handle successful creation (e.g., redirect to list page)
+      navigate("/apps/opportunities/property-list")
+      
     } catch (error) {
       console.error('Error creating property:', error);
       setErrors(error.response?.data || { message: 'An error occurred' });
@@ -51,7 +54,7 @@ const ListProperty = () => {
             <Form.Group as={Row} controlId="formNameDescription">
               <Col sm={6}>
                 <Form.Group controlId="formName">
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label className="fw-bold" >Name</Form.Label>
                   <Form.Control
                     type="text"
                     name="name"
@@ -65,7 +68,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={6}>
                 <Form.Group controlId="formDescription">
-                  <Form.Label>Description</Form.Label>
+                  <Form.Label className="fw-bold">Description</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={3}
@@ -83,7 +86,7 @@ const ListProperty = () => {
             <Form.Group as={Row}>
               <Col sm={6}>
                 <Form.Group controlId="formSlots">
-                  <Form.Label>Slots</Form.Label>
+                  <Form.Label className="fw-bold">Slots</Form.Label>
                   <Form.Control
                     type="number"
                     name="slots"
@@ -97,7 +100,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={6}>
                 <Form.Group controlId="formMarketValue">
-                  <Form.Label>Market Value</Form.Label>
+                  <Form.Label className="fw-bold">Market Value</Form.Label>
                   <Form.Control
                     type="number"
                     name="marketValue"
@@ -114,7 +117,7 @@ const ListProperty = () => {
             <Form.Group as={Row}>
               <Col sm={4}>
                 <Form.Group controlId="formCurrency">
-                  <Form.Label>Currency</Form.Label>
+                  <Form.Label className="fw-bold">Currency</Form.Label>
                   <Form.Control
                     type="text"
                     name="currency"
@@ -128,7 +131,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="formSizeSqft">
-                  <Form.Label>Size (Sqft)</Form.Label>
+                  <Form.Label className="fw-bold">Size (Sqft)</Form.Label>
                   <Form.Control
                     type="text"
                     name="sizeSqft"
@@ -142,7 +145,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="formZipCode">
-                  <Form.Label>Zip Code</Form.Label>
+                  <Form.Label className="fw-bold">Zip Code</Form.Label>
                   <Form.Control
                     type="text"
                     name="zipCode"
@@ -159,7 +162,7 @@ const ListProperty = () => {
             <Form.Group as={Row}>
               <Col sm={6}>
                 <Form.Group controlId="formAddress">
-                  <Form.Label>Address</Form.Label>
+                  <Form.Label className="fw-bold">Address</Form.Label>
                   <Form.Control
                     type="text"
                     name="address"
@@ -173,7 +176,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={6}>
                 <Form.Group controlId="formOwner">
-                  <Form.Label>Owner</Form.Label>
+                  <Form.Label className="fw-bold">Owner</Form.Label>
                   <Form.Control
                     type="text"
                     name="owner"
@@ -190,7 +193,7 @@ const ListProperty = () => {
             <Form.Group as={Row}>
               <Col sm={4}>
                 <Form.Group controlId="formPreviousOwners">
-                  <Form.Label>Previous Owners</Form.Label>
+                  <Form.Label className="fw-bold">Previous Owners</Form.Label>
                   <Form.Control
                     type="text"
                     name="previousOwners"
@@ -203,7 +206,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="formVoteOptions">
-                  <Form.Label>Vote Options</Form.Label>
+                  <Form.Label className="fw-bold">Vote Options</Form.Label>
                   <Form.Control
                     type="text"
                     name="voteOptions"
@@ -216,7 +219,7 @@ const ListProperty = () => {
               </Col>
               <Col sm={4}>
                 <Form.Group controlId="formAmenities">
-                  <Form.Label>Amenities</Form.Label>
+                  <Form.Label className="fw-bold">Amenities</Form.Label>
                   <CreatableSelect
                     isMulti
                     onChange={handleAmenitiesChange}
@@ -229,7 +232,7 @@ const ListProperty = () => {
             </Form.Group>
 
             <Form.Group as={Row} controlId="formImages">
-              <Form.Label column sm={2}>
+              <Form.Label className="fw-bold" column sm={6}>
                 Images
               </Form.Label>
               <Col sm={10}>
