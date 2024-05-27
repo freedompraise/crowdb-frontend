@@ -29,11 +29,6 @@ const PropertyDetail = () => {
 					<PropertyDetailCard propertyData={propertyData} />
 				</Col>
 			</Row>
-			<Row>
-			
-			</Row>
-			<Row>
-			</Row>
 		</>
 	)
 }
