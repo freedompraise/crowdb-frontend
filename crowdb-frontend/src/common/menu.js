@@ -1,3 +1,4 @@
+import { icon } from 'leaflet'
 import {
 	FiGrid,
 	FiHome,
@@ -58,27 +59,17 @@ export const VERTICAL_MENU_ITEMS = [
 			{
 				key: 'apps-opportunities',
 				label: 'Opportunities',
+				icon: FiHome,
 				isTitle: false,
 				parentKey: 'apps',
 				children: [
-					{
-						key: 'opportunities-list',
-						label: 'Properties',
-						url: '/apps/opportunities/properties',
-						parentKey: 'apps-opportunities',
-					},
 					{
 						key: 'opportunities-property-list',
 						label: 'Properties List',
 						url: '/apps/opportunities/property-list',
 						parentKey: 'apps-opportunities',
 					},
-					// {
-					// 	key: 'opportunities-property-detail',
-					// 	label: 'Property Detail',
-					// 	url: '/apps/opportunities/property-detail',
-					// 	parentKey: 'apps-opportunities',
-					// }
+					
 					{
 						key: 'opportunities-create-property',
 						label: 'Add Property',
@@ -116,7 +107,9 @@ export const VERTICAL_MENU_ITEMS = [
 		],
 		
 	},
-	{
+
+
+	// {
 	// 	key: 'ui',
 	// 	label: 'UI Elements',
 	// 	isTitle: true,
@@ -245,5 +238,5 @@ export const VERTICAL_MENU_ITEMS = [
 	// 	key: 'pages',
 	// 	label: 'Pages',
 	// 	isTitle: true,
-	},
+	// },
 ]
