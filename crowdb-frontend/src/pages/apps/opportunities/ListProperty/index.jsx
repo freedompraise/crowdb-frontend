@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Col, Row, Button, Card } from 'react-bootstrap';
 import { PageBreadcrumb2 } from '@/components';
-import { createProperty, defaultFormData } from './api'; // Import function and default form data from api.js
+import { createProperty, defaultFormData } from './api'; 
 import { FileUploader } from '@/components/FileUploader';
 import CreatableSelect from 'react-select/creatable';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ const ListProperty = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setErrors({}); // Clear previous errors
+    setErrors({}); 
     setIsSubmitting(true);
 
     try {
