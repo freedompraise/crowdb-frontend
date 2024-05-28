@@ -5,11 +5,11 @@ import { createProperty, defaultFormData } from './api';
 import { FileUploader } from '@/components/FileUploader';
 import CreatableSelect from 'react-select/creatable';
 import { useNavigate } from 'react-router-dom';
+import { FiUploadCloud } from 'react-icons/fi';
 
 const ListProperty = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState(defaultFormData);
-
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -31,11 +31,26 @@ const ListProperty = () => {
     setErrors({}); 
     setIsSubmitting(true);
 
+    const propertyData = new FormData();
+
+    for (const key in formData) {
+      if (key === 'images') {
+        formData.images.forEach((image) => {
+          propertyData.append('images', image);
+        });
+      } else if (Array.isArray(formData[key])) {
+        formData[key].forEach((item) => {
+          propertyData.append(key, item);
+        });
+      } else {
+        propertyData.append(key, formData[key]);
+      }
+    }
+
     try {
-      const response = await createProperty(formData);
+      const response = await createProperty(propertyData);
       console.log('Property created successfully:', response);
-      navigate("/apps/opportunities/property-list")
-      
+      // navigate("/apps/opportunities/property-list");
     } catch (error) {
       console.error('Error creating property:', error);
       setErrors(error.response?.data || { message: 'An error occurred' });
@@ -54,7 +69,7 @@ const ListProperty = () => {
             <Form.Group as={Row} controlId="formNameDescription">
               <Col sm={6}>
                 <Form.Group controlId="formName">
-                  <Form.Label className="fw-bold" >Name</Form.Label>
+                  <Form.Label className="fw-bold">Name</Form.Label>
                   <Form.Control
                     type="text"
                     name="name"
@@ -84,7 +99,7 @@ const ListProperty = () => {
             </Form.Group>
 
             <Form.Group as={Row}>
-              <Col sm={6}>
+              <Col sm={4}>
                 <Form.Group controlId="formSlots">
                   <Form.Label className="fw-bold">Slots</Form.Label>
                   <Form.Control
@@ -98,18 +113,32 @@ const ListProperty = () => {
                   {errors.slots && <Form.Text className="text-danger">{errors.slots}</Form.Text>}
                 </Form.Group>
               </Col>
-              <Col sm={6}>
-                <Form.Group controlId="formMarketValue">
+              <Col sm={4}>
+                <Form.Group controlId="formPrice">
                   <Form.Label className="fw-bold">Market Value</Form.Label>
                   <Form.Control
                     type="number"
-                    name="marketValue"
-                    value={formData.marketValue}
+                    name="price"
+                    value={formData.price}
                     onChange={handleChange}
                     placeholder="Enter market value"
                     required
                   />
-                  {errors.marketValue && <Form.Text className="text-danger">{errors.marketValue}</Form.Text>}
+                  {errors.price && <Form.Text className="text-danger">{errors.price}</Form.Text>}
+                </Form.Group>
+              </Col>
+              <Col sm={4}>
+                <Form.Group controlId="formAddress">
+                  <Form.Label className="fw-bold">Address</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    placeholder="Enter address"
+                    
+                  />
+                  {errors.address && <Form.Text className="text-danger">{errors.address}</Form.Text>}
                 </Form.Group>
               </Col>
             </Form.Group>
@@ -130,17 +159,17 @@ const ListProperty = () => {
                 </Form.Group>
               </Col>
               <Col sm={4}>
-                <Form.Group controlId="formSizeSqft">
+                <Form.Group controlId="formSize">
                   <Form.Label className="fw-bold">Size (Sqft)</Form.Label>
                   <Form.Control
                     type="text"
-                    name="sizeSqft"
-                    value={formData.sizeSqft}
+                    name="size"
+                    value={formData.size}
                     onChange={handleChange}
                     placeholder="Enter size in sqft"
                     
                   />
-                  {errors.sizeSqft && <Form.Text className="text-danger">{errors.sizeSqft}</Form.Text>}
+                  {errors.size && <Form.Text className="text-danger">{errors.size}</Form.Text>}
                 </Form.Group>
               </Col>
               <Col sm={4}>
@@ -148,62 +177,18 @@ const ListProperty = () => {
                   <Form.Label className="fw-bold">Zip Code</Form.Label>
                   <Form.Control
                     type="text"
-                    name="zipCode"
-                    value={formData.zipCode}
+                    name="zipcode"
+                    value={formData.zipcode}
                     onChange={handleChange}
                     placeholder="Enter zip code"
                     
                   />
-                  {errors.zipCode && <Form.Text className="text-danger">{errors.zipCode}</Form.Text>}
+                  {errors.zipcode && <Form.Text className="text-danger">{errors.zipcode}</Form.Text>}
                 </Form.Group>
               </Col>
             </Form.Group>
 
             <Form.Group as={Row}>
-              <Col sm={6}>
-                <Form.Group controlId="formAddress">
-                  <Form.Label className="fw-bold">Address</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    placeholder="Enter address"
-                    
-                  />
-                  {errors.address && <Form.Text className="text-danger">{errors.address}</Form.Text>}
-                </Form.Group>
-              </Col>
-              <Col sm={6}>
-                <Form.Group controlId="formOwner">
-                  <Form.Label className="fw-bold">Owner</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="owner"
-                    value={formData.owner}
-                    onChange={handleChange}
-                    placeholder="Enter owner's name"
-                    
-                  />
-                  {errors.owner && <Form.Text className="text-danger">{errors.owner}</Form.Text>}
-                </Form.Group>
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row}>
-              <Col sm={4}>
-                <Form.Group controlId="formPreviousOwners">
-                  <Form.Label className="fw-bold">Previous Owners</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="previousOwners"
-                    value={formData.previousOwners}
-                    onChange={handleChange}
-                    placeholder="Enter previous owners"
-                  />
-                  {errors.previousOwners && <Form.Text className="text-danger">{errors.previousOwners}</Form.Text>}
-                </Form.Group>
-              </Col>
               <Col sm={4}>
                 <Form.Group controlId="formVoteOptions">
                   <Form.Label className="fw-bold">Vote Options</Form.Label>
@@ -229,6 +214,20 @@ const ListProperty = () => {
                   {errors.amenities && <Form.Text className="text-danger">{errors.amenities}</Form.Text>}
                 </Form.Group>
               </Col>
+              <Col sm={4}>
+                <Form.Group controlId="formOwner">
+                  <Form.Label className="fw-bold">Owner</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="owner"
+                    value={formData.owner}
+                    onChange={handleChange}
+                    placeholder="Enter owner's name"
+                    
+                  />
+                  {errors.owner && <Form.Text className="text-danger">{errors.owner}</Form.Text>}
+                </Form.Group>
+              </Col>
             </Form.Group>
 
             <Form.Group as={Row} controlId="formImages">
@@ -236,7 +235,7 @@ const ListProperty = () => {
                 Images
               </Form.Label>
               <Col sm={10}>
-                <FileUploader text={"Drop files here or click to upload."} />
+                <FileUploader icon={FiUploadCloud} text={"Drop files here or click to upload."} onChange={handleChange} />
               </Col>
             </Form.Group>
 
