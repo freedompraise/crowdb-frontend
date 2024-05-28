@@ -1,7 +1,7 @@
 import { FiMenu } from 'react-icons/fi'
 import { Button, NavLink } from 'react-bootstrap'
 import { useThemeContext } from '@/context'
-import { Notifications, SearchBar } from './components'
+import { Notifications, ProfileDropdown} from './components'
 import { notifications } from './data'
 import { Link } from 'react-router-dom'
 
@@ -19,7 +19,8 @@ const TopNavbar = () => {
 			<div className="topbar">
 				<nav className="navbar-custom">
 					<ul className="list-unstyled topbar-nav float-end mb-0">
-						<SearchBar />
+						{/* <SearchBar /> */}
+						<ProfileDropdown />
 						<Notifications notifications={notifications} />
 					</ul>
 					<ul className="list-unstyled topbar-nav mb-0">

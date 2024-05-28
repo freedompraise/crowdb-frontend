@@ -22,7 +22,7 @@ const ProfileDropdown = () => {
 				as="a"
 				className="nav-link waves-effect waves-light nav-user"
 			>
-				<span className="ms-1 nav-user-name hidden-sm">Nick</span>
+				<span className="ms-1 nav-user-name hidden-sm">Admin</span>
 				<Image
 					src={user5}
 					alt="profile-user"
