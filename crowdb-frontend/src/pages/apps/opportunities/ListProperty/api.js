@@ -4,7 +4,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const createProperty = async (propertyData) => {
     try {
-      const response = await fetch(`${API_URL}/packages`, {
+      const response = await fetch(`${API_URL}/package`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,13 +28,12 @@ export const createProperty = async (propertyData) => {
         images: [],
         description: '',
         slots: 0,
-        marketValue: 0,
+        price: 0,
         currency: 'NGN',
-        sizeSqft: '',
-        zipCode: '',
+        size: '',
+        zipcode: '',
         address: '',
         owner: '',
-        previousOwners: [],
         voteOptions: ['Rental', 'Sale', 'AirBnB', 'other'],
         amenities: [],
       }
