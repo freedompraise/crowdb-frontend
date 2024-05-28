@@ -33,7 +33,7 @@ const PageBreadcrumb2 = ({ title, appName }) => {
 									</span>
 									&nbsp;
 									<span className="" id="Select_date">
-										Jan 11
+										{new Date().toLocaleDateString()}
 									</span>
 									<FiCalendar className="align-self-center icon-xs ms-1" />
 								</Link>
