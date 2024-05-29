@@ -11,7 +11,7 @@ export function useAuthContext() {
 	return context
 }
 
-const authSessionKey = '_DASTONE_AUTH_'
+const authSessionKey = '_CROWDB_AUTH_'
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState(undefined)
 	const saveSession = (user) => {
