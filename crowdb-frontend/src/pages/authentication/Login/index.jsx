@@ -15,7 +15,7 @@ import {
 import { Link, Navigate } from 'react-router-dom'
 import logoDark from '@/assets/images/logo-sm-dark.png'
 import { FormInputPassword, FormTextInput, PageMetaData } from '@/components'
-import RegisterForm from '../Register/RegisterForm'
+// import RegisterForm from '../Register/RegisterForm'
 import useLogin from './useLogin'
 import AuthLayout from '../AuthLayout'
 
@@ -51,9 +51,9 @@ const Login = () => {
 								<NavItem>
 									<NavLink eventKey="1">Log In</NavLink>
 								</NavItem>
-								<NavItem>
+								{/* <NavItem>
 									<NavLink eventKey="2">Register</NavLink>
-								</NavItem>
+								</NavItem> */}
 							</Nav>
 
 							<TabContent>
@@ -126,23 +126,9 @@ const Login = () => {
 											</Link>
 										</p>
 									</div>
-									{/* <div className="account-social">
-										<h6 className="mb-3">Or Login With</h6>
-									</div>
-									<div className="btn-group w-100">
-										<Button variant="outline-secondary" size="sm">
-											Facebook
-										</Button>
-										<Button variant="outline-secondary" size="sm">
-											Twitter
-										</Button>
-										<Button variant="outline-secondary" size="sm">
-											Google
-										</Button>
-									</div> */}
 								</TabPane>
 
-								<TabPane
+								{/* <TabPane
 									eventKey="2"
 									className="px-3 pt-3"
 									id="Register_Tab"
@@ -155,7 +141,7 @@ const Login = () => {
 											Log in
 										</Link>
 									</p>
-								</TabPane>
+								</TabPane> */}
 							</TabContent>
 						</TabContainer>
 					</CardBody>
