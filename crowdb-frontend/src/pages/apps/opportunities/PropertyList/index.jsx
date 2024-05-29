@@ -3,6 +3,7 @@ import { PageBreadcrumb2 } from '@/components';
 import { Col, Image, Row } from 'react-bootstrap';
 import { fetchAllProperties } from '../data';
 import { Link } from 'react-router-dom';
+import house from '@/assets/images/properties/house.jpg';
 
 const PropertyList = () => {
     const [properties, setProperties] = useState([]);
@@ -48,25 +49,45 @@ const PropertyList = () => {
                             <tbody>
                                 {properties.map((property, idx) => (
                                     <tr key={idx}>
-                                        <td>
+                                      <td 
+                                        style={{ 
+                                            width: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' 
+                                        }}>
                                             {property.images && property.images.length > 0 ? (
-                                                <Image src={property.images[0]} height={40} />
-                                            ) : (
-                                                <Image src="placeholder-image-url" height={40} />
-                                            )}
-                                            <p className="d-inline-block align-middle mb-0 ms-1">
-                                                <Link
-                                                    to={`/apps/opportunities/property-detail/${property.id}`}
-                                                    className="d-inline-block align-middle mb-0 product-name"
-                                                >
-                                                    {property.name}
-                                                </Link>
-                                                <br />
-                                                <span className="text-muted font-13">
-                                                    {property.currency} {property.price}
-                                                </span>
-                                            </p>
-                                        </td>
+                                            <Image 
+                                                src={property.images[0]} 
+                                                height={40} 
+                                                style={{ maxWidth: '40px', maxHeight: '40px', display: 'inline-block' }} 
+                                                />
+                                                ) : (
+                                            <Image 
+                                                    src={house} 
+                                                    height={40} 
+                                                    style={{ maxWidth: '40px', maxHeight: '40px', display: 'inline-block' }} 
+                                                    />
+                                                )}
+                                            <p 
+                                                className="d-inline-block align-middle mb-0 ms-1" 
+                                                style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                            <Link
+                                                to={`/apps/opportunities/property-detail/${property.id}`}
+                                                className="d-inline-block align-middle mb-0 product-name"
+                                                style={{ 
+                                                    maxWidth: '150px', 
+                                                    display: 'block', 
+                                                    whiteSpace: 'nowrap', 
+                                                    overflow: 'hidden', 
+                                                    textOverflow: 'ellipsis' 
+                                                }}
+                                            >
+                                                  {property.name}
+                                            </Link>
+                                        <br />
+                                    <span className="text-muted font-13">
+                                    {property.currency} {property.price}
+                                    </span>
+                                    </p>
+                                </td>
                                         <td>
                                             {property.amenities ? property.amenities.join(', ') : 'N/A'}
                                         </td>
