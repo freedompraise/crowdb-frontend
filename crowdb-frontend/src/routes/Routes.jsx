@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-// import { useAuthContext } from "@/context";
 import { allAdminRoutes, allBlankRoutes } from './index'
 import Layout from '@/layout/Layout'
 import { useAuthContext } from '@/context'
