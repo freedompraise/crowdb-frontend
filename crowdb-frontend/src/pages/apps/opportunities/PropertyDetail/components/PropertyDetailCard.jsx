@@ -33,8 +33,8 @@ const PropertyDetailCard = ({ propertyData }) => {
         <Col lg={4} className="mb-3">
           <Card className="mb-3">
             <CardBody>
-              <h5>
-                {status === 'sale' ? 'SALE' : 'RENT'} <FaEdit style={{ cursor: 'pointer' }} />
+              <h5 className='text-uppercase'>
+                {status} <FaEdit style={{ cursor: 'pointer' }} />
               </h5>
               <p>
                 <FaMoneyBillWave /> {currency} {price} <FaEdit style={{ cursor: 'pointer' }} />

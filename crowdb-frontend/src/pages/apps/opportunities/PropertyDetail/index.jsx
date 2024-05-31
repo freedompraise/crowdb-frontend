@@ -1,5 +1,5 @@
 import { PageBreadcrumb } from '@/components'
-import { Card, CardBody, Col, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { getPropertyData } from './data'
 import PropertyDetailCard from './components/PropertyDetailCard'
 import { useParams } from 'react-router-dom'
