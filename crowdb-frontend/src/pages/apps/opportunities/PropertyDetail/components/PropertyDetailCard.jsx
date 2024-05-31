@@ -1,5 +1,5 @@
 import { Card, CardBody, Col, Row, Container, Image, Badge } from 'react-bootstrap';
-import { FaEdit, FaMapMarkerAlt, FaHome, FaMoneyBillWave } from 'react-icons/fa';
+import { FaEdit, FaMapMarkerAlt, FaHome, FaMoneyBillWave, FaTrash } from 'react-icons/fa';
 import { donutChartConfig } from '../data';
 import Chart from 'chart.js/auto';
 import { useEffect } from 'react';
@@ -37,7 +37,7 @@ const PropertyDetailCard = ({ propertyData }) => {
                 {status} <FaEdit style={{ cursor: 'pointer' }} />
               </h5>
               <p>
-                <FaMoneyBillWave /> {currency} {price} <FaEdit style={{ cursor: 'pointer' }} />
+                <FaMoneyBillWave /> {currency} {price}
               </p>
             </CardBody>
           </Card>
@@ -75,16 +75,16 @@ const PropertyDetailCard = ({ propertyData }) => {
               <Card className="mb-3">
                 <CardBody>
                   <h5>
-                    {name} <FaEdit style={{ cursor: 'pointer' }} />
+                    {name} 
                   </h5>
                   <p>
-                    <FaMoneyBillWave /> {currency} {price} <FaEdit style={{ cursor: 'pointer' }} />
+                    <FaMoneyBillWave /> {currency} {price} 
                   </p>
                   <p>
-                    <FaMapMarkerAlt /> Location: {address} <FaEdit style={{ cursor: 'pointer' }} />
+                    <FaMapMarkerAlt /> Location: {address}
                   </p>
                   <p>
-                    Postal Code: {zipcode} <FaEdit style={{ cursor: 'pointer' }} />
+                    Postal Code: {zipcode}
                   </p>
                   <p>
                     Description: {description} <FaEdit style={{ cursor: 'pointer' }} />
@@ -101,10 +101,10 @@ const PropertyDetailCard = ({ propertyData }) => {
                   <Row>
                     {amenities.length > 0 ? (
                       amenities.map((amenity, index) => (
-                        <Col key={index} xs={6} className="mb-2">
+                        <Col key={index} xs={2} className="mb-2">
                           <Badge pill variant="info">
                             {amenity}
-                          </Badge> <FaEdit style={{ cursor: 'pointer' }} />
+                          </Badge> <FaTrash style={{ cursor: 'pointer' }} />
                         </Col>
                       ))
                     ) : (
