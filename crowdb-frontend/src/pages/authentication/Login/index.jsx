@@ -118,14 +118,14 @@ const Login = () => {
 											</Col>
 										</div>
 									</form>
-									<div className="m-3 text-center text-black">
+									{/* <div className="m-3 text-center text-black">
 										<p className="mb-0">
 											Don't have an account ?{' '}
 											<Link to="/auth-register" className="text-primary ms-2">
 												Free Resister
 											</Link>
 										</p>
-									</div>
+									</div> */}
 								</TabPane>
 
 								{/* <TabPane
