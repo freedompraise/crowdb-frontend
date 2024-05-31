@@ -1,8 +1,8 @@
-import { icon } from 'leaflet'
 import {
 	FiGrid,
 	FiHome,
 	FiLock,
+	FiMessageSquare,
 } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
 	{
@@ -40,6 +40,7 @@ export const VERTICAL_MENU_ITEMS = [
 				key: 'apps-email',
 				label: 'Communication',
 				isTitle: false,
+				icon: FiMessageSquare,
 				parentKey: 'apps',
 				children: [
 					{
