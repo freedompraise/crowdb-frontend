@@ -1,16 +1,17 @@
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL
 
 export const getPropertyData = async (propertyId) => {
 	try {
-		const property = await fetch(`${API_URL}/package/${propertyId}`);
+		const property = await fetch(`${API_URL}/package/${propertyId}`, {
+			headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+		})
 		if (!property.ok) {
-			throw new Error('Error fetching property data');
+			throw new Error('Error fetching property data')
 		}
-		const data = await property.json();
-		return data;
-
+		const data = await property.json()
+		return data
 	} catch (error) {
-		console.error('Error:', error.message);
+		console.error('Error:', error.message)
 	}
 }
 
