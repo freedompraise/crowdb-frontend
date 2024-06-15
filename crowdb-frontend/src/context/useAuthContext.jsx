@@ -1,7 +1,6 @@
 import { deleteCookie, hasCookie, setCookie } from 'cookies-next'
 import { createContext, useContext, useState } from 'react'
 
-
 const AuthContext = createContext(undefined)
 export function useAuthContext() {
 	const context = useContext(AuthContext)
@@ -16,11 +15,13 @@ export function AuthProvider({ children }) {
 	const [user, setUser] = useState(undefined)
 	const saveSession = (user) => {
 		setCookie(authSessionKey, JSON.stringify(user))
+		localStorage.setItem('token', user.token)
 		setUser(user)
 	}
 	const removeSession = () => {
 		deleteCookie(authSessionKey)
 		setUser(undefined)
+		localStorage.removeItem('token')
 	}
 	return (
 		<AuthContext.Provider
@@ -29,8 +30,7 @@ export function AuthProvider({ children }) {
 				isAuthenticated: hasCookie(authSessionKey),
 				saveSession,
 				removeSession,
-			}}
-		>
+			}}>
 			{children}
 		</AuthContext.Provider>
 	)
