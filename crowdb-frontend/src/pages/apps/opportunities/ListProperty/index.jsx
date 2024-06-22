@@ -51,7 +51,7 @@ const ListProperty = () => {
 		try {
 			const response = await createProperty(propertyData)
 			console.log('The property was created successfully!', response)
-			navigate('/apps/opportunities/property-list')
+			// navigate('/apps/opportunities/property-list')
 		} catch (error) {
 			console.error('Error creating property:', error)
 			setErrors({ ...errors, createProperty: error.message })
