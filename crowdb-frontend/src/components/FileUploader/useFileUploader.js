@@ -8,16 +8,13 @@ export default function useFileUploader(showPreview = true) {
 	const handleAcceptedFiles = (files, callback) => {
 		let allFiles = files
 		if (showPreview) {
+			allFiles = [...selectedFiles]
 			files.map((file) =>
 				Object.assign(file, {
-					preview:
-						file['type'].split('/')[0] === 'image'
-							? URL.createObjectURL(file)
-							: null,
+					preview: URL.createObjectURL(file),
 					formattedSize: formatBytes(file.size),
 				})
 			)
-			allFiles = [...selectedFiles]
 			allFiles.push(...files)
 			setSelectedFiles(allFiles)
 		}
