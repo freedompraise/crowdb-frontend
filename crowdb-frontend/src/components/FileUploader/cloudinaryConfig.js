@@ -5,35 +5,30 @@ import { v2 as cloudinary } from 'cloudinary'
 		api_key: '763167989451863',
 		api_secret: import.meta.env.VITE_CLOUDINARY_SECRET,
 	})
+})(cloudinary)
 
-	// // Upload an image
-	// const uploadResult = await cloudinary.uploader
-	// 	.upload('https://res.cloudinary.com/demo/image/upload/sample.jpg', {
-	// 		folder: 'demo',
-	// 		public_id: 'sample',
-	// 	}
-	// 	)
-	// 	.catch((error) => {
-	// 		console.log(error)
-	// 	})
+const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dkynj442k/image/upload'
+const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
 
-	// console.log(uploadResult)
+export const uploadImageToCloudinary = async (image) => {
+	const formData = new FormData()
+	formData.append('file', image)
+	formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
 
-	// // Optimize delivery by resizing and applying auto-format and auto-quality
-	// const optimizeUrl = cloudinary.url('', {
-	// 	fetch_format: 'auto',
-	// 	quality: 'auto',
-	// })
+	try {
+		const response = await fetch(CLOUDINARY_URL, {
+			method: 'POST',
+			body: formData,
+		})
 
-	// console.log(optimizeUrl)
+		if (!response.ok) {
+			throw new Error('Error uploading image to Cloudinary')
+		}
 
-	// // Transform the image: auto-crop to square aspect_ratio
-	// const autoCropUrl = cloudinary.url('', {
-	// 	crop: 'auto',
-	// 	gravity: 'auto',
-	// 	width: 500,
-	// 	height: 500,
-	// })
-
-	// console.log(autoCropUrl)
-})()
+		const data = await response.json()
+		return data
+	} catch (error) {
+		console.error('Error uploading image:', error)
+		throw error
+	}
+}

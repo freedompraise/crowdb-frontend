@@ -17,37 +17,7 @@ const ListProperty = () => {
 	const handleChange = (event) => {
 		const { name, value, files } = event.target
 		if (files) {
-			const imageFiles = Array.from(files)
-			const formData = new FormData()
-			imageFiles.forEach((file) => {
-				formData.append('file', file)
-				formData.append(
-					'upload_preset',
-					import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
-				)
-			})
-
-			fetch(cloudinaryUrl, {
-				method: 'POST',
-				body: formData,
-			})
-				.then((response) => {
-					if (!response.ok) {
-						throw new Error('Error uploading image to Cloudinary')
-					}
-					return response.json()
-				})
-				.then((data) => {
-					const cloudinaryLinks = data.map((image) => image.secure_url)
-					setFormData({
-						...formData,
-						images: [...formData.images, ...cloudinaryLinks],
-					})
-				})
-				.catch((error) => {
-					console.error('Error uploading image:', error)
-					setErrors({ ...errors, images: error.message })
-				})
+			setFormData({ ...formData, images: [...formData.images, ...files] })
 		} else {
 			setFormData({ ...formData, [name]: value })
 		}
@@ -63,15 +33,32 @@ const ListProperty = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault()
 		setIsSubmitting(true)
-		const response = await createProperty(formData)
-		if (response && response.success) {
-			// navigate('/apps/opportunities/properties')
-			console.log('Property created successfully')
-		} else {
-			console.error('Error creating property:', response)
-			setIsSubmitting(false)
+		const propertyData = new FormData()
+
+		for (const key in formData) {
+			if (key === 'images') {
+				formData.images.forEach((image) => {
+					propertyData.append('images', image.url)
+				})
+			} else if (Array.isArray(formData[key])) {
+				formData[key].forEach((item) => {
+					propertyData.append(key, item)
+				})
+			} else {
+				propertyData.append(key, formData[key])
+			}
 		}
+		try {
+			const response = await createProperty(propertyData)
+			console.log('The property was created successfully!', response)
+			navigate('/apps/opportunities/property-list')
+		} catch (error) {
+			console.error('Error creating property:', error)
+			setErrors({ ...errors, createProperty: error.message })
+		}
+		setIsSubmitting(false)
 	}
+
 	return (
 		<>
 			<PageBreadcrumb2 appName={'Opportunities'} title={'Create Property'} />

@@ -9,7 +9,7 @@ export const createProperty = async (propertyData) => {
 				'Content-Type': 'application/json',
 				Authorization: 'Bearer ' + localStorage.getItem('token'),
 			},
-			body: JSON.stringify(propertyData),
+			body: propertyData,
 		})
 
 		if (!response.ok) {

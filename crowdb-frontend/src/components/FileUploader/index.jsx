@@ -15,12 +15,31 @@ const FileUploader = ({
 		useFileUploader(showPreview)
 	const Icon = icon
 
+	const handleFiles = async (acceptedFiles) => {
+		setUploading(true)
+		setError(null)
+
+		try {
+			const uploadedFiles = await Promise.all(
+				acceptedFiles.map(async (file) => {
+					const data = await uploadImageToCloudinary(file)
+					return {
+						...file,
+						url,
+					}
+				})
+			)
+			handleAcceptedFiles(uploadedFiles, onFileUpload)
+		} catch (error) {
+			throw error
+		} finally {
+			setUploading(false)
+		}
+	}
+
 	return (
 		<div>
-			<Dropzone
-				onDrop={(acceptedFiles) =>
-					handleAcceptedFiles(acceptedFiles, onFileUpload)
-				}>
+			<Dropzone onDrop={handleFiles}>
 				{({ getRootProps, getInputProps }) => (
 					<div
 						className="dropzone d-flex justify-content-center align-items-center"
