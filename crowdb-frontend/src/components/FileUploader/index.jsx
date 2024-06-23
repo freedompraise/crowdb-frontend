@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Dropzone from 'react-dropzone'
-import { FiX } from 'react-icons/fi'
+import { FiUploadCloud, FiX } from 'react-icons/fi'
 import { Card, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { uploadImageToCloudinary } from './cloudinaryConfig'
@@ -27,12 +27,13 @@ const FileUploader = ({
 			const uploadedFiles = await Promise.all(
 				acceptedFiles.map(async (file) => {
 					if (!file || !file.type) {
-						console.error('File type not supported', file)
+						console.error('Invalid file object:', file)
 						return null
 					}
 
 					try {
 						const url = await uploadImageToCloudinary(file)
+						console.log('File uploaded successfully:', { ...file, url })
 						return {
 							...file,
 							url,
@@ -42,7 +43,7 @@ const FileUploader = ({
 							formattedSize: `${(file.size / 1024).toFixed(2)} KB`,
 						}
 					} catch (error) {
-						console.error('Error uploading images:', file, error)
+						console.error('Error uploading image to Cloudinary:', file, error)
 						return null
 					}
 				})
@@ -59,7 +60,7 @@ const FileUploader = ({
 
 	return (
 		<div>
-			<Dropzone onDrop={handleFiles}>
+			<Dropzone onDrop={handleFiles} accept="image/*">
 				{({ getRootProps, getInputProps }) => (
 					<div
 						className="dropzone d-flex justify-content-center align-items-center"
