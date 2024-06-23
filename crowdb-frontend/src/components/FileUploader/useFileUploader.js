@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 export default function useFileUploader(showPreview = true) {
 	const [selectedFiles, setSelectedFiles] = useState([])
 
@@ -10,23 +11,20 @@ export default function useFileUploader(showPreview = true) {
 		if (showPreview) {
 			files = files
 				.map((file) => {
-					if (!file || !file.type) {
-						console.error('File type not supported', file)
-						return null
+					if (file.preview) {
+						return file
 					}
 					try {
 						return Object.assign(file, {
-							preview: file.type.startsWith('image')
-								? URL.createObjectURL(file)
-								: null,
+							preview: URL.createObjectURL(file),
 							formattedSize: formatBytes(file.size),
 						})
 					} catch (error) {
-						console.error('Error uploading images:', error)
+						console.error('Error creating object URL for file:', file, error)
 						return null
 					}
 				})
-				.filter(Boolean)
+				.filter(Boolean) // Filter out any null values resulting from invalid files
 			allFiles.push(...files)
 			setSelectedFiles(allFiles)
 		}
