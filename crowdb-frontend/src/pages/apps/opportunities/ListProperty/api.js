@@ -36,6 +36,6 @@ export const defaultFormData = {
 	zipcode: '',
 	address: '',
 	owner: '',
-	voteOptions: ['Rental', 'Sale', 'AirBnB', 'other'],
+	// voteOptions: ['Rental', 'Sale', 'AirBnB', 'other'],
 	amenities: [],
 }

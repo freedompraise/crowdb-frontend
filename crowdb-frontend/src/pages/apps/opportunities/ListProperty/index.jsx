@@ -39,9 +39,14 @@ const ListProperty = () => {
 
 		for (const key in formData) {
 			if (key === 'images') {
-				formData.images.forEach((image) => {
-					propertyData.append('images', image.url)
+				const imageUrls = formData.images.map((image) => {
+					const imageUrl = `${cloudinaryUrl}/upload/${image.name}`
+					propertyData.append('images', image)
+					return image
 				})
+				propertyData.append('images', JSON.stringify(imageUrls))
+			} else if (key === 'amenities') {
+				propertyData.append(key, JSON.stringify(formData[key]))
 			} else if (Array.isArray(formData[key])) {
 				formData[key].forEach((item) => {
 					propertyData.append(key, item)
@@ -49,6 +54,10 @@ const ListProperty = () => {
 			} else {
 				propertyData.append(key, formData[key])
 			}
+		}
+
+		for (let [key, value] of propertyData.entries()) {
+			console.log(key, value)
 		}
 
 		const result = await createProperty(propertyData)
@@ -217,7 +226,7 @@ const ListProperty = () => {
 							</Col>
 						</Form.Group>
 
-						<Form.Group as={Row}>
+						{/* <Form.Group as={Row}>
 							<Col sm={4}>
 								<Form.Group controlId="formVoteOptions">
 									<Form.Label className="fw-bold">Vote Options</Form.Label>
@@ -270,7 +279,7 @@ const ListProperty = () => {
 									)}
 								</Form.Group>
 							</Col>
-						</Form.Group>
+						</Form.Group> */}
 
 						<Form.Group as={Row} controlId="formImages">
 							<Form.Label className="fw-bold" column sm={6}>
