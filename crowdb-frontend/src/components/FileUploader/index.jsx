@@ -26,18 +26,29 @@ const FileUploader = ({
 		try {
 			const uploadedFiles = await Promise.all(
 				acceptedFiles.map(async (file) => {
-					const url = await uploadImageToCloudinary(file)
-					return {
-						...file,
-						url,
-						preview: file.type.startsWith('image')
-							? URL.createObjectURL(file)
-							: null,
-						formattedSize: `${(file.size / 1024).toFixed(2)} KB`,
+					if (!file || !file.type) {
+						console.error('File type not supported', file)
+						return null
+					}
+
+					try {
+						const url = await uploadImageToCloudinary(file)
+						return {
+							...file,
+							url,
+							preview: file.type.startsWith('image')
+								? URL.createObjectURL(file)
+								: null,
+							formattedSize: `${(file.size / 1024).toFixed(2)} KB`,
+						}
+					} catch (error) {
+						console.error('Error uploading images:', file, error)
+						return null
 					}
 				})
 			)
-			handleAcceptedFiles(uploadedFiles, onFileUpload)
+			const validUploadedFiles = uploadedFiles.filter(Boolean)
+			handleAcceptedFiles(validUploadedFiles, onFileUpload)
 		} catch (error) {
 			console.error('Error uploading images:', error)
 			setError('Error uploading images')
