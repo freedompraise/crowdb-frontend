@@ -6,15 +6,27 @@ export default function useFileUploader(showPreview = true) {
 	 * Handled the accepted files and shows the preview
 	 */
 	const handleAcceptedFiles = (files, callback) => {
-		let allFiles = files
+		let allFiles = [...selectedFiles]
 		if (showPreview) {
-			allFiles = [...selectedFiles]
-			files.map((file) =>
-				Object.assign(file, {
-					preview: URL.createObjectURL(file),
-					formattedSize: formatBytes(file.size),
+			files = files
+				.map((file) => {
+					if (!file || !file.type) {
+						console.error('File type not supported', file)
+						return null
+					}
+					try {
+						return Object.assign(file, {
+							preview: file.type.startsWith('image')
+								? URL.createObjectURL(file)
+								: null,
+							formattedSize: formatBytes(file.size),
+						})
+					} catch (error) {
+						console.error('Error uploading images:', error)
+						return null
+					}
 				})
-			)
+				.filter(Boolean)
 			allFiles.push(...files)
 			setSelectedFiles(allFiles)
 		}
@@ -28,7 +40,7 @@ export default function useFileUploader(showPreview = true) {
 		if (bytes === 0) return '0 Bytes'
 		const k = 1024
 		const dm = decimals < 0 ? 0 : decimals
-		const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+		const sizes = ['Bytes', 'KB', 'MB', 'GB']
 		const i = Math.floor(Math.log(bytes) / Math.log(k))
 		return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 	}
