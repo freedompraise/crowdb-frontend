@@ -6,21 +6,22 @@ export const createProperty = async (propertyData) => {
 		const response = await fetch(`${API_URL}/package`, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json',
 				Authorization: 'Bearer ' + localStorage.getItem('token'),
 			},
 			body: propertyData,
 		})
 
 		if (!response.ok) {
-			throw new Error('Error sending data to the server')
+			const errorData = await response.json()
+			throw new Error(errorData.message || 'Error sending data to the server')
 		}
 
 		const data = await response.json()
-		return data
+		console.log('Property created:', data)
+		return { success: true, data }
 	} catch (error) {
 		console.error('Error creating property:', error)
-		return { success: false }
+		return { success: false, message: error.message }
 	}
 }
 

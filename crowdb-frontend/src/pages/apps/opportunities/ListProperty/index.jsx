@@ -33,6 +33,8 @@ const ListProperty = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault()
 		setIsSubmitting(true)
+		setErrors({})
+
 		const propertyData = new FormData()
 
 		for (const key in formData) {
@@ -48,14 +50,17 @@ const ListProperty = () => {
 				propertyData.append(key, formData[key])
 			}
 		}
-		try {
-			const response = await createProperty(propertyData)
-			console.log('The property was created successfully!', response)
-			// navigate('/apps/opportunities/property-list')
-		} catch (error) {
-			console.error('Error creating property:', error)
-			setErrors({ ...errors, createProperty: error.message })
+
+		const result = await createProperty(propertyData)
+
+		if (result.success) {
+			console.log('The property was created successfully!', result.data)
+			navigate('/apps/opportunities/property-list')
+		} else {
+			console.error('Error creating property:', result.message)
+			setErrors({ ...errors, createProperty: result.message })
 		}
+
 		setIsSubmitting(false)
 	}
 
