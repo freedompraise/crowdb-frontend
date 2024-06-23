@@ -168,7 +168,6 @@ const ListProperty = () => {
 										type="text"
 										name="currency"
 										value={formData.currency}
-										onChange={handleChange}
 										placeholder="Enter currency"
 										required
 									/>
