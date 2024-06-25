@@ -226,8 +226,8 @@ const ListProperty = () => {
 							</Col>
 						</Form.Group>
 
-						{/* <Form.Group as={Row}>
-							<Col sm={4}>
+						<Form.Group as={Row}>
+							{/*	<Col sm={4}>
 								<Form.Group controlId="formVoteOptions">
 									<Form.Label className="fw-bold">Vote Options</Form.Label>
 									<Form.Control
@@ -243,6 +243,7 @@ const ListProperty = () => {
 									)}
 								</Form.Group>
 							</Col>
+							*/}
 							<Col sm={4}>
 								<Form.Group controlId="formAmenities">
 									<Form.Label className="fw-bold">Amenities</Form.Label>
@@ -279,7 +280,7 @@ const ListProperty = () => {
 									)}
 								</Form.Group>
 							</Col>
-						</Form.Group> */}
+						</Form.Group>
 
 						<Form.Group as={Row} controlId="formImages">
 							<Form.Label className="fw-bold" column sm={6}>
