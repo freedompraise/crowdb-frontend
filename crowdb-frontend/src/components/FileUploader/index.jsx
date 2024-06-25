@@ -33,7 +33,7 @@ const FileUploader = ({
 
 					try {
 						const url = await uploadImageToCloudinary(file)
-						console.log('File uploaded successfully:', { ...file, url })
+
 						return {
 							...file,
 							url,
