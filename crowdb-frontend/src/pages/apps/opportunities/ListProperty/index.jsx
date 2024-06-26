@@ -12,12 +12,12 @@ const ListProperty = () => {
 	const [formData, setFormData] = useState(defaultFormData)
 	const [errors, setErrors] = useState({})
 	const [isSubmitting, setIsSubmitting] = useState(false)
-	const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_URL
 
 	const handleChange = (event) => {
 		const { name, value, files } = event.target
 		if (files) {
-			setFormData({ ...formData, images: [...formData.images, ...files] })
+			const fileList = Array.from(files)
+			setFormData({ ...formData, images: [...formData.images, ...fileList] })
 		} else {
 			setFormData({ ...formData, [name]: value })
 		}
@@ -39,13 +39,10 @@ const ListProperty = () => {
 
 		for (const key in formData) {
 			if (key === 'images') {
-				const imageUrls = formData.images.map((image) => {
-					const imageUrl = `${cloudinaryUrl}/upload/${image.name}`
-					propertyData.append('images', image)
-					return image
+				formData.images.forEach((image) => {
+					propertyData.append('images', image.url)
 				})
-				propertyData.append('images', JSON.stringify(imageUrls))
-			} else if (key === 'amenities') {
+			} else if (key === 'voteOptions' || key === 'amenities') {
 				propertyData.append(key, JSON.stringify(formData[key]))
 			} else if (Array.isArray(formData[key])) {
 				formData[key].forEach((item) => {
