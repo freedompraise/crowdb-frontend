@@ -1,4 +1,4 @@
-const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dkynj442k/image/upload'
+const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL
 const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
 
 export const uploadImageToCloudinary = async (image) => {
