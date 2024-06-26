@@ -49,6 +49,7 @@ const FileUploader = ({
 			)
 			const validUploadedFiles = uploadedFiles.filter(Boolean)
 			handleAcceptedFiles(validUploadedFiles, onFileUpload)
+			if (onFileUpload) onFileUpload(validUploadedFiles)
 		} catch (error) {
 			console.error('Error uploading images:', error)
 			setError('Error uploading images')
