@@ -13,6 +13,10 @@ const ListProperty = () => {
 	const [errors, setErrors] = useState({})
 	const [isSubmitting, setIsSubmitting] = useState(false)
 
+	const handleFileUpload = (uploadedFiles) => {
+		setFormData({ ...formData, images: uploadedFiles })
+	}
+
 	const handleChange = (event) => {
 		const { name, value, files } = event.target
 		if (files) {
@@ -52,11 +56,6 @@ const ListProperty = () => {
 				propertyData.append(key, formData[key])
 			}
 		}
-
-		for (let [key, value] of propertyData.entries()) {
-			console.log(key, value)
-		}
-
 		const result = await createProperty(propertyData)
 
 		if (result.success) {
@@ -66,7 +65,6 @@ const ListProperty = () => {
 			console.error('Error creating property:', result.message)
 			setErrors({ ...errors, createProperty: result.message })
 		}
-
 		setIsSubmitting(false)
 	}
 
@@ -287,7 +285,7 @@ const ListProperty = () => {
 								<FileUploader
 									icon={FiUploadCloud}
 									text={'Drop files here or click to upload.'}
-									onChange={handleChange}
+									onFileUpload={handleFileUpload}
 								/>
 							</Col>
 						</Form.Group>
