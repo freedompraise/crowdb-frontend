@@ -30,7 +30,6 @@ const FileUploader = ({
 						console.error('Invalid file object:', file)
 						return null
 					}
-
 					try {
 						const url = await uploadImageToCloudinary(file)
 
@@ -60,7 +59,7 @@ const FileUploader = ({
 
 	return (
 		<div>
-			<Dropzone onDrop={handleFiles} accept="image/*">
+			<Dropzone onDrop={handleFiles}>
 				{({ getRootProps, getInputProps }) => (
 					<div
 						className="dropzone d-flex justify-content-center align-items-center"
