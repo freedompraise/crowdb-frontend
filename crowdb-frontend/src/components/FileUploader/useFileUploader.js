@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 export default function useFileUploader(showPreview = true) {
 	const [selectedFiles, setSelectedFiles] = useState([])
 
@@ -6,18 +7,24 @@ export default function useFileUploader(showPreview = true) {
 	 * Handled the accepted files and shows the preview
 	 */
 	const handleAcceptedFiles = (files, callback) => {
-		let allFiles = files
+		let allFiles = [...selectedFiles]
 		if (showPreview) {
-			files.map((file) =>
-				Object.assign(file, {
-					preview:
-						file['type'].split('/')[0] === 'image'
-							? URL.createObjectURL(file)
-							: null,
-					formattedSize: formatBytes(file.size),
+			files = files
+				.map((file) => {
+					if (file.preview) {
+						return file
+					}
+					try {
+						return Object.assign(file, {
+							preview: URL.createObjectURL(file),
+							formattedSize: formatBytes(file.size),
+						})
+					} catch (error) {
+						console.error('Error creating object URL for file:', file, error)
+						return null
+					}
 				})
-			)
-			allFiles = [...selectedFiles]
+				.filter(Boolean) // Filter out any null values resulting from invalid files
 			allFiles.push(...files)
 			setSelectedFiles(allFiles)
 		}
@@ -31,7 +38,7 @@ export default function useFileUploader(showPreview = true) {
 		if (bytes === 0) return '0 Bytes'
 		const k = 1024
 		const dm = decimals < 0 ? 0 : decimals
-		const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+		const sizes = ['Bytes', 'KB', 'MB', 'GB']
 		const i = Math.floor(Math.log(bytes) / Math.log(k))
 		return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 	}
