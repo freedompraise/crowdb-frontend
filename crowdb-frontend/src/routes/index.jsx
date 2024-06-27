@@ -11,9 +11,15 @@ const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
 const Property = lazy(() => import('@/pages/apps/opportunities/Property'))
-const PropertyList = lazy(() => import('@/pages/apps/opportunities/PropertyList'))
-const PropertyDetail = lazy(() => import('@/pages/apps/opportunities/PropertyDetail'))
-const ListProperty = lazy(() => import('@/pages/apps/opportunities/ListProperty'))
+const PropertyList = lazy(
+	() => import('@/pages/apps/opportunities/PropertyList')
+)
+const PropertyDetail = lazy(
+	() => import('@/pages/apps/opportunities/PropertyDetail')
+)
+const ListProperty = lazy(
+	() => import('@/pages/apps/opportunities/ListProperty')
+)
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPW = lazy(() => import('@/pages/authentication/RecoverPW'))
@@ -81,7 +87,7 @@ const dashboardRoutes = [
 	{
 		path: '/',
 		name: 'Home Page',
-		element: <Navigate to="/dashboards/analytics" />,
+		element: <Navigate to="apps/opportunities/property-list" />,
 	},
 	{
 		path: '/dashboards/analytics',
@@ -124,7 +130,7 @@ const appsRoutes = [
 		path: '/apps/opportunities/create-property',
 		name: 'Add Property',
 		element: <ListProperty />,
-	}
+	},
 ]
 const authRoutes = [
 	{
@@ -400,14 +406,10 @@ const formsRoutes = [
 		path: '/ui/forms/file-upload',
 		name: 'File Upload',
 		element: <FileUpload />,
-	}
+	},
 ]
 
-const allUiRoutes = [
-	...uiRoutes,
-	...mapsRoutes,
-	...formsRoutes,
-]
+const allUiRoutes = [...uiRoutes, ...mapsRoutes, ...formsRoutes]
 const allAdminRoutes = [
 	...dashboardRoutes,
 	...appsRoutes,
