@@ -206,7 +206,7 @@ const ListProperty = () => {
 								<Form.Group controlId="formZipCode">
 									<Form.Label className="fw-bold">Zip Code</Form.Label>
 									<Form.Control
-										type="text"
+										type="number"
 										name="zipcode"
 										value={formData.zipcode}
 										onChange={handleChange}
