@@ -1,4 +1,4 @@
-import { HttpClient } from '@/common'
+import axios from 'axios'
 import { useAuthContext } from '@/context'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
@@ -37,11 +37,12 @@ export default function useLogin() {
 	const login = handleSubmit(async function (values) {
 		setLoading(true)
 		try {
-			const res = await HttpClient.post(`${API_URL}/admins/auth/login`, values)
-			if (res.data.token) {
+			const res = await axios.post(`${API_URL}/admins/auth/login`, values)
+			console.log('API response', res.data)
+			if (res.data.data.token) {
 				saveSession({
-					...(res.data.user ?? {}),
-					token: res.data.token,
+					...(res.data.data.user ?? {}),
+					token: res.data.data.token,
 				})
 				toast.success('Successfully logged in. Redirecting....', {
 					position: 'top-right',
