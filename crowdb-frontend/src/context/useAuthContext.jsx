@@ -10,16 +10,16 @@ export function useAuthContext() {
 	return context
 }
 
-const authSessionKey = '_CROWDB_AUTH_'
+const authTokenKey = 'CROWDB_AUTH_TOKEN'
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState(undefined)
 	const saveSession = (user) => {
-		setCookie(authSessionKey, JSON.stringify(user))
+		setCookie(authTokenKey, JSON.stringify(user))
 		localStorage.setItem('token', user.token)
 		setUser(user)
 	}
 	const removeSession = () => {
-		deleteCookie(authSessionKey)
+		deleteCookie(authTokenKey)
 		setUser(undefined)
 		localStorage.removeItem('token')
 	}
@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
 		<AuthContext.Provider
 			value={{
 				user,
-				isAuthenticated: hasCookie(authSessionKey),
+				isAuthenticated: hasCookie(authTokenKey),
 				saveSession,
 				removeSession,
 			}}>
