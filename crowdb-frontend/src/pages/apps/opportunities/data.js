@@ -11,7 +11,7 @@ export const fetchAllProperties = async () => {
 			throw new Error('Error fetching properties')
 		}
 		const data = await properties.json()
-		return data.items
+		return data.data
 	} catch (error) {
 		console.error('Error:', error.message)
 	}

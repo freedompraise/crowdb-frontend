@@ -9,7 +9,7 @@ export const getPropertyData = async (propertyId) => {
 			throw new Error('Error fetching property data')
 		}
 		const data = await property.json()
-		return data
+		return data.data
 	} catch (error) {
 		console.error('Error:', error.message)
 	}
