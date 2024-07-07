@@ -13,10 +13,10 @@ const InviteUser = () => {
 		setFormData({ ...formData, [name]: value })
 	}
 
-	const handleRoleChange = (selectedOptions) => {
+	const handleRoleChange = (selectedOption) => {
 		setFormData({
 			...formData,
-			role: selectedOptions.value,
+			roleId: selectedOption ? selectedOption.value : '',
 		})
 	}
 
@@ -24,8 +24,16 @@ const InviteUser = () => {
 		event.preventDefault()
 		setIsSubmitting(true)
 		setErrors({})
+
+		console.log('The formData is:', formData)
 		const result = await postInviteUser(formData)
-		console.log('Result:', result)
+
+		if (result.success) {
+			throw new Error('User was invited successfully!')
+		} else {
+			setErrors({ message: result.message })
+		}
+		setIsSubmitting(false)
 	}
 
 	return (
@@ -67,33 +75,32 @@ const InviteUser = () => {
 								placeholder="Enter first name"
 								value={formData.firstName}
 								pattern="^[a-zA-Z]+$"
-								onError={(e) => {
-									e.target.setCustomValidity(
-										'Please enter a first name with only letters'
-									)
-								}}
+								title="Enter a valid first name (only letters allowed)"
 								required
 								onChange={handleChange}
 							/>
 						</div>
-						<div className="mb-3">
-							<label htmlFor="role" className="form-label">
-								Role
-							</label>
-							<CreatableSelect
-								id="role"
-								name="role"
-								value={formData.role}
-								required
-								onChange={handleRoleChange}
-								options={[
-									{ value: 'admin', label: 'Admin' },
-									{ value: 'user', label: 'User' },
-								]}
-							/>
-						</div>
+						<CreatableSelect
+							id="roleId"
+							name="roleId"
+							value={
+								formData.roleId
+									? { value: formData.roleId, label: formData.roleId }
+									: null
+							}
+							required
+							onChange={handleRoleChange}
+							options={[
+								{ value: 'admin', label: 'Admin' },
+								{ value: 'user', label: 'User' },
+							]}
+						/>
+
 						<button type="submit" className="btn btn-primary">
 							{isSubmitting ? 'Submitting...' : 'Submit'}
+							{errors.message && (
+								<div className="alert alert-danger mt-2">{errors.message}</div>
+							)}
 						</button>
 					</form>
 				</div>
