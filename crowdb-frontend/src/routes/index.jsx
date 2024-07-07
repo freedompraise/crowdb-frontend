@@ -20,6 +20,7 @@ const PropertyDetail = lazy(
 const ListProperty = lazy(
 	() => import('@/pages/apps/opportunities/ListProperty')
 )
+import InviteUser from '@/pages/apps/TeamManagement'
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPW = lazy(() => import('@/pages/authentication/RecoverPW'))
@@ -130,6 +131,11 @@ const appsRoutes = [
 		path: '/apps/opportunities/create-property',
 		name: 'Add Property',
 		element: <ListProperty />,
+	},
+	{
+		path: '/apps/team-management/invite-user',
+		name: 'Invite User',
+		element: <InviteUser />,
 	},
 ]
 const authRoutes = [

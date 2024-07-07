@@ -1,9 +1,4 @@
-import {
-	FiGrid,
-	FiHome,
-	FiLock,
-	FiMessageSquare,
-} from 'react-icons/fi'
+import { FiGrid, FiHome, FiLock, FiMessageSquare, FiUser } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
 	{
 		key: 'main',
@@ -70,12 +65,27 @@ export const VERTICAL_MENU_ITEMS = [
 						url: '/apps/opportunities/property-list',
 						parentKey: 'apps-opportunities',
 					},
-					
+
 					{
 						key: 'opportunities-create-property',
 						label: 'Add Property',
 						url: '/apps/opportunities/create-property',
 						parentKey: 'apps-opportunities',
+					},
+				],
+			},
+			{
+				key: 'apps-team-management',
+				label: 'Team Management',
+				icon: FiUser,
+				isTitle: false,
+				parentKey: 'apps',
+				children: [
+					{
+						key: 'team-management-invite-user',
+						label: 'Invite User',
+						url: '/apps/team-management/invite-user',
+						parentKey: 'apps-team-management',
 					},
 				],
 			},
@@ -106,9 +116,7 @@ export const VERTICAL_MENU_ITEMS = [
 				parentKey: 'auth',
 			},
 		],
-		
 	},
-
 
 	// {
 	// 	key: 'ui',
