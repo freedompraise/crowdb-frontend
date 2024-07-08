@@ -1,6 +1,6 @@
 import { Table, Card, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { ContactsData } from '../data';
+import { ContactsData } from '../api';
 import { SearchBar } from '@/layout/TopNavbar/components';
 
 const Contacts = () => {
