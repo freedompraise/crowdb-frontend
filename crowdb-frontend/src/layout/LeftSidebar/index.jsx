@@ -2,16 +2,21 @@ import { Link } from 'react-router-dom'
 import SimpleBar from 'simplebar-react'
 import AppMenu from './Menu'
 import { getMenuItems } from '@/common'
-import logoDark from '@/assets/images/logo-dark.png'
+import logoSm from '@/assets/images/logo-sm.png'
 
 const LeftSidebar = () => {
 	return (
 		<div className="left-sidenav">
 			<div className="brand">
 				<Link to="/" className="logo">
-					<div className="d-flex gap-1 justify-content-center">
+					<div className="d-flex justify-content-center">
 						<span>
-							<img src={logoDark} alt="logo-dark" className="logo-lg" />
+							<img
+								src={logoSm}
+								alt="logo-dark"
+								className="logo-lg img-fluid"
+								style={{ width: '150px', height: 'auto' }}
+							/>
 						</span>
 					</div>
 				</Link>
@@ -22,4 +27,5 @@ const LeftSidebar = () => {
 		</div>
 	)
 }
+
 export default LeftSidebar
