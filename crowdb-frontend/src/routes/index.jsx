@@ -24,6 +24,7 @@ const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPassword = lazy(
 	() => import('@/pages/authentication/RecoverPassword')
 )
+const ResetPassword = lazy(() => import('@/pages/authentication/ResetPassword'))
 const Error404 = lazy(() => import('@/pages/authentication/Error404'))
 const dashboardRoutes = [
 	{
@@ -94,6 +95,11 @@ const authRoutes = [
 		path: '/auth/recover-password',
 		name: 'Recover Password',
 		element: <RecoverPassword />,
+	},
+	{
+		path: '/auth/reset-password/:token',
+		name: 'Reset Password',
+		element: <ResetPassword />,
 	},
 	{
 		path: '*',
