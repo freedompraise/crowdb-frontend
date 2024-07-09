@@ -16,23 +16,37 @@ const authTokenKey = 'CROWDB_AUTH_TOKEN'
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState(() => {
 		if (hasCookie(authTokenKey)) {
-			const cookieUser = JSON.parse(localStorage.getItem('token'))
-			return cookieUser ? { token: cookieUser } : undefined
+			try {
+				const cookieUser = JSON.parse(localStorage.getItem('token'))
+				return cookieUser ? { token: cookieUser } : undefined
+			} catch (error) {
+				console.error('Failed to parse token from localStorage', error)
+				return undefined
+			}
 		}
 		return undefined
 	})
 
 	useEffect(() => {
 		if (hasCookie(authTokenKey)) {
-			const cookieUser = JSON.parse(localStorage.getItem('token'))
-			setUser(cookieUser)
+			try {
+				const cookieUser = JSON.parse(localStorage.getItem('token'))
+				setUser(cookieUser)
+			} catch (error) {
+				console.error('Failed to parse token from localStorage', error)
+				setUser(undefined)
+			}
 		}
 	}, [])
 
 	const saveSession = (user) => {
-		setCookie(authTokenKey, JSON.stringify(user))
-		localStorage.setItem('token', user.token)
-		setUser(user)
+		try {
+			setCookie(authTokenKey, JSON.stringify(user))
+			localStorage.setItem('token', JSON.stringify(user))
+			setUser(user)
+		} catch (error) {
+			console.error('Failed to save session', error)
+		}
 	}
 
 	const removeSession = () => {
