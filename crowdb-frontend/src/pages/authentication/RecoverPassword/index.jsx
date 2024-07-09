@@ -2,21 +2,12 @@ import { Button, Card, CardBody, Col, Form, Image, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import logoDark from '@/assets/images/logo-sm-dark.png'
 import { FormTextInput, PageMetaData } from '@/components'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
 import AuthLayout from '../AuthLayout'
+import useRecoverPassword from './useRecoverPassword'
 
 const RecoverPassword = () => {
-	const schemaResolver = yup.object().shape({
-		email: yup
-			.string()
-			.required('Please enter Email')
-			.email('Please enter valid Email'),
-	})
-	const { control, handleSubmit } = useForm({
-		resolver: yupResolver(schemaResolver),
-	})
+	const { control, handleSubmit, loading } = useRecoverPassword()
+
 	return (
 		<AuthLayout>
 			<PageMetaData title="Recover PW" />
@@ -35,15 +26,13 @@ const RecoverPassword = () => {
 						<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
 							Reset Password For CrowdB
 						</h4>
-						<p className="text-muted  mb-0">
+						<p className="text-muted mb-0">
 							Enter your Email and instructions will be sent to you!
 						</p>
 					</div>
 				</CardBody>
 				<CardBody>
-					<Form
-						className="form-horizontal auth-form"
-						onSubmit={handleSubmit(() => {})}>
+					<Form className="form-horizontal auth-form" onSubmit={handleSubmit}>
 						<FormTextInput
 							name="email"
 							label="Email"
@@ -58,26 +47,29 @@ const RecoverPassword = () => {
 								<Button
 									variant="primary"
 									className="w-100 waves-effect waves-light"
-									type="button">
-									Reset <i className="fas fa-sign-in-alt ms-1"></i>
+									type="submit"
+									disabled={loading}>
+									{loading ? 'Sending...' : 'Reset'}{' '}
+									<i className="fas fa-sign-in-alt ms-1"></i>
 								</Button>
 							</Col>
 						</Row>
 					</Form>
 					<p className="text-muted mb-0 mt-3">
-						Remember It ?{' '}
-						<a href="auth-register.html" className="text-primary ms-2">
+						Remember It?{' '}
+						<Link to="/auth/login" className="text-primary ms-2">
 							Sign in here
-						</a>
+						</Link>
 					</p>
 				</CardBody>
 				<CardBody className="bg-light-alt text-center">
 					<span className="text-muted d-none d-sm-inline-block">
-						CrowdB ©<script>{new Date().getFullYear()}</script>
+						CrowdB © {new Date().getFullYear()}
 					</span>
 				</CardBody>
 			</Card>
 		</AuthLayout>
 	)
 }
+
 export default RecoverPassword
