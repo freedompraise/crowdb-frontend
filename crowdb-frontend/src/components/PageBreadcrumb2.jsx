@@ -1,7 +1,7 @@
 import { Col, Row } from 'react-bootstrap'
 import { PageMetaData } from './index'
 import { Link } from 'react-router-dom'
-import { FiCalendar, FiDownload } from 'react-icons/fi'
+import { FiCalendar } from 'react-icons/fi'
 const PageBreadcrumb2 = ({ title, appName }) => {
 	return (
 		<>
@@ -26,8 +26,7 @@ const PageBreadcrumb2 = ({ title, appName }) => {
 								<Link
 									to="#"
 									className="btn btn-sm btn-outline-primary"
-									id="Dash_Date"
-								>
+									id="Dash_Date">
 									<span className="ay-name" id="Day_Name">
 										Today:
 									</span>
@@ -36,9 +35,6 @@ const PageBreadcrumb2 = ({ title, appName }) => {
 										{new Date().toLocaleDateString()}
 									</span>
 									<FiCalendar className="align-self-center icon-xs ms-1" />
-								</Link>
-								<Link to="#" className="btn btn-sm btn-outline-primary">
-									<FiDownload className="align-self-center icon-xs" />
 								</Link>
 							</div>
 						</Row>
