@@ -1,5 +1,3 @@
-import ChartJs from '@/pages/ui-kit/charts/ChartJs'
-import FileUpload from '@/pages/ui-kit/forms/FileUpload'
 import { lazy } from 'react'
 import { Navigate } from 'react-router-dom'
 
