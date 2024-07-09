@@ -42,7 +42,7 @@ export const VERTICAL_MENU_ITEMS = [
 
 			{
 				key: 'opportunities-create-property',
-				label: 'Add Property',
+				label: 'List Property',
 				url: '/opportunities/create-property',
 				parentKey: 'opportunities',
 			},
