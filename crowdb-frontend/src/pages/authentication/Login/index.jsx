@@ -40,9 +40,7 @@ const Login = () => {
 							<h4 className="mt-3 mb-1 fw-semibold text-white font-18">
 								Let's Get Started Crowdb
 							</h4>
-							<p className="text-muted  mb-0">
-								Sign in to continue to Crowdb.
-							</p>
+							<p className="text-muted  mb-0">Sign in to continue to Crowdb.</p>
 						</div>
 					</CardBody>
 					<CardBody className="p-0">
@@ -61,8 +59,7 @@ const Login = () => {
 									eventKey="1"
 									className="p-3"
 									id="LogIn_Tab"
-									role="tabpanel"
-								>
+									role="tabpanel">
 									<form className="form-horizontal auth-form" onSubmit={login}>
 										<FormTextInput
 											name="email"
@@ -88,17 +85,15 @@ const Login = () => {
 													/>
 													<label
 														className="form-label text-muted"
-														htmlFor="customSwitchSuccess"
-													>
+														htmlFor="customSwitchSuccess">
 														Remember me
 													</label>
 												</div>
 											</Col>
 											<Col sm={6} className="text-end">
 												<Link
-													to="/auth-recover-pw"
-													className="text-warning font-13"
-												>
+													to="/auth/recover-password"
+													className="text-warning font-13">
 													<i className="dripicons-lock"></i> Forgot password?
 												</Link>
 											</Col>
@@ -110,8 +105,7 @@ const Login = () => {
 													variant="primary"
 													className="w-100 waves-effect waves-light"
 													disabled={loading}
-													type="submit"
-												>
+													type="submit">
 													Log In
 													<i className="fas fa-sign-in-alt ms-1"></i>
 												</Button>

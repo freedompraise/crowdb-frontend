@@ -6,7 +6,8 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import AuthLayout from '../AuthLayout'
-const RecoverPW = () => {
+
+const RecoverPassword = () => {
 	const schemaResolver = yup.object().shape({
 		email: yup
 			.string()
@@ -42,8 +43,7 @@ const RecoverPW = () => {
 				<CardBody>
 					<Form
 						className="form-horizontal auth-form"
-						onSubmit={handleSubmit(() => {})}
-					>
+						onSubmit={handleSubmit(() => {})}>
 						<FormTextInput
 							name="email"
 							label="Email"
@@ -58,8 +58,7 @@ const RecoverPW = () => {
 								<Button
 									variant="primary"
 									className="w-100 waves-effect waves-light"
-									type="button"
-								>
+									type="button">
 									Reset <i className="fas fa-sign-in-alt ms-1"></i>
 								</Button>
 							</Col>
@@ -81,4 +80,4 @@ const RecoverPW = () => {
 		</AuthLayout>
 	)
 }
-export default RecoverPW
+export default RecoverPassword
