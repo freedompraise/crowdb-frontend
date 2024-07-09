@@ -15,7 +15,6 @@ const Contacts = () => {
 			try {
 				const result = await fetchContacts()
 				setContacts(result)
-				console.log('The results here are:', result)
 			} catch (err) {
 				setError(err)
 			}
