@@ -4,6 +4,7 @@ import logoDark from '@/assets/images/logo-sm-dark.png'
 import error from '@/assets/images/error.svg'
 import { PageMetaData } from '@/components'
 import AuthLayout from '../AuthLayout'
+
 const Error404 = () => {
 	return (
 		<AuthLayout>
@@ -29,12 +30,11 @@ const Error404 = () => {
 					<div className="ex-page-content text-center">
 						<Image src={error} alt="0" className="" height="170" />
 						<h1 className="mt-5 mb-4">404!</h1>
-						<h5 className="font-16 text-muted mb-5">Somthing went wrong</h5>
+						<h5 className="font-16 text-muted mb-5">Something went wrong</h5>
 					</div>
 					<Link
 						className="btn btn-primary w-100 waves-effect waves-light"
-						to="/"
-					>
+						to="/opportunities/property-list">
 						Back to Dashboard <i className="fas fa-redo ms-1"></i>
 					</Link>
 				</CardBody>
