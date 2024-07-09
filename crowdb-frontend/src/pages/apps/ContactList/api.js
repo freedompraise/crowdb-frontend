@@ -33,7 +33,6 @@ export const fetchContacts = async () => {
 		}
 
 		const data = await response.json()
-		console.log('Contacts fetched:', data)
 		return data.data
 	} catch (error) {
 		console.error('Error fetching contacts:', error)

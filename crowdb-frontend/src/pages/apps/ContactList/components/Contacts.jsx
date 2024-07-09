@@ -12,11 +12,12 @@ const Contacts = () => {
 	useEffect(() => {
 		const getContacts = async () => {
 			setLoading(true)
-			const result = await fetchContacts()
-			if (result.success) {
-				setContacts(result.data)
-			} else {
-				setError(result.message)
+			try {
+				const result = await fetchContacts()
+				setContacts(result)
+				console.log('The results here are:', result)
+			} catch (err) {
+				setError(err)
 			}
 			setLoading(false)
 		}
@@ -35,9 +36,9 @@ const Contacts = () => {
 					<tr>
 						<th>Customer ID</th>
 						<th>Name</th>
-						<th>Location</th>
+						<th>Email</th>
 						<th>Status</th>
-						<th>Amount Invested</th>
+						<th>Phone Number</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -56,7 +57,7 @@ const Contacts = () => {
 									<span className="text-danger">Inactive</span>
 								)}
 							</td>
-							<td>{contact.amountInvested || 'N/A'}</td>
+							<td>{contact.phoneNumber || 'N/A'}</td>
 							<td>
 								<Dropdown>
 									<Dropdown.Toggle
