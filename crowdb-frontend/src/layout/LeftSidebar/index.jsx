@@ -15,7 +15,7 @@ const LeftSidebar = () => {
 								src={logoSm}
 								alt="logo-dark"
 								className="logo-lg img-fluid"
-								style={{ width: '150px', height: 'auto' }}
+								style={{ width: '130px', height: 'auto' }}
 							/>
 						</span>
 					</div>
