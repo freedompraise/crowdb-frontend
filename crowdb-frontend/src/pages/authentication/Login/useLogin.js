@@ -55,6 +55,11 @@ export default function useLogin() {
 					position: 'top-right',
 					duration: 2000,
 				})
+			} else {
+				toast.error('An error occurred. Please try again.', {
+					position: 'top-right',
+					duration: 2000,
+				})
 			}
 		} finally {
 			setLoading(false)
