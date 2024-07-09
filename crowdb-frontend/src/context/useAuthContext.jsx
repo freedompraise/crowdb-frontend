@@ -17,8 +17,8 @@ export function AuthProvider({ children }) {
 	const [user, setUser] = useState(() => {
 		if (hasCookie(authTokenKey)) {
 			try {
-				const cookieUser = JSON.parse(localStorage.getItem('token'))
-				return cookieUser ? { token: cookieUser } : undefined
+				const token = localStorage.getItem('token')
+				return token ? { token } : undefined
 			} catch (error) {
 				console.error('Failed to parse token from localStorage', error)
 				return undefined
@@ -30,8 +30,8 @@ export function AuthProvider({ children }) {
 	useEffect(() => {
 		if (hasCookie(authTokenKey)) {
 			try {
-				const cookieUser = JSON.parse(localStorage.getItem('token'))
-				setUser(cookieUser)
+				const token = localStorage.getItem('token')
+				setUser(token ? { token } : undefined)
 			} catch (error) {
 				console.error('Failed to parse token from localStorage', error)
 				setUser(undefined)
@@ -42,7 +42,7 @@ export function AuthProvider({ children }) {
 	const saveSession = (user) => {
 		try {
 			setCookie(authTokenKey, JSON.stringify(user))
-			localStorage.setItem('token', JSON.stringify(user))
+			localStorage.setItem('token', user.token)
 			setUser(user)
 		} catch (error) {
 			console.error('Failed to save session', error)
