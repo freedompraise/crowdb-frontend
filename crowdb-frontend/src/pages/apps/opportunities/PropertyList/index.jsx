@@ -42,7 +42,6 @@ const PropertyList = () => {
 				<Col lg={12}>
 					{loading && <p>Loading...</p>}
 					{!loading && error && <Alert variant="danger">Error: {error}</Alert>}
-					{!loading && !error && <p>No properties available at the moment.</p>}
 					{!loading && !error && <PropertyTable properties={properties} />}
 					<Row>
 						<Col>
