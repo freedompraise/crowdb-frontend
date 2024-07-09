@@ -239,7 +239,7 @@ const ListProperty = () => {
 								</Form.Group>
 							</Col>
 							*/}
-							<Col sm={4}>
+							<Col sm={8}>
 								<Form.Group controlId="formAmenities">
 									<Form.Label className="fw-bold">Amenities</Form.Label>
 									<CreatableSelect
@@ -254,23 +254,6 @@ const ListProperty = () => {
 									{errors.amenities && (
 										<Form.Text className="text-danger">
 											{errors.amenities}
-										</Form.Text>
-									)}
-								</Form.Group>
-							</Col>
-							<Col sm={4}>
-								<Form.Group controlId="formOwner">
-									<Form.Label className="fw-bold">Owner</Form.Label>
-									<Form.Control
-										type="text"
-										name="owner"
-										value={formData.owner}
-										onChange={handleChange}
-										placeholder="Enter owner's name"
-									/>
-									{errors.owner && (
-										<Form.Text className="text-danger">
-											{errors.owner}
 										</Form.Text>
 									)}
 								</Form.Group>
