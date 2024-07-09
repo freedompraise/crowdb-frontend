@@ -35,7 +35,5 @@ export const defaultFormData = {
 	size: '',
 	zipcode: '',
 	address: '',
-	owner: '',
-	// voteOptions: ['Rental', 'Sale', 'AirBnB', 'other'],
 	amenities: [],
 }

@@ -13,7 +13,6 @@ const PropertyTable = ({ properties }) => {
 						<th>Location</th>
 						<th>Size</th>
 						<th>Status</th>
-						<th>Owner</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -84,7 +83,6 @@ const PropertyTable = ({ properties }) => {
 									{property.status}
 								</span>
 							</td>
-							<td>{property.owner || 'N/A'}</td>
 							<td>
 								<Link to="" className="me-1">
 									<i className="las la-pen text-secondary font-16" />

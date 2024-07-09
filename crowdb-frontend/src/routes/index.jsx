@@ -119,7 +119,7 @@ const appsRoutes = [
 	},
 	{
 		path: '/opportunities/property-list',
-		name: 'Property List',
+		name: 'All Properties',
 		element: <PropertyList />,
 	},
 	{

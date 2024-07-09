@@ -24,7 +24,6 @@ const PropertyDetailCard = ({ propertyData }) => {
 		status = 'N/A',
 		currency = 'N/A',
 		price = 'N/A',
-		owner = 'N/A',
 		images = [],
 		name = 'N/A',
 		address = 'N/A',
@@ -57,17 +56,8 @@ const PropertyDetailCard = ({ propertyData }) => {
 					</Card>
 					<Card className="mb-3">
 						<CardBody>
-							<h5>
-								<FaHome /> Owner: {owner}{' '}
-								<FaEdit style={{ cursor: 'pointer' }} />
-							</h5>
-						</CardBody>
-					</Card>
-					<Card className="mb-3">
-						<CardBody>
 							<h5>Vote Statistics</h5>
-							{/* Placeholder for vote statistics */}
-							<ComponentContainerCard title="Donut Chart">
+							<ComponentContainerCard title="Votes Chart">
 								<canvas id="doughnut" height={300} />
 							</ComponentContainerCard>
 						</CardBody>
