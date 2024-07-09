@@ -1,78 +1,87 @@
-
-//Core files
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "variables";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/bootstrap";
-
+// Core files
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'variables';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/bootstrap';
 
 // Structure
-@import "structure/leftbar";
-@import "structure/topbar";
-@import "structure/footer";
-@import "structure/horizontal-nav";
-@import "structure/dark-sidenav";
+@import 'structure/leftbar';
+@import 'structure/topbar';
+@import 'structure/footer';
+@import 'structure/horizontal-nav';
+@import 'structure/dark-sidenav';
 
 // Components
-@import "components/reboot";
-@import "components/waves";
-@import "components/card";
-@import "components/nav";
-@import "components/badge";
-@import "components/buttons";
-@import "components/dropdown";
-@import "components/tables";
-@import "components/progress";
-@import "components/alert";
-@import "components/forms";
-@import "components/modals";
-@import "components/switch";
-@import "components/form-advanced";
-@import "components/form-validation";
-@import "components/form-wizard";
-@import "components/form-editor";
-@import "components/spinners";
-@import "components/preloader";
-
-
+@import 'components/reboot';
+@import 'components/waves';
+@import 'components/card';
+@import 'components/nav';
+@import 'components/badge';
+@import 'components/buttons';
+@import 'components/dropdown';
+@import 'components/tables';
+@import 'components/progress';
+@import 'components/alert';
+@import 'components/forms';
+@import 'components/modals';
+@import 'components/switch';
+@import 'components/form-advanced';
+@import 'components/form-validation';
+@import 'components/form-wizard';
+@import 'components/form-editor';
+@import 'components/spinners';
+@import 'components/preloader';
 
 // Plugins
-@import "plugins/simplebar";
-@import "plugins/maps";
-@import "plugins/charts";
-@import "plugins/calendar";
-@import "plugins/sweet-alert";
-@import "plugins/nastable";
-@import "plugins/prittify-code";
-@import "plugins/tippy";
-@import "plugins/fonts";
-@import "plugins/tinymce";
-@import "plugins/ui-slider";
-
-
+@import 'plugins/simplebar';
+@import 'plugins/maps';
+@import 'plugins/charts';
+@import 'plugins/calendar';
+@import 'plugins/sweet-alert';
+@import 'plugins/nastable';
+@import 'plugins/prittify-code';
+@import 'plugins/tippy';
+@import 'plugins/fonts';
+@import 'plugins/tinymce';
+@import 'plugins/ui-slider';
 
 // Pages
-@import "pages/avatar";
-@import "pages/general";
-@import "pages/background-color";
-@import "pages/analytics";
-@import "pages/ecommerce";
-@import "pages/timeline";
-@import "pages/email";
-@import "pages/chat";
-@import "pages/profile";
-@import "pages/invoice";
-@import "pages/projects";
-@import "pages/files";
-@import "pages/check-radio";
-@import "pages/pricing";
-@import "pages/account-pages";
-@import "pages/ribbons";
-@import "pages/blog";
-@import "pages/faq";
-@import "pages/print";
+@import 'pages/avatar';
+@import 'pages/general';
+@import 'pages/background-color';
+@import 'pages/analytics';
+@import 'pages/ecommerce';
+@import 'pages/timeline';
+@import 'pages/email';
+@import 'pages/chat';
+@import 'pages/profile';
+@import 'pages/invoice';
+@import 'pages/projects';
+@import 'pages/files';
+@import 'pages/check-radio';
+@import 'pages/pricing';
+@import 'pages/account-pages';
+@import 'pages/ribbons';
+@import 'pages/blog';
+@import 'pages/faq';
+@import 'pages/print';
 
-@import "nouislider/distribute/nouislider.css";
-@import "litepicker/dist/css/style.css";
-@import "leaflet/dist/leaflet.css";
+@import 'nouislider/distribute/nouislider.css';
+@import 'litepicker/dist/css/style.css';
+@import 'leaflet/dist/leaflet.css';
+
+// Custom theme styles
+body.light {
+	--bs-bg: #ffffff;
+	--bs-light: #f8f9fa;
+	--bs-dark: #212529;
+	background-color: var(--bs-bg);
+}
+
+body.dark {
+	--bs-bg: #212529;
+	--bs-light: #343a40;
+	--bs-dark: #f8f9fa;
+	background-color: var(--bs-bg);
+}

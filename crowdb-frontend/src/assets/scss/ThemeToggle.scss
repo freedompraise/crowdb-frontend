@@ -1,0 +1,29 @@
+.theme-toggle {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: var(--bs-light);
+	border-radius: 50%;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	svg {
+		color: var(--bs-dark);
+	}
+}
+
+body.light {
+	--bs-bg: #ffffff;
+	--bs-light: #f8f9fa;
+	--bs-dark: #212529;
+	background-color: var(--bs-bg);
+}
+
+body.dark {
+	--bs-bg: #212529;
+	--bs-light: #343a40;
+	--bs-dark: #f8f9fa;
+	background-color: var(--bs-bg);
+}
