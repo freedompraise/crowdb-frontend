@@ -63,7 +63,7 @@ const Contacts = () => {
 										variant="dark"
 										id="dropdown-basic"></Dropdown.Toggle>
 									<Dropdown.Menu>
-										<Dropdown.Item href="#">View Details</Dropdown.Item>
+										{/* <Dropdown.Item href="#">View Details</Dropdown.Item> */}
 										<Dropdown.Item href="#">Deactivate</Dropdown.Item>
 									</Dropdown.Menu>
 								</Dropdown>
