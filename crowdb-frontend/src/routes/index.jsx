@@ -102,38 +102,38 @@ const dashboardRoutes = [
 	},
 ]
 const appsRoutes = [
+	// {
+	// 	path: '/apps/chat',
+	// 	name: 'Chat',
+	// 	element: <Chat />,
+	// },
 	{
-		path: '/apps/chat',
-		name: 'Chat',
-		element: <Chat />,
-	},
-	{
-		path: '/apps/contact-list',
+		path: '/users',
 		name: 'Cantacts List',
 		element: <ContactList />,
 	},
 	{
-		path: '/apps/opportunities/properties',
+		path: '/opportunities/properties',
 		name: 'Properties',
 		element: <Property />,
 	},
 	{
-		path: '/apps/opportunities/property-list',
+		path: '/opportunities/property-list',
 		name: 'Property List',
 		element: <PropertyList />,
 	},
 	{
-		path: '/apps/opportunities/property-detail/:id',
+		path: '/opportunities/property-detail/:id',
 		name: 'Property Detail',
 		element: <PropertyDetail />,
 	},
 	{
-		path: '/apps/opportunities/create-property',
+		path: '/opportunities/create-property',
 		name: 'Add Property',
 		element: <ListProperty />,
 	},
 	{
-		path: '/apps/team-management/invite-user',
+		path: '/team-management/invite-user',
 		name: 'Invite User',
 		element: <InviteUser />,
 	},
@@ -153,21 +153,6 @@ const authRoutes = [
 		path: '/auth/recover-pw',
 		name: 'Recover PW',
 		element: <RecoverPW />,
-	},
-	{
-		path: '/auth/lock-screen',
-		name: 'Lockscreen',
-		element: <Lockscreen />,
-	},
-	{
-		path: '/auth/auth-404',
-		name: '404 Error',
-		element: <Error404 />,
-	},
-	{
-		path: '/auth/auth-500',
-		name: '500 Error',
-		element: <Error500 />,
 	},
 	{
 		path: '*',
