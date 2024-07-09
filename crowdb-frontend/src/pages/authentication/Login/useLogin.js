@@ -31,8 +31,7 @@ export default function useLogin() {
 		},
 	})
 
-	const redirectUrl =
-		searchParams.get('next') ?? '/apps/opportunities/property-list'
+	const redirectUrl = searchParams.get('next') ?? '/opportunities/property-list'
 
 	const login = handleSubmit(async function (values) {
 		setLoading(true)

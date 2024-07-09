@@ -60,7 +60,7 @@ const ListProperty = () => {
 
 		if (result.success) {
 			console.log('The property was created successfully!', result.data)
-			navigate('/apps/opportunities/properties')
+			navigate('/opportunities/properties')
 		} else {
 			console.error('Error creating property:', result.message)
 			setErrors({ ...errors, createProperty: result.message })

@@ -46,7 +46,7 @@ const PropertyList = () => {
 					<Row>
 						<Col>
 							<Link
-								to="/apps/opportunities/create-property"
+								to="/opportunities/create-property"
 								className="btn btn-outline-light btn-sm px-4">
 								+ Add New
 							</Link>

@@ -49,7 +49,7 @@ export const VERTICAL_MENU_ITEMS = [
 		],
 	},
 	{
-		key: 'apps-team-management',
+		key: 'team-management',
 		label: 'Team Management',
 		icon: FiUser,
 		isTitle: false,
@@ -58,8 +58,8 @@ export const VERTICAL_MENU_ITEMS = [
 			{
 				key: 'team-management-invite-user',
 				label: 'Invite User',
-				url: '/apps/team-management/invite-user',
-				parentKey: 'apps-team-management',
+				url: '/team-management/invite-user',
+				parentKey: 'team-management',
 			},
 		],
 	},

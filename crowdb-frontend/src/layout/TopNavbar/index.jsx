@@ -35,7 +35,7 @@ const TopNavbar = () => {
 						<li className="creat-btn">
 							<NavLink>
 								<Link
-									to="/apps/opportunities/create-property"
+									to="/opportunities/create-property"
 									variant="soft-primary"
 									size="sm"
 									role="button">

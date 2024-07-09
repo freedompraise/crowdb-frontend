@@ -56,7 +56,7 @@ const PropertyTable = ({ properties }) => {
 										textOverflow: 'ellipsis',
 									}}>
 									<Link
-										to={`/apps/opportunities/property-detail/${property.id}`}
+										to={`/opportunities/property-detail/${property.id}`}
 										className="d-inline-block align-middle mb-0 product-name"
 										style={{
 											maxWidth: '150px',
