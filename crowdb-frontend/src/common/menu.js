@@ -71,9 +71,15 @@ export const VERTICAL_MENU_ITEMS = [
 		parentKey: 'main',
 		children: [
 			{
-				key: 'role-management-roles',
-				label: 'Roles',
-				url: '/role-management/',
+				key: 'role-management-view-roles',
+				label: 'View Roles',
+				url: '/roles',
+				parentKey: 'role-management',
+			},
+			{
+				key: 'role-management-update-role',
+				label: 'Update Role',
+				url: '/roles/update/',
 				parentKey: 'role-management',
 			},
 		],

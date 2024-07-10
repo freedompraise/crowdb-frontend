@@ -1,42 +1,27 @@
 import React from 'react'
-import {
-	Button,
-	Card,
-	CardBody,
-	Col,
-	Form,
-	Row,
-	Spinner,
-} from 'react-bootstrap'
-import { useParams, useNavigate } from 'react-router-dom'
+import { Button, Col, Form, Row, Spinner } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
 import { FormTextInput } from '@/components'
-import { useRole } from './useRole'
+import { useRole } from '../useRole'
 import { PageBreadcrumb2 } from '@/components'
 import { useForm, Controller } from 'react-hook-form'
 
-const RoleComponent = () => {
+const UpdateRoles = () => {
 	const { id } = useParams()
-	const { role, permissions, loading, error, updateRole, deleteRole } =
-		useRole(id)
-	const navigate = useNavigate()
+	const { role, permissions, loading, error, updateRole } = useRole(id)
 	const { control, handleSubmit } = useForm()
 
 	const onSubmit = (data) => {
 		updateRole(data)
 	}
 
-	const handleDelete = () => {
-		deleteRole()
-		navigate('/roles')
-	}
-
 	return (
 		<div className="container">
 			<PageBreadcrumb2
-				title="Invite User"
+				title="Update Role"
 				items={[
 					{ title: 'Dashboard', link: '/dashboard' },
-					{ title: 'Invite User' },
+					{ title: 'Update Role' },
 				]}
 			/>
 			<div className="card">
@@ -96,14 +81,6 @@ const RoleComponent = () => {
 									Save Changes <i className="fas fa-save ms-1"></i>
 								</Button>
 							</Col>
-							<Col xs={12} className="mt-2">
-								<Button
-									variant="danger"
-									className="w-100 waves-effect waves-light"
-									onClick={handleDelete}>
-									Delete Role <i className="fas fa-trash ms-1"></i>
-								</Button>
-							</Col>
 						</Row>
 					</Form>
 				)}
@@ -112,4 +89,4 @@ const RoleComponent = () => {
 	)
 }
 
-export default RoleComponent
+export default UpdateRoles
