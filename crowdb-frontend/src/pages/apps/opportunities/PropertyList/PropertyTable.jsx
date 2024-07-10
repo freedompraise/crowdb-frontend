@@ -13,6 +13,7 @@ const PropertyTable = ({ properties }) => {
 						<th>Amenities</th>
 						<th>Location</th>
 						<th>Size</th>
+						<th>Visibilty</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -78,6 +79,12 @@ const PropertyTable = ({ properties }) => {
 							</td>
 							<td>{property.address || 'N/A'}</td>
 							<td>{property.size || 'N/A'}</td>
+							<td>
+								<span
+									className={`badge badge-soft-${property.isVisible ? 'secondary' : 'primary'}`}>
+									{property.isVisible ? 'On' : 'Off'}
+								</span>
+							</td>
 							<td>
 								<span
 									className={`badge badge-soft-${property.status === 'Sale' ? 'pink' : 'purple'}`}>
