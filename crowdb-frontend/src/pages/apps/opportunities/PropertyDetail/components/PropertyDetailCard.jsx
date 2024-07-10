@@ -10,7 +10,6 @@ import {
 import {
 	FaEdit,
 	FaMapMarkerAlt,
-	FaHome,
 	FaMoneyBillWave,
 	FaTrash,
 } from 'react-icons/fa'
@@ -47,7 +46,8 @@ const PropertyDetailCard = ({ propertyData }) => {
 					<Card className="mb-3">
 						<CardBody>
 							<h5 className="text-uppercase">
-								{status} <FaEdit style={{ cursor: 'pointer' }} />
+								{status}
+								{/* <FaEdit style={{ cursor: 'pointer' }} /> */}
 							</h5>
 							<p>
 								<FaMoneyBillWave /> {currency} {price}
@@ -89,7 +89,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 									<p>Postal Code: {zipcode}</p>
 									<p>
 										Description: {description}{' '}
-										<FaEdit style={{ cursor: 'pointer' }} />
+										{/* <FaEdit style={{ cursor: 'pointer' }} /> */}
 									</p>
 								</CardBody>
 							</Card>
