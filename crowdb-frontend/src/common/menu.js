@@ -35,14 +35,14 @@ export const VERTICAL_MENU_ITEMS = [
 		children: [
 			{
 				key: 'opportunities-property-list',
-				label: 'Properties List',
+				label: 'All Properties',
 				url: '/opportunities/property-list',
 				parentKey: 'opportunities',
 			},
 
 			{
 				key: 'opportunities-create-property',
-				label: 'List Property',
+				label: 'List a Property',
 				url: '/opportunities/create-property',
 				parentKey: 'opportunities',
 			},
