@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import { postInviteUser, defaultFormData } from './api'
+import { useState, useEffect } from 'react'
+import { postInviteUser, defaultFormData, fetchAllRoles } from './api'
 import { PageBreadcrumb2 } from '@/components'
 import CreatableSelect from 'react-select/creatable'
 
 const InviteUser = () => {
 	const [formData, setFormData] = useState(defaultFormData)
 	const [errors, setErrors] = useState({})
+	const [roles, setRoles] = useState([])
 	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const handleChange = (event) => {
@@ -40,6 +41,21 @@ const InviteUser = () => {
 			setIsSubmitting(false)
 		}
 	}
+
+	useEffect(() => {
+		const fetchRoles = async () => {
+			const { success, data } = await fetchAllRoles()
+			if (success) {
+				setRoles(
+					data.map((role) => ({
+						value: role.id,
+						label: role.name,
+					}))
+				)
+			}
+		}
+		fetchRoles()
+	}, [])
 
 	return (
 		<div className="container">
@@ -90,15 +106,17 @@ const InviteUser = () => {
 							name="roleId"
 							value={
 								formData.roleId
-									? { value: formData.roleId, label: formData.roleId }
+									? {
+											value: formData.roleId,
+											label: roles.find(
+												(role) => role.value === formData.roleId
+											)?.label,
+										}
 									: null
 							}
 							required
 							onChange={handleRoleChange}
-							options={[
-								{ value: 'admin', label: 'Admin' },
-								{ value: 'user', label: 'User' },
-							]}
+							options={roles}
 						/>
 
 						<button type="submit" className="btn btn-primary">
