@@ -23,25 +23,26 @@
       transition: all 15s linear;
       overflow: hidden;
     }
-    
+
     #splash-screen.remove {
       animation: fadeout 0.7s forwards;
       z-index: 0;
     }
-    
+
     @keyframes fadeout {
       to {
         opacity: 0;
         visibility: hidden;
       }
     }
-    </style>
+  </style>
 </head>
 
 <body>
   <div id="root"></div>
   <div id="splash-screen">
-    <img alt="Logo" class="light" src="/images/logo-sm.png" style="height: 8%" />&nbsp;<h1 class="text-primary">Crowd-B</h1>
+    <img alt="Logo" class="light" src="/favicon.png" style="height: 8%" />&nbsp;<h1 class="text-primary">Crowd-B
+    </h1>
   </div>
   <script type="module" src="/src/main"></script>
   <script>
