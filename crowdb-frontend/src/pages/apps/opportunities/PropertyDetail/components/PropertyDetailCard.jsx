@@ -57,9 +57,10 @@ const PropertyDetailCard = ({ propertyData }) => {
 					<Card className="mb-3">
 						<CardBody>
 							<h5>Vote Statistics</h5>
-							<ComponentContainerCard title="Votes Chart">
+							<p className="text-muted">No votes available</p>
+							{/* <ComponentContainerCard title="Votes Chart">
 								<canvas id="doughnut" height={300} />
-							</ComponentContainerCard>
+							</ComponentContainerCard> */}
 						</CardBody>
 					</Card>
 				</Col>
