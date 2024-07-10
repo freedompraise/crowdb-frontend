@@ -1,4 +1,3 @@
-// api.js
 const API_URL = import.meta.env.VITE_API_URL
 
 export const createProperty = async (propertyData) => {
@@ -6,9 +5,10 @@ export const createProperty = async (propertyData) => {
 		const response = await fetch(`${API_URL}/package`, {
 			method: 'POST',
 			headers: {
+				'Content-Type': 'application/json', // Added Content-Type
 				Authorization: 'Bearer ' + localStorage.getItem('token'),
 			},
-			body: propertyData,
+			body: JSON.stringify(propertyData),
 		})
 
 		if (!response.ok) {
@@ -33,6 +33,8 @@ export const defaultFormData = {
 	price: 0,
 	currency: 'NGN',
 	size: '',
+	code: '',
+	owner: '',
 	zipcode: '',
 	address: '',
 	amenities: [],

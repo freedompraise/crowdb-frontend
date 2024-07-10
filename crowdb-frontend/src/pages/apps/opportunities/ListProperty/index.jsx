@@ -14,14 +14,17 @@ const ListProperty = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const handleFileUpload = (uploadedFiles) => {
-		setFormData({ ...formData, images: uploadedFiles })
+		setFormData({ ...formData, images: uploadedFiles.map((file) => file.url) })
 	}
 
 	const handleChange = (event) => {
 		const { name, value, files } = event.target
 		if (files) {
 			const fileList = Array.from(files)
-			setFormData({ ...formData, images: [...formData.images, ...fileList] })
+			setFormData({
+				...formData,
+				images: [...formData.images, ...fileList.map((file) => file.url)],
+			})
 		} else {
 			setFormData({ ...formData, [name]: value })
 		}
@@ -39,23 +42,14 @@ const ListProperty = () => {
 		setIsSubmitting(true)
 		setErrors({})
 
-		const propertyData = new FormData()
-
-		for (const key in formData) {
-			if (key === 'images') {
-				formData.images.forEach((image) => {
-					propertyData.append('images', image.url)
-				})
-			} else if (key === 'voteOptions' || key === 'amenities') {
-				propertyData.append(key, JSON.stringify(formData[key]))
-			} else if (Array.isArray(formData[key])) {
-				formData[key].forEach((item) => {
-					propertyData.append(key, item)
-				})
-			} else {
-				propertyData.append(key, formData[key])
-			}
+		const propertyData = {
+			...formData,
+			images: formData.images,
+			amenities: formData.amenities,
 		}
+
+		console.log('propertyData', propertyData)
+
 		const result = await createProperty(propertyData)
 
 		if (result.success) {
@@ -239,7 +233,7 @@ const ListProperty = () => {
 								</Form.Group>
 							</Col>
 							*/}
-							<Col sm={8}>
+							<Col sm={4}>
 								<Form.Group controlId="formAmenities">
 									<Form.Label className="fw-bold">Amenities</Form.Label>
 									<CreatableSelect
@@ -255,6 +249,38 @@ const ListProperty = () => {
 										<Form.Text className="text-danger">
 											{errors.amenities}
 										</Form.Text>
+									)}
+								</Form.Group>
+							</Col>
+							<Col sm={4}>
+								<Form.Group controlId="formOwner">
+									<Form.Label className="fw-bold">Owner</Form.Label>
+									<Form.Control
+										type="text"
+										name="owner"
+										value="CrowdB"
+										placeholder="Enter owner"
+									/>
+									{errors.owner && (
+										<Form.Text className="text-danger">
+											{errors.owner}
+										</Form.Text>
+									)}
+								</Form.Group>
+							</Col>
+							<Col sm={4}>
+								<Form.Group controlId="formCode">
+									<Form.Label className="fw-bold">Code</Form.Label>
+									<Form.Control
+										type="text"
+										name="code"
+										value={formData.code}
+										onChange={handleChange}
+										placeholder="Enter code"
+										required
+									/>
+									{errors.code && (
+										<Form.Text className="text-danger">{errors.code}</Form.Text>
 									)}
 								</Form.Group>
 							</Col>
