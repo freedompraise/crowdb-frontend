@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { PageBreadcrumb2 } from '@/components'
-import { Col, Row, Alert } from 'react-bootstrap'
+import { Col, Row, Alert, Spinner } from 'react-bootstrap'
 import { fetchAllProperties } from '../data'
 import { Link } from 'react-router-dom'
 import PropertyTable from './PropertyTable'
@@ -18,7 +18,7 @@ const PropertyList = () => {
 				const data = await fetchAllProperties()
 				setProperties(data || [])
 			} catch (err) {
-				setError(err.message)
+				setError('Failed to load properties. Please try again later.')
 			} finally {
 				setLoading(false)
 			}
@@ -33,16 +33,33 @@ const PropertyList = () => {
 		indexOfFirstProperty,
 		indexOfLastProperty
 	)
-	const paginate = (pageNumber) => setCurrentPage(pageNumber)
+	const totalPages = Math.ceil(properties.length / propertiesPerPage)
+
+	const paginate = (pageNumber) => {
+		if (pageNumber > 0 && pageNumber <= totalPages) {
+			setCurrentPage(pageNumber)
+		}
+	}
 
 	return (
 		<>
 			<PageBreadcrumb2 appName="Opportunities" title="Properties List" />
 			<Row>
 				<Col lg={12}>
-					{loading && <p>Loading...</p>}
-					{!loading && error && <Alert variant="danger">Error: {error}</Alert>}
-					{!loading && !error && <PropertyTable properties={properties} />}
+					{loading && (
+						<div className="text-center">
+							<Spinner animation="border" role="status">
+								<span className="visually-hidden">Loading...</span>
+							</Spinner>
+						</div>
+					)}
+					{!loading && error && <Alert variant="danger">{error}</Alert>}
+					{!loading && !error && properties.length === 0 && (
+						<Alert variant="info">No properties found.</Alert>
+					)}
+					{!loading && !error && properties.length > 0 && (
+						<PropertyTable properties={currentProperties} />
+					)}
 					<Row>
 						<Col>
 							<Link
@@ -52,7 +69,7 @@ const PropertyList = () => {
 							</Link>
 						</Col>
 						<Col xs="auto">
-							<nav aria-label="...">
+							<nav aria-label="Page navigation">
 								<ul className="pagination pagination-sm mb-0">
 									<li
 										className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
@@ -64,25 +81,20 @@ const PropertyList = () => {
 											Previous
 										</Link>
 									</li>
-									{Array.from(
-										{
-											length: Math.ceil(properties.length / propertiesPerPage),
-										},
-										(_, index) => (
-											<li
-												key={index + 1}
-												className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
-												<Link
-													className="page-link"
-													to="#"
-													onClick={() => paginate(index + 1)}>
-													{index + 1}
-												</Link>
-											</li>
-										)
-									)}
+									{Array.from({ length: totalPages }, (_, index) => (
+										<li
+											key={index + 1}
+											className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+											<Link
+												className="page-link"
+												to="#"
+												onClick={() => paginate(index + 1)}>
+												{index + 1}
+											</Link>
+										</li>
+									))}
 									<li
-										className={`page-item ${currentPage === Math.ceil(properties.length / propertiesPerPage) ? 'disabled' : ''}`}>
+										className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
 										<Link
 											className="page-link"
 											to="#"
