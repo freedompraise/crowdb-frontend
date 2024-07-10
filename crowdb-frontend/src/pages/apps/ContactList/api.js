@@ -21,7 +21,7 @@ const API_URL = import.meta.env.VITE_API_URL
 
 export const fetchContacts = async () => {
 	try {
-		const response = await fetch(`${API_URL}/auth/users`, {
+		const response = await fetch(`${API_URL}/users/users`, {
 			headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
 		})
 
