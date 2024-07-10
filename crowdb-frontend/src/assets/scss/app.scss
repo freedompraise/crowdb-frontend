@@ -70,18 +70,3 @@
 @import 'nouislider/distribute/nouislider.css';
 @import 'litepicker/dist/css/style.css';
 @import 'leaflet/dist/leaflet.css';
-
-// Custom theme styles
-body.light {
-	--bs-bg: #ffffff;
-	--bs-light: #f8f9fa;
-	--bs-dark: #212529;
-	background-color: var(--bs-bg);
-}
-
-body.dark {
-	--bs-bg: #212529;
-	--bs-light: #343a40;
-	--bs-dark: #f8f9fa;
-	background-color: var(--bs-bg);
-}
