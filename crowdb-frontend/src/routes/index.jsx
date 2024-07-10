@@ -47,7 +47,7 @@ const dashboardRoutes = [
 ]
 const appsRoutes = [
 	// {
-	// 	path: '/apps/chat',
+	// 	path: '/chat',
 	// 	name: 'Chat',
 	// 	element: <Chat />,
 	// },
