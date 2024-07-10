@@ -5,9 +5,10 @@ export const postInviteUser = async (formData) => {
 		const response = await fetch(`${API_URL}/admins/auth/invite`, {
 			method: 'POST',
 			headers: {
+				'Content-Type': 'application/json',
 				Authorization: 'Bearer ' + localStorage.getItem('token'),
 			},
-			body: formData,
+			body: JSON.stringify(formData),
 		})
 		if (!response.ok) {
 			const error = await response.json()
@@ -15,10 +16,9 @@ export const postInviteUser = async (formData) => {
 		}
 		const data = await response.json()
 		console.log('The user was invited successfully!', data.data)
-		return data.data
+		return { success: true, data: data.data }
 	} catch (error) {
 		console.error('Error:', error.message)
-		throw error
 	}
 }
 

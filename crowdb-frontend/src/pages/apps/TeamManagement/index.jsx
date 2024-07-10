@@ -25,15 +25,20 @@ const InviteUser = () => {
 		setIsSubmitting(true)
 		setErrors({})
 
-		console.log('The formData is:', formData)
-		const result = await postInviteUser(formData)
+		try {
+			const result = await postInviteUser(formData)
 
-		if (result.success) {
-			throw new Error('User was invited successfully!')
-		} else {
-			setErrors({ message: result.message })
+			if (result.success) {
+				console.log('User was invited successfully!')
+			} else {
+				setErrors({ message: result.message })
+			}
+		} catch (error) {
+			console.error('Error inviting user:', error.message)
+			setErrors({ message: error.message })
+		} finally {
+			setIsSubmitting(false)
 		}
-		setIsSubmitting(false)
 	}
 
 	return (
@@ -98,9 +103,9 @@ const InviteUser = () => {
 
 						<button type="submit" className="btn btn-primary">
 							{isSubmitting ? 'Submitting...' : 'Submit'}
-							{errors.message && (
+							{/* {errors.message && (
 								<div className="alert alert-danger mt-2">{errors.message}</div>
-							)}
+							)} */}
 						</button>
 					</form>
 				</div>
