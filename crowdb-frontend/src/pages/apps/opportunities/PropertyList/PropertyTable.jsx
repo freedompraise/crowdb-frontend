@@ -12,7 +12,7 @@ const PropertyTable = ({ properties }) => {
 						<th>Property Name</th>
 						<th>Amenities</th>
 						<th>Location</th>
-						<th>Size</th>
+						<th>Slots</th>
 						<th>Visibilty</th>
 						<th>Status</th>
 						<th>Action</th>
@@ -78,7 +78,7 @@ const PropertyTable = ({ properties }) => {
 								{property.amenities ? property.amenities.join(', ') : 'N/A'}
 							</td>
 							<td>{property.address || 'N/A'}</td>
-							<td>{property.size || 'N/A'}</td>
+							<td>{property.slots || 'N/A'}</td>
 							<td>
 								<span
 									className={`badge badge-soft-${property.isVisible ? 'secondary' : 'primary'}`}>
@@ -99,7 +99,7 @@ const PropertyTable = ({ properties }) => {
 										</Dropdown.Toggle>
 										<Dropdown.Menu>
 											<Dropdown.Item href="#">Update Price</Dropdown.Item>
-											<Dropdown.Item href="">Update Status</Dropdown.Item>
+											<Dropdown.Item href="">Update Slots</Dropdown.Item>
 											<Dropdown.Item href="#">
 												{property.isVisible ? 'Hide Property' : 'Show Property'}
 											</Dropdown.Item>
