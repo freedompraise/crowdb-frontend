@@ -25,10 +25,6 @@ export default function useLogin() {
 
 	const { control, handleSubmit } = useForm({
 		resolver: yupResolver(schemaResolver),
-		defaultValues: {
-			email: 'johndoe@gmail.com',
-			password: 'password',
-		},
 	})
 
 	const redirectUrl = searchParams.get('next') ?? '/opportunities/property-list'
