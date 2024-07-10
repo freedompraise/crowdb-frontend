@@ -1,6 +1,7 @@
 import { Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import house from '@/assets/images/properties/house.jpg'
+import { Dropdown } from 'react-bootstrap'
 
 const PropertyTable = ({ properties }) => {
 	return (
@@ -84,12 +85,20 @@ const PropertyTable = ({ properties }) => {
 								</span>
 							</td>
 							<td>
-								<Link to="" className="me-1">
-									<i className="las la-pen text-secondary font-16" />
-								</Link>
-								<Link to="#">
-									<i className="las la-trash-alt text-secondary font-16" />
-								</Link>
+								<div className="d-flex justify-content-end">
+									<Dropdown>
+										<Dropdown.Toggle variant="light" id="dropdown-basic">
+											<span className="las la-pen text-secondary fs-5" />
+										</Dropdown.Toggle>
+										<Dropdown.Menu>
+											<Dropdown.Item href="#">Update Price</Dropdown.Item>
+											<Dropdown.Item href="">Update Status</Dropdown.Item>
+											<Dropdown.Item href="#">
+												{property.isVisible ? 'Hide Property' : 'Show Property'}
+											</Dropdown.Item>
+										</Dropdown.Menu>
+									</Dropdown>
+								</div>
 							</td>
 						</tr>
 					))}
