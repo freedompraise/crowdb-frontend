@@ -18,7 +18,8 @@ const PropertyDetail = lazy(
 const ListProperty = lazy(
 	() => import('@/pages/apps/opportunities/ListProperty')
 )
-import InviteUser from '@/pages/apps/TeamManagement'
+const InviteUser = lazy(() => import('@/pages/apps/TeamManagement'))
+const RoleComponent = lazy(() => import('@/pages/apps/RoleManagement'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPassword = lazy(
@@ -78,6 +79,11 @@ const appsRoutes = [
 		path: '/team-management/invite-user',
 		name: 'Invite User',
 		element: <InviteUser />,
+	},
+	{
+		path: '/role-management/',
+		name: 'Role Management',
+		element: <RoleComponent />,
 	},
 ]
 const authRoutes = [

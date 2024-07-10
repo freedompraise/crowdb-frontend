@@ -1,4 +1,4 @@
-import { FiGrid, FiHome, FiLock, FiMessageSquare, FiUser } from 'react-icons/fi'
+import { FiHome, FiLock, FiMessageSquare, FiUser } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
 	{
 		key: 'main',
@@ -60,6 +60,21 @@ export const VERTICAL_MENU_ITEMS = [
 				label: 'Invite User',
 				url: '/team-management/invite-user',
 				parentKey: 'team-management',
+			},
+		],
+	},
+	{
+		key: 'role-management',
+		label: 'Role Management',
+		icon: FiLock,
+		isTitle: false,
+		parentKey: 'main',
+		children: [
+			{
+				key: 'role-management-roles',
+				label: 'Roles',
+				url: '/role-management/',
+				parentKey: 'role-management',
 			},
 		],
 	},
