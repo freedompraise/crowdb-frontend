@@ -56,6 +56,7 @@
     "react-litepicker": "^0.0.7",
     "react-magic": "^0.2.4",
     "react-nestable": "^3.0.2",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.22.1",
     "react-select": "^5.8.0",
     "react-step-wizard": "^5.3.11",
