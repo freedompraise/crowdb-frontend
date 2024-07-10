@@ -52,7 +52,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 			onUpdate()
 		} catch (error) {
 			console.error(error.message)
-			setIsVisible((prev) => !prev) // Revert visibility if there was an error
+			setIsVisible((prev) => !prev)
 		}
 	}
 
