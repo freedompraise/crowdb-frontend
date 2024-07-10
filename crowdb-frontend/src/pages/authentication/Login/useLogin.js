@@ -33,7 +33,6 @@ export default function useLogin() {
 		setLoading(true)
 		try {
 			const res = await axios.post(`${API_URL}/admins/auth/login`, values)
-			console.log('API response', res.data)
 			if (res.data.data.token) {
 				saveSession({
 					...(res.data.data.user ?? {}),

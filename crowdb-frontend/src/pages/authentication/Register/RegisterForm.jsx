@@ -17,39 +17,36 @@ const RegisterForm = () => {
 		password: yup.string().required('Please enter Password'),
 		confirmPassword: yup
 			.string()
-			.oneOf([yup.ref('password')], 'Passwords must match')
-		
+			.oneOf([yup.ref('password')], 'Passwords must match'),
 	})
 	const { control, handleSubmit } = useForm({
 		resolver: yupResolver(schemaResolver),
 	})
 	const onSubmit = async (data) => {
 		try {
-			const response = await fetch('https://crowdb.wiseminds.cc//api/v1/auth/register', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			});
-			
-		if (response.status === 201) {
-			console.log('User registered successfully');
-			navigate('/auth/login')
-		} else {
-			const res = await response.json()
-			console.log("Error: ", res);
-		}
-	} catch (error) {
-		console.log("Error: ", error);
+			const response = await fetch(
+				'https://crowdb.wiseminds.cc//api/v1/auth/register',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				}
+			)
+
+			if (response.status === 201) {
+				navigate('/auth/login')
+			} else {
+				const res = await response.json()
+			}
+		} catch (error) {}
 	}
-}
 	const navigate = useNavigate()
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="auth-form form-horizontal"
-		>
+			className="auth-form form-horizontal">
 			<FormTextInput
 				name="firstname"
 				label="First Name"
@@ -64,7 +61,7 @@ const RegisterForm = () => {
 				control={control}
 				placeholder="Enter last name"
 			/>
-				<FormTextInput
+			<FormTextInput
 				name="phonenumber"
 				label="Phone Number"
 				containerClass="mb-2"
@@ -110,8 +107,7 @@ const RegisterForm = () => {
 						/>
 						<label
 							className="form-label text-black"
-							htmlFor="customSwitchSuccess2"
-						>
+							htmlFor="customSwitchSuccess2">
 							You agree to the CrowdB{' '}
 							<Link to="#" className="text-primary">
 								Terms of Use
@@ -126,8 +122,7 @@ const RegisterForm = () => {
 					<Button
 						variant="primary"
 						type="submit"
-						className="w-100 waves-effect waves-light"
-					>
+						className="w-100 waves-effect waves-light">
 						Register <i className="fas fa-sign-in-alt ms-1"></i>
 					</Button>
 				</Col>

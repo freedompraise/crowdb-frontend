@@ -17,7 +17,6 @@ export const createProperty = async (propertyData) => {
 		}
 
 		const data = await response.json()
-		console.log('Property created:', data)
 		return { success: true, data }
 	} catch (error) {
 		console.error('Error creating property:', error)

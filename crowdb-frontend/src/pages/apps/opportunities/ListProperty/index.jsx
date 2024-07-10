@@ -48,12 +48,9 @@ const ListProperty = () => {
 			amenities: formData.amenities,
 		}
 
-		console.log('propertyData', propertyData)
-
 		const result = await createProperty(propertyData)
 
 		if (result.success) {
-			console.log('The property was created successfully!', result.data)
 			navigate('/opportunities/property-list')
 		} else {
 			console.error('Error creating property:', result.message)
