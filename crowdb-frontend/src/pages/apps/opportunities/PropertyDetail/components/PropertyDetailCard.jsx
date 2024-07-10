@@ -16,7 +16,6 @@ import {
 import { donutChartConfig } from '../data'
 import Chart from 'chart.js/auto'
 import { useEffect } from 'react'
-import { ComponentContainerCard } from '@/components'
 
 const PropertyDetailCard = ({ propertyData }) => {
 	const {
