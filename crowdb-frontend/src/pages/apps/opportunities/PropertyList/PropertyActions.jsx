@@ -34,7 +34,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 			} else if (updateType === 'price') {
 				await updatePrice(property.id, formData.price)
 			}
-			onUpdate()
+			// onUpdate(
 			handleCloseModal()
 		} catch (error) {
 			console.error(error.message)
