@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Table, Card, Dropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { fetchContacts } from '../api'
+import { fetchContacts, toggleUserStatus } from '../api'
 import { SearchBar } from '@/layout/TopNavbar/components'
 
 const Contacts = () => {
@@ -16,13 +16,36 @@ const Contacts = () => {
 				const result = await fetchContacts()
 				setContacts(result)
 			} catch (err) {
-				setError(err)
+				setError(err.message)
 			}
 			setLoading(false)
 		}
 
 		getContacts()
 	}, [])
+
+	const handleToggleStatus = async (contact) => {
+		const updatedContacts = contacts.map((c) =>
+			c.id === contact.id ? { ...c, isLoading: true } : c
+		)
+		setContacts(updatedContacts)
+
+		const result = await toggleUserStatus(contact.id, contact.isActive)
+
+		if (result.success) {
+			const updatedContacts = contacts.map((c) =>
+				c.id === contact.id
+					? { ...c, isActive: !c.isActive, isLoading: false }
+					: c
+			)
+			setContacts(updatedContacts)
+		} else {
+			const updatedContacts = contacts.map((c) =>
+				c.id === contact.id ? { ...c, isLoading: false } : c
+			)
+			setContacts(updatedContacts)
+		}
+	}
 
 	if (loading) return <p>Loading...</p>
 	if (error) return <p>Error: {error}</p>
@@ -59,12 +82,16 @@ const Contacts = () => {
 							<td>{contact.phoneNumber || 'N/A'}</td>
 							<td>
 								<Dropdown>
-									<Dropdown.Toggle
-										variant="dark"
-										id="dropdown-basic"></Dropdown.Toggle>
+									<Dropdown.Toggle variant="light" id="dropdown-basic">
+										<span className="las la-pen text-secondary fs-5"></span>
+									</Dropdown.Toggle>
 									<Dropdown.Menu>
-										{/* <Dropdown.Item href="#">View Details</Dropdown.Item> */}
-										<Dropdown.Item href="#">Deactivate</Dropdown.Item>
+										<Dropdown.Item
+											href="#"
+											onClick={() => handleToggleStatus(contact)}
+											disabled={contact.isLoading}>
+											{contact.isActive ? 'Deactivate' : 'Activate'}
+										</Dropdown.Item>
 									</Dropdown.Menu>
 								</Dropdown>
 							</td>

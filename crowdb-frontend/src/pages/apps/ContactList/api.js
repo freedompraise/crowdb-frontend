@@ -39,3 +39,29 @@ export const fetchContacts = async () => {
 		return { success: false, message: error.message }
 	}
 }
+
+export const toggleUserStatus = async (userId, isActive) => {
+	const endpoint = isActive
+		? `${API_URL}/users/users/deactivate/${userId}`
+		: `${API_URL}/users/users/activate/${userId}`
+
+	try {
+		const response = await fetch(endpoint, {
+			method: 'GET',
+			headers: {
+				Authorization: 'Bearer ' + localStorage.getItem('token'),
+			},
+		})
+
+		if (!response.ok) {
+			const errorData = await response.json()
+			throw new Error(errorData.message || 'Error updating user status')
+		}
+
+		const data = await response.json()
+		return data.data
+	} catch (error) {
+		console.error('Error updating user status:', error)
+		return { success: false, message: error.message }
+	}
+}
