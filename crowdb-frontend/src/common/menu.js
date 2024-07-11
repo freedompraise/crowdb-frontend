@@ -1,4 +1,5 @@
-import { FiHome, FiLock, FiMessageSquare, FiUser } from 'react-icons/fi'
+import { FaRegCircle } from 'react-icons/fa'
+import { FiHome, FiMessageSquare, FiUser } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
 	{
 		key: 'main',
@@ -63,25 +64,25 @@ export const VERTICAL_MENU_ITEMS = [
 			},
 		],
 	},
-	// {
-	// 	key: 'role-management',
-	// 	label: 'Role Management',
-	// 	icon: FiLock,
-	// 	isTitle: false,
-	// 	parentKey: 'main',
-	// 	children: [
-	// 		{
-	// 			key: 'role-management-view-roles',
-	// 			label: 'View Roles',
-	// 			url: '/roles',
-	// 			parentKey: 'role-management',
-	// 		},
-	// 		{
-	// 			key: 'role-management-update-role',
-	// 			label: 'Update Role',
-	// 			url: '/roles/update/',
-	// 			parentKey: 'role-management',
-	// 		},
-	// 	],
-	// },
+	{
+		key: 'role-management',
+		label: 'Role Management',
+		icon: FaRegCircle,
+		isTitle: false,
+		parentKey: 'main',
+		children: [
+			{
+				key: 'role-management-view-roles',
+				label: 'View Roles',
+				url: '/roles',
+				parentKey: 'role-management',
+			},
+			{
+				key: 'role-management-update-role',
+				label: 'Update Role',
+				url: '/roles/update/',
+				parentKey: 'role-management',
+			},
+		],
+	},
 ]
