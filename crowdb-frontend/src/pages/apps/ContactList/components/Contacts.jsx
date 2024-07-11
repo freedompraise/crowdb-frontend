@@ -3,11 +3,11 @@ import { Table, Card, Dropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { fetchContacts, toggleUserStatus } from '../api'
 import { SearchBar } from '@/layout/TopNavbar/components'
+import { toast } from 'sonner'
 
 const Contacts = () => {
 	const [contacts, setContacts] = useState([])
 	const [loading, setLoading] = useState(true)
-	const [error, setError] = useState(null)
 
 	useEffect(() => {
 		const getContacts = async () => {
@@ -16,7 +16,10 @@ const Contacts = () => {
 				const result = await fetchContacts()
 				setContacts(result)
 			} catch (err) {
-				setError(err.message)
+				toast.error(
+					'An error occured. Please contact the administrator for assistance.'
+				)
+				throw new err()
 			}
 			setLoading(false)
 		}
@@ -26,7 +29,7 @@ const Contacts = () => {
 
 	const handleToggleStatus = async (contact) => {
 		const updatedContacts = contacts.map((c) =>
-			c.id === contact.id ? { ...c, isLoading: true } : c
+			c.id === contact.id ? { ...c, isActive: !c.isActive, isLoading: true } : c
 		)
 		setContacts(updatedContacts)
 
@@ -34,21 +37,21 @@ const Contacts = () => {
 
 		if (result.success) {
 			const updatedContacts = contacts.map((c) =>
+				c.id === contact.id ? { ...c, isLoading: false } : c
+			)
+			setContacts(updatedContacts)
+		} else {
+			// Revert the change if the request failed
+			const revertedContacts = contacts.map((c) =>
 				c.id === contact.id
 					? { ...c, isActive: !c.isActive, isLoading: false }
 					: c
 			)
-			setContacts(updatedContacts)
-		} else {
-			const updatedContacts = contacts.map((c) =>
-				c.id === contact.id ? { ...c, isLoading: false } : c
-			)
-			setContacts(updatedContacts)
+			setContacts(revertedContacts)
 		}
 	}
 
 	if (loading) return <p>Loading...</p>
-	if (error) return <p>Error: {error}</p>
 
 	return (
 		<Card>
