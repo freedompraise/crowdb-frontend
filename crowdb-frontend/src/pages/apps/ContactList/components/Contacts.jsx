@@ -41,7 +41,6 @@ const Contacts = () => {
 			)
 			setContacts(updatedContacts)
 		} else {
-			// Revert the change if the request failed
 			const revertedContacts = contacts.map((c) =>
 				c.id === contact.id
 					? { ...c, isActive: !c.isActive, isLoading: false }
@@ -85,7 +84,7 @@ const Contacts = () => {
 							<td>{contact.phoneNumber || 'N/A'}</td>
 							<td>
 								<Dropdown>
-									<Dropdown.Toggle variant="light" id="dropdown-basic">
+									<Dropdown.Toggle variant="dark" id="dropdown-basic">
 										<span className="las la-pen text-secondary fs-5"></span>
 									</Dropdown.Toggle>
 									<Dropdown.Menu>
