@@ -94,6 +94,7 @@ const Contacts = () => {
 											disabled={contact.isLoading}>
 											{contact.isActive ? 'Deactivate' : 'Activate'}
 										</Dropdown.Item>
+										<Dropdown.Item href="#">Update Name</Dropdown.Item>
 									</Dropdown.Menu>
 								</Dropdown>
 							</td>
