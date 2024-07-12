@@ -29,12 +29,15 @@ const PropertyActions = ({ property, onUpdate }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try {
+			let updatedProperty = { ...property }
 			if (updateType === 'slots') {
 				await updateSlots(property.id, formData.slots)
+				updatedProperty = { ...updatedProperty, slots: formData.slots }
 			} else if (updateType === 'price') {
 				await updatePrice(property.id, formData.price)
+				updatedProperty = { ...updatedProperty, price: formData.price }
 			}
-			// onUpdate(
+			onUpdate(updatedProperty)
 			handleCloseModal()
 		} catch (error) {
 			console.error(error.message)
@@ -43,13 +46,14 @@ const PropertyActions = ({ property, onUpdate }) => {
 
 	const handleToggleVisibility = async () => {
 		setIsVisible((prev) => !prev)
+		let updatedProperty = { ...property, isVisible: !isVisible }
 		try {
 			if (isVisible) {
 				await makeInvisible(property.id)
 			} else {
 				await makeVisible(property.id)
 			}
-			onUpdate()
+			onUpdate(updatedProperty)
 		} catch (error) {
 			console.error(error.message)
 			setIsVisible((prev) => !prev)

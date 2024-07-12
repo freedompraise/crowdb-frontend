@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom'
 import house from '@/assets/images/properties/house.jpg'
 import PropertyActions from './PropertyActions'
 
-const PropertyTable = ({ properties, onUpdate }) => {
+const PropertyTable = ({ properties, setProperties }) => {
+	const handlePropertyUpdate = (updatedProperty) => {
+		setProperties((prevProperties) =>
+			prevProperties.map((property) =>
+				property.id === updatedProperty.id ? updatedProperty : property
+			)
+		)
+	}
+
 	return (
 		<div className="table-responsive">
 			<table className="table table-bordered">
@@ -87,7 +95,10 @@ const PropertyTable = ({ properties, onUpdate }) => {
 							</td>
 							<td>{property.size ? property.size : 'N/A'}</td>
 							<td>
-								<PropertyActions property={property} onUpdate={onUpdate} />
+								<PropertyActions
+									property={property}
+									onUpdate={handlePropertyUpdate}
+								/>
 							</td>
 						</tr>
 					))}
