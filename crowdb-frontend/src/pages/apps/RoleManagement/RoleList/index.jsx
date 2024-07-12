@@ -1,4 +1,4 @@
-import { Table, Button, Spinner, Alert } from 'react-bootstrap'
+import { Table, Button, Spinner, Alert, Dropdown } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRoleList } from './useRoleList'
 
@@ -31,14 +31,20 @@ const RoleList = () => {
 							<td>{role.name}</td>
 							<td>{role.permissions.join(', ')}</td>
 							<td>
-								<Button
-									variant="info"
-									onClick={() => navigate(`/roles/${role.id}`)}>
-									View
-								</Button>
-								<Button variant="danger" onClick={() => handleDelete(role.id)}>
-									Delete
-								</Button>
+								<Dropdown>
+									<Dropdown.Toggle variant="primary" id="dropdown-basic">
+										Actions
+									</Dropdown.Toggle>
+									<Dropdown.Menu>
+										<Dropdown.Item
+											onClick={() => navigate(`/roles/${role.id}`)}>
+											View
+										</Dropdown.Item>
+										<Dropdown.Item onClick={() => handleDelete(role.id)}>
+											Delete
+										</Dropdown.Item>
+									</Dropdown.Menu>
+								</Dropdown>
 							</td>
 						</tr>
 					))}
