@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useRole } from './useRole'
 import { Button, Form, Spinner, Alert } from 'react-bootstrap'
@@ -11,7 +11,7 @@ const RoleDetail = () => {
 	const [selectedPermissions, setSelectedPermissions] = useState([])
 
 	useEffect(() => {
-		if (role) {
+		if (role && role.permissions) {
 			setSelectedPermissions(
 				role.permissions.map((perm) => ({ value: perm, label: perm }))
 			)
@@ -39,7 +39,7 @@ const RoleDetail = () => {
 			<Form onSubmit={handleSubmit}>
 				<Form.Group controlId="roleName">
 					<Form.Label>Role Name</Form.Label>
-					<Form.Control type="text" value={role.name} readOnly />
+					<Form.Control type="text" value={role?.name || ''} readOnly />
 				</Form.Group>
 				<Form.Group controlId="permissions">
 					<Form.Label>Permissions</Form.Label>

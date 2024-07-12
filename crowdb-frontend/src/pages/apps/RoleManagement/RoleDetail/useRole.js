@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { toast } from 'sonner'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -39,12 +40,17 @@ export const useRole = (id) => {
 	}, [id])
 
 	const updateRole = async (updatedRole) => {
+		setLoading(true)
 		try {
 			await axios.put(`${API_URL}/admin/roles/${id}`, updatedRole, {
 				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
 			})
+			toast.success('Role updated successfully')
 		} catch (e) {
 			setError(e.response?.data?.message || 'An error occurred')
+			toast.error(e.response?.data?.message || 'An error occurred')
+		} finally {
+			setLoading(false)
 		}
 	}
 
