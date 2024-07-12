@@ -65,3 +65,30 @@ export const toggleUserStatus = async (userId, isActive) => {
 		return { success: false, message: error.message }
 	}
 }
+
+export const updateUserName = async (userId, newName) => {
+	try {
+		const response = await fetch(
+			`${API_URL}/users/users/update-name/${userId}`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: 'Bearer ' + localStorage.getItem('token'),
+				},
+				body: JSON.stringify({ name: newName }),
+			}
+		)
+
+		if (!response.ok) {
+			const errorData = await response.json()
+			throw new Error(errorData.message || 'Error updating user name')
+		}
+
+		const data = await response.json()
+		return { success: true, data: data.data }
+	} catch (error) {
+		console.error('Error updating user name:', error)
+		return { success: false, message: error.message }
+	}
+}

@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
-import { Table, Card, Dropdown } from 'react-bootstrap'
+import { Table, Card, Dropdown, Modal, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { fetchContacts, toggleUserStatus } from '../api'
+import { fetchContacts, toggleUserStatus, updateUserName } from '../api'
 import { SearchBar } from '@/layout/TopNavbar/components'
 import { toast } from 'sonner'
 
 const Contacts = () => {
 	const [contacts, setContacts] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [showModal, setShowModal] = useState(false)
+	const [selectedContact, setSelectedContact] = useState(null)
+	const [newName, setNewName] = useState('')
 
 	useEffect(() => {
 		const getContacts = async () => {
@@ -48,6 +51,38 @@ const Contacts = () => {
 			)
 			setContacts(revertedContacts)
 		}
+	}
+
+	const handleUpdateName = (contact) => {
+		setSelectedContact(contact)
+		setNewName(`${contact.firstName} ${contact.lastName}`)
+		setShowModal(true)
+	}
+
+	const handleNameChange = (e) => {
+		setNewName(e.target.value)
+	}
+
+	const handleSaveName = async () => {
+		setLoading(true)
+		const result = await updateUserName(selectedContact.id, newName)
+		if (result.success) {
+			const updatedContacts = contacts.map((c) =>
+				c.id === selectedContact.id
+					? {
+							...c,
+							firstName: newName.split(' ')[0],
+							lastName: newName.split(' ')[1],
+						}
+					: c
+			)
+			setContacts(updatedContacts)
+			toast.success('User name updated successfully!')
+		} else {
+			toast.error(result.message)
+		}
+		setLoading(false)
+		setShowModal(false)
 	}
 
 	if (loading) return <p>Loading...</p>
@@ -94,7 +129,11 @@ const Contacts = () => {
 											disabled={contact.isLoading}>
 											{contact.isActive ? 'Deactivate' : 'Activate'}
 										</Dropdown.Item>
-										<Dropdown.Item href="#">Update Name</Dropdown.Item>
+										<Dropdown.Item
+											href="#"
+											onClick={() => handleUpdateName(contact)}>
+											Update Name
+										</Dropdown.Item>
 									</Dropdown.Menu>
 								</Dropdown>
 							</td>
@@ -102,6 +141,32 @@ const Contacts = () => {
 					))}
 				</tbody>
 			</Table>
+			<Modal show={showModal} onHide={() => setShowModal(false)}>
+				<Modal.Header closeButton>
+					<Modal.Title>Update User Name</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					<Form>
+						<Form.Group controlId="formBasicEmail">
+							<Form.Label>New Name</Form.Label>
+							<Form.Control
+								type="text"
+								value={newName}
+								onChange={handleNameChange}
+								placeholder="Enter new name"
+							/>
+						</Form.Group>
+					</Form>
+				</Modal.Body>
+				<Modal.Footer>
+					<Button variant="secondary" onClick={() => setShowModal(false)}>
+						Close
+					</Button>
+					<Button variant="primary" onClick={handleSaveName}>
+						Save Changes
+					</Button>
+				</Modal.Footer>
+			</Modal>
 		</Card>
 	)
 }
