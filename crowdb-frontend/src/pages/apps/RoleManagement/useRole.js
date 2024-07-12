@@ -14,7 +14,9 @@ export const useRole = (id) => {
 		const fetchRole = async () => {
 			setLoading(true)
 			try {
-				const res = await axios.get(`${API_URL}/admin/roles/${id}`)
+				const res = await axios.get(`${API_URL}/admin/roles/${id}`, {
+					headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+				})
 				setRole(res.data)
 			} catch (e) {
 				setError(e.message)
@@ -25,7 +27,9 @@ export const useRole = (id) => {
 
 		const fetchPermissions = async () => {
 			try {
-				const res = await axios.get(`${API_URL}/admin/roles/permissions`)
+				const res = await axios.get(`${API_URL}/admin/roles/permissions`, {
+					headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+				})
 				setPermissions(res.data)
 			} catch (e) {
 				setError(e.message)
@@ -39,7 +43,10 @@ export const useRole = (id) => {
 	const updateRole = async (updatedRole) => {
 		setLoading(true)
 		try {
-			const res = await axios.put(`${API_URL}/admin/roles/${id}`, updatedRole)
+			const res = await axios.put(`${API_URL}/admin/roles/${id}`, {
+				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+				data: updatedRole,
+			})
 			setRole(res.data)
 			toast.success('Role updated successfully')
 		} catch (e) {
@@ -52,7 +59,9 @@ export const useRole = (id) => {
 	const deleteRole = async () => {
 		setLoading(true)
 		try {
-			await axios.delete(`${API_URL}/admin/roles/${id}`)
+			await axios.delete(`${API_URL}/admin/roles/${id}`, {
+				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+			})
 			toast.success('Role deleted successfully')
 		} catch (e) {
 			toast.error(e.response?.data?.message || 'An error occurred')
