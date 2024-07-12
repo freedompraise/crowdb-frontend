@@ -17,7 +17,6 @@ export const postInviteUser = async (formData) => {
 		}
 
 		const data = await response.json()
-		console.log('The user was invited successfully!', data.data)
 		return { success: true, data: data.data }
 	} catch (error) {
 		console.error('Error:', error.message)
