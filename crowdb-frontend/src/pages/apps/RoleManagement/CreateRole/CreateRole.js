@@ -35,8 +35,12 @@ export const useCreateRole = () => {
 
 		const newRole = {
 			name: roleName,
-			permissions: selectedPermissions.map((perm) => perm.value),
+			permissions: selectedPermissions.filter((perm) =>
+				permissions.includes(perm)
+			),
 		}
+
+		console.log(newRole)
 
 		try {
 			await axios.post(`${API_URL}/admin/roles`, newRole, {
