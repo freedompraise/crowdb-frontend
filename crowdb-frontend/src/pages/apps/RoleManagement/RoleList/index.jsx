@@ -33,7 +33,7 @@ const RoleList = () => {
 							<td>
 								<Dropdown>
 									<Dropdown.Toggle variant="primary" id="dropdown-basic">
-										Actions
+										<span className="las la-ellipsis-v fs-5" />
 									</Dropdown.Toggle>
 									<Dropdown.Menu>
 										<Dropdown.Item
