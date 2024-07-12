@@ -1,5 +1,13 @@
-import { Button, Form, Spinner, Alert, Row, Col } from 'react-bootstrap'
-import Select from 'react-select'
+import {
+	Button,
+	Form,
+	Spinner,
+	Alert,
+	Row,
+	Col,
+	FormGroup,
+	FormCheck,
+} from 'react-bootstrap'
 import { useCreateRole } from './CreateRole'
 
 const CreateRole = () => {
@@ -13,6 +21,16 @@ const CreateRole = () => {
 		error,
 		handleSubmit,
 	} = useCreateRole()
+
+	const handlePermissionChange = (permissionId) => {
+		if (selectedPermissions.includes(permissionId)) {
+			setSelectedPermissions(
+				selectedPermissions.filter((id) => id !== permissionId)
+			)
+		} else {
+			setSelectedPermissions([...selectedPermissions, permissionId])
+		}
+	}
 
 	return (
 		<div>
@@ -35,15 +53,17 @@ const CreateRole = () => {
 					<Col md={6}>
 						<Form.Group controlId="permissions">
 							<Form.Label>Permissions</Form.Label>
-							<Select
-								isMulti
-								options={permissions.map((perm) => ({
-									value: perm.id,
-									label: perm.name,
-								}))}
-								onChange={setSelectedPermissions}
-								value={selectedPermissions}
-							/>
+							<FormGroup>
+								{permissions.map((perm) => (
+									<FormCheck
+										key={perm}
+										type="checkbox"
+										label={perm}
+										checked={selectedPermissions.includes(perm)}
+										onChange={() => handlePermissionChange(perm)}
+									/>
+								))}
+							</FormGroup>
 						</Form.Group>
 					</Col>
 				</Row>
