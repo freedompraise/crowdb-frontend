@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Form, Spinner, Alert, Row, Col } from 'react-bootstrap'
 import Select from 'react-select'
 import { useCreateRole } from './CreateRole'
