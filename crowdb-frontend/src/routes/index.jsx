@@ -4,10 +4,10 @@ import { Navigate } from 'react-router-dom'
 //Dashboards
 const AnalyticsDashboard = lazy(() => import('@/pages/dashboards/Analytics'))
 const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
-
-//Apps
+//Communication
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
+// Properties
 const Property = lazy(() => import('@/pages/apps/opportunities/Property'))
 const PropertyList = lazy(
 	() => import('@/pages/apps/opportunities/PropertyList')
@@ -18,9 +18,12 @@ const PropertyDetail = lazy(
 const ListProperty = lazy(
 	() => import('@/pages/apps/opportunities/ListProperty')
 )
+// Roles
 const InviteUser = lazy(() => import('@/pages/apps/TeamManagement'))
 const RoleList = lazy(() => import('@/pages/apps/RoleManagement/RoleList'))
 const CreateRole = lazy(() => import('@/pages/apps/RoleManagement/CreateRole'))
+const RoleDetail = lazy(() => import('@/pages/apps/RoleManagement/RoleDetail'))
+// Authentication
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPassword = lazy(
@@ -90,6 +93,11 @@ const appsRoutes = [
 		path: '/roles/create',
 		name: 'Create Role',
 		element: <CreateRole />,
+	},
+	{
+		path: '/roles/:id',
+		name: 'Role Detail',
+		element: <RoleDetail />,
 	},
 ]
 const authRoutes = [
