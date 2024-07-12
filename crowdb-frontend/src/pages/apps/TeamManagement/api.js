@@ -53,5 +53,6 @@ export const fetchAllRoles = async () => {
 export const defaultFormData = {
 	email: '',
 	firstName: '',
+	lastName: '',
 	roleId: '',
 }
