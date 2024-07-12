@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { postInviteUser, defaultFormData, fetchAllRoles } from './api'
 import { PageBreadcrumb2 } from '@/components'
 import CreatableSelect from 'react-select/creatable'
+import { toast } from 'sonner'
 
 const InviteUser = () => {
 	const [formData, setFormData] = useState(defaultFormData)
@@ -27,12 +28,19 @@ const InviteUser = () => {
 		setErrors({})
 
 		try {
+			console.log('Inviting user:', formData)
 			const result = await postInviteUser(formData)
 
 			if (result.success) {
-				console.log('User was invited successfully!')
+				toast.success('User was invited successfully!', {
+					position: 'top-right',
+				})
+				setFormData(defaultFormData)
 			} else {
 				setErrors({ message: result.message })
+				toast.error('User has already been invited, or has joined', {
+					position: 'top-right',
+				})
 			}
 		} catch (error) {
 			console.error('Error inviting user:', error.message)
@@ -101,6 +109,23 @@ const InviteUser = () => {
 								onChange={handleChange}
 							/>
 						</div>
+						<div className="mb-3">
+							<label htmlFor="lastName" className="form-label">
+								Last Name
+							</label>
+							<input
+								type="text"
+								className="form-control"
+								id="lastName"
+								name="lastName"
+								placeholder="Enter last name"
+								value={formData.lastName}
+								pattern="^[a-zA-Z]+$"
+								title="Enter a valid last name (only letters allowed)"
+								required
+								onChange={handleChange}
+							/>
+						</div>
 						<CreatableSelect
 							id="roleId"
 							name="roleId"
@@ -121,9 +146,6 @@ const InviteUser = () => {
 
 						<button type="submit" className="btn btn-primary">
 							{isSubmitting ? 'Submitting...' : 'Submit'}
-							{/* {errors.message && (
-								<div className="alert alert-danger mt-2">{errors.message}</div>
-							)} */}
 						</button>
 					</form>
 				</div>
