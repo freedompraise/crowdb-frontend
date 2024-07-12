@@ -19,8 +19,9 @@ const ListProperty = lazy(
 	() => import('@/pages/apps/opportunities/ListProperty')
 )
 const InviteUser = lazy(() => import('@/pages/apps/TeamManagement'))
-const ViewRoles = lazy(() => import('@/pages/apps/RoleManagement/ViewRoles'))
-const UpdateRole = lazy(() => import('@/pages/apps/RoleManagement/UpdateRoles'))
+const RoleList = lazy(() => import('@/pages/apps/RoleManagement/RoleList'))
+// const ViewRoles = lazy(() => import('@/pages/apps/RoleManagement/ViewRoles'))
+// const UpdateRole = lazy(() => import('@/pages/apps/RoleManagement/UpdateRoles'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPassword = lazy(
@@ -83,14 +84,19 @@ const appsRoutes = [
 	},
 	{
 		path: '/roles',
-		name: 'View Roles',
-		element: <ViewRoles />,
+		name: 'Roles',
+		element: <RoleList />,
 	},
-	{
-		path: '/roles/update/',
-		name: 'Update Role',
-		element: <UpdateRole />,
-	},
+	// {
+	// 	path: '/roles',
+	// 	name: 'View Roles',
+	// 	element: <ViewRoles />,
+	// },
+	// {
+	// 	path: '/roles/update/',
+	// 	name: 'Update Role',
+	// 	element: <UpdateRole />,
+	// },
 ]
 const authRoutes = [
 	{
