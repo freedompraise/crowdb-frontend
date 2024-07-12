@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useState, useEffect } from 'react'
 import { toast } from 'sonner'
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -7,6 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL
 export const useRole = (id) => {
 	const [role, setRole] = useState(null)
 	const [permissions, setPermissions] = useState([])
+	const [selectedPermissions, setSelectedPermissions] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
 
@@ -16,9 +17,11 @@ export const useRole = (id) => {
 				const res = await axios.get(`${API_URL}/admin/roles/${id}`, {
 					headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
 				})
-				setRole(res.data.data)
+				const roleData = res.data.data
+				setRole(roleData)
+				setSelectedPermissions(roleData.permissions.map((perm) => perm.id))
 			} catch (e) {
-				setError(e.message)
+				throw new Error(e.response?.data?.message || 'An error occurred')
 			} finally {
 				setLoading(false)
 			}
@@ -54,5 +57,13 @@ export const useRole = (id) => {
 		}
 	}
 
-	return { role, permissions, loading, error, updateRole }
+	return {
+		role,
+		permissions,
+		selectedPermissions,
+		setSelectedPermissions,
+		loading,
+		error,
+		updateRole,
+	}
 }

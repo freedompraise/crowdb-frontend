@@ -1,33 +1,50 @@
-import { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useRole } from './useRole'
-import { Button, Form, Spinner, Alert } from 'react-bootstrap'
-import Select from 'react-select'
+import {
+	Button,
+	Form,
+	Spinner,
+	Alert,
+	FormGroup,
+	FormCheck,
+	Row,
+	Col,
+} from 'react-bootstrap'
 
 const RoleDetail = () => {
 	const { id } = useParams()
-	const { role, permissions, loading, error, updateRole } = useRole(id)
+	const {
+		role,
+		permissions,
+		selectedPermissions,
+		setSelectedPermissions,
+		loading,
+		error,
+		updateRole,
+	} = useRole(id)
 	const navigate = useNavigate()
-	const [selectedPermissions, setSelectedPermissions] = useState([])
 
-	useEffect(() => {
-		if (role && role.permissions) {
+	const handlePermissionChange = (permissionId) => {
+		if (selectedPermissions.includes(permissionId)) {
 			setSelectedPermissions(
-				role.permissions.map((perm) => ({ value: perm, label: perm }))
+				selectedPermissions.filter((id) => id !== permissionId)
 			)
+		} else {
+			setSelectedPermissions([...selectedPermissions, permissionId])
 		}
-	}, [role])
+	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		const updatedRole = {
 			name: role.name,
-			permissions: selectedPermissions.map((perm) => perm.value),
+			permissions: selectedPermissions,
 		}
 
 		await updateRole(updatedRole)
-		navigate('/roles')
+		// navigate('/roles')
 	}
 
 	if (loading) return <Spinner animation="border" />
@@ -37,22 +54,30 @@ const RoleDetail = () => {
 		<div>
 			<h1>Update Role</h1>
 			<Form onSubmit={handleSubmit}>
-				<Form.Group controlId="roleName">
-					<Form.Label>Role Name</Form.Label>
-					<Form.Control type="text" value={role?.name || ''} readOnly />
-				</Form.Group>
-				<Form.Group controlId="permissions">
-					<Form.Label>Permissions</Form.Label>
-					<Select
-						isMulti
-						value={selectedPermissions}
-						options={permissions.map((perm) => ({
-							value: perm.id,
-							label: perm.name,
-						}))}
-						onChange={setSelectedPermissions}
-					/>
-				</Form.Group>
+				<Row>
+					<Col md={6}>
+						<Form.Group controlId="roleName">
+							<Form.Label>Role Name</Form.Label>
+							<Form.Control type="text" value={role?.name || ''} readOnly />
+						</Form.Group>
+					</Col>
+					<Col md={6}>
+						<Form.Group controlId="permissions">
+							<Form.Label>Permissions</Form.Label>
+							<FormGroup>
+								{permissions.map((perm) => (
+									<FormCheck
+										key={perm}
+										type="checkbox"
+										label={perm}
+										checked={selectedPermissions.includes(perm)}
+										onChange={() => handlePermissionChange(perm)}
+									/>
+								))}
+							</FormGroup>
+						</Form.Group>
+					</Col>
+				</Row>
 				<Button type="submit" className="mt-3">
 					Update Role
 				</Button>
