@@ -20,8 +20,7 @@ const ListProperty = lazy(
 )
 const InviteUser = lazy(() => import('@/pages/apps/TeamManagement'))
 const RoleList = lazy(() => import('@/pages/apps/RoleManagement/RoleList'))
-// const ViewRoles = lazy(() => import('@/pages/apps/RoleManagement/ViewRoles'))
-// const UpdateRole = lazy(() => import('@/pages/apps/RoleManagement/UpdateRoles'))
+const CreateRole = lazy(() => import('@/pages/apps/RoleManagement/CreateRole'))
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
 const RecoverPassword = lazy(
@@ -87,16 +86,11 @@ const appsRoutes = [
 		name: 'Roles',
 		element: <RoleList />,
 	},
-	// {
-	// 	path: '/roles',
-	// 	name: 'View Roles',
-	// 	element: <ViewRoles />,
-	// },
-	// {
-	// 	path: '/roles/update/',
-	// 	name: 'Update Role',
-	// 	element: <UpdateRole />,
-	// },
+	{
+		path: '/roles/create',
+		name: 'Create Role',
+		element: <CreateRole />,
+	},
 ]
 const authRoutes = [
 	{

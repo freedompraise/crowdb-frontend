@@ -77,19 +77,12 @@ export const VERTICAL_MENU_ITEMS = [
 				url: '/roles',
 				parentKey: 'role-management',
 			},
-
-			// {
-			// 	key: 'role-management-view-roles',
-			// 	label: 'View Roles',
-			// 	url: '/roles',
-			// 	parentKey: 'role-management',
-			// },
-			// {
-			// 	key: 'role-management-update-role',
-			// 	label: 'Update Role',
-			// 	url: '/roles/update/',
-			// 	parentKey: 'role-management',
-			// },
+			{
+				key: 'role-management-create-role',
+				label: 'Create Role',
+				url: '/roles/create',
+				parentKey: 'role-management',
+			},
 		],
 	},
 ]
