@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useRole } from './useRole'
 import {
@@ -11,6 +11,7 @@ import {
 	Row,
 	Col,
 } from 'react-bootstrap'
+import Select from 'react-select'
 
 const RoleDetail = () => {
 	const { id } = useParams()
@@ -21,9 +22,21 @@ const RoleDetail = () => {
 		setSelectedPermissions,
 		loading,
 		error,
+		updateError,
+		setRole,
 		updateRole,
 	} = useRole(id)
 	const navigate = useNavigate()
+	const [roleName, setRoleName] = useState('')
+
+	useEffect(() => {
+		if (role) {
+			setRoleName(role.name)
+			setSelectedPermissions(
+				role.permissions.map((perm) => perm) // assuming permissions are strings
+			)
+		}
+	}, [role])
 
 	const handlePermissionChange = (permission) => {
 		if (selectedPermissions.includes(permission)) {
@@ -39,12 +52,14 @@ const RoleDetail = () => {
 		e.preventDefault()
 
 		const updatedRole = {
-			name: role.name,
+			name: roleName,
 			permissions: selectedPermissions,
 		}
 
 		await updateRole(updatedRole)
-		navigate('/roles')
+		if (!updateError) {
+			navigate('/roles')
+		}
 	}
 
 	if (loading) return <Spinner animation="border" />
@@ -52,13 +67,19 @@ const RoleDetail = () => {
 
 	return (
 		<div>
-			<h1>Update Role - "{role.name}"" </h1>
+			<h1>Update Role</h1>
+			{updateError && <Alert variant="danger">{updateError}</Alert>}
 			<Form onSubmit={handleSubmit}>
 				<Row>
 					<Col md={6}>
 						<Form.Group controlId="roleName">
 							<Form.Label>Role Name</Form.Label>
-							<Form.Control type="text" value={role?.name || ''} readOnly />
+							<Form.Control
+								type="text"
+								value={roleName}
+								onChange={(e) => setRoleName(e.target.value)}
+								required
+							/>
 						</Form.Group>
 					</Col>
 					<Col md={6}>
