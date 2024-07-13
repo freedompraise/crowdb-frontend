@@ -19,9 +19,9 @@ export const useRole = (id) => {
 				})
 				const roleData = res.data.data
 				setRole(roleData)
-				setSelectedPermissions(roleData.permissions.map((perm) => perm.id))
+				setSelectedPermissions(roleData.permissions)
 			} catch (e) {
-				throw new Error(e.response?.data?.message || 'An error occurred')
+				setError(e.response?.data?.message || 'An error occurred')
 			} finally {
 				setLoading(false)
 			}

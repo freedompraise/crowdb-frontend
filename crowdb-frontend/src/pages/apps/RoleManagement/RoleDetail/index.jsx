@@ -25,13 +25,13 @@ const RoleDetail = () => {
 	} = useRole(id)
 	const navigate = useNavigate()
 
-	const handlePermissionChange = (permissionId) => {
-		if (selectedPermissions.includes(permissionId)) {
+	const handlePermissionChange = (permission) => {
+		if (selectedPermissions.includes(permission)) {
 			setSelectedPermissions(
-				selectedPermissions.filter((id) => id !== permissionId)
+				selectedPermissions.filter((perm) => perm !== permission)
 			)
 		} else {
-			setSelectedPermissions([...selectedPermissions, permissionId])
+			setSelectedPermissions([...selectedPermissions, permission])
 		}
 	}
 
@@ -44,7 +44,7 @@ const RoleDetail = () => {
 		}
 
 		await updateRole(updatedRole)
-		// navigate('/roles')
+		navigate('/roles')
 	}
 
 	if (loading) return <Spinner animation="border" />
@@ -52,7 +52,7 @@ const RoleDetail = () => {
 
 	return (
 		<div>
-			<h1>Update Role</h1>
+			<h1>Update Role - "{role.name}"" </h1>
 			<Form onSubmit={handleSubmit}>
 				<Row>
 					<Col md={6}>
