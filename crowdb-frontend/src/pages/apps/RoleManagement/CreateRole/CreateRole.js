@@ -40,8 +40,6 @@ export const useCreateRole = () => {
 			),
 		}
 
-		console.log(newRole)
-
 		try {
 			await axios.post(`${API_URL}/admin/roles`, newRole, {
 				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
