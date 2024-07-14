@@ -15,7 +15,7 @@ import {
 	FaMoneyBillWave,
 	FaTrash,
 } from 'react-icons/fa'
-import { donutChartConfig, activateVoting, deactivateVoting } from '../data'
+import { donutChartConfig, toggleVoting } from '../data'
 import Chart from 'chart.js/auto'
 import { toast } from 'sonner'
 
@@ -48,17 +48,13 @@ const PropertyDetailCard = ({ propertyData }) => {
 
 	const handleToggleVoting = async () => {
 		try {
-			if (votingStatus) {
-				await deactivateVoting(id)
-				toast.success('Voting has been deactivated')
-			} else {
-				await activateVoting(id)
-				toast.success('Voting has been activated')
-			}
+			await toggleVoting(id, votingStatus)
+			toast.success(
+				`Voting has been ${votingStatus ? 'deactivated' : 'activated'}`
+			)
 			setVotingStatus(!votingStatus)
 		} catch (error) {
-			// toast.error(error.message)
-			throw new Error(error.message)
+			toast.error(error.message)
 		}
 	}
 

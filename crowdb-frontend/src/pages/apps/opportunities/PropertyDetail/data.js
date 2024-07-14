@@ -1,3 +1,4 @@
+import axios from 'axios'
 const API_URL = import.meta.env.VITE_API_URL
 
 export const getPropertyData = async (propertyId) => {
@@ -42,11 +43,12 @@ export const donutChartConfig = {
 	},
 }
 
-export const activateVoting = async (packageId) => {
+export const toggleVoting = async (propertyId, isActive) => {
+	const endpoint = isActive ? 'deactivate' : 'activate'
 	try {
 		const response = await axios.post(
-			`${API_URL}/vote/admin/activate`,
-			{ packageId },
+			`${API_URL}/vote/admin/${endpoint}`,
+			{ packageId: propertyId },
 			{
 				headers: {
 					Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -54,32 +56,15 @@ export const activateVoting = async (packageId) => {
 				},
 			}
 		)
-		return response.data.data
-	} catch (error) {
-		throw new Error(
-			error.response?.data?.message ||
-				'An error occurred while activating voting'
-		)
-	}
-}
-
-export const deactivateVoting = async (packageId) => {
-	try {
-		const response = await axios.post(
-			`${API_URL}/vote/admin/deactivate`,
-			{ packageId },
-			{
-				headers: {
-					Authorization: 'Bearer ' + localStorage.getItem('token'),
-					'Content-Type': 'application/json',
-				},
-			}
+		console.log(
+			`Toggled voting to ${isActive ? 'inactive' : 'active'}`,
+			response.data
 		)
 		return response.data.data
 	} catch (error) {
 		throw new Error(
 			error.response?.data?.message ||
-				'An error occurred while deactivating voting'
+				`An error occurred while toggling voting to ${isActive ? 'inactive' : 'active'}`
 		)
 	}
 }
