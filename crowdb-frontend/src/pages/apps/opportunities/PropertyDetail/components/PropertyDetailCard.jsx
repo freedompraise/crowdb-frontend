@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
 	Card,
 	CardBody,
@@ -6,6 +7,7 @@ import {
 	Container,
 	Image,
 	Badge,
+	Button,
 } from 'react-bootstrap'
 import {
 	FaEdit,
@@ -13,12 +15,13 @@ import {
 	FaMoneyBillWave,
 	FaTrash,
 } from 'react-icons/fa'
-import { donutChartConfig } from '../data'
+import { donutChartConfig, activateVoting, deactivateVoting } from '../data'
 import Chart from 'chart.js/auto'
-import { useEffect } from 'react'
+import { toast } from 'sonner'
 
 const PropertyDetailCard = ({ propertyData }) => {
 	const {
+		id,
 		status = 'N/A',
 		currency = 'N/A',
 		price = 'N/A',
@@ -28,15 +31,36 @@ const PropertyDetailCard = ({ propertyData }) => {
 		slots = 'N/A',
 		description = 'N/A',
 		amenities = [],
-	} = propertyData
+		isVoteActive,
+	} = propertyData || {}
+
+	const [votingStatus, setVotingStatus] = useState(isVoteActive)
 
 	useEffect(() => {
 		const donutChartTag = document.getElementById('doughnut')
-		const donutChart = new Chart(donutChartTag, donutChartConfig)
-		return () => {
-			donutChart.destroy()
+		if (donutChartTag) {
+			const donutChart = new Chart(donutChartTag, donutChartConfig)
+			return () => {
+				donutChart.destroy()
+			}
 		}
 	}, [])
+
+	const handleToggleVoting = async () => {
+		try {
+			if (votingStatus) {
+				await deactivateVoting(id)
+				toast.success('Voting has been deactivated')
+			} else {
+				await activateVoting(id)
+				toast.success('Voting has been activated')
+			}
+			setVotingStatus(!votingStatus)
+		} catch (error) {
+			// toast.error(error.message)
+			throw new Error(error.message)
+		}
+	}
 
 	return (
 		<Container fluid>
@@ -44,10 +68,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 				<Col lg={4} className="mb-3">
 					<Card className="mb-3">
 						<CardBody>
-							<h5 className="text-uppercase">
-								{status}
-								{/* <FaEdit style={{ cursor: 'pointer' }} /> */}
-							</h5>
+							<h5 className="text-uppercase">{status}</h5>
 							<p>
 								<FaMoneyBillWave /> {currency} {price}
 							</p>
@@ -57,9 +78,26 @@ const PropertyDetailCard = ({ propertyData }) => {
 						<CardBody>
 							<h5>Vote Statistics</h5>
 							<p className="text-muted">No votes available</p>
-							{/* <ComponentContainerCard title="Votes Chart">
-								<canvas id="doughnut" height={300} />
-							</ComponentContainerCard> */}
+						</CardBody>
+					</Card>
+					<Card className="mb-3">
+						<CardBody>
+							<h5>Voting Status</h5>
+							<p>
+								Voting is currently{' '}
+								{votingStatus ? (
+									<Badge pill bg="success">
+										Active
+									</Badge>
+								) : (
+									<Badge pill bg="danger">
+										Inactive
+									</Badge>
+								)}
+							</p>
+							<Button onClick={handleToggleVoting}>
+								{votingStatus ? 'Deactivate Voting' : 'Activate Voting'}
+							</Button>
 						</CardBody>
 					</Card>
 				</Col>
@@ -68,7 +106,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 						<Col md={6}>
 							<Card className="mb-3">
 								<CardBody>
-									{images ? (
+									{images && images.length > 0 ? (
 										<Image src={images[0]} alt="Property" fluid />
 									) : (
 										<p>No image available</p>
@@ -87,10 +125,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 										<FaMapMarkerAlt /> Location: {address}
 									</p>
 									<p>Slots: {slots} </p>
-									<p>
-										Description: {description}{' '}
-										{/* <FaEdit style={{ cursor: 'pointer' }} /> */}
-									</p>
+									<p>Description: {description}</p>
 								</CardBody>
 							</Card>
 						</Col>
@@ -101,13 +136,12 @@ const PropertyDetailCard = ({ propertyData }) => {
 								<CardBody>
 									<h5>Amenities</h5>
 									<Row>
-										{amenities ? (
+										{amenities && amenities.length > 0 ? (
 											amenities.map((amenity, index) => (
 												<Col key={index} xs={2} className="mb-2">
-													<Badge pill variant="info">
+													<Badge pill bg="info">
 														{amenity}
-													</Badge>{' '}
-													{/* <FaTrash style={{ cursor: 'pointer' }} /> */}
+													</Badge>
 												</Col>
 											))
 										) : (
@@ -121,8 +155,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 							<Card className="mb-3">
 								<CardBody>
 									<h5>Transaction History</h5>
-									{/* Placeholder for transaction history */}
-									<p className="">No transaction history available</p>
+									<p>No transaction history available</p>
 								</CardBody>
 							</Card>
 						</Col>

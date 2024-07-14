@@ -41,3 +41,45 @@ export const donutChartConfig = {
 		},
 	},
 }
+
+export const activateVoting = async (packageId) => {
+	try {
+		const response = await axios.post(
+			`${API_URL}/vote/admin/activate`,
+			{ packageId },
+			{
+				headers: {
+					Authorization: 'Bearer ' + localStorage.getItem('token'),
+					'Content-Type': 'application/json',
+				},
+			}
+		)
+		return response.data.data
+	} catch (error) {
+		throw new Error(
+			error.response?.data?.message ||
+				'An error occurred while activating voting'
+		)
+	}
+}
+
+export const deactivateVoting = async (packageId) => {
+	try {
+		const response = await axios.post(
+			`${API_URL}/vote/admin/deactivate`,
+			{ packageId },
+			{
+				headers: {
+					Authorization: 'Bearer ' + localStorage.getItem('token'),
+					'Content-Type': 'application/json',
+				},
+			}
+		)
+		return response.data.data
+	} catch (error) {
+		throw new Error(
+			error.response?.data?.message ||
+				'An error occurred while deactivating voting'
+		)
+	}
+}
