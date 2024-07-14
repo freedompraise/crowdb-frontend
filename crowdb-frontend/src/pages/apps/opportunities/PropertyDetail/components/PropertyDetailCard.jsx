@@ -25,7 +25,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 		images = [],
 		name = 'N/A',
 		address = 'N/A',
-		zipcode = 'N/A',
+		slots = 'N/A',
 		description = 'N/A',
 		amenities = [],
 	} = propertyData
@@ -86,7 +86,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 									<p>
 										<FaMapMarkerAlt /> Location: {address}
 									</p>
-									<p>Postal Code: {zipcode}</p>
+									<p>Slots: {slots} </p>
 									<p>
 										Description: {description}{' '}
 										{/* <FaEdit style={{ cursor: 'pointer' }} /> */}
@@ -107,7 +107,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 													<Badge pill variant="info">
 														{amenity}
 													</Badge>{' '}
-													<FaTrash style={{ cursor: 'pointer' }} />
+													{/* <FaTrash style={{ cursor: 'pointer' }} /> */}
 												</Col>
 											))
 										) : (
