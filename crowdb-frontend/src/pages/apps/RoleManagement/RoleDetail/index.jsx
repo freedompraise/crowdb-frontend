@@ -11,7 +11,6 @@ import {
 	Row,
 	Col,
 } from 'react-bootstrap'
-import Select from 'react-select'
 
 const RoleDetail = () => {
 	const { id } = useParams()
@@ -32,9 +31,7 @@ const RoleDetail = () => {
 	useEffect(() => {
 		if (role) {
 			setRoleName(role.name)
-			setSelectedPermissions(
-				role.permissions.map((perm) => perm) // assuming permissions are strings
-			)
+			setSelectedPermissions(role.permissions.map((perm) => perm))
 		}
 	}, [role])
 
