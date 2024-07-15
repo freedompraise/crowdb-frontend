@@ -10,15 +10,9 @@
 // Dark mode overrides
 body.dark-mode {
 	background-color: #121212;
-	color: #e0e0e0;
+	color: #ffffff;
 
-	.card,
-	form {
-		background-color: #343a40;
-		color: #f8f9fa;
-	}
-
-	.div {
+	.card {
 		background-color: #343a40;
 		color: #f8f9fa;
 	}
@@ -27,109 +21,24 @@ body.dark-mode {
 		background-color: #495057;
 		color: #f8f9fa;
 
-		th,
+		th {
+			background-color: #343a40;
+			color: #f8f9fa;
+		}
 		td {
 			border-color: #6c757d;
 		}
 	}
 
-	.navbar,
-	left-sidenav,
-	.dropdown-menu {
-		background-color: #343a40;
-		color: #f8f9fa;
-	}
-
-	.btn {
-		background-color: #6c757d;
-		color: #f8f9fa;
-		border-color: #6c757d;
-
-		&:hover {
-			background-color: #5a6268;
-			border-color: #545b62;
-		}
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: #e0e0e0;
-	}
-
-	p {
-		color: #e0e0e0;
-	}
-
-	a {
-		color: #bb86fc;
-
-		&:hover {
-			color: #bb86fc;
-			text-decoration: underline;
-		}
-	}
-
-	.text-muted {
-		color: #b0b0b0;
-	}
-
-	.text-primary {
-		color: #bb86fc;
-	}
-
-	.text-success {
-		color: #03dac6;
-	}
-
-	.text-info {
-		color: #2196f3;
-	}
-
-	.text-warning {
-		color: #ffc107;
-	}
-
-	.text-danger {
-		color: #cf6679;
-	}
-
-	.text-light {
-		color: #f8f9fa;
-	}
-
-	.text-dark {
-		color: #343a40;
-	}
-
-	.text-body {
-		color: #e0e0e0;
-	}
-
-	// Modified colors
-	.card {
-		background-color: #f8f8f8;
-		color: #343a40;
-	}
-
-	.table {
-		background-color: #ffcc80;
-		color: #343a40;
-
-		th,
-		td {
-			border-color: #0d47a1;
-		}
-	}
-
-	.navbar,
-	left-sidenav,
+	.topbar,
 	.dropdown-menu {
 		background-color: #0d47a1;
 		color: #f8f9fa;
+	}
+
+	.left-sidenav {
+		background-color: #121212;
+		color: #ff6f00;
 	}
 
 	.btn {
@@ -156,12 +65,11 @@ body.dark-mode {
 		color: #ffffff;
 	}
 
-	a {
+	Link {
 		color: #ffffff;
 
 		&:hover {
-			color: #ffffff;
-			text-decoration: underline;
+			color: #ff6f00;
 		}
 	}
 
