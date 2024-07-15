@@ -1,10 +1,9 @@
 import { PageBreadcrumb } from '@/components'
 import { Col, Row } from 'react-bootstrap'
-import { getPropertyData } from './data'
+import { getPropertyData } from './api'
 import PropertyDetailCard from './components/PropertyDetailCard'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-
 
 const PropertyDetail = () => {
 	const [propertyData, setPropertyData] = useState(null)
@@ -12,13 +11,12 @@ const PropertyDetail = () => {
 
 	useEffect(() => {
 		if (id) {
-		getPropertyData(id).then((data
-		) => setPropertyData(data))
-	}
-	},[id])
+			getPropertyData(id).then((data) => setPropertyData(data))
+		}
+	}, [id])
 
 	if (!propertyData) {
-        return <div>Loading...</div>
+		return <div>Loading...</div>
 	}
 
 	return (

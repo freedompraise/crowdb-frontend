@@ -16,43 +16,15 @@ export const getPropertyData = async (propertyId) => {
 	}
 }
 
-export const donutChartConfig = {
-	type: 'doughnut',
-	data: {
-		labels: ['Rental', 'Sales', 'AirBnB', 'Other'],
-		datasets: [
-			{
-				data: [70, 100, 90, 80],
-				backgroundColor: ['#f7931a', '#4d79f6', '#e0e7fd', '#d0d7e5'],
-				borderColor: 'transparent',
-				borderRadius: 0,
-				hoverBackgroundColor: ['#f7931a', '#4d79f6', '#e0e7fd', '#aeb8d0'],
-				hoverBorderColor: 'transparent',
-			},
-		],
-	},
-	options: {
-		maintainAspectRatio: false,
-		plugins: {
-			legend: {
-				labels: {
-					color: '#7c8ea7',
-				},
-			},
-		},
-	},
-}
-
 export const toggleVoting = async (propertyId, isActive) => {
 	const endpoint = isActive ? 'deactivate' : 'activate'
 	try {
 		const response = await axios.post(
-			`${API_URL}/vote/admin/${endpoint}`,
-			{ packageId: propertyId },
+			`${API_URL}/vote/admin/${endpoint}/${propertyId}`,
+			null,
 			{
 				headers: {
 					Authorization: 'Bearer ' + localStorage.getItem('token'),
-					'Content-Type': 'application/json',
 				},
 			}
 		)

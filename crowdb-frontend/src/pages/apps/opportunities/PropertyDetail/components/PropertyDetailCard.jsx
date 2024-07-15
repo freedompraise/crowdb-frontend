@@ -15,8 +15,7 @@ import {
 	FaMoneyBillWave,
 	FaTrash,
 } from 'react-icons/fa'
-import { donutChartConfig, toggleVoting } from '../data'
-import Chart from 'chart.js/auto'
+import { toggleVoting } from '../api'
 import { toast } from 'sonner'
 
 const PropertyDetailCard = ({ propertyData }) => {
@@ -35,16 +34,6 @@ const PropertyDetailCard = ({ propertyData }) => {
 	} = propertyData || {}
 
 	const [votingStatus, setVotingStatus] = useState(isVoteActive)
-
-	useEffect(() => {
-		const donutChartTag = document.getElementById('doughnut')
-		if (donutChartTag) {
-			const donutChart = new Chart(donutChartTag, donutChartConfig)
-			return () => {
-				donutChart.destroy()
-			}
-		}
-	}, [])
 
 	const handleToggleVoting = async () => {
 		try {
