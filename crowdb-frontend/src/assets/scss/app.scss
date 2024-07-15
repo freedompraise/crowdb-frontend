@@ -9,11 +9,17 @@
 
 // Dark mode overrides
 body.dark-mode {
-	background-color: #343a40;
-	color: #f8f9fa;
+	background-color: #121212;
+	color: #e0e0e0;
 
-	.card {
-		background-color: #495057;
+	.card,
+	form {
+		background-color: #343a40;
+		color: #f8f9fa;
+	}
+
+	.div {
+		background-color: #343a40;
 		color: #f8f9fa;
 	}
 
@@ -28,8 +34,9 @@ body.dark-mode {
 	}
 
 	.navbar,
+	left-sidenav,
 	.dropdown-menu {
-		background-color: #495057;
+		background-color: #343a40;
 		color: #f8f9fa;
 	}
 
@@ -42,6 +49,156 @@ body.dark-mode {
 			background-color: #5a6268;
 			border-color: #545b62;
 		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: #e0e0e0;
+	}
+
+	p {
+		color: #e0e0e0;
+	}
+
+	a {
+		color: #bb86fc;
+
+		&:hover {
+			color: #bb86fc;
+			text-decoration: underline;
+		}
+	}
+
+	.text-muted {
+		color: #b0b0b0;
+	}
+
+	.text-primary {
+		color: #bb86fc;
+	}
+
+	.text-success {
+		color: #03dac6;
+	}
+
+	.text-info {
+		color: #2196f3;
+	}
+
+	.text-warning {
+		color: #ffc107;
+	}
+
+	.text-danger {
+		color: #cf6679;
+	}
+
+	.text-light {
+		color: #f8f9fa;
+	}
+
+	.text-dark {
+		color: #343a40;
+	}
+
+	.text-body {
+		color: #e0e0e0;
+	}
+
+	// Modified colors
+	.card {
+		background-color: #f8f8f8;
+		color: #343a40;
+	}
+
+	.table {
+		background-color: #ffcc80;
+		color: #343a40;
+
+		th,
+		td {
+			border-color: #0d47a1;
+		}
+	}
+
+	.navbar,
+	left-sidenav,
+	.dropdown-menu {
+		background-color: #0d47a1;
+		color: #f8f9fa;
+	}
+
+	.btn {
+		background-color: #ffcc80;
+		color: #343a40;
+		border-color: #ffcc80;
+
+		&:hover {
+			background-color: #ff6f00;
+			border-color: #ff6f00;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: #ffffff;
+	}
+
+	p {
+		color: #ffffff;
+	}
+
+	a {
+		color: #ffffff;
+
+		&:hover {
+			color: #ffffff;
+			text-decoration: underline;
+		}
+	}
+
+	.text-muted {
+		color: #ffffff;
+	}
+
+	.text-primary {
+		color: #ffffff;
+	}
+
+	.text-success {
+		color: #ffffff;
+	}
+
+	.text-info {
+		color: #ffffff;
+	}
+
+	.text-warning {
+		color: #ffffff;
+	}
+
+	.text-danger {
+		color: #ffffff;
+	}
+
+	.text-light {
+		color: #ffffff;
+	}
+
+	.text-dark {
+		color: #343a40;
+	}
+
+	.text-body {
+		color: #ffffff;
 	}
 }
 
