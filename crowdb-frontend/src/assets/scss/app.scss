@@ -1,9 +1,49 @@
+// app.scss
+
 // Core files
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'variables';
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/bootstrap';
+
+// Dark mode overrides
+body.dark-mode {
+	background-color: #343a40;
+	color: #f8f9fa;
+
+	.card {
+		background-color: #495057;
+		color: #f8f9fa;
+	}
+
+	.table {
+		background-color: #495057;
+		color: #f8f9fa;
+
+		th,
+		td {
+			border-color: #6c757d;
+		}
+	}
+
+	.navbar,
+	.dropdown-menu {
+		background-color: #495057;
+		color: #f8f9fa;
+	}
+
+	.btn {
+		background-color: #6c757d;
+		color: #f8f9fa;
+		border-color: #6c757d;
+
+		&:hover {
+			background-color: #5a6268;
+			border-color: #545b62;
+		}
+	}
+}
 
 // Structure
 @import 'structure/leftbar';
@@ -35,12 +75,10 @@
 
 // Plugins
 @import 'plugins/simplebar';
-@import 'plugins/maps';
 @import 'plugins/charts';
 @import 'plugins/calendar';
 @import 'plugins/sweet-alert';
 @import 'plugins/nastable';
-@import 'plugins/prittify-code';
 @import 'plugins/tippy';
 @import 'plugins/fonts';
 @import 'plugins/tinymce';
