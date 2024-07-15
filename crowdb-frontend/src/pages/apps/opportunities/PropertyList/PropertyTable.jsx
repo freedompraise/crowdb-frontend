@@ -66,7 +66,7 @@ const PropertyTable = ({ properties, setProperties }) => {
 									}}>
 									<Link
 										to={`/opportunities/property-detail/${property.id}`}
-										className="d-inline-block align-middle mb-0 product-name"
+										className="d-link inline-block align-middle mb-0"
 										style={{
 											maxWidth: '150px',
 											display: 'block',
