@@ -20,7 +20,7 @@ const TopNavbar = () => {
 					<ul className="list-unstyled topbar-nav float-end mb-0">
 						{/* <SearchBar /> */}
 						<ProfileDropdown />
-						<ThemeToggle />
+						{/* <ThemeToggle /> */}
 						{/* <Notifications notifications={notifications} /> */}
 					</ul>
 					<ul className="list-unstyled topbar-nav mb-0">
