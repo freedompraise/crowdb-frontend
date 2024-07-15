@@ -47,7 +47,7 @@ export const toggleUserStatus = async (userId, isActive) => {
 
 	try {
 		const response = await fetch(endpoint, {
-			method: 'GET',
+			method: 'PUT',
 			headers: {
 				Authorization: 'Bearer ' + localStorage.getItem('token'),
 			},
@@ -71,7 +71,7 @@ export const updateUserName = async (userId, newName) => {
 		const response = await fetch(
 			`${API_URL}/users/users/update-name/${userId}`,
 			{
-				method: 'GET',
+				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 					Authorization: 'Bearer ' + localStorage.getItem('token'),
