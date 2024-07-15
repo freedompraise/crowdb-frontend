@@ -77,7 +77,9 @@ const Contacts = () => {
 					: c
 			)
 			setContacts(updatedContacts)
-			toast.success('User name updated successfully!')
+			toast.success('User name updated successfully!', {
+				position: 'top-right',
+			})
 		} else {
 			toast.error(result.message)
 		}

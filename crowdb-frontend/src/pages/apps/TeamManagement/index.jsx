@@ -28,7 +28,6 @@ const InviteUser = () => {
 		setErrors({})
 
 		try {
-			console.log('Inviting user:', formData)
 			const result = await postInviteUser(formData)
 
 			if (result.success) {

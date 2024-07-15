@@ -38,7 +38,9 @@ export const useRoleList = () => {
 				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
 			})
 			setRoles(roles.filter((role) => role.id !== id))
-			toast.success('Role deleted successfully')
+			toast.success('Role deleted successfully', {
+				position: 'top-right',
+			})
 		} catch (e) {
 			toast.error(e.response?.data?.message || 'An error occurred')
 		} finally {

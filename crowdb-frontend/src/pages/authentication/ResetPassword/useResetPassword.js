@@ -37,7 +37,10 @@ const useResetPassword = (email, token) => {
 				}
 			)
 			toast.success(
-				'Your password has been reset successfully. You can now log in with your new password.'
+				'Your password has been reset successfully. You can now log in with your new password.',
+				{
+					position: 'top-right',
+				}
 			)
 			setLoading(false)
 		} catch (error) {

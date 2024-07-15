@@ -39,7 +39,17 @@ const PropertyDetailCard = ({ propertyData }) => {
 		try {
 			await toggleVoting(id, votingStatus)
 			toast.success(
-				`Voting has been ${votingStatus ? 'deactivated' : 'activated'}`
+				`Voting has been ${votingStatus ? 'deactivated' : 'activated'},
+				`,
+				{
+					position: 'top-right',
+					autoClose: 2000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				}
 			)
 			setVotingStatus(!votingStatus)
 		} catch (error) {

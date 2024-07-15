@@ -31,7 +31,10 @@ const useRecoverPassword = () => {
 				}
 			)
 			toast.success(
-				'Please check your email inbox for a link to reset your password.'
+				'Please check your email inbox for a link to reset your password.',
+				{
+					position: 'top-right',
+				}
 			)
 			setLoading(false)
 		} catch (error) {

@@ -28,10 +28,6 @@ export const toggleVoting = async (propertyId, isActive) => {
 				},
 			}
 		)
-		console.log(
-			`Toggled voting to ${isActive ? 'inactive' : 'active'}`,
-			response.data
-		)
 		return response.data.data
 	} catch (error) {
 		throw new Error(
