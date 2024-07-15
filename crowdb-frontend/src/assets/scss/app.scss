@@ -57,15 +57,15 @@ body.dark-mode {
 	h3,
 	h4,
 	h5,
-	h6 {
-		color: #ffffff;
-	}
-
+	h6,
 	p {
 		color: #ffffff;
 	}
 
-	Link {
+	.link,
+	.breadcrumb-item,
+	.nav-link,
+	.d-link {
 		color: #ffffff;
 
 		&:hover {
@@ -73,6 +73,13 @@ body.dark-mode {
 		}
 	}
 
+	.nav-item {
+		color: #ffffff;
+
+		&:hover {
+			color: blue($color: #000000);
+		}
+	}
 	.text-muted {
 		color: #ffffff;
 	}
@@ -106,6 +113,21 @@ body.dark-mode {
 	}
 
 	.text-body {
+		color: #ffffff;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: #b0b0b0;
+		opacity: 0.7;
+	}
+
+	input,
+	textarea {
+		background-color: #343a40;
+		color: #ffffff;
+	}
+	label {
 		color: #ffffff;
 	}
 }
