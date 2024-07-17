@@ -124,20 +124,17 @@ const ListProperty = () => {
 								</Form.Group>
 							</Col>
 							<Col sm={4}>
-								<Form.Group controlId="formPrice">
-									<Form.Label className="fw-bold">Market Value</Form.Label>
+								<Form.Group controlId="formSize">
+									<Form.Label className="fw-bold">Size (Sqft)</Form.Label>
 									<Form.Control
-										type="number"
-										name="price"
-										value={formData.price}
+										type="text"
+										name="size"
+										value={formData.size}
 										onChange={handleChange}
-										placeholder="Enter market value"
-										required
+										placeholder="Enter size in sqft"
 									/>
-									{errors.price && (
-										<Form.Text className="text-danger">
-											{errors.price}
-										</Form.Text>
+									{errors.size && (
+										<Form.Text className="text-danger">{errors.size}</Form.Text>
 									)}
 								</Form.Group>
 							</Col>
@@ -179,20 +176,24 @@ const ListProperty = () => {
 								</Form.Group>
 							</Col>
 							<Col sm={4}>
-								<Form.Group controlId="formSize">
-									<Form.Label className="fw-bold">Size (Sqft)</Form.Label>
+								<Form.Group controlId="formPrice">
+									<Form.Label className="fw-bold">Market Value</Form.Label>
 									<Form.Control
-										type="text"
-										name="size"
-										value={formData.size}
+										type="number"
+										name="price"
+										value={formData.price}
 										onChange={handleChange}
-										placeholder="Enter size in sqft"
+										placeholder="Enter market value"
+										required
 									/>
-									{errors.size && (
-										<Form.Text className="text-danger">{errors.size}</Form.Text>
+									{errors.price && (
+										<Form.Text className="text-danger">
+											{errors.price}
+										</Form.Text>
 									)}
 								</Form.Group>
 							</Col>
+
 							<Col sm={4}>
 								<Form.Group controlId="formZipCode">
 									<Form.Label className="fw-bold">Zip Code</Form.Label>
