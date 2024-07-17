@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Dropdown, Modal, Button, Form } from 'react-bootstrap'
 import { updateSlots, updatePrice, makeVisible, makeInvisible } from './api'
 
