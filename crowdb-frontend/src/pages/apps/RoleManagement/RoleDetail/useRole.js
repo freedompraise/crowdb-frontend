@@ -10,6 +10,7 @@ export const useRole = (id) => {
 	const [selectedPermissions, setSelectedPermissions] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
+	const [updateError, setUpdateError] = useState(null)
 
 	useEffect(() => {
 		const fetchRole = async () => {
@@ -19,7 +20,7 @@ export const useRole = (id) => {
 				})
 				const roleData = res.data.data
 				setRole(roleData)
-				setSelectedPermissions(roleData.permissions)
+				setSelectedPermissions(roleData.permissions || [])
 			} catch (e) {
 				setError(e.response?.data?.message || 'An error occurred')
 			} finally {
@@ -32,7 +33,7 @@ export const useRole = (id) => {
 				const res = await axios.get(`${API_URL}/admin/roles/permissions`, {
 					headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
 				})
-				setPermissions(res.data.data)
+				setPermissions(res.data.data || [])
 			} catch (e) {
 				setError(e.message)
 			}
@@ -49,9 +50,11 @@ export const useRole = (id) => {
 				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
 			})
 			toast.success('Role updated successfully')
+			setUpdateError(null)
 		} catch (e) {
-			setError(e.response?.data?.message || 'An error occurred')
-			toast.error(e.response?.data?.message || 'An error occurred')
+			const errorMessage = e.response?.data?.message || 'An error occurred'
+			setUpdateError(errorMessage)
+			toast.error(errorMessage)
 		} finally {
 			setLoading(false)
 		}
@@ -64,6 +67,7 @@ export const useRole = (id) => {
 		setSelectedPermissions,
 		loading,
 		error,
+		updateError,
 		updateRole,
 	}
 }

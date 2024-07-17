@@ -22,7 +22,6 @@ const RoleDetail = () => {
 		loading,
 		error,
 		updateError,
-		setRole,
 		updateRole,
 	} = useRole(id)
 	const navigate = useNavigate()
@@ -31,7 +30,7 @@ const RoleDetail = () => {
 	useEffect(() => {
 		if (role) {
 			setRoleName(role.name)
-			setSelectedPermissions(role.permissions.map((perm) => perm))
+			setSelectedPermissions(role.permissions || [])
 		}
 	}, [role])
 
