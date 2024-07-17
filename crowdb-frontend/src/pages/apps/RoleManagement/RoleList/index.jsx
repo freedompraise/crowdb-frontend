@@ -1,4 +1,4 @@
-import { Table, Button, Spinner, Alert, Dropdown } from 'react-bootstrap'
+import { Spinner, Alert, Dropdown } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRoleList } from './useRoleList'
 
@@ -15,7 +15,7 @@ const RoleList = () => {
 			<Link to="/roles/create" className="btn btn-primary mb-3">
 				Create New Role
 			</Link>
-			<Table striped bordered hover>
+			<table className="table table-bordered">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -49,7 +49,7 @@ const RoleList = () => {
 						</tr>
 					))}
 				</tbody>
-			</Table>
+			</table>
 		</div>
 	)
 }

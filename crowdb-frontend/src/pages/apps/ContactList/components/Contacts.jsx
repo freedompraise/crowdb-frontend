@@ -92,7 +92,7 @@ const Contacts = () => {
 	return (
 		<Card>
 			<SearchBar />
-			<Table striped bordered hover responsive>
+			<table className="table table-bordered">
 				<thead>
 					<tr>
 						<th>Customer ID</th>
@@ -108,7 +108,9 @@ const Contacts = () => {
 						<tr key={idx}>
 							<td>{contact.id}</td>
 							<td>
-								<Link to="#">{`${contact.firstName} ${contact.lastName}`}</Link>
+								<Link
+									className="link"
+									to="#">{`${contact.firstName} ${contact.lastName}`}</Link>
 							</td>
 							<td>{contact.email}</td>
 							<td>
@@ -142,7 +144,7 @@ const Contacts = () => {
 						</tr>
 					))}
 				</tbody>
-			</Table>
+			</table>
 			<Modal show={showModal} onHide={() => setShowModal(false)}>
 				<Modal.Header closeButton>
 					<Modal.Title>Update User Name</Modal.Title>
