@@ -13,7 +13,7 @@ body.dark-mode {
 	color: #ffffff;
 
 	.card {
-		background-color: #343a40;
+		background-color: #121212;
 		color: #f8f9fa;
 	}
 
@@ -27,13 +27,24 @@ body.dark-mode {
 		}
 		td {
 			border-color: #6c757d;
+			color: white;
 		}
 	}
 
 	.topbar,
 	.dropdown-menu {
-		background-color: #0d47a1;
+		background-color: #495057;
 		color: #f8f9fa;
+	}
+
+	.dropdown-menu .dropwdown-item {
+		color: #ffffff !important;
+		background-color: #0d47a1 !important;
+
+		&:hover {
+			background-color: #5a6268;
+			color: #ffffff;
+		}
 	}
 
 	.left-sidenav {
@@ -58,6 +69,7 @@ body.dark-mode {
 	h4,
 	h5,
 	h6,
+	a,
 	p {
 		color: #ffffff;
 	}
