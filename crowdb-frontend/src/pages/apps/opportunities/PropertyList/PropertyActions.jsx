@@ -21,9 +21,19 @@ const PropertyActions = ({ property, onUpdate }) => {
 		setUpdateType(null)
 	}
 
+	const formatNumberWithCommas = (num) => {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	}
+
 	const handleChange = (e) => {
 		const { name, value } = e.target
-		setFormData((prev) => ({ ...prev, [name]: value }))
+		if (name === 'price') {
+			// Remove commas and set the formatted value for display
+			const numericValue = value.replace(/,/g, '')
+			setFormData((prev) => ({ ...prev, [name]: numericValue }))
+		} else {
+			setFormData((prev) => ({ ...prev, [name]: value }))
+		}
 	}
 
 	const handleSubmit = async (e) => {
@@ -34,8 +44,9 @@ const PropertyActions = ({ property, onUpdate }) => {
 				await updateSlots(property.id, formData.slots)
 				updatedProperty = { ...updatedProperty, slots: formData.slots }
 			} else if (updateType === 'price') {
-				await updatePrice(property.id, formData.price)
-				updatedProperty = { ...updatedProperty, price: formData.price }
+				const priceValue = parseFloat(formData.price.replace(/,/g, '')) // Parse to float for backend
+				await updatePrice(property.id, priceValue)
+				updatedProperty = { ...updatedProperty, price: priceValue }
 			}
 			onUpdate(updatedProperty)
 			handleCloseModal()
@@ -105,11 +116,10 @@ const PropertyActions = ({ property, onUpdate }) => {
 							<Form.Group className="mb-3">
 								<Form.Label>Price</Form.Label>
 								<Form.Control
-									type="number"
+									type="text" // Change type to text to allow formatting
 									name="price"
-									value={formData.price}
+									value={formatNumberWithCommas(formData.price)} // Format for display
 									onChange={handleChange}
-									min="0"
 								/>
 							</Form.Group>
 						)}
