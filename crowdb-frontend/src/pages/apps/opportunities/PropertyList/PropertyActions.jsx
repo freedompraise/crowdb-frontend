@@ -28,7 +28,6 @@ const PropertyActions = ({ property, onUpdate }) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target
 		if (name === 'price') {
-			// Remove commas and set the formatted value for display
 			const numericValue = value.replace(/,/g, '')
 			setFormData((prev) => ({ ...prev, [name]: numericValue }))
 		} else {
@@ -44,7 +43,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 				await updateSlots(property.id, formData.slots)
 				updatedProperty = { ...updatedProperty, slots: formData.slots }
 			} else if (updateType === 'price') {
-				const priceValue = parseFloat(formData.price.replace(/,/g, '')) // Parse to float for backend
+				const priceValue = parseFloat(formData.price.replace(/,/g, ''))
 				await updatePrice(property.id, priceValue)
 				updatedProperty = { ...updatedProperty, price: priceValue }
 			}
@@ -116,9 +115,9 @@ const PropertyActions = ({ property, onUpdate }) => {
 							<Form.Group className="mb-3">
 								<Form.Label>Price</Form.Label>
 								<Form.Control
-									type="text" // Change type to text to allow formatting
+									type="text"
 									name="price"
-									value={formatNumberWithCommas(formData.price)} // Format for display
+									value={formatNumberWithCommas(formData.price)}
 									onChange={handleChange}
 								/>
 							</Form.Group>
