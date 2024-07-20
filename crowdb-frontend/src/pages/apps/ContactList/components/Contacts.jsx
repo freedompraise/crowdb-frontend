@@ -91,7 +91,7 @@ const Contacts = () => {
 
 	return (
 		<Card>
-			<SearchBar />
+			<SearchBar text="search user" />
 			<table className="table table-bordered">
 				<thead>
 					<tr>

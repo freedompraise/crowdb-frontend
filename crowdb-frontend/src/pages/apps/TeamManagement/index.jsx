@@ -129,7 +129,6 @@ const InviteUser = () => {
 						<CreatableSelect
 							id="roleId"
 							name="roleId"
-							styles={customStyles}
 							className="dropwdown-menu"
 							value={
 								formData.roleId
