@@ -17,6 +17,10 @@ const ListProperty = () => {
 		setFormData({ ...formData, images: uploadedFiles.map((file) => file.url) })
 	}
 
+	const formatNumberWithCommas = (num) => {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	}
+
 	const handleChange = (event) => {
 		const { name, value, files } = event.target
 		if (files) {
@@ -27,6 +31,12 @@ const ListProperty = () => {
 			})
 		} else {
 			setFormData({ ...formData, [name]: value })
+		}
+		if (name === 'price') {
+			const numericValue = value.replace(/,/g, '')
+			setFormData((prev) => ({ ...prev, [name]: numericValue }))
+		} else {
+			setFormData((prev) => ({ ...prev, [name]: value }))
 		}
 	}
 
@@ -179,9 +189,9 @@ const ListProperty = () => {
 								<Form.Group controlId="formPrice">
 									<Form.Label className="fw-bold">Market Value</Form.Label>
 									<Form.Control
-										type="number"
+										type="text"
 										name="price"
-										value={formData.price}
+										value={formatNumberWithCommas(formData.price)}
 										onChange={handleChange}
 										placeholder="Enter market value"
 										required
