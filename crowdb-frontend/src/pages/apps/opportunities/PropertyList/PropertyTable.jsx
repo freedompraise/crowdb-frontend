@@ -12,6 +12,10 @@ const PropertyTable = ({ properties, setProperties }) => {
 		)
 	}
 
+	const formatNumberWithCommas = (num) => {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	}
+
 	return (
 		<div className="table-responsive">
 			<table className="table table-bordered">
@@ -78,7 +82,7 @@ const PropertyTable = ({ properties, setProperties }) => {
 									</Link>
 									<br />
 									<span className="text-muted font-13">
-										{property.currency} {property.price}
+										{property.currency} {formatNumberWithCommas(property.price)}
 									</span>
 								</p>
 							</td>
