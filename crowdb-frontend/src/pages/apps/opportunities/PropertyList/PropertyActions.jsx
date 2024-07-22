@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dropdown, Modal, Button, Form, Alert } from 'react-bootstrap'
 import { updateSlots, updatePrice, makeVisible, makeInvisible } from './api'
+import { updateProperty } from '../data'
 import { toast } from 'sonner'
 
 const PropertyActions = ({ property, onUpdate }) => {
@@ -9,6 +10,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 	const [formData, setFormData] = useState({
 		slots: property.slots,
 		price: property.price,
+		currency: property.currency,
 	})
 	const [isVisible, setIsVisible] = useState(property.isVisible)
 	const [error, setError] = useState(null)
@@ -111,7 +113,9 @@ const PropertyActions = ({ property, onUpdate }) => {
 			<Modal show={showModal} onHide={handleCloseModal}>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						{updateType === 'slots' ? 'Update Slots' : 'Update Price'}
+						{updateType === 'slots'
+							? 'Update Slots'
+							: `Update Price (${property.currency})`}
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
