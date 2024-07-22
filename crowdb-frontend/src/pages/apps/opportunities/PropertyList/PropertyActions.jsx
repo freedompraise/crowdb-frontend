@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Dropdown, Modal, Button, Form } from 'react-bootstrap'
+import { Dropdown, Modal, Button, Form, Alert } from 'react-bootstrap'
 import { updateSlots, updatePrice, makeVisible, makeInvisible } from './api'
 import { toast } from 'sonner'
 
@@ -11,6 +11,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 		price: property.price,
 	})
 	const [isVisible, setIsVisible] = useState(property.isVisible)
+	const [error, setError] = useState(null)
 
 	const handleOpenModal = (type) => {
 		setUpdateType(type)
@@ -20,6 +21,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 	const handleCloseModal = () => {
 		setShowModal(false)
 		setUpdateType(null)
+		setError(null)
 	}
 
 	const formatNumberWithCommas = (num) => {
@@ -44,6 +46,10 @@ const PropertyActions = ({ property, onUpdate }) => {
 				await updateSlots(property.id, formData.slots)
 				updatedProperty = { ...updatedProperty, slots: formData.slots }
 			} else if (updateType === 'price') {
+				if (isNaN(formData.price)) {
+					setError('Please enter a valid numeric value for the price.')
+					return
+				}
 				const priceValue = parseFloat(formData.price.replace(/,/g, ''))
 				await updatePrice(property.id, priceValue)
 				updatedProperty = { ...updatedProperty, price: priceValue }
@@ -61,6 +67,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 			handleCloseModal()
 		} catch (error) {
 			console.error(error.message)
+			setError('An error occurred while updating the property.')
 		}
 	}
 
@@ -130,6 +137,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 									value={formatNumberWithCommas(formData.price)}
 									onChange={handleChange}
 								/>
+								{error && <Alert variant="danger">{error}</Alert>}
 							</Form.Group>
 						)}
 						<Modal.Footer>
