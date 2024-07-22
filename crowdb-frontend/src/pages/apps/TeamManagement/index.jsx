@@ -3,7 +3,6 @@ import { postInviteUser, defaultFormData, fetchAllRoles } from './api'
 import { PageBreadcrumb2 } from '@/components'
 import CreatableSelect from 'react-select/creatable'
 import { toast } from 'sonner'
-import { customStyles } from './customStyle'
 
 const InviteUser = () => {
 	const [formData, setFormData] = useState(defaultFormData)
