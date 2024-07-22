@@ -17,6 +17,7 @@ import {
 } from 'react-icons/fa'
 import { toggleVoting } from '../api'
 import { toast } from 'sonner'
+import PriceHistoryChart from './PriceHistory'
 
 const PropertyDetailCard = ({ propertyData }) => {
 	const {
@@ -74,6 +75,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 							<h5>Vote Statistics</h5>
 							<p className="text-muted">No votes available</p>
 						</CardBody>
+						<PriceHistoryChart propertyId={id} />
 					</Card>
 					<Card className="mb-3">
 						<CardBody>
