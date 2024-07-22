@@ -29,7 +29,6 @@ export const PriceHistoryChart = ({ propertyId }) => {
 		const fetchPriceHistory = async () => {
 			try {
 				const endpoint = `${API_URL}/package/${propertyId}/price-history`
-				console.log('endpoint:', endpoint)
 				const response = await fetch(endpoint, {
 					headers: {
 						Authorization: 'Bearer ' + localStorage.getItem('token'),
