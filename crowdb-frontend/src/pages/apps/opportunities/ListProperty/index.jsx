@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Form, Col, Row, Button, Card } from 'react-bootstrap'
+import { Form, Col, Row, Button, Card, Dropdown } from 'react-bootstrap'
 import { PageBreadcrumb2 } from '@/components'
 import { createProperty, defaultFormData } from './api'
 import CreatableSelect from 'react-select/creatable'
 import { useNavigate } from 'react-router-dom'
 import { FiUploadCloud } from 'react-icons/fi'
 import { FileUploader } from '@/components/FileUploader'
+import { toast } from 'sonner'
 
 const ListProperty = () => {
 	const navigate = useNavigate()
@@ -61,6 +62,15 @@ const ListProperty = () => {
 		const result = await createProperty(propertyData)
 
 		if (result.success) {
+			toast.success('Property created successfully', {
+				position: 'top-right',
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			})
 			navigate('/opportunities/property-list')
 		} else {
 			console.error('Error creating property:', result.message)
@@ -172,12 +182,16 @@ const ListProperty = () => {
 								<Form.Group controlId="formCurrency">
 									<Form.Label className="fw-bold">Currency</Form.Label>
 									<Form.Control
-										type="text"
+										as="select"
 										name="currency"
 										value={formData.currency}
-										placeholder="Enter currency"
-										required
-									/>
+										onChange={handleChange}
+										required>
+										<option value="">Select currency</option>
+										<option value="NGN">NGN</option>
+										<option value="USD">USD</option>
+										<option value="EUR">EUR</option>
+									</Form.Control>
 									{errors.currency && (
 										<Form.Text className="text-danger">
 											{errors.currency}
@@ -185,6 +199,7 @@ const ListProperty = () => {
 									)}
 								</Form.Group>
 							</Col>
+
 							<Col sm={4}>
 								<Form.Group controlId="formPrice">
 									<Form.Label className="fw-bold">Market Value</Form.Label>
