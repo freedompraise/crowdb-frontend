@@ -23,25 +23,27 @@ ChartJS.register(
 
 export const PriceHistoryChart = ({ propertyId }) => {
 	const [priceHistory, setPriceHistory] = useState([])
+	const API_URL = import.meta.env.VITE_API_URL
 
 	useEffect(() => {
 		const fetchPriceHistory = async () => {
 			try {
-				const response = await fetch(
-					`/api/package/${propertyId}/price-history`,
-					{
-						headers: {
-							Authorization: 'Bearer ' + localStorage.getItem('token'),
-						},
-					}
-				)
+				const endpoint = `${API_URL}/package/${propertyId}/price-history`
+				console.log('endpoint:', endpoint)
+				const response = await fetch(endpoint, {
+					headers: {
+						Authorization: 'Bearer ' + localStorage.getItem('token'),
+					},
+				})
+				if (!response.ok) {
+					throw new Error('Error fetching price history')
+				}
 				const data = await response.json()
-				setPriceHistory(data || [])
+				setPriceHistory(data.data)
 			} catch (error) {
-				console.error('Error fetching price history:', error)
+				console.error('Error:', error.message)
 			}
 		}
-
 		fetchPriceHistory()
 	}, [propertyId])
 
