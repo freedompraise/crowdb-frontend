@@ -190,7 +190,6 @@ const ListProperty = () => {
 										<option value="">Select currency</option>
 										<option value="NGN">NGN</option>
 										<option value="USD">USD</option>
-										<option value="EUR">EUR</option>
 									</Form.Control>
 									{errors.currency && (
 										<Form.Text className="text-danger">
