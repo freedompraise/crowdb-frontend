@@ -35,13 +35,13 @@ const PropertyDetailCard = ({ propertyData }) => {
 	} = propertyData || {}
 
 	const [votingStatus, setVotingStatus] = useState(isVoteActive)
+	const [priceHistoryError, setPriceHistoryError] = useState(null)
 
 	const handleToggleVoting = async () => {
 		try {
 			await toggleVoting(id, votingStatus)
 			toast.success(
-				`Voting has been ${votingStatus ? 'deactivated' : 'activated'},
-				`,
+				`Voting has been ${votingStatus ? 'deactivated' : 'activated'}`,
 				{
 					position: 'top-right',
 					autoClose: 2000,
@@ -75,7 +75,6 @@ const PropertyDetailCard = ({ propertyData }) => {
 							<h5>Vote Statistics</h5>
 							<p className="text-muted">No votes available</p>
 						</CardBody>
-						<PriceHistoryChart propertyId={id} />
 					</Card>
 					<Card className="mb-3">
 						<CardBody>
@@ -95,6 +94,19 @@ const PropertyDetailCard = ({ propertyData }) => {
 							<Button onClick={handleToggleVoting}>
 								{votingStatus ? 'Deactivate Voting' : 'Activate Voting'}
 							</Button>
+						</CardBody>
+					</Card>
+					<Card className="mb-3">
+						<CardBody>
+							<h5>Price History</h5>
+							{priceHistoryError ? (
+								<p>Error fetching price history: {priceHistoryError}</p>
+							) : (
+								<PriceHistoryChart
+									propertyId={id}
+									setFetchError={setPriceHistoryError}
+								/>
+							)}
 						</CardBody>
 					</Card>
 				</Col>
