@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import { fetchContacts, toggleUserStatus, updateUserName } from '../api'
 import { SearchBar } from '@/layout/TopNavbar/components'
 import { toast } from 'sonner'
+import { Spinner } from '@/components'
 
 const Contacts = () => {
 	const [contacts, setContacts] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null)
 	const [showModal, setShowModal] = useState(false)
 	const [selectedContact, setSelectedContact] = useState(null)
 	const [newName, setNewName] = useState('')
@@ -19,10 +21,10 @@ const Contacts = () => {
 				const result = await fetchContacts()
 				setContacts(result)
 			} catch (err) {
-				toast.error(
-					'An error occured. Please contact the administrator for assistance.'
+				setError(
+					'An error occurred. Please contact the administrator for assistance.'
 				)
-				throw new err()
+				toast.error(error)
 			}
 			setLoading(false)
 		}
@@ -36,20 +38,24 @@ const Contacts = () => {
 		)
 		setContacts(updatedContacts)
 
-		const result = await toggleUserStatus(contact.id, contact.isActive)
-
-		if (result.success) {
-			const updatedContacts = contacts.map((c) =>
-				c.id === contact.id ? { ...c, isLoading: false } : c
-			)
-			setContacts(updatedContacts)
-		} else {
+		try {
+			const result = await toggleUserStatus(contact.id, contact.isActive)
+			if (result.success) {
+				const updatedContacts = contacts.map((c) =>
+					c.id === contact.id ? { ...c, isLoading: false } : c
+				)
+				setContacts(updatedContacts)
+			} else {
+				throw new Error(result.message)
+			}
+		} catch (error) {
 			const revertedContacts = contacts.map((c) =>
 				c.id === contact.id
 					? { ...c, isActive: !c.isActive, isLoading: false }
 					: c
 			)
 			setContacts(revertedContacts)
+			toast.error(error.message)
 		}
 	}
 
@@ -65,34 +71,42 @@ const Contacts = () => {
 
 	const handleSaveName = async () => {
 		setLoading(true)
-		const result = await updateUserName(selectedContact.id, newName)
-		if (result.success) {
-			const updatedContacts = contacts.map((c) =>
-				c.id === selectedContact.id
-					? {
-							...c,
-							firstName: newName.split(' ')[0],
-							lastName: newName.split(' ')[1],
-						}
-					: c
-			)
-			setContacts(updatedContacts)
-			toast.success('User name updated successfully!', {
-				position: 'top-right',
-			})
-		} else {
-			toast.error(result.message)
+		try {
+			const result = await updateUserName(selectedContact.id, newName)
+			if (result.success) {
+				const updatedContacts = contacts.map((c) =>
+					c.id === selectedContact.id
+						? {
+								...c,
+								firstName: newName.split(' ')[0],
+								lastName: newName.split(' ')[1],
+							}
+						: c
+				)
+				setContacts(updatedContacts)
+				toast.success('User name updated successfully!')
+			} else {
+				throw new Error(result.message)
+			}
+		} catch (error) {
+			toast.error(error.message)
 		}
 		setLoading(false)
 		setShowModal(false)
 	}
 
-	if (loading) return <p>Loading...</p>
+	if (loading) {
+		return <Spinner animation="border" />
+	}
+
+	if (error) {
+		return <p>{error}</p>
+	}
 
 	return (
 		<Card>
 			<SearchBar text="search user" />
-			<table className="table table-bordered">
+			<Table bordered>
 				<thead>
 					<tr>
 						<th>Customer ID</th>
@@ -144,7 +158,7 @@ const Contacts = () => {
 						</tr>
 					))}
 				</tbody>
-			</table>
+			</Table>
 			<Modal show={showModal} onHide={() => setShowModal(false)}>
 				<Modal.Header closeButton>
 					<Modal.Title>Update User Name</Modal.Title>
