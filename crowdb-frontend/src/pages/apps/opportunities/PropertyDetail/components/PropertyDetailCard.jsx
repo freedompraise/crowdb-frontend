@@ -63,12 +63,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 							</p>
 						</CardBody>
 					</Card>
-					<Card className="mb-3">
-						<CardBody>
-							<h5>Vote Statistics</h5>
-							<VotesBreakdown propertyId={id} />
-						</CardBody>
-					</Card>
+					<VotesBreakdown propertyId={id} />
 					<Card className="mb-3">
 						<CardBody>
 							<h5>Voting Status</h5>
