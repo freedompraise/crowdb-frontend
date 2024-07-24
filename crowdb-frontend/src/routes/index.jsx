@@ -8,7 +8,6 @@ const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
 // Properties
-const Property = lazy(() => import('@/pages/apps/opportunities/Property'))
 const PropertyList = lazy(
 	() => import('@/pages/apps/opportunities/PropertyList')
 )
@@ -58,11 +57,6 @@ const appsRoutes = [
 		path: '/users',
 		name: 'Cantacts List',
 		element: <ContactList />,
-	},
-	{
-		path: '/opportunities/properties',
-		name: 'Properties',
-		element: <Property />,
 	},
 	{
 		path: '/opportunities/property-list',
