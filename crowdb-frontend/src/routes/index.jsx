@@ -34,7 +34,7 @@ const dashboardRoutes = [
 	{
 		path: '/',
 		name: 'Home Page',
-		element: <Navigate to="apps/opportunities/property-list" />,
+		element: <Navigate to="/opportunities/property-list" />,
 	},
 	{
 		path: '/dashboards/analytics',
