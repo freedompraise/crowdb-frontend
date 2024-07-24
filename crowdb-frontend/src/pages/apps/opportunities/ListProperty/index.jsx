@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Form, Col, Row, Button, Card, Dropdown } from 'react-bootstrap'
-import { PageBreadcrumb2 } from '@/components'
+import { PageBreadcrumb2, SuccessToast } from '@/components'
 import { createProperty, defaultFormData } from './api'
 import CreatableSelect from 'react-select/creatable'
 import { useNavigate } from 'react-router-dom'
@@ -62,15 +62,7 @@ const ListProperty = () => {
 		const result = await createProperty(propertyData)
 
 		if (result.success) {
-			toast.success('Property created successfully', {
-				position: 'top-right',
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-			})
+			SuccessToast('Property created successfully')
 			navigate('/opportunities/property-list')
 		} else {
 			console.error('Error creating property:', result.message)

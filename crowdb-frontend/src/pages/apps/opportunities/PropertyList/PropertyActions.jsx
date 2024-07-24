@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Dropdown, Modal, Button, Form, Alert } from 'react-bootstrap'
 import { updateSlots, updatePrice, makeVisible, makeInvisible } from './api'
-import { updateProperty } from '../data'
-import { toast } from 'sonner'
+
+import { SuccessToast } from '@/components'
 
 const PropertyActions = ({ property, onUpdate }) => {
 	const [showModal, setShowModal] = useState(false)
@@ -56,15 +56,7 @@ const PropertyActions = ({ property, onUpdate }) => {
 				await updatePrice(property.id, priceValue)
 				updatedProperty = { ...updatedProperty, price: priceValue }
 			}
-			toast.success('Property updated successfully', {
-				position: 'top-right',
-				autoClose: 2000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-			})
+			SuccessToast('Property updated successfully')
 			onUpdate(updatedProperty)
 			handleCloseModal()
 		} catch (error) {

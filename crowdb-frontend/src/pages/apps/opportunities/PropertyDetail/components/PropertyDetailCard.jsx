@@ -17,6 +17,7 @@ import {
 } from 'react-icons/fa'
 import { toggleVoting } from '../api'
 import { toast } from 'sonner'
+import { SuccessToast } from '@/components'
 import PriceHistoryChart from './PriceHistory'
 import VotesBreakdown from './VotesBreakdown'
 
@@ -41,17 +42,8 @@ const PropertyDetailCard = ({ propertyData }) => {
 	const handleToggleVoting = async () => {
 		try {
 			await toggleVoting(id, votingStatus)
-			toast.success(
-				`Voting has been ${votingStatus ? 'deactivated' : 'activated'}`,
-				{
-					position: 'top-right',
-					autoClose: 2000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-				}
+			SuccessToast(
+				`Voting has been ${votingStatus ? 'deactivated' : 'activated'}`
 			)
 			setVotingStatus(!votingStatus)
 		} catch (error) {

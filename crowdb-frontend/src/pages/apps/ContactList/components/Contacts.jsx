@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { fetchContacts, toggleUserStatus, updateUserName } from '../api'
 import { SearchBar } from '@/layout/TopNavbar/components'
 import { toast } from 'sonner'
-import { Spinner } from '@/components'
+import { Spinner, SuccessToast } from '@/components'
 
 const Contacts = () => {
 	const [contacts, setContacts] = useState([])
@@ -84,7 +84,7 @@ const Contacts = () => {
 						: c
 				)
 				setContacts(updatedContacts)
-				toast.success('User name updated successfully!')
+				SuccessToast('Name updated successfully')
 			} else {
 				throw new Error(result.message)
 			}
