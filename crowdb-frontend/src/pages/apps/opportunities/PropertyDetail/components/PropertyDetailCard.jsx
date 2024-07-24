@@ -18,6 +18,7 @@ import {
 import { toggleVoting } from '../api'
 import { toast } from 'sonner'
 import PriceHistoryChart from './PriceHistory'
+import VotesBreakdown from './VotesBreakdown'
 
 const PropertyDetailCard = ({ propertyData }) => {
 	const {
@@ -73,7 +74,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 					<Card className="mb-3">
 						<CardBody>
 							<h5>Vote Statistics</h5>
-							<p className="text-muted">No votes available</p>
+							<VotesBreakdown propertyId={id} />
 						</CardBody>
 					</Card>
 					<Card className="mb-3">
