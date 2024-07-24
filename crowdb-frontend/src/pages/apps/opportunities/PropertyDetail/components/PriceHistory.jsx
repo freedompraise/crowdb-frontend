@@ -1,11 +1,11 @@
-// PriceHistoryChart.js
 import { useEffect, useRef, useState } from 'react'
 import Chart from 'chart.js/auto'
 import { Card, CardBody } from 'react-bootstrap'
 
-export const PriceHistoryChart = ({ propertyId, setFetchError }) => {
+export const PriceHistoryChart = ({ propertyId }) => {
 	const [priceHistory, setPriceHistory] = useState([])
 	const chartRef = useRef(null)
+	const [fetchError, setFetchError] = useState(null)
 	const API_URL = import.meta.env.VITE_API_URL
 
 	useEffect(() => {
@@ -95,8 +95,8 @@ export const PriceHistoryChart = ({ propertyId, setFetchError }) => {
 		<Card className="mb-3">
 			<CardBody>
 				<h5>Price History</h5>
-				{priceHistory.length > 0 ? (
-					<canvas ref={chartRef} />
+				{!fetchError && priceHistory.length > 0 ? (
+					<canvas ref={chartRef}></canvas>
 				) : (
 					<p>No price history available</p>
 				)}

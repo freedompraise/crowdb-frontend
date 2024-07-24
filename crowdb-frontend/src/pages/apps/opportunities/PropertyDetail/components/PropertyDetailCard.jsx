@@ -84,19 +84,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 							</Button>
 						</CardBody>
 					</Card>
-					<Card className="mb-3">
-						<CardBody>
-							<h5>Price History</h5>
-							{priceHistoryError ? (
-								<p>Error fetching price history: {priceHistoryError}</p>
-							) : (
-								<PriceHistoryChart
-									propertyId={id}
-									setFetchError={setPriceHistoryError}
-								/>
-							)}
-						</CardBody>
-					</Card>
+					<PriceHistoryChart propertyId={id} />
 				</Col>
 				<Col lg={8} className="mb-3">
 					<Row>
