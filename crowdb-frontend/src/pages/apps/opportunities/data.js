@@ -2,11 +2,16 @@ const API_URL = import.meta.env.VITE_API_URL
 
 export const fetchAllProperties = async () => {
 	try {
-		const properties = await fetch(`${API_URL}/package/all`, {
-			headers: {
-				Authorization: 'Bearer ' + localStorage.getItem('token'),
-			},
-		})
+		const properties = await fetch(
+			`${API_URL}/package/all
+			?page=1&limit=100
+			`,
+			{
+				headers: {
+					Authorization: 'Bearer ' + localStorage.getItem('token'),
+				},
+			}
+		)
 		if (!properties.ok) {
 			throw new Error('Error fetching properties')
 		}
