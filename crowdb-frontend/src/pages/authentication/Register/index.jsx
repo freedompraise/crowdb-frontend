@@ -56,8 +56,7 @@ const Register = () => {
 								eventKey="1"
 								className="p-3"
 								id="Register_Tab"
-								role="tabpanel"
-							>
+								role="tabpanel">
 								<Form className="form-horizontal auth-form" action="index.html">
 									<div className="form-group mb-2">
 										<label className="form-label" htmlFor="email">
@@ -99,17 +98,13 @@ const Register = () => {
 												/>
 												<label
 													className="form-label text-muted"
-													htmlFor="customSwitchSuccess"
-												>
+													htmlFor="customSwitchSuccess">
 													Remember me
 												</label>
 											</div>
 										</Col>
 										<Col sm={6} className="text-end">
-											<Link
-												to="/auth-recover-pw"
-												className="text-muted font-13"
-											>
+											<Link to="/auth-forgot-pw" className="text-muted font-13">
 												<i className="dripicons-lock"></i> Forgot password?
 											</Link>
 										</Col>
@@ -119,8 +114,7 @@ const Register = () => {
 										<Col xs={12}>
 											<button
 												className="btn btn-primary w-100 waves-effect waves-light"
-												type="button"
-											>
+												type="button">
 												Log In <i className="fas fa-sign-in-alt ms-1"></i>
 											</button>
 										</Col>
@@ -154,8 +148,7 @@ const Register = () => {
 								eventKey="2"
 								className="px-3 pt-3"
 								id="Register_Tab"
-								role="tabpanel"
-							>
+								role="tabpanel">
 								<RegisterForm />
 								<p className="my-3 text-black">
 									Already have an account ?

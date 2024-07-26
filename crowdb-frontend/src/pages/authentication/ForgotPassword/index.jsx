@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import logoDark from '@/assets/images/logo-sm-dark.png'
 import { FormTextInput, PageMetaData } from '@/components'
 import AuthLayout from '../AuthLayout'
-import useRecoverPassword from './useRecoverPassword'
+import useForgotPassword from './useForgotPassword'
 
 const RecoverPassword = () => {
-	const { control, handleSubmit, loading } = useRecoverPassword()
+	const { control, handleSubmit, loading } = useForgotPassword()
 
 	return (
 		<AuthLayout>

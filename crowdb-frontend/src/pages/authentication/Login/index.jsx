@@ -92,7 +92,7 @@ const Login = () => {
 											</Col>
 											<Col sm={6} className="text-end">
 												<Link
-													to="/auth/recover-password"
+													to="/auth/forgot-pw"
 													className="text-warning font-13">
 													<i className="dripicons-lock"></i> Forgot password?
 												</Link>

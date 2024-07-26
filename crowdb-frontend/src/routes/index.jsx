@@ -25,8 +25,8 @@ const RoleDetail = lazy(() => import('@/pages/apps/RoleManagement/RoleDetail'))
 // Authentication
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
-const RecoverPassword = lazy(
-	() => import('@/pages/authentication/RecoverPassword')
+const ForgotPassword = lazy(
+	() => import('@/pages/authentication/ForgotPassword')
 )
 const ResetPassword = lazy(() => import('@/pages/authentication/ResetPassword'))
 const Error404 = lazy(() => import('@/pages/authentication/Error404'))
@@ -106,9 +106,9 @@ const authRoutes = [
 		element: <Register />,
 	},
 	{
-		path: '/auth/recover-password',
-		name: 'Recover Password',
-		element: <RecoverPassword />,
+		path: '/auth/forgot-pw',
+		name: 'Forgot Password',
+		element: <ForgotPassword />,
 	},
 	{
 		path: '/auth/reset-password/:token',
