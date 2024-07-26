@@ -11,7 +11,7 @@ const Contacts = ({ contacts, setContacts }) => {
 
 	return (
 		<Card>
-			<SearchBar text="search user" />
+			{/* <SearchBar text="search user" /> */}
 			<Table bordered>
 				<thead>
 					<tr>
