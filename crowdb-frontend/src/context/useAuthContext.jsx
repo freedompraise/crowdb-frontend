@@ -52,6 +52,7 @@ export function AuthProvider({ children }) {
 					const decodedToken = jwtDecode(token)
 					if (decodedToken.exp * 1000 < Date.now()) {
 						// Token is expired
+						toast.error('Session expired. Please log in again.')
 						removeSession()
 					} else {
 						setUser({ token })
