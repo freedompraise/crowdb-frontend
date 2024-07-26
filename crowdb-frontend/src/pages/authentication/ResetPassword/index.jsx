@@ -8,7 +8,7 @@ const ResetPassword = () => {
 	const location = useLocation()
 	const queryParams = new URLSearchParams(location.search)
 	const email = queryParams.get('email')
-	const token = queryParams.get('token')
+	const token = queryParams.get('code')
 
 	const { control, handleSubmit, loading } = useResetPassword(email, token)
 

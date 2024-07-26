@@ -111,7 +111,7 @@ const authRoutes = [
 		element: <ForgotPassword />,
 	},
 	{
-		path: '/auth/reset-password/:token',
+		path: '/auth/reset-password',
 		name: 'Reset Password',
 		element: <ResetPassword />,
 	},
