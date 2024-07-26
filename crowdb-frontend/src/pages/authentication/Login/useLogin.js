@@ -46,7 +46,7 @@ export default function useLogin() {
 			}
 		} catch (e) {
 			if (e.response?.data?.message) {
-				toast.error(e.response.data.message, {
+				toast.error('Email or Password incorrect', {
 					position: 'top-right',
 					duration: 2000,
 				})
