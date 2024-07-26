@@ -93,7 +93,7 @@ const PropertyTable = ({ properties, setProperties }) => {
 							<td>{property.slots || 'N/A'}</td>
 							<td>
 								<span
-									className={`badge badge-soft-${property.isVisible ? 'secondary' : 'primary'}`}>
+									className={`badge badge-soft-${property.isVisible ? 'success' : 'secondary'}`}>
 									{property.isVisible ? 'On' : 'Off'}
 								</span>
 							</td>
