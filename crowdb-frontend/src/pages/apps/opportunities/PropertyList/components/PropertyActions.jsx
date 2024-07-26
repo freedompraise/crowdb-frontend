@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dropdown, Modal, Button, Form, Alert } from 'react-bootstrap'
-import { updateSlots, updatePrice, makeVisible, makeInvisible } from './api'
+import { updateSlots, updatePrice, makeVisible, makeInvisible } from '../api'
 
 import { SuccessToast } from '@/components'
 
@@ -14,6 +14,15 @@ const PropertyActions = ({ property, onUpdate }) => {
 	})
 	const [isVisible, setIsVisible] = useState(property.isVisible)
 	const [error, setError] = useState(null)
+
+	useEffect(() => {
+		setFormData({
+			slots: property.slots,
+			price: property.price,
+			currency: property.currency,
+		})
+		setIsVisible(property.isVisible)
+	}, [property])
 
 	const handleOpenModal = (type) => {
 		setUpdateType(type)

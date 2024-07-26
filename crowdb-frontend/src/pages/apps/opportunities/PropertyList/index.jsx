@@ -3,7 +3,7 @@ import { PageBreadcrumb2 } from '@/components'
 import { Col, Row, Alert } from 'react-bootstrap'
 import { fetchAllProperties } from '../data'
 import { Link } from 'react-router-dom'
-import PropertyTable from './PropertyTable'
+import PropertyTable from './components/PropertyTable'
 
 const PropertyList = () => {
 	const [properties, setProperties] = useState([])
