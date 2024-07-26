@@ -1,5 +1,7 @@
 import { deleteCookie, hasCookie, setCookie } from 'cookies-next'
 import { createContext, useContext, useState, useEffect } from 'react'
+import { jwtDecode } from 'jwt-decode'
+import { toast } from 'sonner'
 
 const AuthContext = createContext(undefined)
 
@@ -18,7 +20,16 @@ export function AuthProvider({ children }) {
 		if (hasCookie(authTokenKey)) {
 			try {
 				const token = localStorage.getItem('token')
-				return token ? { token } : undefined
+				if (token) {
+					const decodedToken = jwtDecode(token)
+					if (decodedToken.exp * 1000 < Date.now()) {
+						// Token is expired
+						toast.error('Session expired. Please log in again.')
+						removeSession()
+						return undefined
+					}
+					return { token }
+				}
 			} catch (error) {
 				console.error('Failed to parse token from localStorage', error)
 				return undefined
@@ -27,11 +38,27 @@ export function AuthProvider({ children }) {
 		return undefined
 	})
 
+	const removeSession = () => {
+		deleteCookie(authTokenKey)
+		localStorage.removeItem('token')
+		setUser(undefined)
+	}
+
 	useEffect(() => {
 		if (hasCookie(authTokenKey)) {
 			try {
 				const token = localStorage.getItem('token')
-				setUser(token ? { token } : undefined)
+				if (token) {
+					const decodedToken = jwtDecode(token)
+					if (decodedToken.exp * 1000 < Date.now()) {
+						// Token is expired
+						removeSession()
+					} else {
+						setUser({ token })
+					}
+				} else {
+					setUser(undefined)
+				}
 			} catch (error) {
 				console.error('Failed to parse token from localStorage', error)
 				setUser(undefined)
@@ -49,12 +76,6 @@ export function AuthProvider({ children }) {
 		}
 	}
 
-	const removeSession = () => {
-		deleteCookie(authTokenKey)
-		localStorage.removeItem('token')
-		setUser(undefined)
-	}
-
 	return (
 		<AuthContext.Provider
 			value={{
@@ -67,3 +88,5 @@ export function AuthProvider({ children }) {
 		</AuthContext.Provider>
 	)
 }
+
+export default AuthContext
