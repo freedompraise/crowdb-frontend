@@ -1,36 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Table, Card, Dropdown, Modal, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { fetchContacts, toggleUserStatus, updateUserName } from '../api'
+import { toggleUserStatus, updateUserName } from '../api'
 import { SearchBar } from '@/layout/TopNavbar/components'
 import { toast } from 'sonner'
 import { Spinner, SuccessToast } from '@/components'
 
-const Contacts = () => {
-	const [contacts, setContacts] = useState([])
-	const [loading, setLoading] = useState(true)
-	const [error, setError] = useState(null)
+const Contacts = ({ contacts, setContacts }) => {
 	const [showModal, setShowModal] = useState(false)
 	const [selectedContact, setSelectedContact] = useState(null)
 	const [newName, setNewName] = useState('')
-
-	useEffect(() => {
-		const getContacts = async () => {
-			setLoading(true)
-			try {
-				const result = await fetchContacts()
-				setContacts(result)
-			} catch (err) {
-				setError(
-					'An error occurred. Please contact the administrator for assistance.'
-				)
-				toast.error(error)
-			}
-			setLoading(false)
-		}
-
-		getContacts()
-	}, [])
+	const [loading, setLoading] = useState(false)
 
 	const handleToggleStatus = async (contact) => {
 		const updatedContacts = contacts.map((c) =>
@@ -93,14 +73,6 @@ const Contacts = () => {
 		}
 		setLoading(false)
 		setShowModal(false)
-	}
-
-	if (loading) {
-		return <Spinner animation="border" />
-	}
-
-	if (error) {
-		return <p>{error}</p>
 	}
 
 	return (
