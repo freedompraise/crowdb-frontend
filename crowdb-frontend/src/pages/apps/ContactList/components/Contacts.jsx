@@ -1,6 +1,6 @@
+import { useMemo } from 'react'
 import { Table, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { SearchBar } from '@/layout/TopNavbar/components'
 import { Spinner } from '@/components'
 import ContactActions from './ContactActions'
 
@@ -9,9 +9,18 @@ const Contacts = ({ contacts, setContacts }) => {
 		return <Spinner animation="border" />
 	}
 
+	const updateContact = (updatedContact) => {
+		setContacts((prevContacts) =>
+			prevContacts.map((contact) =>
+				contact.id === updatedContact.id ? updatedContact : contact
+			)
+		)
+	}
+
+	const memoizedContacts = useMemo(() => contacts, [contacts])
+
 	return (
 		<Card>
-			{/* <SearchBar text="search user" /> */}
 			<Table bordered>
 				<thead>
 					<tr>
@@ -24,7 +33,7 @@ const Contacts = ({ contacts, setContacts }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{contacts.map((contact, idx) => (
+					{memoizedContacts.map((contact, idx) => (
 						<tr key={idx}>
 							<td>{contact.id}</td>
 							<td>
@@ -44,8 +53,7 @@ const Contacts = ({ contacts, setContacts }) => {
 							<td>
 								<ContactActions
 									contact={contact}
-									setContacts={setContacts}
-									contacts={contacts}
+									updateContact={updateContact}
 								/>
 							</td>
 						</tr>

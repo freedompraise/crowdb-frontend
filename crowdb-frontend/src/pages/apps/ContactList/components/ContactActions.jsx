@@ -1,45 +1,46 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dropdown, Modal, Button, Form } from 'react-bootstrap'
 import { toggleUserStatus, updateUserName } from '../api'
 import { toast } from 'sonner'
 import { SuccessToast } from '@/components'
 
-const ContactActions = ({ contact, setContacts, contacts }) => {
+const ContactActions = ({ contact, updateContact }) => {
 	const [showModal, setShowModal] = useState(false)
-	const [selectedContact, setSelectedContact] = useState(null)
 	const [newName, setNewName] = useState('')
 	const [loading, setLoading] = useState(false)
 
+	useEffect(() => {
+		if (contact) {
+			setNewName(`${contact.firstName} ${contact.lastName}`)
+		}
+	}, [contact])
+
 	const handleToggleStatus = async () => {
-		const updatedContacts = contacts.map((c) =>
-			c.id === contact.id ? { ...c, isActive: !c.isActive, isLoading: true } : c
-		)
-		setContacts(updatedContacts)
+		const updatedContact = {
+			...contact,
+			isActive: !contact.isActive,
+			isLoading: true,
+		}
+		updateContact(updatedContact)
 
 		try {
-			const result = await toggleUserStatus(contact.id, contact.isActive)
+			const result = await toggleUserStatus(contact.id, !contact.isActive)
 			if (result.success) {
-				const updatedContacts = contacts.map((c) =>
-					c.id === contact.id ? { ...c, isLoading: false } : c
-				)
-				setContacts(updatedContacts)
+				updateContact({ ...updatedContact, isLoading: false })
 			} else {
 				throw new Error(result.message)
 			}
 		} catch (error) {
-			const revertedContacts = contacts.map((c) =>
-				c.id === contact.id
-					? { ...c, isActive: !c.isActive, isLoading: false }
-					: c
-			)
-			setContacts(revertedContacts)
+			updateContact({
+				...contact,
+				isActive: contact.isActive,
+				isLoading: false,
+			})
 			toast.error(error.message)
 		}
 	}
 
 	const handleUpdateName = () => {
-		setSelectedContact(contact)
-		setNewName(`${contact.firstName} ${contact.lastName}`)
 		setShowModal(true)
 	}
 
@@ -50,18 +51,14 @@ const ContactActions = ({ contact, setContacts, contacts }) => {
 	const handleSaveName = async () => {
 		setLoading(true)
 		try {
-			const result = await updateUserName(selectedContact.id, newName)
+			const result = await updateUserName(contact.id, newName)
 			if (result.success) {
-				const updatedContacts = contacts.map((c) =>
-					c.id === selectedContact.id
-						? {
-								...c,
-								firstName: newName.split(' ')[0],
-								lastName: newName.split(' ')[1],
-							}
-						: c
-				)
-				setContacts(updatedContacts)
+				const updatedContact = {
+					...contact,
+					firstName: newName.split(' ')[0],
+					lastName: newName.split(' ')[1],
+				}
+				updateContact(updatedContact)
 				SuccessToast('Name updated successfully')
 			} else {
 				throw new Error(result.message)
@@ -112,7 +109,7 @@ const ContactActions = ({ contact, setContacts, contacts }) => {
 					<Button variant="secondary" onClick={() => setShowModal(false)}>
 						Close
 					</Button>
-					<Button variant="primary" onClick={handleSaveName}>
+					<Button variant="primary" onClick={handleSaveName} disabled={loading}>
 						Save Changes
 					</Button>
 				</Modal.Footer>
