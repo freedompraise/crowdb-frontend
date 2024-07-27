@@ -24,8 +24,7 @@ const PageBreadcrumb = ({ title, subName }) => {
 								<Link
 									to="#"
 									className="btn btn-sm btn-outline-primary"
-									id="Dash_Date"
-								>
+									id="Dash_Date">
 									<span className="ay-name" id="Day_Name">
 										Today:
 									</span>
@@ -34,9 +33,6 @@ const PageBreadcrumb = ({ title, subName }) => {
 										{new Date().toLocaleDateString()}
 									</span>
 									<FiCalendar className="align-self-center icon-xs ms-1" />
-								</Link>
-								<Link to="#" className="btn btn-sm btn-outline-primary">
-									<FiDownload className="align-self-center icon-xs" />
 								</Link>
 							</div>
 						</Row>
