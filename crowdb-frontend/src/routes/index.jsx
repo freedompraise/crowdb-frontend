@@ -21,6 +21,9 @@ const ListProperty = lazy(
 const InviteUser = lazy(
 	() => import('@/pages/apps/TeamManagement/SendInvitation')
 )
+const AcceptInvite = lazy(
+	() => import('@/pages/apps/TeamManagement/AcceptInvitation')
+)
 const RoleList = lazy(() => import('@/pages/apps/RoleManagement/RoleList'))
 const CreateRole = lazy(() => import('@/pages/apps/RoleManagement/CreateRole'))
 const RoleDetail = lazy(() => import('@/pages/apps/RoleManagement/RoleDetail'))
@@ -79,6 +82,11 @@ const appsRoutes = [
 		path: '/team-management/invite-user',
 		name: 'Invite User',
 		element: <InviteUser />,
+	},
+	{
+		path: '/auth/accept-invite',
+		name: 'Accept Invite',
+		element: <AcceptInvite />,
 	},
 	{
 		path: '/roles',
