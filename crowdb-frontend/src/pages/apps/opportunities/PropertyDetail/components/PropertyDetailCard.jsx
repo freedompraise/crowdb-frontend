@@ -135,6 +135,12 @@ const PropertyDetailCard = ({ propertyData }) => {
 							</Button>
 						</CardBody>
 					</Card>
+					<Card className="mb-3">
+						<CardBody>
+							<h5>Votes History</h5>
+							<p>No votes on this property yet</p>
+						</CardBody>
+					</Card>
 				</Col>
 			</Row>
 		</Container>
