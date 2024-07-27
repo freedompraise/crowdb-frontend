@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Form, Button, Card } from 'react-bootstrap'
 import { acceptInvite } from './api'
+import { PageBreadcrumb2 } from '@/components'
 
 const AcceptInvite = () => {
 	const location = useLocation()
@@ -44,47 +45,47 @@ const AcceptInvite = () => {
 	}
 
 	return (
-		<Card>
-			<Card.Body>
-				<Card.Title>Accept Invitation</Card.Title>
-				{success ? (
-					<p>Invitation accepted successfully! You can now log in.</p>
-				) : (
-					<Form onSubmit={handleSubmit}>
-						<Form.Group controlId="formEmail">
-							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" value={email} disabled />
-						</Form.Group>
-						<Form.Group controlId="formRef">
-							<Form.Label>Reference Code</Form.Label>
-							<Form.Control type="text" value={ref} disabled />
-						</Form.Group>
-						<Form.Group controlId="formPassword">
-							<Form.Label>Password</Form.Label>
-							<Form.Control
-								type="password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-								required
-							/>
-						</Form.Group>
-						<Form.Group controlId="formConfirmPassword">
-							<Form.Label>Confirm Password</Form.Label>
-							<Form.Control
-								type="password"
-								value={confirmPassword}
-								onChange={(e) => setConfirmPassword(e.target.value)}
-								required
-							/>
-						</Form.Group>
-						{error && <p className="text-danger">{error}</p>}
-						<Button variant="primary" type="submit" disabled={loading}>
-							{loading ? 'Submitting...' : 'Accept Invite'}
-						</Button>
-					</Form>
-				)}
-			</Card.Body>
-		</Card>
+		<div className="container">
+			<PageBreadcrumb2
+				title="Accept Invitation"
+				items={[
+					{ title: 'Dashboard', link: '/dashboard' },
+					{ title: 'Accept Invitation' },
+				]}
+			/>
+			{success ? (
+				<p>Invitation accepted successfully! You can now log in.</p>
+			) : (
+				<Form onSubmit={handleSubmit}>
+					<Form.Group controlId="formEmail">
+						<Form.Label>Email</Form.Label>
+						<Form.Control type="email" value={email} disabled />
+					</Form.Group>
+					<Form.Group controlId="formPassword">
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+					</Form.Group>
+					<Form.Group controlId="formConfirmPassword">
+						<Form.Label>Confirm Password</Form.Label>
+						<Form.Control
+							type="password"
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
+							required
+						/>
+					</Form.Group>
+					{error && <p className="text-danger">{error}</p>}
+					<Button variant="primary" type="submit" disabled={loading}>
+						{loading ? 'Submitting...' : 'Accept Invite'}
+					</Button>
+				</Form>
+			)}
+		</div>
 	)
 }
 
