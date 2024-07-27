@@ -17,8 +17,10 @@ const PropertyDetail = lazy(
 const ListProperty = lazy(
 	() => import('@/pages/apps/opportunities/ListProperty')
 )
-// Roles
-const InviteUser = lazy(() => import('@/pages/apps/TeamManagement'))
+// Roles and Team management
+const InviteUser = lazy(
+	() => import('@/pages/apps/TeamManagement/SendInvitation')
+)
 const RoleList = lazy(() => import('@/pages/apps/RoleManagement/RoleList'))
 const CreateRole = lazy(() => import('@/pages/apps/RoleManagement/CreateRole'))
 const RoleDetail = lazy(() => import('@/pages/apps/RoleManagement/RoleDetail'))
