@@ -28,6 +28,11 @@ body.dark-mode {
 		color: #f8f9fa;
 	}
 
+	.topbar-icon,
+	.nav-user-name {
+		color: #ff6f00 !important;
+	}
+
 	.dropdown-menu input,
 	.css-yk16xz-control {
 		color: #ff6f00;
@@ -92,7 +97,6 @@ body.dark-mode {
 
 	.link,
 	.breadcrumb-item,
-	.nav-link,
 	.d-link {
 		color: #ffffff;
 
