@@ -27,6 +27,10 @@ const AcceptInvite = lazy(
 const RoleList = lazy(() => import('@/pages/apps/RoleManagement/RoleList'))
 const CreateRole = lazy(() => import('@/pages/apps/RoleManagement/CreateRole'))
 const RoleDetail = lazy(() => import('@/pages/apps/RoleManagement/RoleDetail'))
+// Portfolio
+const PortfolioTransactions = lazy(
+	() => import('@/pages/apps/Portfolio/Transactions')
+)
 // Authentication
 const Login = lazy(() => import('@/pages/authentication/Login'))
 const Register = lazy(() => import('@/pages/authentication/Register'))
@@ -102,6 +106,11 @@ const appsRoutes = [
 		path: '/roles/:id',
 		name: 'Role Detail',
 		element: <RoleDetail />,
+	},
+	{
+		path: '/portfolio/transactions',
+		name: 'Transactions',
+		element: <PortfolioTransactions />,
 	},
 ]
 const authRoutes = [

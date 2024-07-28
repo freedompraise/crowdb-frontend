@@ -1,4 +1,4 @@
-import { FaRegCircle } from 'react-icons/fa'
+import { FaRegCircle, FaShoppingBag } from 'react-icons/fa'
 import { FiHome, FiMessageSquare, FiUser } from 'react-icons/fi'
 export const VERTICAL_MENU_ITEMS = [
 	{
@@ -82,6 +82,21 @@ export const VERTICAL_MENU_ITEMS = [
 				label: 'Create Role',
 				url: '/roles/create',
 				parentKey: 'role-management',
+			},
+		],
+	},
+	{
+		key: 'portolio-activity',
+		label: 'Portfolio Activity',
+		icon: FaShoppingBag,
+		isTitle: false,
+		parentKey: 'main',
+		children: [
+			{
+				key: 'portolio-transactions',
+				label: 'Transactions',
+				url: '/portfolio/transactions',
+				parentKey: 'portolio-activity',
 			},
 		],
 	},
