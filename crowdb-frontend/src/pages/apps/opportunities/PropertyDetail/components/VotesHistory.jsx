@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react'
-import { Modal, Button, Table, Alert, Spinner } from 'react-bootstrap'
+import {
+	Modal,
+	Button,
+	Table,
+	Alert,
+	Spinner,
+	Card,
+	CardBody,
+} from 'react-bootstrap'
 import axios from 'axios'
 
 const VotesHistory = ({ propertyId }) => {
@@ -68,7 +76,7 @@ const VotesHistory = ({ propertyId }) => {
 	const handleCloseModal = () => setShowModal(false)
 
 	return (
-		<div>
+		<Card className="mb-3">
 			{loading ? (
 				<Spinner animation="border" />
 			) : error ? (
@@ -128,7 +136,7 @@ const VotesHistory = ({ propertyId }) => {
 					</Button>
 				</Modal.Footer>
 			</Modal>
-		</div>
+		</Card>
 	)
 }
 
