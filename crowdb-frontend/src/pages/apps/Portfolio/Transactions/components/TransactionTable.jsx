@@ -1,7 +1,6 @@
 import { Table } from 'react-bootstrap'
 
 const TransactionTable = ({ transactions }) => {
-	localStorage.setItem('transactions', JSON.stringify(transactions))
 	return (
 		<div className="table-responsive">
 			<Table bordered striped responsive>
