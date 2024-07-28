@@ -58,6 +58,28 @@ body.dark-mode {
 		color: #ff6f00;
 	}
 
+	.menu-label {
+		color: #ff6f00;
+	}
+
+	.nav-link {
+		color: #f8f9fa;
+
+		&:hover {
+			background-color: #343a40;
+			color: #ffffff;
+		}
+	}
+
+	.nav-link.active {
+		background-color: #495057;
+		color: #ffffff;
+	}
+
+	.hr-dashed.hr-menu {
+		border-color: #ff6f00;
+	}
+
 	.btn {
 		background-color: #ffcc80;
 		color: #343a40;
@@ -82,7 +104,8 @@ body.dark-mode {
 
 	.link,
 	.breadcrumb-item,
-	.d-link {
+	.d-link,
+	span {
 		color: #ffffff;
 
 		&:hover {
