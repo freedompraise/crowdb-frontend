@@ -20,6 +20,7 @@ import { toast } from 'sonner'
 import { SuccessToast } from '@/components'
 import PriceHistoryChart from './PriceHistory'
 import VotesBreakdown from './VotesBreakdown'
+import VotesHistory from './VotesHistory'
 
 const PropertyDetailCard = ({ propertyData }) => {
 	const {
@@ -135,12 +136,7 @@ const PropertyDetailCard = ({ propertyData }) => {
 							</Button>
 						</CardBody>
 					</Card>
-					<Card className="mb-3">
-						<CardBody>
-							<h5>Votes History</h5>
-							<p>No votes on this property yet</p>
-						</CardBody>
-					</Card>
+					<VotesHistory propertyId={id} />
 				</Col>
 			</Row>
 		</Container>
