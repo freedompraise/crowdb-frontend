@@ -32,8 +32,7 @@ const MenuItemWithChildren = ({
 				aria-expanded={open}
 				data-menu-key={item.key}
 				onClick={toggleMenuItem}
-				className={clsx(activeMenuItems?.includes(item.key) && 'active')}
-			>
+				className={clsx(activeMenuItems?.includes(item.key) && 'active')}>
 				{Icon && (
 					<span>
 						<Icon size={18} className="menu-icon align-self-center" />
@@ -101,8 +100,7 @@ const MenuItemLink = ({ item, className }) => {
 			to={item.url}
 			target={item.target}
 			className={`${className}`}
-			data-menu-key={item.key}
-		>
+			data-menu-key={item.key}>
 			{Icon ? (
 				<Icon size={18} className="menu-icon align-self-center" />
 			) : (
