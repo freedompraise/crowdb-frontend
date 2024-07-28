@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { postInviteUser, defaultFormData, fetchAllRoles } from './api'
 import { PageBreadcrumb2 } from '@/components'
-import CreatableSelect from 'react-select/creatable'
 import { toast } from 'sonner'
 
 const InviteUser = () => {
@@ -15,10 +14,10 @@ const InviteUser = () => {
 		setFormData({ ...formData, [name]: value })
 	}
 
-	const handleRoleChange = (selectedOption) => {
+	const handleRoleChange = (event) => {
 		setFormData({
 			...formData,
-			roleId: selectedOption ? selectedOption.value : '',
+			roleId: event.target.value,
 		})
 	}
 
@@ -53,12 +52,7 @@ const InviteUser = () => {
 		const fetchRoles = async () => {
 			const { success, data } = await fetchAllRoles()
 			if (success) {
-				setRoles(
-					data.map((role) => ({
-						value: role.id,
-						label: role.name,
-					}))
-				)
+				setRoles(data)
 			}
 		}
 		fetchRoles()
@@ -125,24 +119,25 @@ const InviteUser = () => {
 								onChange={handleChange}
 							/>
 						</div>
-						<CreatableSelect
-							id="roleId"
-							name="roleId"
-							className="dropwdown-menu"
-							value={
-								formData.roleId
-									? {
-											value: formData.roleId,
-											label: roles.find(
-												(role) => role.value === formData.roleId
-											)?.label,
-										}
-									: null
-							}
-							required
-							onChange={handleRoleChange}
-							options={roles}
-						/>
+						<div className="mb-3">
+							<label htmlFor="roleId" className="form-label">
+								Role
+							</label>
+							<select
+								className="form-control"
+								id="roleId"
+								name="roleId"
+								value={formData.roleId}
+								onChange={handleRoleChange}
+								required>
+								<option value="">Select a role</option>
+								{roles.map((role) => (
+									<option key={role.id} value={role.id}>
+										{role.name}
+									</option>
+								))}
+							</select>
+						</div>
 
 						<button type="submit" className="btn btn-primary">
 							{isSubmitting ? 'Submitting...' : 'Submit'}
