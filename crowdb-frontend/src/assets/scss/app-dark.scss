@@ -22,8 +22,7 @@ body.dark-mode {
 	}
 
 	.topbar,
-	.dropdown-menu,
-	.css-b62m3t-container {
+	.dropdown-menu {
 		background-color: #343a40 !important;
 		color: #f8f9fa;
 	}
@@ -44,21 +43,7 @@ body.dark-mode {
 		}
 	}
 
-	.dropdown-item,
-	.css-1pahdxg-control,
-	.css-1nmdiq5-menu,
-	.css-26l3qy-menu,
-	.css-4ljt47-MenuList {
-		background-color: #343a40 !important;
-		color: #f8f9fa !important;
-
-		&:hover {
-			background-color: #5a6268 !important;
-			color: #ffffff !important;
-		}
-	}
-
-	.css-1nmdiq5-menu {
+	.dropdown-item {
 		background-color: #343a40 !important;
 		color: #f8f9fa !important;
 
