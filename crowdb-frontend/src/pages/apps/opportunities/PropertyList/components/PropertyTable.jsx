@@ -40,51 +40,72 @@ const PropertyTable = ({ properties, setProperties }) => {
 									overflow: 'hidden',
 									textOverflow: 'ellipsis',
 								}}>
-								{property.images && property.images.length > 0 ? (
-									<Image
-										src={property.images[0]}
-										height={40}
-										style={{
-											maxWidth: '40px',
-											maxHeight: '40px',
-											display: 'inline-block',
-										}}
-									/>
-								) : (
-									<Image
-										src={house}
-										height={40}
-										style={{
-											maxWidth: '40px',
-											maxHeight: '40px',
-											display: 'inline-block',
-										}}
-									/>
-								)}
-								<p
-									className="d-inline-block align-middle mb-0 ms-1"
+								<Link
+									to={`/opportunities/property-detail/${property.id}`}
+									className="d-link"
 									style={{
-										maxWidth: '150px',
-										overflow: 'hidden',
-										textOverflow: 'ellipsis',
+										display: 'flex',
+										alignItems: 'center',
+										textDecoration: 'none',
+										color: 'inherit',
+										width: '100%',
+										padding: '0.5rem',
+										borderRadius: '0.25rem',
+										transition: 'background-color 0.3s, box-shadow 0.3s',
+									}}
+									onMouseEnter={(e) => {
+										e.currentTarget.style.backgroundColor = '#121212'
+										e.currentTarget.style.boxShadow =
+											'0 2px 5px rgba(0, 0, 0, 0.1)'
+									}}
+									onMouseLeave={(e) => {
+										e.currentTarget.style.backgroundColor = 'transparent'
+										e.currentTarget.style.boxShadow = 'none'
 									}}>
-									<Link
-										to={`/opportunities/property-detail/${property.id}`}
-										className="d-link inline-block align-middle mb-0"
+									{property.images && property.images.length > 0 ? (
+										<Image
+											src={property.images[0]}
+											height={40}
+											style={{
+												maxWidth: '40px',
+												maxHeight: '40px',
+												display: 'inline-block',
+											}}
+										/>
+									) : (
+										<Image
+											src={house}
+											height={40}
+											style={{
+												maxWidth: '40px',
+												maxHeight: '40px',
+												display: 'inline-block',
+											}}
+										/>
+									)}
+									<p
+										className="d-inline-block align-middle mb-0 ms-1"
 										style={{
 											maxWidth: '150px',
-											display: 'block',
-											whiteSpace: 'nowrap',
 											overflow: 'hidden',
 											textOverflow: 'ellipsis',
 										}}>
-										{property.name}
-									</Link>
-									<br />
-									<span className="text-muted font-13">
-										{property.currency} {formatNumberWithCommas(property.price)}
-									</span>
-								</p>
+										<span
+											style={{
+												display: 'block',
+												whiteSpace: 'nowrap',
+												overflow: 'hidden',
+												textOverflow: 'ellipsis',
+											}}>
+											{property.name}
+										</span>
+										<br />
+										<span className="text-muted font-13">
+											{property.currency}{' '}
+											{formatNumberWithCommas(property.price)}
+										</span>
+									</p>
+								</Link>
 							</td>
 							<td>
 								{property.amenities ? property.amenities.join(', ') : 'N/A'}
