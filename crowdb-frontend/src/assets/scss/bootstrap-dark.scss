@@ -1,11 +1,8 @@
-
-
-@import "../../../plugins/bootstrap/functions";
-@import "../../../plugins/bootstrap/variables";
-@import "variables-dark";
-@import "../../../plugins/bootstrap/bootstrap";
-
+@import '../../../plugins/bootstrap/functions';
+@import '../../../plugins/bootstrap/variables';
+@import 'variables-dark';
+@import '../../../plugins/bootstrap/bootstrap';
 
 // Components
-@import "components/card";
-@import "components/type";
+@import 'components/card';
+@import 'components/type';
