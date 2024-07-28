@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Table, Container, Row, Col, Card, Alert } from 'react-bootstrap'
+import { useEffect, useState } from 'react'
+import { Alert } from 'react-bootstrap'
 import { fetchPortfolioTransactions } from './api'
 import { PageBreadcrumb2, Spinner } from '@/components'
+import TransactionTable from './components/TransactionTable'
 
 const PortfolioTransactions = () => {
 	const [transactions, setTransactions] = useState([])
@@ -11,8 +12,8 @@ const PortfolioTransactions = () => {
 	useEffect(() => {
 		const getTransactions = async () => {
 			try {
-				const data = await fetchPortfolioTransactions()
-				setTransactions(data.data)
+				const result = await fetchPortfolioTransactions()
+				setTransactions(result)
 			} catch (err) {
 				setError(err.message)
 			} finally {
@@ -32,56 +33,10 @@ const PortfolioTransactions = () => {
 	}
 
 	return (
-		<Container>
-			<Row>
-				<Col>
-					<Card>
-						<Card.Header>
-							<PageBreadcrumb2 page="Transactions" />
-						</Card.Header>
-						<Card.Body>
-							<h4>Transaction History</h4>
-							<Table bordered hover>
-								<thead>
-									<tr>
-										<th>ID</th>
-										<th>Created At</th>
-										<th>Updated At</th>
-										<th>Slots</th>
-										<th>Package</th>
-										<th>User</th>
-									</tr>
-								</thead>
-								<tbody>
-									{transactions.length > 0 ? (
-										transactions.map((transaction) => (
-											<tr key={transaction.id}>
-												<td>{transaction.id}</td>
-												<td>
-													{new Date(transaction.createdAt).toLocaleString()}
-												</td>
-												<td>
-													{new Date(transaction.updatedAt).toLocaleString()}
-												</td>
-												<td>{transaction.slots}</td>
-												<td>{transaction.package.name}</td>
-												<td>{`${transaction.user.firstName} ${transaction.user.lastName}`}</td>
-											</tr>
-										))
-									) : (
-										<tr>
-											<td colSpan="6" className="text-center">
-												No transactions found
-											</td>
-										</tr>
-									)}
-								</tbody>
-							</Table>
-						</Card.Body>
-					</Card>
-				</Col>
-			</Row>
-		</Container>
+		<>
+			<PageBreadcrumb2 title="Transactions" appName="Portfolio" />
+			<TransactionTable transactions={transactions} />
+		</>
 	)
 }
 
