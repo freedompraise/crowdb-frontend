@@ -1,13 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-	Modal,
-	Button,
-	Table,
-	Alert,
-	Spinner,
-	Card,
-	CardBody,
-} from 'react-bootstrap'
+import { Modal, Button, Table, Alert, Spinner, Card } from 'react-bootstrap'
 import axios from 'axios'
 
 const VotesHistory = ({ propertyId }) => {
@@ -40,7 +32,6 @@ const VotesHistory = ({ propertyId }) => {
 					const sessionIds = sessionsResponse.data.data.map(
 						(session) => session.id
 					)
-
 					const votesResponses = await Promise.all(
 						sessionIds.map((sessionId) =>
 							axios.get(`${API_URL}/vote/admin/votes/${sessionId}`, {
@@ -52,7 +43,7 @@ const VotesHistory = ({ propertyId }) => {
 					)
 
 					const votesData = votesResponses.reduce((acc, response, index) => {
-						acc[sessionIds[index]] = response.data
+						acc[sessionIds[index]] = response.data // Store the entire response object
 						return acc
 					}, {})
 
@@ -100,19 +91,20 @@ const VotesHistory = ({ propertyId }) => {
 									<tr>
 										<th>ID</th>
 										<th>Created At</th>
-										<th>Updated At</th>
 										<th>Option</th>
 										<th>Weight</th>
 										<th>User</th>
 									</tr>
 								</thead>
 								<tbody>
-									{votes[session.id] && votes[session.id].length > 0 ? (
-										votes[session.id].map((vote) => (
+									{votes[session.id] &&
+									votes[session.id].data &&
+									Array.isArray(votes[session.id].data) &&
+									votes[session.id].data.length > 0 ? (
+										votes[session.id].data.map((vote) => (
 											<tr key={vote.id}>
 												<td>{vote.id}</td>
 												<td>{new Date(vote.createdAt).toLocaleString()}</td>
-												<td>{new Date(vote.updatedAt).toLocaleString()}</td>
 												<td>{vote.option}</td>
 												<td>{vote.weight}</td>
 												<td>{`${vote.user.firstName} ${vote.user.lastName}`}</td>
@@ -127,6 +119,14 @@ const VotesHistory = ({ propertyId }) => {
 									)}
 								</tbody>
 							</Table>
+							{votes[session.id] &&
+								votes[session.id].data &&
+								Array.isArray(votes[session.id].data) &&
+								votes[session.id].data.length === 0 && (
+									<Alert variant="info" className="mt-2">
+										No votes for this session
+									</Alert>
+								)}
 						</div>
 					))}
 				</Modal.Body>
