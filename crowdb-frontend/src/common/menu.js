@@ -31,6 +31,12 @@ export const VERTICAL_MENU_ITEMS = [
 				url: '/virtual-accounts',
 				parentKey: 'customers',
 			},
+			{
+				key: 'wallets',
+				label: 'Wallets',
+				url: '/wallets',
+				parentKey: 'customers',
+			},
 		],
 	},
 	{

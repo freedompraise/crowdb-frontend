@@ -8,6 +8,8 @@ const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
 const VirtualAccounts = lazy(() => import('@/pages/apps/VirtualAccounts'))
+//Wallets
+const Wallets = lazy(() => import('@/pages/apps/Wallets'))
 // Properties
 const PropertyList = lazy(
 	() => import('@/pages/apps/opportunities/PropertyList')
@@ -72,6 +74,11 @@ const appsRoutes = [
 		path: '/virtual-accounts',
 		name: 'Virtual Accounts',
 		element: <VirtualAccounts />,
+	},
+	{
+		path: '/wallets',
+		name: 'Wallets',
+		element: <Wallets />,
 	},
 	{
 		path: '/opportunities/property-list',
