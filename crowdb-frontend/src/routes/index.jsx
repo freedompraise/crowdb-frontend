@@ -4,9 +4,10 @@ import { Navigate } from 'react-router-dom'
 //Dashboards
 const AnalyticsDashboard = lazy(() => import('@/pages/dashboards/Analytics'))
 const SalesDashboard = lazy(() => import('@/pages/dashboards/Sales'))
-//Communication
+//Customers
 const Chat = lazy(() => import('@/pages/apps/Chat'))
 const ContactList = lazy(() => import('@/pages/apps/ContactList'))
+const VirtualAccounts = lazy(() => import('@/pages/apps/VirtualAccounts'))
 // Properties
 const PropertyList = lazy(
 	() => import('@/pages/apps/opportunities/PropertyList')
@@ -66,6 +67,11 @@ const appsRoutes = [
 		path: '/users',
 		name: 'Cantacts List',
 		element: <ContactList />,
+	},
+	{
+		path: '/virtual-accounts',
+		name: 'Virtual Accounts',
+		element: <VirtualAccounts />,
 	},
 	{
 		path: '/opportunities/property-list',

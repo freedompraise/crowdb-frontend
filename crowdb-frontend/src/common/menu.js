@@ -25,6 +25,12 @@ export const VERTICAL_MENU_ITEMS = [
 				url: '/users',
 				parentKey: 'customers',
 			},
+			{
+				key: 'virtual-accounts',
+				label: 'Virtual Accounts',
+				url: '/virtual-accounts',
+				parentKey: 'customers',
+			},
 		],
 	},
 	{
