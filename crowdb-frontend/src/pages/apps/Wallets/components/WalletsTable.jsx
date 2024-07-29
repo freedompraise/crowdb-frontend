@@ -1,7 +1,14 @@
 import { Table } from 'react-bootstrap'
 import WalletActions from './WalletActions'
 
-const WalletsTable = ({ wallets }) => {
+const WalletsTable = ({ wallets, setWallets }) => {
+	const handleWalletUpdate = (updatedWallett) => {
+		const updatedWallets = wallets.map((wallet) =>
+			wallet.id === updatedWallett.id ? updatedWallett : wallet
+		)
+		setWallets(updatedWallets)
+	}
+
 	return (
 		<Table striped bordered hover responsive>
 			<thead>
@@ -30,10 +37,10 @@ const WalletsTable = ({ wallets }) => {
 							)}
 						</td>
 						<td>{new Date(wallet.createdAt).toLocaleDateString()}</td>
-						<td>{wallet.currency}</td>
+						<td className="text-uppercase">{wallet.currency}</td>
 						<td>{`${wallet.user.firstName} ${wallet.user.lastName}`}</td>
 						<td>
-							<WalletActions wallet={wallet} />
+							<WalletActions wallet={wallet} onUpdate={handleWalletUpdate} />
 						</td>
 					</tr>
 				))}

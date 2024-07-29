@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchWallets } from './api'
-import { Row, Col, Alert } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import WalletsTable from './components/WalletsTable'
 import { PageBreadcrumb2, Spinner } from '@/components'
 
@@ -37,7 +37,7 @@ const CustomerWalletsPage = () => {
 				) : error ? (
 					<Alert variant="danger">{error}</Alert>
 				) : (
-					<WalletsTable wallets={wallets} />
+					<WalletsTable wallets={wallets} setWallets={setWallets} />
 				)}
 			</>
 		</>
