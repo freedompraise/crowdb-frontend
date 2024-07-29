@@ -6,6 +6,10 @@ export const fetchVirtualAccounts = async (page = 1, limit = 10) => {
 	try {
 		const response = await axios.get(`${API_URL}/virtual-account/all`, {
 			params: { page, limit },
+
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
+			},
 		})
 		return response.data
 	} catch (error) {

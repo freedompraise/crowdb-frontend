@@ -2,7 +2,7 @@ import { Table } from 'react-bootstrap'
 
 const VirtualAccountsTable = ({ virtualAccounts }) => {
 	return (
-		<Table bordered hover>
+		<Table bordered striped hover>
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -11,8 +11,7 @@ const VirtualAccountsTable = ({ virtualAccounts }) => {
 					<th>Bank Name</th>
 					<th>Is Active</th>
 					<th>Currency</th>
-					<th>Created At</th>
-					<th>Updated At</th>
+					<th>Date Created</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,8 +24,7 @@ const VirtualAccountsTable = ({ virtualAccounts }) => {
 							<td>{account.bankName}</td>
 							<td>{account.isActive ? 'Yes' : 'No'}</td>
 							<td>{account.currency}</td>
-							<td>{new Date(account.createdAt).toLocaleString()}</td>
-							<td>{new Date(account.updatedAt).toLocaleString()}</td>
+							<td>{new Date(account.createdAt).toLocaleDateString()}</td>
 						</tr>
 					))
 				) : (
