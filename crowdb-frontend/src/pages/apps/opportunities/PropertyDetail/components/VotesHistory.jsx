@@ -43,7 +43,7 @@ const VotesHistory = ({ propertyId }) => {
 					)
 
 					const votesData = votesResponses.reduce((acc, response, index) => {
-						acc[sessionIds[index]] = response.data // Store the entire response object
+						acc[sessionIds[index]] = response.data
 						return acc
 					}, {})
 
