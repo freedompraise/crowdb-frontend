@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { fetchVirtualAccounts } from './api'
 import VirtualAccountsTable from './components/VirtualAccountsTable'
-import Pagination from './components/Pagination'
+import { Pagination } from 'react-bootstrap'
 import { Spinner, Alert } from 'react-bootstrap'
 
 const VirtualAccountsPage = () => {
@@ -39,11 +39,17 @@ const VirtualAccountsPage = () => {
 			) : (
 				<>
 					<VirtualAccountsTable virtualAccounts={virtualAccounts} />
-					<Pagination
-						currentPage={currentPage}
-						totalPages={totalPages}
-						onPageChange={(page) => setCurrentPage(page)}
-					/>
+					<Pagination>
+						<Pagination.Prev
+							disabled={currentPage === 1}
+							onClick={() => setCurrentPage((prev) => prev - 1)}
+						/>
+						<Pagination.Item active>{currentPage}</Pagination.Item>
+						<Pagination.Next
+							disabled={currentPage === totalPages}
+							onClick={() => setCurrentPage((prev) => prev + 1)}
+						/>
+					</Pagination>
 				</>
 			)}
 		</div>
