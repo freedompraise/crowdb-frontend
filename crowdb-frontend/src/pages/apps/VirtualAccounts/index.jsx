@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { fetchVirtualAccounts } from './api'
 import VirtualAccountsTable from './components/VirtualAccountsTable'
 import { Pagination } from 'react-bootstrap'
-import { Spinner, Alert } from 'react-bootstrap'
+import { PageBreadcrumb2, Spinner } from '@/components'
+import { Alert } from 'react-bootstrap'
 
 const VirtualAccountsPage = () => {
 	const [virtualAccounts, setVirtualAccounts] = useState([])
@@ -31,7 +32,7 @@ const VirtualAccountsPage = () => {
 
 	return (
 		<div>
-			<h1>Virtual Accounts</h1>
+			<PageBreadcrumb2 title={'Wallets'} appName={'Customers'} />
 			{loading ? (
 				<Spinner animation="border" />
 			) : error ? (

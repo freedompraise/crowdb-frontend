@@ -42,7 +42,7 @@ const ContactList = () => {
 
 	return (
 		<>
-			<PageBreadcrumb2 title="Contacts" appName="Apps" />
+			<PageBreadcrumb2 title="Contacts" appName="Customers" />
 			{loading ? (
 				<p>Loading...</p>
 			) : error ? (
