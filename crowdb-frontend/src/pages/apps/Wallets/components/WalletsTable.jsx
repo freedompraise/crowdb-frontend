@@ -9,9 +9,8 @@ const WalletsTable = ({ wallets }) => {
 					<th>ID</th>
 					<th>Balance</th>
 					<th>Previous Balance</th>
-					<th>Is Locked</th>
-					<th>Created At</th>
-					<th>Updated At</th>
+					<th>Status</th>
+					<th>Date Created</th>
 					<th>Currency</th>
 					<th>User</th>
 					<th>Actions</th>
@@ -23,9 +22,14 @@ const WalletsTable = ({ wallets }) => {
 						<td>{wallet.id}</td>
 						<td>{wallet.balance}</td>
 						<td>{wallet.prevBalance}</td>
-						<td>{wallet.isLocked ? 'Locked' : 'Unlocked'}</td>
-						<td>{new Date(wallet.createdAt).toLocaleString()}</td>
-						<td>{new Date(wallet.updatedAt).toLocaleString()}</td>
+						<td>
+							{wallet.isLocked ? (
+								<span className="text-primary">Locked</span>
+							) : (
+								<span className="text-muted">Unlocked</span>
+							)}
+						</td>
+						<td>{new Date(wallet.createdAt).toLocaleDateString()}</td>
 						<td>{wallet.currency}</td>
 						<td>{`${wallet.user.firstName} ${wallet.user.lastName}`}</td>
 						<td>
