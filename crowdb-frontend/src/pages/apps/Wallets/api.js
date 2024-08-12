@@ -1,4 +1,3 @@
-// api.js
 import axios from 'axios'
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -11,15 +10,23 @@ const apiClient = axios.create({
 	},
 })
 
-export const fetchWallets = async () => {
-	const response = await apiClient.get('/wallet/all')
+export const fetchNGNWallets = async () => {
+	const response = await apiClient.get('/wallet/ngn')
+	return response.data.data
+}
+
+export const fetchUSDWallets = async () => {
+	const response = await apiClient.get('/wallet/usd')
+	console.log(response)
 	return response.data.data
 }
 
 export const lockWallet = async (walletId) => {
-	await apiClient.post('/wallet/lock', { walletId })
+	const response = await apiClient.put(`/wallet/lock/${walletId}`)
+	return response.data.data
 }
 
 export const unlockWallet = async (walletId) => {
-	await apiClient.post('/wallet/unlock', { walletId })
+	const response = await apiClient.put(`/wallet/unlock/${walletId}`)
+	return response.data.data
 }

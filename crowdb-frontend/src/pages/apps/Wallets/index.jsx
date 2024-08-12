@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { fetchWallets } from './api'
-import { Alert } from 'react-bootstrap'
+import { fetchNGNWallets, fetchUSDWallets } from './api'
+import { Alert, Dropdown } from 'react-bootstrap'
 import WalletsTable from './components/WalletsTable'
 import { PageBreadcrumb2, Spinner } from '@/components'
 
@@ -8,12 +8,17 @@ const CustomerWalletsPage = () => {
 	const [wallets, setWallets] = useState([])
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
+	const [walletType, setWalletType] = useState('NGN')
 
 	useEffect(() => {
 		const loadWallets = async () => {
 			setLoading(true)
+			setError(null)
 			try {
-				const walletsData = await fetchWallets()
+				const walletsData =
+					walletType === 'NGN'
+						? await fetchNGNWallets()
+						: await fetchUSDWallets()
 				setWallets(walletsData)
 			} catch (error) {
 				setError(error.message)
@@ -23,7 +28,7 @@ const CustomerWalletsPage = () => {
 		}
 
 		loadWallets()
-	}, [])
+	}, [walletType])
 
 	return (
 		<>
@@ -31,15 +36,28 @@ const CustomerWalletsPage = () => {
 				title="Wallets"
 				links={[{ text: 'Dashboard', to: '/' }, { text: 'Wallets' }]}
 			/>
-			<>
-				{loading ? (
-					<Spinner animation="border" className="d-block mx-auto" />
-				) : error ? (
-					<Alert variant="danger">{error}</Alert>
-				) : (
-					<WalletsTable wallets={wallets} setWallets={setWallets} />
-				)}
-			</>
+			<div className="d-flex justify-content-between align-items-center mb-4">
+				<h2>{walletType} Wallets</h2>
+				<Dropdown onSelect={(e) => setWalletType(e)}>
+					<Dropdown.Toggle variant="secondary">
+						<i className="bi bi-wallet2"></i>
+						{walletType} Wallets
+					</Dropdown.Toggle>
+					<Dropdown.Menu>
+						<Dropdown.Item eventKey="NGN">NGN Wallets</Dropdown.Item>
+						<Dropdown.Item eventKey="USD">USD Wallets</Dropdown.Item>
+					</Dropdown.Menu>
+				</Dropdown>
+			</div>
+			{loading ? (
+				<Spinner animation="border" className="d-block mx-auto" />
+			) : error ? (
+				<Alert variant="danger">{error}</Alert>
+			) : wallets.length > 0 ? (
+				<WalletsTable wallets={wallets} setWallets={setWallets} />
+			) : (
+				<Alert variant="warning">No Wallets Yet on This Account</Alert>
+			)}
 		</>
 	)
 }
