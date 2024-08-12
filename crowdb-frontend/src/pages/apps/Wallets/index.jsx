@@ -40,7 +40,7 @@ const CustomerWalletsPage = () => {
 				<h2>{walletType} Wallets</h2>
 				<Dropdown onSelect={(e) => setWalletType(e)}>
 					<Dropdown.Toggle variant="secondary">
-						<i className="bi bi-wallet2"></i>
+						<i className="bi bi-wallet2 mr-2"></i>
 						{walletType} Wallets
 					</Dropdown.Toggle>
 					<Dropdown.Menu>
