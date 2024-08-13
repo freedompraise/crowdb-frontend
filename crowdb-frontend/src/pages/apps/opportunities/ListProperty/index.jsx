@@ -6,7 +6,6 @@ import CreatableSelect from 'react-select/creatable'
 import { useNavigate } from 'react-router-dom'
 import { FiUploadCloud } from 'react-icons/fi'
 import { FileUploader } from '@/components/FileUploader'
-import { toast } from 'sonner'
 
 const ListProperty = () => {
 	const navigate = useNavigate()
