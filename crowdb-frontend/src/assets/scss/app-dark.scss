@@ -81,8 +81,8 @@ body.dark-mode {
 	}
 
 	.btn {
-		background-color: #ff6f00;
-		color: #343a40;
+		background-color: #ff6f00 !important;
+		color: #ffffff;
 		border-color: #ff6f00;
 
 		&:hover {
@@ -106,8 +106,9 @@ body.dark-mode {
 	.breadcrumb-item,
 	.page-title,
 	.d-link,
+	.las,
 	span {
-		color: #ffffff;
+		color: #ffffff !important;
 
 		&:hover {
 			color: #00ffff;
