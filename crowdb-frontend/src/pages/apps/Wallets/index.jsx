@@ -38,7 +38,7 @@ const CustomerWalletsPage = () => {
 			/>
 			<div className="d-flex justify-content-between align-items-center mb-4">
 				<h2>{walletType} Wallets</h2>
-				<Dropdown onSelect={(e) => setWalletType(e)} className="wallet-toggle">
+				{/* <Dropdown onSelect={(e) => setWalletType(e)} className="wallet-toggle">
 					<Dropdown.Toggle
 						variant="secondary"
 						className="d-flex align-items-center">
@@ -50,7 +50,7 @@ const CustomerWalletsPage = () => {
 						<Dropdown.Item eventKey="NGN">NGN Wallets</Dropdown.Item>
 						<Dropdown.Item eventKey="USD">USD Wallets</Dropdown.Item>
 					</Dropdown.Menu>
-				</Dropdown>
+				</Dropdown> */}
 			</div>
 			{loading ? (
 				<Spinner animation="border" className="d-block mx-auto" />
