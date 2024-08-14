@@ -96,7 +96,7 @@ const appsRoutes = [
 		element: <ListProperty />,
 	},
 	{
-		path: '/team-management/invite-user',
+		path: '/invite-user',
 		name: 'Invite User',
 		element: <InviteUser />,
 	},
