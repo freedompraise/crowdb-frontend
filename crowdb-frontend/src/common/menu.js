@@ -10,7 +10,7 @@ export const VERTICAL_MENU_ITEMS = [
 		key: 'dashboard',
 		label: 'Dashboard',
 		url: '/analytics',
-		icon: faRegCircle,
+		icon: FaRegCircle,
 		isTitle: false,
 		parentKey: 'main',
 	},
