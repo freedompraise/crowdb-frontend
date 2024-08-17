@@ -1,62 +1,90 @@
-import { ActivityCard, PageBreadcrumb } from '@/components'
-import { Card, CardBody, Col, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { PageBreadcrumb, Spinner } from '@/components'
+import { Col, Row } from 'react-bootstrap'
+import { fetchAnalyticsData } from './api'
 import Statistics from './components/Statistics'
 import AudienceOverviewChart from './components/AudienceOverviewChart'
-import LoadTime from './components/LoadTime'
-import ViewByUsers from './components/ViewByUsers'
-import TimeToFillSlots from './components/SessionsByChannels'
-import TrafficReports from './components/TrafficReports'
-import BrowserReports from './components/BrowserReports'
+import SalesStatistics from './components/SalesStatistics'
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+	LineElement,
+} from 'chart.js'
+
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+	LineElement
+)
+
 const Analytics = () => {
+	const [data, setData] = useState({
+		numberOfCustomers: 0,
+		numberOfProperties: 0,
+		totalAmountInvested: 0,
+		numberOfSlotsSold: 0,
+		numberOfSlotsAvailable: 0,
+		numberOfNairaWallet: 0,
+		numberOfUsdWallet: 0,
+		totalNairaBalance: 0,
+		totalUsdBalance: 0,
+		pendingTransferNairaValue: 0,
+		pendingTransferUsdValue: 0,
+		pendingTransferCount: 0,
+	})
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null)
+
+	useEffect(() => {
+		const loadData = async () => {
+			try {
+				const analyticsData = await fetchAnalyticsData()
+				setData(analyticsData?.data || data)
+			} catch (err) {
+				setError(err.message)
+			} finally {
+				setLoading(false)
+			}
+		}
+		loadData()
+	}, [])
+
 	return (
 		<>
-			<PageBreadcrumb subName="Dashboard" title="Analytics" />
-			<Row>
-				<Col lg={9}>
-					<Statistics />
-					<AudienceOverviewChart />
-				</Col>
-				<Col lg={3}>
-					<ActivityCard height={400} />
-				</Col>
-			</Row>
-			<Row>
-				<Col lg={4}>
-					<ViewByUsers />
-
-					<Card>
-						<CardBody>
-							<div className="d-flex">
-								<h2 className="m-0 align-self-center">80</h2>
-								<div className="d-block ms-2 align-self-center">
-									<span className="text-warning">Right now</span>
-									<h5 className="my-1">Active Users</h5>
-									<p className="mb-0 text-muted">
-										Number of users currently using the site
-										
-									</p>
-								</div>
-							</div>
-						</CardBody>
-					</Card>
-				</Col>
-				<Col lg={4}>
-					<LoadTime />
-				</Col>
-				<Col lg={4}>
-					<TimeToFillSlots />
-				</Col>
-			</Row>
-			<Row>
-				<Col lg={6}>
-					<TrafficReports />
-				</Col>
-				<Col lg={6}>
-					<BrowserReports />
-				</Col>
-			</Row>
+			<PageBreadcrumb subName="Dashboard" title="Sales and Analytics" />
+			{loading ? (
+				<Spinner animation="border" className="d-block mx-auto" />
+			) : error ? (
+				<div className="text-danger">{error}</div>
+			) : (
+				<>
+					<Row>
+						<Col lg={9}>
+							<Statistics data={data} />
+							<AudienceOverviewChart data={data} />
+						</Col>
+						{/* <Col lg={3}>
+							<ActivityCard height={400} />
+						</Col> */}
+					</Row>
+					<Row>
+						<Col lg={6}>
+							<SalesStatistics data={data} />
+						</Col>
+					</Row>
+				</>
+			)}
 		</>
 	)
 }
+
 export default Analytics

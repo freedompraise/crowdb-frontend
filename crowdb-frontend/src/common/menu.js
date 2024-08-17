@@ -7,18 +7,21 @@ export const VERTICAL_MENU_ITEMS = [
 		isTitle: true,
 	},
 	{
+		key: 'dashboard',
+		label: 'Dashboard',
+		url: '/analytics',
+		icon: faRegCircle,
+		isTitle: false,
+		parentKey: 'main',
+	},
+
+	{
 		key: 'Customers',
 		label: 'Customers',
 		isTitle: false,
 		icon: FiMessageSquare,
 		parentKey: 'main',
 		children: [
-			// {
-			// 	key: 'apps-chat',
-			// 	label: 'Chat',
-			// 	url: '/users',
-			// 	parentKey: 'apps',
-			// },
 			{
 				key: 'users',
 				label: 'Customer List',
