@@ -3,14 +3,17 @@ import { PageBreadcrumb2 } from '@/components'
 import Contacts from './components/Contacts'
 import { fetchContacts } from './api'
 import { Alert, Col } from 'react-bootstrap'
-
+import { SearchBar } from '@/layout/TopNavbar/components'
 import { toast } from 'sonner'
 
 const ContactList = () => {
 	const [contacts, setContacts] = useState([])
+	const [filteredContacts, setFilteredContacts] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
 	const [currentPage, setCurrentPage] = useState(1)
+	const [searchQuery, setSearchQuery] = useState('')
+
 	const contactsPerPage = 20
 
 	useEffect(() => {
@@ -19,6 +22,7 @@ const ContactList = () => {
 			try {
 				const result = await fetchContacts()
 				setContacts(result)
+				setFilteredContacts(result)
 			} catch (err) {
 				setError(
 					'An error occurred. Please contact the administrator for assistance.'
@@ -33,16 +37,36 @@ const ContactList = () => {
 
 	const indexOfLastContact = currentPage * contactsPerPage
 	const indexOfFirstContact = indexOfLastContact - contactsPerPage
-	const currentContacts = contacts.slice(
+	const currentContacts = filteredContacts.slice(
 		indexOfFirstContact,
 		indexOfLastContact
 	)
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
+	const handleSearch = (e) => {
+		const query = e.target.value.toLowerCase()
+		setSearchQuery(query)
+		const filtered = contacts.filter((contact) => {
+			const fullName = `${contact.firstName} ${contact.lastName}`.toLowerCase()
+			return (
+				fullName.includes(query) ||
+				contact.email.toLowerCase().includes(query) ||
+				contact.id.includes(query)
+			)
+		})
+		setFilteredContacts(filtered)
+		setCurrentPage(1)
+	}
+
 	return (
 		<>
 			<PageBreadcrumb2 title="Contacts" appName="Customers" />
+			<SearchBar
+				text="Search contact name, email, or ID"
+				onSearch={handleSearch}
+				searchValue={searchQuery}
+			/>
 			{loading ? (
 				<p>Loading...</p>
 			) : error ? (
@@ -62,7 +86,11 @@ const ContactList = () => {
 									</button>
 								</li>
 								{Array.from(
-									{ length: Math.ceil(contacts.length / contactsPerPage) },
+									{
+										length: Math.ceil(
+											filteredContacts.length / contactsPerPage
+										),
+									},
 									(_, i) => (
 										<li
 											key={i}
@@ -81,7 +109,7 @@ const ContactList = () => {
 										onClick={() => paginate(currentPage + 1)}
 										disabled={
 											currentPage ===
-											Math.ceil(contacts.length / contactsPerPage)
+											Math.ceil(filteredContacts.length / contactsPerPage)
 										}>
 										Next
 									</button>

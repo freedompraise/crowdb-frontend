@@ -7,13 +7,13 @@ import {
 	FormControl,
 } from 'react-bootstrap'
 import { FiSearch } from 'react-icons/fi'
-const SearchBar = () => {
+
+const SearchBar = ({ text, onSearch, searchValue }) => {
 	return (
 		<Dropdown as="li" className="dropdown hide-phone">
 			<DropdownToggle
 				as="a"
-				className="nav-link arrow-none waves-light waves-effect"
-			>
+				className="nav-link arrow-none waves-light waves-effect">
 				<FiSearch className="topbar-icon" />
 			</DropdownToggle>
 
@@ -24,7 +24,9 @@ const SearchBar = () => {
 							type="search"
 							name="search"
 							className="top-search mb-0"
-							placeholder="Type text..."
+							placeholder={text}
+							value={searchValue}
+							onChange={onSearch}
 						/>
 						<Button type="submit">
 							<FiSearch className="ti-search" />
@@ -35,4 +37,5 @@ const SearchBar = () => {
 		</Dropdown>
 	)
 }
+
 export default SearchBar
