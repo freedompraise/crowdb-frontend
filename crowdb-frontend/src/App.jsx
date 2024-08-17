@@ -1,5 +1,6 @@
 import AllRoutes from './routes/Routes'
 import { AuthProvider, ThemeProvider } from './context'
+import ErrorBoundary from './components/ErrorBoundary'
 import { Toaster } from 'sonner'
 import '@/assets/scss/app.scss'
 import '@/assets/scss/icons.scss'
@@ -11,8 +12,10 @@ function App() {
 		<>
 			<ThemeProvider>
 				<AuthProvider>
+					{/* <ErrorBoundary> */}
 					<AllRoutes />
 					<Toaster richColors />
+					{/* </ErrorBoundary> */}
 				</AuthProvider>
 			</ThemeProvider>
 		</>
