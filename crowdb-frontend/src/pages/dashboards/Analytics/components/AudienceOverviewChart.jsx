@@ -6,10 +6,10 @@ const AudienceOverviewChart = ({ data }) => {
 
 	return (
 		<Row>
+			<h5>Audience Overview</h5>
 			<Col lg={4}>
 				<Card>
 					<Card.Body>
-						<h5>Audience Overview</h5>
 						<div>
 							<p className="mb-0">Customers</p>
 							<h2>{data.numberOfCustomers}</h2>
