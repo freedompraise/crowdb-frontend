@@ -42,65 +42,32 @@ const PropertyTable = ({ properties, setProperties }) => {
 								}}>
 								<Link
 									to={`/opportunities/property-detail/${property.id}`}
-									className="d-link"
-									style={{
-										display: 'flex',
-										alignItems: 'center',
-										textDecoration: 'none',
-										color: 'inherit',
-										width: '100%',
-										padding: '0.5rem',
-										borderRadius: '0.25rem',
-										transition: 'background-color 0.3s, box-shadow 0.3s',
-									}}
+									className="d-link d-flex align-items-center text-decoration-none w-100 p-2 rounded"
 									onMouseEnter={(e) => {
 										e.currentTarget.style.backgroundColor = '#121212'
 										e.currentTarget.style.boxShadow =
-											'0 2px 5px rgba(0, 0, 0, 0.1)'
+											'0 0 10px rgba(0, 0, 0, 0.2)'
+										e.currentTarget.querySelector('p').style.color = '#fff'
 									}}
 									onMouseLeave={(e) => {
 										e.currentTarget.style.backgroundColor = 'transparent'
 										e.currentTarget.style.boxShadow = 'none'
+										e.currentTarget.querySelector('p').style.color = 'inherit'
 									}}>
 									{property.images && property.images.length > 0 ? (
 										<Image
 											src={property.images[0]}
 											height={40}
-											style={{
-												maxWidth: '40px',
-												maxHeight: '40px',
-												display: 'inline-block',
-											}}
+											className="me-2"
 										/>
 									) : (
-										<Image
-											src={house}
-											height={40}
-											style={{
-												maxWidth: '40px',
-												maxHeight: '40px',
-												display: 'inline-block',
-											}}
-										/>
+										<Image src={house} height={40} className="me-2" />
 									)}
 									<p
-										className="d-inline-block align-middle mb-0 ms-1"
-										style={{
-											maxWidth: '150px',
-											overflow: 'hidden',
-											textOverflow: 'ellipsis',
-										}}>
-										<span
-											style={{
-												display: 'block',
-												whiteSpace: 'nowrap',
-												overflow: 'hidden',
-												textOverflow: 'ellipsis',
-											}}>
-											{property.name}
-										</span>
-										<br />
-										<span className="text-muted font-13">
+										className="mb-0 ms-1 text-truncate"
+										style={{ transition: 'color 0.3s' }}>
+										<h5 className="d-block text-truncate">{property.name}</h5>
+										<span className="font-13">
 											{property.currency}{' '}
 											{formatNumberWithCommas(property.price)}
 										</span>
