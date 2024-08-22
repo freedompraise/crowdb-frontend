@@ -68,7 +68,7 @@ const Analytics = () => {
 			) : (
 				<>
 					<Row>
-						<Col lg={9}>
+						<Col lg={12}>
 							<Statistics data={data} />
 							<AudienceOverviewChart data={data} />
 						</Col>
@@ -77,7 +77,7 @@ const Analytics = () => {
 						</Col> */}
 					</Row>
 					<Row>
-						<Col lg={6}>
+						<Col lg={12}>
 							<SalesStatistics data={data} />
 						</Col>
 					</Row>

@@ -1,53 +1,43 @@
-import React from 'react'
-import ApexCharts from 'react-apexcharts'
-import { Card } from 'react-bootstrap'
 import { Spinner } from '@/components'
+import { Card, Col, Row } from 'react-bootstrap'
 
 const AudienceOverviewChart = ({ data }) => {
-	const chartOptions = {
-		chart: {
-			type: 'line',
-		},
-		xaxis: {
-			categories: ['Customers', 'Slots Sold', 'Slots Available'],
-		},
-		stroke: {
-			curve: 'smooth',
-		},
-		title: {
-			text: 'Audience Overview',
-		},
-	}
-
-	const chartData = [
-		{
-			name: 'Overview',
-			data: [
-				data.numberOfCustomers,
-				data.numberOfSlotsSold,
-				data.numberOfSlotsAvailable,
-			],
-		},
-	]
+	if (!data) return <Spinner />
 
 	return (
-		<Card>
-			<Card.Body>
-				<h5>Audience Overview</h5>
-				{data ? (
-					<ApexCharts
-						options={chartOptions}
-						series={chartData}
-						type="line"
-						height={300}
-					/>
-				) : (
-					<Spinner animation="border" role="status">
-						<span className="sr-only">Loading...</span>
-					</Spinner>
-				)}
-			</Card.Body>
-		</Card>
+		<Row>
+			<Col lg={4}>
+				<Card>
+					<Card.Body>
+						<h5>Audience Overview</h5>
+						<div>
+							<p className="mb-0">Customers</p>
+							<h2>{data.numberOfCustomers}</h2>
+						</div>
+					</Card.Body>
+				</Card>
+			</Col>
+			<Col lg={4}>
+				<Card>
+					<Card.Body>
+						<div>
+							<p className="mb-0">Slots Sold</p>
+							<h2>{data.numberOfSlotsSold}</h2>
+						</div>
+					</Card.Body>
+				</Card>
+			</Col>
+			<Col lg={4}>
+				<Card>
+					<Card.Body>
+						<div>
+							<p className="mb-0">Slots Available</p>
+							<h2>{data.numberOfSlotsAvailable}</h2>
+						</div>
+					</Card.Body>
+				</Card>
+			</Col>
+		</Row>
 	)
 }
 
