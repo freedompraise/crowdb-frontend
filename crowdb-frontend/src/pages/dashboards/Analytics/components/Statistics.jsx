@@ -5,8 +5,8 @@ const Statistics = ({ data }) => (
 		<Col lg={4}>
 			<Card>
 				<Card.Body>
-					<h5>Total Customers</h5>
-					<h3>{data.numberOfCustomers}</h3>
+					<h5>Number of Naira Wallets</h5>
+					<h3>{data.numberOfNairaWallet}</h3>
 				</Card.Body>
 			</Card>
 		</Col>

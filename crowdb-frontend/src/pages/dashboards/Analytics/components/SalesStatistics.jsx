@@ -9,16 +9,25 @@ const SalesStatistics = ({ data }) => {
 			<Col lg={4}>
 				<Card>
 					<Card.Body>
-						<p className="mb-0">Slots Sold</p>
-						<h2>{data.numberOfSlotsSold}</h2>
+						<p className="mb-0">Pending Transfer Naira Value</p>
+						<h2>{data.pendingTransferNairaValue}</h2>
 					</Card.Body>
 				</Card>
 			</Col>
 			<Col lg={4}>
 				<Card>
 					<Card.Body>
-						<p className="mb-0">Slots Available</p>
-						<h2>{data.numberOfSlotsAvailable}</h2>
+						<p className="mb-0">Pending Transfer USD Value</p>
+						<h2>{data.pendingTransferUsdValue}</h2>
+					</Card.Body>
+				</Card>
+			</Col>
+
+			<Col lg={4}>
+				<Card>
+					<Card.Body>
+						<p className="mb-0">Pending Transfer Count</p>
+						<h2>{data.pendingTransferCount}</h2>
 					</Card.Body>
 				</Card>
 			</Col>
