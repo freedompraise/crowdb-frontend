@@ -13,6 +13,14 @@ const Statistics = ({ data }) => (
 		<Col lg={4}>
 			<Card>
 				<Card.Body>
+					<h5>Number of USD Wallets</h5>
+					<h3>{data.numberOfUsdWallet}</h3>
+				</Card.Body>
+			</Card>
+		</Col>
+		<Col lg={4}>
+			<Card>
+				<Card.Body>
 					<h5>Total Properties</h5>
 					<h3>{data.numberOfProperties}</h3>
 				</Card.Body>
