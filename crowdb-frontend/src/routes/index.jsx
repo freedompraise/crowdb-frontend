@@ -95,11 +95,6 @@ const appsRoutes = [
 		element: <InviteUser />,
 	},
 	{
-		path: '/auth/accept-invite',
-		name: 'Accept Invite',
-		element: <AcceptInvite />,
-	},
-	{
 		path: '/roles',
 		name: 'Roles',
 		element: <RoleList />,
@@ -140,6 +135,11 @@ const authRoutes = [
 		path: '/auth/reset-password',
 		name: 'Reset Password',
 		element: <ResetPassword />,
+	},
+	{
+		path: '/auth/accept-invite',
+		name: 'Accept Invite',
+		element: <AcceptInvite />,
 	},
 	{
 		path: '*',
