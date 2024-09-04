@@ -38,28 +38,6 @@ const AllRoutes = (props) => {
 					/>
 				))}
 			</Route>
-
-
-			{/* <Route>
-        {allAdminFlattedRoutes.map((route, idx) => (
-          <Route
-            key={idx}
-            path={route.path}
-            element={
-              (isAuthenticated && session?.role == 'admin') ? (
-                <AdminLayout {...props}>{route.element}</AdminLayout>
-              ) : (
-                <Navigate
-                  to={{
-                    pathname: "/auth/login",
-                    search: "redirectTo=" + route.path,
-                  }}
-                />
-              )
-            }
-          />
-        ))}
-      </Route> */}
 		</Routes>
 	)
 }
