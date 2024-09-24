@@ -36,9 +36,13 @@ const InviteUser = () => {
 				setFormData(defaultFormData)
 			} else {
 				setErrors({ message: result.message })
-				toast.error('User has already been invited, or has joined', {
-					position: 'top-right',
-				})
+				toast.error(
+					'User has already been invited! Try resetting password with the email.',
+
+					{
+						position: 'top-right',
+					}
+				)
 			}
 		} catch (error) {
 			console.error('Error inviting user:', error.message)
