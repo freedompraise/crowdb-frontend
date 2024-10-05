@@ -38,7 +38,6 @@ const PropertyDetailCard = ({ propertyData }) => {
 	} = propertyData || {}
 
 	const [votingStatus, setVotingStatus] = useState(isVoteActive)
-	const [priceHistoryError, setPriceHistoryError] = useState(null)
 
 	const handleToggleVoting = async () => {
 		try {

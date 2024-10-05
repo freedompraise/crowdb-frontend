@@ -1,11 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 
-// Define types
-
-// Create context
 const ThemeContext = createContext(undefined)
 
-// Custom hook to access context
 export function useThemeContext() {
 	const context = useContext(ThemeContext)
 	if (context === undefined) {
@@ -44,8 +40,7 @@ export function ThemeProvider({ children }) {
 			value={{
 				updateSideNavMode,
 				settings,
-			}}
-		>
+			}}>
 			{children}
 		</ThemeContext.Provider>
 	)
