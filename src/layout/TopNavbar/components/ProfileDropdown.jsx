@@ -3,10 +3,8 @@ import {
 	DropdownItem,
 	DropdownMenu,
 	DropdownToggle,
-	Image,
 } from 'react-bootstrap'
-import user5 from '@/assets/images/users/user-5.jpg'
-import { FiPower, FiSettings, FiUser } from 'react-icons/fi'
+import { FiPower, FiUser } from 'react-icons/fi'
 import { useAuthContext } from '@/context'
 import { useNavigate } from 'react-router-dom'
 const ProfileDropdown = () => {
@@ -22,11 +20,7 @@ const ProfileDropdown = () => {
 				as="a"
 				className="nav-link waves-effect waves-light nav-user">
 				<span className="ms-1 nav-user-name">Admin</span>
-				<Image
-					src={user5}
-					alt="profile-user"
-					className="rounded-circle thumb-xs "
-				/>
+				<i className="mdi mdi-chevron-down"></i>
 			</DropdownToggle>
 			<DropdownMenu className="dropdown-menu-end">
 				{/* <DropdownItem>
